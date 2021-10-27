@@ -30,6 +30,7 @@ namespace tp4
                 if (Console.ReadKey(true).Key == ConsoleKey.A)
                 {
                     Console.WriteLine("\nSe ejecutara la ruta de validación de la identidad del cliente");
+                    Program.validar_identidad();
                     Console.WriteLine("\nA continuación se le presentaran las opciones disponible");
                   
                     validar_eleccion();
@@ -111,7 +112,7 @@ namespace tp4
             Console.WriteLine("\nBienvenido al programa de gestión integral de encomiendas");
             Console.WriteLine("\nIngrese A para comenzar");
             Console.WriteLine("\nIngrese B en caso de querer detener la aplicación en curso");
-            Console.WriteLine("******************************************************************************************\n");
+            Console.WriteLine("\n******************************************************************************************\n");
         }
         public static void mostrar_menu_opciones()
         {
@@ -139,7 +140,7 @@ namespace tp4
             int codigo_orden = 0;
             do
             {
-                Console.WriteLine("\nIngrese el nº de orden de servicio del cual desea consultar su estado, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                Console.WriteLine("\nIngrese el nº de orden de servicio del cual desea consultar su estado");
                 ingreso = Console.ReadLine();
 
                 if (string.IsNullOrWhiteSpace(ingreso))
@@ -183,7 +184,7 @@ namespace tp4
 
             do
             {
-                Console.WriteLine("\nIngrese su código de cliente corporativo para poder acceder a las funciones del sistema, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                Console.WriteLine("\nIngrese su código de cliente corporativo para poder acceder a las funciones del sistema");
                 ingreso = Console.ReadLine();
 
                 if (string.IsNullOrWhiteSpace(ingreso))
