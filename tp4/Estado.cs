@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace tp4
 {
     class Estado
-    {//implica los estados por los que pasara el paquete en su transito 
+    {//implica los estados por los que pasara el paquete en su transito por donde sea asignado 
         public int codigo_entidad { get; set; }
 
         public string entidad { get; set; }
