@@ -14,7 +14,7 @@ namespace tp4
         public List<Estado> estado { get; set; } //Genera una lista de todos los estados por los que va transitando el paquete hasta el momento de la consulta, GENERA TRAZABILIDAD
         public DateTime fecha_ingreso { get; set; }//Se asigna la fecha del momento en que se creo el pedido
         public DateTime? fecha_egreso { get; set; } // Cuando nace el objeto permanece en null hasta que lo damos por finalizado, cuando acciono el metodo finalizar lo carga a modo de registro para poder archivarlo dentro de la base de datos
-        public Paquete paquete { get; set; }//caracteristicas del paquete
+        public List <Paquete> paquete { get; set; }//caracteristicas del paquete
         public List<Transporte_designado> transportes_asignados { get; set; } //agrega dentro de una lista todos los transporte necesarios para que le envío pueda ser entregado
         public int codigo_cliente { get; set; }//Quien es el iniciador del proceso
         public int codigo_seguro { get; set; }//Asignación de un seguro de acuerdo con el valor declarado por el cliente
@@ -35,7 +35,7 @@ namespace tp4
             orden_de_servicio.codigo_seguro = asignar_seguro();//El paquete debe de tener un seguro según el enunciado
             orden_de_servicio.origen = Punto_logistico.crear();//lugar de donde parte, puede ser una sucursal o que se halla retirado a domicilio
             orden_de_servicio.destino = Punto_logistico.crear();//lugar en que se deposita al final puede ser una sucursal o lo envío a domicilio
-            orden_de_servicio.paquete = Paquete.crear();//Información sobre el paquete          
+            orden_de_servicio.paquete = asignar_paquetes();//Información sobre el paquete          
             orden_de_servicio.modalidad = asignar_modalidad();//aspectos acerca de como debe de llegar y entregar el paquete además de que si es o no urgente           
             orden_de_servicio.transportes_asignados = asignar_transportes(orden_de_servicio.origen, orden_de_servicio.destino, orden_de_servicio.codigo_servicio, orden_de_servicio.paquete);//Todos los transportes propios de la empresa implicados en la operación, si no son necesarios se los deja en null
             orden_de_servicio.precio = asignar_precio();
@@ -43,7 +43,12 @@ namespace tp4
             return orden_de_servicio;
         }
 
-        private static List<Transporte_designado> asignar_transportes(Punto_logistico origen, Punto_logistico destino, int codigo_servicio, Paquete paquete)
+        private static List<Paquete> asignar_paquetes()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static List<Transporte_designado> asignar_transportes(Punto_logistico origen, Punto_logistico destino, int codigo_servicio, List <Paquete> paquete)
         {
             //evalua los transportes necesarios de cada operación, y asigna al servicio según las necesidades de la operación
             throw new NotImplementedException();
