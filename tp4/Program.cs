@@ -185,7 +185,15 @@ namespace tp4
             do
             {
                 Console.WriteLine("\nIngrese su código de cliente corporativo para poder acceder a las funciones del sistema");
+                Console.WriteLine("\nSi desea detener la ejecución del programa introdusca por teclado la frase SALIR tal y como se le comunico");
                 ingreso = Console.ReadLine();
+
+                if(ingreso=="SALIR")
+                {
+                    Console.WriteLine("\nHa decidido salir definitivamente de la aplicación \nGracias por usar nuestros servicio\nIngrese nuevamente si quiere volver a solitar nuestros servicios");
+                    Environment.Exit(1);
+
+                }
 
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
