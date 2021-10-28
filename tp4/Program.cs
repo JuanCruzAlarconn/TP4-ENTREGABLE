@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
+using System.Threading;
 
 namespace tp4
 {
@@ -190,8 +191,11 @@ namespace tp4
 
                 if(ingreso=="SALIR")
                 {
-                    Console.WriteLine("\nHa decidido salir definitivamente de la aplicación \nGracias por usar nuestros servicio\nIngrese nuevamente si quiere volver a solitar nuestros servicios");
-                    Environment.Exit(1);
+                    Console.WriteLine("\nHa decidido salir definitivamente de la aplicación \nGracias por usar nuestros servicio\nLa ventana de consola se cerrara al cabo de 10 segundos");
+                    Thread.Sleep(10000);
+
+                   Environment.Exit(0);
+
 
                 }
 

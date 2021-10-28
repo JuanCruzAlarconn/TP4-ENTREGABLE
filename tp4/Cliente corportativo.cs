@@ -54,11 +54,11 @@ namespace tp4
 
             if (cliente == null)
             {
-                return false;
+                return false;//Cuando no encuentra al cliente dentro de la base de datos
             }
             else
             {
-                return true;
+                return true; //En caso de encontrar al cliente dentro de la base de datos
             }
         }
     }
