@@ -11,8 +11,8 @@ namespace tp4
     class Transporte
     {
         public int codigo { get; set; }
-        public string categoria { get; set; }
-        public string estado { get; set; } //habla del estado de la unidad si puede seguir prestando servicio o debe de remitirse a mentenimiento
+        public string categoria { get; set; }//Lo habilita a cargar ciertos bultos
+        public string estado { get; set; } //habla del estado de la unidad en cuanto a si se halla disponible para poder presetar servicio
         public List<int> codigos_ordenes_asignadas { get; set; }//A pertir del código pueden consultar y modificar los estados de las ordenes de servicio       
         public string cobertura { get; set; }//implica que puede ser entre localidades, cubrir viajes entre provincias o regionales
         public string zona_cobertura { get; set; }//sobre que localidadesm, provincias o regiones puede circular, con ello puedo asignar transporte dependiendo de las necesidades  de transporte del servicio como tal      

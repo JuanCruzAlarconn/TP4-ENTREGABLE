@@ -18,12 +18,46 @@ namespace tp4
         public int clave_secreta { get; set; }
         public int codigo_postal { get; set; }
 
+        public static void carga_prueba()
+        {
+            //Un método que permite cargar un cliente en json, para poder realizar un prueba de carga por consola
+            var cliente_corporativo = new Cliente_corportativo();
+            cliente_corporativo.nombre = "Juan Cruz";
+            cliente_corporativo.apellido = "Alarcón";
+            cliente_corporativo.codigo_cliente = 38456910;
+            cliente_corporativo.domicilio = "calle falsa 123";
+            cliente_corporativo.telefono = 1145788956;
+            cliente_corporativo.codigo_cuenta_corriente = 0001;
+            cliente_corporativo.clave_secreta = 1234;
+            cliente_corporativo.codigo_postal = 1439;
+
+            var cliente_corporativo2 = new Cliente_corportativo();
+            cliente_corporativo2.nombre = "Juan Cruz";
+            cliente_corporativo2.apellido = "Alarcón";
+            cliente_corporativo2.codigo_cliente = 12345678;
+            cliente_corporativo2.domicilio = "calle falsa 123";
+            cliente_corporativo2.telefono = 1145788956;
+            cliente_corporativo2.codigo_cuenta_corriente = 0001;
+            cliente_corporativo2.clave_secreta = 1234;
+            cliente_corporativo2.codigo_postal = 1439;
+
+            List<Cliente_corportativo> lista = new List<Cliente_corportativo>();
+            lista.Add(cliente_corporativo);
+            lista.Add(cliente_corporativo2);
+            string clienteJson = JsonConvert.SerializeObject(lista);
+
+            File.WriteAllText("clientes.json", clienteJson);
+
+           
+
+
+        }
 
         public static List<Cliente_corportativo> abrir()
         {
             var lista_cliente = new List<Cliente_corportativo>();
 
-            var listaclinteJson = File.ReadAllText("clientes corporativoc.Json");
+            var listaclinteJson = File.ReadAllText("clientes.json");
 
             lista_cliente = JsonConvert.DeserializeObject<List<Cliente_corportativo>>(listaclinteJson);
 

@@ -10,6 +10,8 @@ namespace tp4
 {
     class Transporte_designado
     {
+        //SE USA COMO UNA CLASE INTERMEDIA ENTRE ORDEN DE SERVICIO Y TRANSPORTE 
+
         public int codigo_transporte { get; set; }
 
         public string descripción_transporte { get; set; }
