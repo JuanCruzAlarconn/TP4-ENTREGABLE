@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Centro Regional.cs" />
     <Compile Include="Centro_Provincial.cs" />
+    <Compile Include="Estado de cuenta.cs" />
     <Compile Include="Cliente corportativo.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="Modalidad.cs" />
