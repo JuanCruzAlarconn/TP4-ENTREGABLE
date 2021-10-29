@@ -11,9 +11,11 @@ namespace tp4
     {//implica los estados por los que pasara el paquete en su transito por donde sea asignado 
         public int codigo_entidad { get; set; }
 
-        public string entidad { get; set; }
+        public string entidad { get; set; }//Puede ser una sucursal, centro provincial, centro regional, transporte de la empresa propia de cada dimesión de traslado
 
-        public string estado { get; set; }
+        public string estado { get; set; }//Espacio donde la  entidad que lo recibe coloca en que estado se hallan los bultos
+
+      
 
         public static Estado crear()
         {

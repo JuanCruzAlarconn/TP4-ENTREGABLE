@@ -80,14 +80,14 @@ namespace tp4
 
             var elemento = hallar(codigo_orden);//saco una copia de la orden de servicio desde la base de datos para poder consultar
 
-            var estado_de_orden = elemento.estado;
+            var estado_de_orden = elemento.estado;//El estado es una lista de los diferentes estados por lo que pasa el conjunto de bultos hasta llegar al final del recorrido
 
             var ultimo_estado = estado_de_orden.Last();
 
             string estado;
 
 
-            if (ultimo_estado.estado == "Entregado")
+            if (ultimo_estado.estado == "entregado")
             {
                 estado = "El paquete fue entragado a su destino";
             }
@@ -101,12 +101,12 @@ namespace tp4
                 var penultimo_estado = estado_de_orden[estado_de_orden.Count - 2];
 
 
-                if (penultimo_estado.estado == "En distribución desde centro provincial hacia sucursal" && elemento.modalidad.modo_entrega == "Entrega en sucursal en sucursal")
+                if (penultimo_estado.estado == "En distribución desde centro provincial hacia sucursal" && elemento.modalidad.modo_entrega == "Entregado en sucursal")
                 {
                     estado = "El paquete se halla en la sucursal disponible para el retiro por parte del destinatario";
                 }
 
-                if (penultimo_estado.estado == "En distribución desde centro provincial hacia sucursal" && elemento.modalidad.modo_entrega == "entrega a domicilio")
+                if (penultimo_estado.estado == "En distribución desde centro provincial hacia sucursal" && elemento.modalidad.modo_entrega == "Entrega en domicilio")
                 {
                     //fue entregado hasta una sucursal de destino
                     estado = "El paquete se halla dentro de las inmediaciones de la sucursal que se corresponde con la localidad de destino del mismo";
@@ -119,7 +119,7 @@ namespace tp4
 
                 if (ultimo_estado.estado == "En distribución hacia el destinatario")
                 {
-                    estado = "El paquete se halla en distribución hacia su destino final";
+                    estado = "El paquete se halla en distribución hacia su destino final para ser entregado al destinatario en su domicilio";
                 }
 
 
@@ -188,7 +188,7 @@ namespace tp4
 
             }
 
-
+            //FALTA EL ENVÍO INTERNACIONAL
 
             throw new NotImplementedException();
         }

@@ -89,10 +89,15 @@ namespace tp4
                     validar_eleccion();
                     break;
                 }
-                if (Console.ReadKey(true).Key == ConsoleKey.NumPad4)
+                if (Console.ReadKey(true).Key == ConsoleKey.NumPad4 && Console.ReadKey(true).Key == ConsoleKey.D4)
                 {
                     Console.WriteLine("\nHa seleccionado la opción salir de la aplicación");
                     Console.WriteLine("\nGracias por utilizar nuestros servicios");
+                    Console.WriteLine("\nHa decidido salir definitivamente de la aplicación \nGracias por usar nuestros servicio\nLa ventana de consola se cerrara al cabo de 10 segundos");
+                    Thread.Sleep(10000);
+
+                    Environment.Exit(0);
+
                     break;
                 }
                 if (Console.ReadKey(true).Key != ConsoleKey.NumPad1 && Console.ReadKey(true).Key != ConsoleKey.NumPad2 && Console.ReadKey(true).Key != ConsoleKey.NumPad3 && Console.ReadKey(true).Key != ConsoleKey.NumPad4)
@@ -186,8 +191,9 @@ namespace tp4
             do
             {
                 Console.WriteLine("\nIngrese su código de cliente corporativo para poder acceder a las funciones del sistema");
-                Console.WriteLine("\nSi desea detener la ejecución del programa introdusca por teclado la frase SALIR tal y como se le comunico");
+                Console.WriteLine("\nSi desea detener la ejecución del programa introduzca por teclado la frase SALIR tal y como se le comunico");
                 ingreso = Console.ReadLine();
+                Cliente_corportativo.carga_prueba();
 
                 if(ingreso=="SALIR")
                 {
@@ -224,6 +230,13 @@ namespace tp4
                 {
                     Console.WriteLine("\nEl código de cliente corporativo ingresado no se corresponde con ninguno de los elemenos ingresados dentro de la base de datos");
                     continue;
+                }
+
+                if(Cliente_corportativo.validar_cliente(codigo_cliente))
+                {
+                    Console.WriteLine("\nSe lo redirigira al menu con las opciones");
+                    validar_eleccion();
+                    break;
                 }
 
                 break;
