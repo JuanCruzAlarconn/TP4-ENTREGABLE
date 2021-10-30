@@ -17,6 +17,22 @@ namespace tp4
 
       
 
+        public static void cargar_prueba()
+        {
+            List<Estado> lista_prueba = new List<Estado>();
+
+            Estado estado1 = new Estado();
+            estado1.codigo_entidad = 0001;
+            estado1.entidad = "transporte";
+            estado1.estado = "En distribución desde centro provincial hacia sucursal";
+
+            lista_prueba.Add(estado1);
+
+            string estadosJson = JsonConvert.SerializeObject(lista_prueba);
+
+            File.WriteAllText("Estados.Json", estadosJson); 
+        }
+
         public static Estado crear()
         {
             var estado = new Estado();

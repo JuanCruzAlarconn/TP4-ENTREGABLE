@@ -78,7 +78,7 @@ namespace tp4
         {
             //FUNCIÓN PRINCIPAL
 
-            var elemento = hallar(codigo_orden);//saco una copia de la orden de servicio desde la base de datos para poder consultar
+         var elemento = hallar(codigo_orden);//saco una copia de la orden de servicio desde la base de datos para poder consultar
 
             var estado_de_orden = elemento.estado;//El estado es una lista de los diferentes estados por lo que pasa el conjunto de bultos hasta llegar al final del recorrido
 
@@ -86,12 +86,14 @@ namespace tp4
 
             string estado;
 
+            
 
-            if (ultimo_estado.estado == "entregado")
+
+            if (ultimo_estado.estado == "Entregado")
             {
                 estado = "El paquete fue entragado a su destino";
             }
-            if (ultimo_estado.entidad == "sucursal")
+            if (ultimo_estado.entidad == "Sucursal")
             {
                 /*ESTADOS POSIBLES
                  * En sucursal de origen
@@ -125,9 +127,9 @@ namespace tp4
 
             }
 
-            if (ultimo_estado.entidad == "transporte")
+            if (ultimo_estado.entidad == "Transporte")
             {
-                /*ESTADOS POSIBLES QUW EL TRANSPORTISTA PUEDE AÑADIR A LA LISTA DE ESTADOS DE LA ORDEN DE SERVICIO CORRESPONDIENTE
+                /*ESTADOS POSIBLES QUE EL TRANSPORTISTA PUEDE AÑADIR A LA LISTA DE ESTADOS DE LA ORDEN DE SERVICIO CORRESPONDIENTE
                  * En distribución desde la sucursal hasta el centro provincial
                  * En distribución desde el centro provincial hasta el centro regional
                  * En distribución entre centros regionales
@@ -143,7 +145,7 @@ namespace tp4
 
             }
 
-            if (ultimo_estado.entidad == "centro provincial")
+            if (ultimo_estado.entidad == "Centro provincial")
             {
                 /*ESTADOS POSIBLES
                  * En el centro provincial
@@ -163,7 +165,7 @@ namespace tp4
 
             }
 
-            if (ultimo_estado.entidad == "centro regional")
+            if (ultimo_estado.entidad == "Centro regional")
             {
                 /*ESTADOS POSIBLES
                  * En el centro regional
