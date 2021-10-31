@@ -84,16 +84,13 @@ namespace tp4
 
         public static bool validar_cliente(int codigo)
         {
-            var cliente = Cliente_corportativo.hallar(codigo);
+         
 
-            if (cliente == null)
-            {
-                return false;//Cuando no encuentra al cliente dentro de la base de datos
-            }
-            else
-            {
-                return true; //En caso de encontrar al cliente dentro de la base de datos
-            }
+
+
+            return Cliente_corportativo.abrir().Any(a=>a.codigo_cliente==codigo);
+
+
         }
     }
 }
