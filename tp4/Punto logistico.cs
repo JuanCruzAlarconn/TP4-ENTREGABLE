@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 namespace tp4
 {
     class Punto_logistico
-    {//
+    {
         public string nombre_y_apellido { get; set; }
 
         public int DNI_o_Documentacion_correspondiente { get; set; }
