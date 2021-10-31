@@ -70,26 +70,26 @@ namespace tp4
             {
                 mostrar_menu_opciones();
 
-                if (Console.ReadKey(true).Key == ConsoleKey.NumPad1 && Console.ReadKey(true).Key == ConsoleKey.D1)
+                if (Console.ReadKey(true).Key == ConsoleKey.NumPad1 || Console.ReadKey(true).Key == ConsoleKey.D1)
                 {
                     Console.WriteLine("\nEjecución de la rutira generar envío");
                     validar_eleccion();
                     break;
                 }
 
-                if (Console.ReadKey(true).Key == ConsoleKey.NumPad2 && Console.ReadKey(true).Key == ConsoleKey.D2)
+                if (Console.ReadKey(true).Key == ConsoleKey.NumPad2 || Console.ReadKey(true).Key == ConsoleKey.D2)
                 {
                     Console.WriteLine("\nEjecución de la rutina consultar estado de envío");
                     validar_eleccion();
                     break;
                 }
-                if (Console.ReadKey(true).Key == ConsoleKey.NumPad3 && Console.ReadKey(true).Key == ConsoleKey.D3)
+                if (Console.ReadKey(true).Key == ConsoleKey.NumPad3 || Console.ReadKey(true).Key == ConsoleKey.D3)
                 {
                     Console.WriteLine("\nEjecución de la rutina consultar estado de cuenta");
                     validar_eleccion();
                     break;
                 }
-                if (Console.ReadKey(true).Key == ConsoleKey.NumPad4 && Console.ReadKey(true).Key == ConsoleKey.D4)
+                if (Console.ReadKey(true).Key == ConsoleKey.NumPad4 || Console.ReadKey(true).Key == ConsoleKey.D4)
                 {
                     Console.WriteLine("\nHa seleccionado la opción salir de la aplicación");
                     Console.WriteLine("\nGracias por utilizar nuestros servicios");
