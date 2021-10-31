@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace tp4
 {
     public class EstadoCuenta
-    {
+    {//
         public int codigo_operacion { get; set; }
         public int codigo_cliente { get; set; }
         public DateTime fecha_operacion { get; set; }
