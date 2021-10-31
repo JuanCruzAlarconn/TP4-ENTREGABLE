@@ -11,7 +11,6 @@ namespace tp4
 {
     class Program
     {
-        //cambios nuevos ya
         static void Main(string[] args)
         {
             interaccion_validar_cliente();
