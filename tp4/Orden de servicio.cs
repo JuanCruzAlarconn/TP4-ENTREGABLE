@@ -89,7 +89,7 @@ namespace tp4
             
 
 
-            if (ultimo_estado.estado == "Entregado")
+            if (ultimo_estado.estado == "Entregado")//Es un estado que debe de quemarlo una sucursal
             {
                 estado = "El paquete fue entragado a su destino";
             }
@@ -114,13 +114,14 @@ namespace tp4
                     estado = "El paquete se halla dentro de las inmediaciones de la sucursal que se corresponde con la localidad de destino del mismo";
                 }
 
-                if (ultimo_estado.estado == "En distribución hacia la sucursal de origen")
+                if (ultimo_estado.estado == "En distribución hacia la sucursal de origen")//Estado que lo maneja internamente la sucursal
                 {
                     estado = "El paquete se halla en distribución desde el cliente hasta la sucursal de origen";
                 }
 
-                if (ultimo_estado.estado == "En distribución hacia el destinatario")
+                if (ultimo_estado.estado == "En distribución hacia el destinatario")//Estado que lo maneja internamente la sucursal
                 {
+                    
                     estado = "El paquete se halla en distribución hacia su destino final para ser entregado al destinatario en su domicilio";
                 }
 
@@ -145,7 +146,7 @@ namespace tp4
 
             }
 
-            if (ultimo_estado.entidad == "Centro provincial")
+            if (ultimo_estado.estado == "En centro provincial")
             {
                 /*ESTADOS POSIBLES
                  * En el centro provincial
@@ -165,7 +166,7 @@ namespace tp4
 
             }
 
-            if (ultimo_estado.entidad == "Centro regional")
+            if (ultimo_estado.estado == "En centro regional")
             {
                 /*ESTADOS POSIBLES
                  * En el centro regional
@@ -183,7 +184,7 @@ namespace tp4
                     estado = "El paquete se halla dentro de las inmediaciones del centro regional correspondiente al cliete que solicito el envio";
                 }
 
-                if (elemento.destino.pais != "Argentina")
+                if (elemento.destino.pais != "Argentina")// el caso en que se halla dentro de una sucursal y al mismo tiempo el paquete cuenta con el destino de dirigirse fuera del pais
                 {
                     estado = "El paquete se halla dentro del centro regional de la región metropolitana en proceso para ser envíado hacia el exterior";
                 }
