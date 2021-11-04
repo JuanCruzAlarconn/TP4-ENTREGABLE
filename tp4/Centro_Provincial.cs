@@ -22,7 +22,7 @@ namespace tp4
         {
             //Abre el archivo y lo pasa a formato lista para poder operar
 
-            string centrosprovincialesJson = File.ReadAllText("Centros Regionales.Json");
+            string centrosprovincialesJson = File.ReadAllText("Centros Provinciales.Json");
             var lista = JsonConvert.DeserializeObject<List<Centro_Provincial>>(centrosprovincialesJson);
 
             return lista;
@@ -54,10 +54,13 @@ namespace tp4
             throw new NotImplementedException();
         }
 
-        public void actuliazar_archivo()
+        public static void actuliazar_archivo(List<Centro_Provincial> lista)
         {
-            //paso final luego de haber incorporado el nuevo elemento dentro de la lista
-            throw new NotImplementedException();
+            string lista_modificada = JsonConvert.SerializeObject(lista);
+
+            File.WriteAllText("Centros Provinciales.Json", lista_modificada);
+
+            //Actualiza la base de datos de los centros provinciales con su asignación de orden de servicio
         }
     }
 }

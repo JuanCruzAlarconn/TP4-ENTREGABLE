@@ -50,10 +50,13 @@ namespace tp4
             throw new NotImplementedException();
         }
 
-        public void actuliazar_archivo()
+        public static void actuliazar_archivo(List<Sucursal> lista)
         {
-            //paso final luego de haber incorporado el nuevo elemento dentro de la lista
-            throw new NotImplementedException();
+            string lista_modificada = JsonConvert.SerializeObject(lista);
+
+            File.WriteAllText("Sucursales.Jso", lista_modificada);
+
+            //Actualiza la base de datos de las sucursales con su asignación de orden de servicio
         }
     }
 }

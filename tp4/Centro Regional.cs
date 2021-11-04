@@ -54,10 +54,13 @@ namespace tp4
             throw new NotImplementedException();
         }
 
-        public void actuliazar_archivo()
+        public static void actuliazar_archivo(List<Centro_Regional> lista)
         {
-            //paso final luego de haber incorporado el nuevo elemento dentro de la lista
-            throw new NotImplementedException();
+            string lista_modificada = JsonConvert.SerializeObject(lista);
+
+            File.WriteAllText("Centros Regionales.Json", lista_modificada);
+
+            //Actualiza la base de datos de los centros regionales con su asignación de orden de servicio
         }
     }
 }

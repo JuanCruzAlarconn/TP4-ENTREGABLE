@@ -223,10 +223,13 @@ namespace tp4
 
             return lista;
         }
-        public void modificar_archivo(List<Orden_de_servicio> lista)
+        public static void modificar_archivo(List<Orden_de_servicio> lista)
         {
-            //Sobreescribe con información actualizada
-            throw new NotImplementedException();
+            string lista_modificada = JsonConvert.SerializeObject(lista);
+
+            File.WriteAllText("Ordenes de servicio.Json", lista_modificada);
+
+            //Actualiza la base de datos de las ordenes de servicio
 
         }
         public static Orden_de_servicio hallar(int codigo_orden)
