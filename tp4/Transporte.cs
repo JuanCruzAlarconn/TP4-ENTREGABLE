@@ -38,11 +38,6 @@ namespace tp4
             throw new NotImplementedException();
         }
 
-        private bool soportar_peso(Paquete paquete)
-        {
-            //A partie de las caracteristicas del mismo objeto que la invoca debe de cotejar si resiste la carga de un paquete de las propiedades del objeto paquete
-            throw new NotImplementedException();
-        }
 
         public static List<Transporte> abrir_archivo()
         {
@@ -72,38 +67,23 @@ namespace tp4
             return transporte;
         }
 
-        public void paquete_a_bordo()
-        {
-            //Cambia el estado del paquete afirmando que lo tiene en viaje a una fecha
-            throw new NotImplementedException();
-        }
-
-        public void fin_viaje()
-        {
-            //Cambia el estado colocando que el viaje designado termino en una cierta fecha
-            throw new NotImplementedException();
-        }
-
-        public bool validar_cobertura(string zona)
-        {
-            throw new NotImplementedException();
-        }
+      
 
 
-        public bool validar_carga(Paquete paquete)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public static Transporte asignar_transporte()
         {
             //Le paso el codigo de la orden de servicio a la entidad para que en el momento en que tome contacto físico con la misma pueda modificar el estado partiendo de la base de datos unificada
             throw new NotImplementedException();
         }
-        public void actuliazar_archivo()
+        public static void actuliazar_archivo(List<Centro_Regional> lista)
         {
-            //paso final luego de haber incorporado el nuevo elemento dentro de la lista
-            throw new NotImplementedException();
+            string lista_modificada = JsonConvert.SerializeObject(lista);
+
+            File.WriteAllText("Transportes.Json", lista_modificada);
+
+            //Actualiza la base de datos de los transportes
         }
     }
 }
