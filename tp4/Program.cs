@@ -262,6 +262,8 @@ namespace tp4
 
                 if(Cliente_corportativo.validar_cliente(codigo_cliente))
                 {
+                    string nombreyapellido = Cliente_corportativo.hallar(codigo_cliente).nombre+" "+ Cliente_corportativo.hallar(codigo_cliente).apellido;
+                    Console.WriteLine($"\nBienvenido {nombreyapellido}");
                     Console.WriteLine("\nSe lo redirigira al menu con las opciones");
                     validar_eleccion();
                     break;
