@@ -68,8 +68,12 @@ namespace tp4
 
         private static List<Estado> asignar_estado_inicial()
         {
-            //Punto de partida de todo paquete que se adjunta a la lista de estados para poder marcar al trazabilidad de los diferentes estados por lo que transitará el paquete
-            throw new NotImplementedException();
+            List<Estado> lista_estados = new List<Estado>();
+            var estado_inicial = Estado.crear();
+
+            lista_estados.Add(estado_inicial);
+
+            return lista_estados;
         }
 
 
@@ -212,12 +216,12 @@ namespace tp4
         }
         private static DateTime? asignar_fecha_egreso()
         {
-            //Todo depende si el pedido fue realmente entregado siguiendo con las condiciones pautadas como tal, si no llego el campo permanece en null
+            //función que se actuliza en el momento en que dentro de la lista de estado se define al pedido como finalmente entregado
             throw new NotImplementedException();
         }
         private static int asignar_codigo_servicio()
         {
-            //Le asigno el codigo a la orden de servicio
+            //Le asigno el codigo a la orden de servicio, puede ser una funcion ramdom
             throw new NotImplementedException();
         }
         public static List<Orden_de_servicio> abrir_archivo()
@@ -229,7 +233,7 @@ namespace tp4
 
             return lista;
         }
-        public static void modificar_archivo(List<Orden_de_servicio> lista)
+        public static void actualizar_archivo(List<Orden_de_servicio> lista)
         {
             string lista_modificada = JsonConvert.SerializeObject(lista);
 
@@ -256,10 +260,7 @@ namespace tp4
             return orden;
 
         }
-        public void guardar_en_archivo()
-        {
-            throw new NotImplementedException();
-        }
+      
         public void finalizar()
         {
             //Indico que una entrega finalizo satisfactoriamente

@@ -15,50 +15,23 @@ namespace tp4
 
         public string estado { get; set; }//Espacio donde la  entidad que lo recibe coloca en que estado se hallan los bultos
 
+        public DateTime fecha { get; set; }
       
 
-        public static void cargar_prueba()
-        {
-            List<Estado> lista_prueba = new List<Estado>();
-
-            Estado estado1 = new Estado();
-            estado1.codigo_entidad = 0001;
-            estado1.entidad = "transporte";
-            estado1.estado = "En distribución desde centro provincial hacia sucursal";
-
-            lista_prueba.Add(estado1);
-
-            string estadosJson = JsonConvert.SerializeObject(lista_prueba);
-
-            File.WriteAllText("Estados.Json", estadosJson); 
-        }
 
         public static Estado crear()
         {
             var estado = new Estado();
 
-            estado.codigo_entidad = asignar_codigo();
-            estado.entidad = asignar_entidad();
-            estado.estado = asignar_estado_inicial();
+            estado.codigo_entidad = 0000001;
+            estado.entidad = "Aplicación de servicio";
+            estado.estado = "Inicializado";
+            estado.fecha = DateTime.Now;
 
             return estado;
 
 
         }
 
-        private static string asignar_estado_inicial()
-        {
-            throw new NotImplementedException();
-        }
-
-        private static string asignar_entidad()
-        {
-            throw new NotImplementedException();
-        }
-
-        private static int asignar_codigo()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
