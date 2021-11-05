@@ -78,20 +78,23 @@ namespace tp4
         {
             //FUNCIÓN PRINCIPAL
 
-         var elemento = hallar(codigo_orden);//saco una copia de la orden de servicio desde la base de datos para poder consultar
+            var elemento = hallar(codigo_orden);//saco una copia de la orden de servicio desde la base de datos para poder consultar
 
             var estado_de_orden = elemento.estado;//El estado es una lista de los diferentes estados por lo que pasa el conjunto de bultos hasta llegar al final del recorrido
 
             var ultimo_estado = estado_de_orden.Last();
 
-            string estado;
+            string estado="";
 
             
-
+            if(ultimo_estado.estado=="Iniciado")
+            {
+                estado = "La orden de servicio correspondiente se halla inicializada y cargada dentro de la base de datos del sistema";
+            }
 
             if (ultimo_estado.estado == "Entregado")//Es un estado que debe de quemarlo una sucursal
             {
-                estado = "El paquete fue entragado a su destino";
+                estado = "El paquete fue entragado a su destinatario";
             }
             if (ultimo_estado.entidad == "Sucursal")
             {
@@ -111,7 +114,7 @@ namespace tp4
                 if (penultimo_estado.estado == "En distribución desde centro provincial hacia sucursal" && elemento.modalidad.modo_entrega == "Entrega en domicilio")
                 {
                     //fue entregado hasta una sucursal de destino
-                    estado = "El paquete se halla dentro de las inmediaciones de la sucursal que se corresponde con la localidad de destino del mismo";
+                    estado = $"El paquete se halla dentro de las inmediaciones de la sucursal que se corresponde con la localidad de {elemento.destino.localidad}";
                 }
 
                 if (ultimo_estado.estado == "En distribución hacia la sucursal de origen")//Estado que lo maneja internamente la sucursal
@@ -139,7 +142,7 @@ namespace tp4
                  * NOTA: SE CORRESPONDE CON QUE EN EL MOMENTO EN QUE SE HACE LA ENTREGA EN EL CENTRO CORRESPONDIENTE EL CENTRO MISMO HACE LA CARGA QUE SE HALLA DENTRO DE LAS INTALACIONES DEL MISMO
                  */
 
-                estado = ultimo_estado.estado;
+                estado = "En distribución";
 
                 //Los transporte modifican el estado incluyendo en que consiste su viaje
                 //Como los transporte enunciados son de la empresa se llega al acuerdo de que en lugar de generar 2 estado iguales como lo pueden ser entregado en algun punto de distribución, se deja que el centro de distribución defina que el tiene el paquete también indica que el paquete fue entregado dado que todas las entidades pertenecen al mismo sistema
@@ -156,12 +159,12 @@ namespace tp4
 
                 if (penultimo_estado.estado == "En distribución desde la sucursal hacia el centro provincial")
                 {
-                    estado = "El paquete se halla dentro del centro provincial que pertenece a la provincia del cliente";
+                    estado = $"El paquete se halla dentro del centro provincial de {elemento.origen.provincia}";
                 }
 
                 if (penultimo_estado.estado == "En distribución desde el centro regional hacia el centro provincial")
                 {
-                    estado = "El paquete se halla dentro del centro provincial correpondiente al destinatario";
+                    estado = $"El paquete se halla dentro del centro provincial de {elemento.destino.provincia}";
                 }
 
             }
@@ -176,12 +179,12 @@ namespace tp4
 
                 if (penultimo_estado.estado == "En distribución desde el centro regional hacia el centro regional")
                 {
-                    estado = "El paquete se halla en las inmediaciones del centro regional correspondiente al destinatario";
+                    estado = $"El paquete se halla en las inmediaciones del centro regional de la región {elemento.destino.region}";
                 }
 
                 if (penultimo_estado.estado == "En distribución desde el centro provincial hacia el centro regional")
                 {
-                    estado = "El paquete se halla dentro de las inmediaciones del centro regional correspondiente al cliete que solicito el envio";
+                    estado = $"El paquete se halla dentro de las inmediaciones del centro regional correspondiente de la región {elemento.origen.region}";
                 }
 
                 if (elemento.destino.pais != "Argentina")// el caso en que se halla dentro de una sucursal y al mismo tiempo el paquete cuenta con el destino de dirigirse fuera del pais
@@ -191,9 +194,12 @@ namespace tp4
 
             }
 
-            //FALTA EL ENVÍO INTERNACIONAL
+           if(ultimo_estado.estado=="En ditribución internacional")
+            {
+                estado = "El paquete se halla en distribución internacional";
+            }
 
-            throw new NotImplementedException();
+            return estado;
         }
         private static int asignar_seguro()
         {
