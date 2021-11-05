@@ -52,7 +52,7 @@ namespace tp4
                 {
                     Console.WriteLine("\nHa seleccionado que el destinatario recibira el paquete dentro de la sucursal pertinente");
                     return "Entregado en sucursal";
-                    break;
+                    
 
                 }
 
@@ -61,7 +61,7 @@ namespace tp4
                     Console.WriteLine("\nHa seleccionado que desea que el paquete llegue al domicilio indicado para el destinatario");
                     return "Entregado en domicilio";
 
-                    break;
+                  
                 }
 
 
@@ -102,7 +102,7 @@ namespace tp4
                 {
                     Console.WriteLine("\nHa seleccionado que quiere una entrega urgente");
                     return "Urgente";
-                    break;
+                    
 
                 }
 
@@ -111,7 +111,7 @@ namespace tp4
                     Console.WriteLine("\nHa seleccionado que quiere una entrega normal");
                     return "Normal";
 
-                    break;
+                    
                 }
 
 
@@ -153,7 +153,7 @@ namespace tp4
                 {
                     Console.WriteLine("\nHa seleccionado que dejara el paquete dentro de la sucursal de su localidad");
                     return "Retirado en sucursal";
-                    break;
+                  
 
                 }
 
@@ -162,7 +162,7 @@ namespace tp4
                     Console.WriteLine("\nHa seleccionado que se pase a retirar el paquete a su domicilio");
                     return "Retirado en domicilio";
 
-                    break;
+                    
                 }
 
 

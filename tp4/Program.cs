@@ -34,7 +34,7 @@ namespace tp4
                     Program.validar_identidad();
                     Console.WriteLine("\nA continuación se le presentaran las opciones disponible");
                   
-                    validar_eleccion();
+                    
 
 
 
@@ -61,7 +61,7 @@ namespace tp4
 
         }
 
-        public static void validar_eleccion()
+        public static void validar_eleccion(int codigo_cliente)
         {
 
             string ingreso = "";
@@ -95,20 +95,20 @@ namespace tp4
                 if (opcion==1)
                 {
                     Console.WriteLine("\nEjecución de la rutira generar envío");
-                    validar_eleccion();
+                    validar_eleccion(codigo_cliente);
                     break;
                 }
 
                 if (opcion==2)
                 {
                     Console.WriteLine("\nEjecución de la rutina consultar estado de envío");
-                    validar_eleccion();
+                    validar_eleccion(codigo_cliente);
                     break;
                 }
                 if (opcion==3)
                 {
                     Console.WriteLine("\nEjecución de la rutina consultar estado de cuenta");
-                    validar_eleccion();
+                    validar_eleccion(codigo_cliente);
                     break;
                 }
                 if (opcion==4)
@@ -125,7 +125,7 @@ namespace tp4
                 if (Console.ReadKey(true).Key != ConsoleKey.NumPad1 && Console.ReadKey(true).Key != ConsoleKey.NumPad2 && Console.ReadKey(true).Key != ConsoleKey.NumPad3 && Console.ReadKey(true).Key != ConsoleKey.NumPad4)
                 {
                     Console.WriteLine("\nLa opción registrada no se correponde con ninguna de las opciones disponibles dentro del sistema");
-                    validar_eleccion();
+                    validar_eleccion(codigo_cliente);
                     continue;
                 }
 
@@ -205,7 +205,7 @@ namespace tp4
         {
             throw new NotImplementedException();
         }
-        public static int validar_identidad()
+        public static void validar_identidad()
         {
             string ingreso = "";
             int codigo_cliente = 0;
@@ -265,7 +265,7 @@ namespace tp4
                     string nombreyapellido = Cliente_corportativo.hallar(codigo_cliente).nombre+" "+ Cliente_corportativo.hallar(codigo_cliente).apellido;
                     Console.WriteLine($"\nBienvenido {nombreyapellido}");
                     Console.WriteLine("\nSe lo redirigira al menu con las opciones");
-                    validar_eleccion();
+                    validar_eleccion(codigo_cliente);
                     break;
                 }
 
@@ -273,7 +273,7 @@ namespace tp4
 
             } while (true);
 
-            return codigo_cliente;
+            
         }
         
         public static string validar_texto()
