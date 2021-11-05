@@ -14,7 +14,7 @@ namespace tp4
         public List<Estado> estado { get; set; } //Genera una lista de todos los estados por los que va transitando el paquete hasta el momento de la consulta, GENERA TRAZABILIDAD
         public DateTime fecha_ingreso { get; set; }//Se asigna la fecha del momento en que se creo el pedido
         public DateTime? fecha_egreso { get; set; } // Cuando nace el objeto permanece en null hasta que lo damos por finalizado, cuando acciono el metodo finalizar lo carga a modo de registro para poder archivarlo dentro de la base de datos
-        public List <Paquete> paquete { get; set; }//caracteristicas del paquete
+        public  Paquete paquete { get; set; }//caracteristicas del paquete
         public List<Transporte_designado> transportes_asignados { get; set; } //agrega dentro de una lista todos los transporte necesarios para que le envío pueda ser entregado
         public int codigo_cliente { get; set; }//Quien es el iniciador del proceso
         public int codigo_seguro { get; set; }//Asignación de un seguro de acuerdo con el valor declarado por el cliente
@@ -43,12 +43,12 @@ namespace tp4
             return orden_de_servicio;
         }
 
-        private static List<Paquete> asignar_paquetes()
+        private static Paquete asignar_paquetes()
         {
             throw new NotImplementedException();
         }
 
-        private static List<Transporte_designado> asignar_transportes(Punto_logistico origen, Punto_logistico destino, int codigo_servicio, List <Paquete> paquete)
+        private static List<Transporte_designado> asignar_transportes(Punto_logistico origen, Punto_logistico destino, int codigo_servicio, Paquete paquete)
         {
             //evalua los transportes necesarios de cada operación, y asigna al servicio según las necesidades de la operación
             throw new NotImplementedException();
@@ -207,8 +207,12 @@ namespace tp4
         }
         private static int asignar_seguro()
         {
-            //Código de seguro del envío
-            throw new NotImplementedException();
+            Random r = new Random();
+
+            int seguro = r.Next(0, 10001);
+
+            return seguro;//se genera un número aleatorio para el seguro, para luego ser cotejado por el sistema
+
         }
         private static DateTime asignar_fecha_ingreso()
         {
@@ -216,13 +220,15 @@ namespace tp4
         }
         private static DateTime? asignar_fecha_egreso()
         {
-            //función que se actuliza en el momento en que dentro de la lista de estado se define al pedido como finalmente entregado
-            throw new NotImplementedException();
+            return null;
         }
         private static int asignar_codigo_servicio()
         {
-            //Le asigno el codigo a la orden de servicio, puede ser una funcion ramdom
-            throw new NotImplementedException();
+            Random r = new Random();
+
+            int servicio = r.Next(0, 9999999);
+
+            return servicio;
         }
         public static List<Orden_de_servicio> abrir_archivo()
         {
@@ -263,8 +269,11 @@ namespace tp4
       
         public void finalizar()
         {
-            //Indico que una entrega finalizo satisfactoriamente
-            throw new NotImplementedException();
+            /*
+             * Es una de los métodos que forma parte de la clase pero dentro de las diferentes interacciones que dan respueta a los puntos propuestos no será necesario utilizar
+             * Se expecifica que el método existe y es parte importante del sistema dado que permite inicializar ciertas propiedades para poder colocar a la orden de pedido como finalizada
+             
+             */
         }
 
         public static bool validar_codigo_orden(int codigo_ingresado)
