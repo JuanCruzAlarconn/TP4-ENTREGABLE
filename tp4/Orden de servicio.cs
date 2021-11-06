@@ -50,6 +50,7 @@ namespace tp4
 
         private static List<Transporte_designado> asignar_transportes(Punto_logistico origen, Punto_logistico destino, int codigo_servicio, Paquete paquete)
         {
+            //SE ESPERA LA RESOLUCIÓN DEL EQUIPO
             //evalua los transportes necesarios de cada operación, y asigna al servicio según las necesidades de la operación
             throw new NotImplementedException();
         }

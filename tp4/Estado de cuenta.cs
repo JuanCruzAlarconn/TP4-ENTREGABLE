@@ -51,7 +51,7 @@ namespace tp4
 
             List<EstadoCuenta> lista = JsonConvert.DeserializeObject<List<EstadoCuenta>>(estadoCuentaJson);
 
-            return lista;
+            return lista; 
 
         }
    */
