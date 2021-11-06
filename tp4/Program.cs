@@ -110,7 +110,7 @@ namespace tp4
                     Console.WriteLine("\nEjecución de la rutina consultar estado de cuenta");
                    /* validar_eleccion(codigo_cliente);*/
                     EstadoCuenta.carga_prueba_estadocuenta();
-                    mostrar_menu_estado_de_cuenta();
+                    EstadoCuenta.mostrar_menu_estado_de_cuenta();
                     break;
                 }
                 if (opcion==4)
@@ -154,16 +154,7 @@ namespace tp4
             Console.WriteLine("\n4.SALIR");
             Console.WriteLine("******************************************************************************************\n");
         }
-        public static void mostrar_menu_estado_de_cuenta()
-        {
-            Console.WriteLine("******************************************************************************************");
-            Console.WriteLine("\nIngrese por teclado cualquiera de las siguientes opciones según la tarea que desee realizar, y luego presione la tecla enter");
-            Console.WriteLine("\n1. GENERAR ENVÍO");
-            Console.WriteLine("\n2. CONSULTAR ESTADO DE ENVÍO");
-            Console.WriteLine("\n3.CONSULTAR ESTADO DE CUENTA");
-            Console.WriteLine("\n4.SALIR");
-            Console.WriteLine("******************************************************************************************\n");
-        }
+
 
         public static void salir()
         {
