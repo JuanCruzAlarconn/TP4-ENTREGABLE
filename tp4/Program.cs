@@ -157,7 +157,7 @@ namespace tp4
 
 
         public static void salir()
-        { 
+        {   
             throw new NotImplementedException();
         }
 
