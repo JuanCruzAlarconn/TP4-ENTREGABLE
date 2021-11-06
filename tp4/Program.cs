@@ -7,8 +7,6 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Threading;
 
-// probando Roy
-
 namespace tp4
 {
     class Program

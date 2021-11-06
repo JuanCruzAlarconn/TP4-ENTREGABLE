@@ -56,13 +56,14 @@ namespace tp4
         }
    */
 
-        public static void mostrar_menu_estado_de_cuenta()
+        /*public static void mostrar_menu_estado_de_cuenta()
         {
             Console.WriteLine("******************************************************************************************");
             foreach (var a in ListaEstadoCuentaPorCliente) {System.Diagnostics.Debug.WriteLine(a.ToString()); }
             Console.WriteLine();
             Console.WriteLine("******************************************************************************************\n");
         }
+        */
         private void  ValidarClaveSecreta(int clave_secreta)
         {
             Console.WriteLine("A implementar");
