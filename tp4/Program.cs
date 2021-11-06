@@ -110,7 +110,7 @@ namespace tp4
                     Console.WriteLine("\nEjecución de la rutina consultar estado de cuenta");
                    /* validar_eleccion(codigo_cliente);*/
                     EstadoCuenta.carga_prueba_estadocuenta();
-                    EstadoCuenta.mostrar_menu_estado_de_cuenta();
+                 //  EstadoCuenta.mostrar_menu_estado_de_cuenta();
                     break;
                 }
                 if (opcion==4)
@@ -217,7 +217,7 @@ namespace tp4
             {
                 Console.WriteLine("\nIngrese su código de cliente corporativo para poder acceder a las funciones del sistema y luego presione la tecla enter");
                 Console.WriteLine("\nSi desea detener la ejecución del programa introduzca por teclado la frase SALIR tal y como se le comunico");
-                Console.WriteLine("\n38456910");
+                
                 ingreso = Console.ReadLine();
                 Cliente_corportativo.carga_prueba();
 
