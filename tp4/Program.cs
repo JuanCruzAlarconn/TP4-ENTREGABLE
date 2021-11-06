@@ -110,7 +110,15 @@ namespace tp4
                     Console.WriteLine("\nEjecución de la rutina consultar estado de cuenta");
                    /* validar_eleccion(codigo_cliente);*/
                     EstadoCuenta.carga_prueba_estadocuenta();
-                    mostrar_menu_estado_de_cuenta();
+                   /* EstadoCuenta.mostrar_menu_estado_de_cuenta();*/
+                    string nombreyapellido = (EstadoCuenta.hallar(codigo_cliente).codigo_cliente).ToString();
+                    Console.WriteLine($"\nBienvenido {nombreyapellido}");
+                    EstadoCuenta.mostrarCuenta(codigo_cliente);
+                    EstadoCuenta.CalcularSaldoCta(codigo_cliente);
+                    EstadoCuenta.filtrarPorFechas(codigo_cliente, DateTime.Now, DateTime.Now.AddDays(10));
+
+
+
                     break;
                 }
                 if (opcion==4)
@@ -154,16 +162,7 @@ namespace tp4
             Console.WriteLine("\n4.SALIR");
             Console.WriteLine("******************************************************************************************\n");
         }
-        public static void mostrar_menu_estado_de_cuenta()
-        {
-            Console.WriteLine("******************************************************************************************");
-            Console.WriteLine("\nIngrese por teclado cualquiera de las siguientes opciones según la tarea que desee realizar, y luego presione la tecla enter");
-            Console.WriteLine("\n1. GENERAR ENVÍO");
-            Console.WriteLine("\n2. CONSULTAR ESTADO DE ENVÍO");
-            Console.WriteLine("\n3.CONSULTAR ESTADO DE CUENTA");
-            Console.WriteLine("\n4.SALIR");
-            Console.WriteLine("******************************************************************************************\n");
-        }
+
 
         public static void salir()
         {
@@ -275,6 +274,7 @@ namespace tp4
 
                 if(Cliente_corportativo.validar_cliente(codigo_cliente))
                 {
+                    EstadoCuenta.mostrar_menu_estado_de_cuenta();
                     string nombreyapellido = Cliente_corportativo.hallar(codigo_cliente).nombre+" "+ Cliente_corportativo.hallar(codigo_cliente).apellido;
                     Console.WriteLine($"\nBienvenido {nombreyapellido}");
                     Console.WriteLine("\nSe lo redirigira al menu con las opciones");
