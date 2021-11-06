@@ -150,8 +150,8 @@ namespace tp4
             Console.WriteLine("\nIngrese por teclado cualquiera de las siguientes opciones según la tarea que desee realizar, y luego presione la tecla enter");
             Console.WriteLine("\n1. GENERAR ENVÍO");
             Console.WriteLine("\n2. CONSULTAR ESTADO DE ENVÍO");
-            Console.WriteLine("\n3.CONSULTAR ESTADO DE CUENTA");
-            Console.WriteLine("\n4.SALIR");
+            Console.WriteLine("\n3. CONSULTAR ESTADO DE CUENTA");
+            Console.WriteLine("\n4. SALIR");
             Console.WriteLine("******************************************************************************************\n");
         }
 
