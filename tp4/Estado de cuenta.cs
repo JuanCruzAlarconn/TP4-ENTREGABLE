@@ -55,6 +55,14 @@ namespace tp4
 
         }
    */
+
+        public static void mostrar_menu_estado_de_cuenta()
+        {
+            Console.WriteLine("******************************************************************************************");
+            foreach (var a in ListaEstadoCuentaPorCliente) {System.Diagnostics.Debug.WriteLine(a.ToString()); }
+            Console.WriteLine();
+            Console.WriteLine("******************************************************************************************\n");
+        }
         private void  ValidarClaveSecreta(int clave_secreta)
         {
             Console.WriteLine("A implementar");
@@ -72,7 +80,11 @@ namespace tp4
             Console.WriteLine("A implementar");
         }
 
-        
+        public override string ToString()
+        {
+        return "Cliente: " + this.codigo_cliente + " " + this.codigo_operacion +  this.fecha_operacion + this.concepto + this.cargos + this.abonos;
+        }
+
 
     }
 }
