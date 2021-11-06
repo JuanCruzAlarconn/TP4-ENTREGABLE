@@ -58,6 +58,7 @@ namespace tp4
 
         /*public static void mostrar_menu_estado_de_cuenta()
         {
+            // Hola vengo a flotar 4
             Console.WriteLine("******************************************************************************************");
             foreach (var a in ListaEstadoCuentaPorCliente) {System.Diagnostics.Debug.WriteLine(a.ToString()); }
             Console.WriteLine();
