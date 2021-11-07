@@ -13,7 +13,7 @@ namespace tp4
         public int codigo_servicio { get; set; }//Generado aleatoriamente para poder brindar una identifición sobre el pedido que llegara a otras clases, para que las mismas puedan contar con el acceso y puedan modificar la base de datos en consecuencia
         public List<Estado> estado { get; set; } //Genera una lista de todos los estados por los que va transitando el paquete hasta el momento de la consulta, GENERA TRAZABILIDAD
         public DateTime fecha_ingreso { get; set; }//Se asigna la fecha del momento en que se creo el pedido
-        public DateTime? fecha_egreso { get; set; } // Cuando nace el objeto permanece en null hasta que lo damos por finalizado, cuando acciono el metodo finalizar lo carga a modo de registro para poder archivarlo dentro de la base de datos
+       
         public  Paquete paquete { get; set; }//caracteristicas del paquete
        
         public int codigo_cliente { get; set; }//Quien es el iniciador del proceso
@@ -31,7 +31,7 @@ namespace tp4
             orden_de_servicio.codigo_servicio = asignar_codigo_servicio();//codigo de la orden
             orden_de_servicio.estado = asignar_estado_inicial();//cuando se crea la orden cuenta con el estado de inicializado, hay que volcar los datos iniciales del envío
             orden_de_servicio.fecha_ingreso = asignar_fecha_ingreso();//la fecha en que ingreso el pedido
-            orden_de_servicio.fecha_egreso = asignar_fecha_egreso();//cuando el paquete llego finalmente a destino
+           
             orden_de_servicio.codigo_seguro = asignar_seguro();//El paquete debe de tener un seguro según el enunciado
             orden_de_servicio.origen = Punto_logistico.crear("origen");//lugar de donde parte, puede ser una sucursal o que se halla retirado a domicilio
             orden_de_servicio.destino = Punto_logistico.crear("destino");//lugar en que se deposita al final puede ser una sucursal o lo envío a domicilio
@@ -45,6 +45,7 @@ namespace tp4
 
         private static Paquete asignar_paquetes()
         {
+            //aprobado
             var paquete = Paquete.crear();
 
             return paquete;
@@ -58,6 +59,7 @@ namespace tp4
 
         private static Modalidad asignar_modalidad()
         {
+            //Implementar
             var modalidad = Modalidad.crear();
 
             return modalidad;
@@ -65,6 +67,7 @@ namespace tp4
 
         private static List<Estado> asignar_estado_inicial()
         {
+            //A implementar
             List<Estado> lista_estados = new List<Estado>();
             var estado_inicial = Estado.crear();
 
@@ -288,6 +291,7 @@ namespace tp4
 
         private static int asignar_seguro()
         {
+            //Aprobado
             Random r = new Random();
 
             int seguro = r.Next(0, 10001);
@@ -297,14 +301,13 @@ namespace tp4
         }
         private static DateTime asignar_fecha_ingreso()
         {
+            //Aprobado
             return DateTime.Now;
         }
-        private static DateTime? asignar_fecha_egreso()
-        {
-            return null;
-        }
+       
         private static int asignar_codigo_servicio()
         {
+            //Aprobado
             Random r = new Random();
 
             int servicio = r.Next(0, 9999999);
@@ -348,17 +351,10 @@ namespace tp4
 
         }
       
-        public void finalizar()
-        {
-            /*
-             * Es una de los métodos que forma parte de la clase pero dentro de las diferentes interacciones que dan respueta a los puntos propuestos no será necesario utilizar
-             * Se expecifica que el método existe y es parte importante del sistema dado que permite inicializar ciertas propiedades para poder colocar a la orden de pedido como finalizada
-             
-             */
-        }
-
+       
         public static bool validar_codigo_orden(int codigo_ingresado)
         {
+            //Usada en Consultar estado
             var lista_ordenes = Orden_de_servicio.abrir_archivo();
 
             bool flag = false;

@@ -10,11 +10,15 @@ namespace tp4
 {
     class Punto_logistico
     {
-        public string nombre_y_apellido { get; set; }
-
-        public int DNI_o_Documentacion_correspondiente { get; set; }
+        public string nombre { get; set; }
 
         public string direccion { get; set; }
+
+        public int codigo_postal { get; set; }// Ingresa el codigo postal y después consulta en archivo para poder completar el resto de campos
+       
+        
+        
+       
         public string localidad { get; set; }
 
         public string provincia { get; set; }
@@ -71,45 +75,7 @@ namespace tp4
 
         }
 
-        private static int asignar_documentacion()
-        {
-            string ingreso = "";
-            int documento = 0;
 
-            do
-            {
-                Console.WriteLine("\nIngrese la documentación correpondiente");
-                ingreso = Console.ReadLine();
-
-                if (string.IsNullOrWhiteSpace(ingreso))
-                {
-                    Console.WriteLine("\nLa documentación ingresado no puede ser nula");
-                    continue;
-                }
-
-                if (!int.TryParse(ingreso, out documento))
-                {
-                    Console.WriteLine("\nLa documentación ingresada debe de ser numérica");
-                    continue;
-                }
-
-                if (documento <= 0)
-                {
-                    Console.WriteLine("\nLa documentación ingresada debe de ser un número positivo");
-                    continue;
-                }
-
-                if (ingreso.Length < 7)
-                {
-                    Console.WriteLine("\nLa documentación ingresado debe de contar como mínimo con 7 elementos numéricos positivos");
-                    continue;
-                }
-
-                break;
-            } while (true);
-
-            return documento;
-        }
 
         private static int asignar_centro_regional(int codigo_provincia)
         {
