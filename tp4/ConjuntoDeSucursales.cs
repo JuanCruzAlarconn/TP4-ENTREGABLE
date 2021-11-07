@@ -28,10 +28,10 @@ namespace tp4
             sucursales.Add(new Sucursal2(405, "Santa Clara", "Viedma", "Sur"));
         }
 
-        internal Sucursal2 obtenerMesa(int sucursal)
+        /*internal Sucursal2 obtenerSucursal(int sucursal)
         {
             return (sucursales[sucursales.IndexOf(new Sucursal2(sucursal, "", "", ""))]); ;
-        }
+        }*/
 
         public bool existe(int codigo)
         {
@@ -50,7 +50,7 @@ namespace tp4
             return (retorno);
         }
 
-        /*public bool agregar(Sucursal2 sucursal)
+        public bool agregar(Sucursal2 sucursal)
         {
             if (!sucursales.Contains(sucursal))
             {
@@ -61,9 +61,9 @@ namespace tp4
             {
                 return (false);
             }
-        }*/
+        }
 
-        /*public Sucursal2 obtener(int codigo)
+        public Sucursal2 obtener(int codigo)
         {
             Sucursal2 retorno = null;
             Sucursal2 aBuscar = new Sucursal2(codigo, "", "", "");
@@ -76,6 +76,6 @@ namespace tp4
             }
 
             return (retorno);
-        }*/
+        }
     }
 }

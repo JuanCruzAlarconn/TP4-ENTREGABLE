@@ -88,7 +88,7 @@ namespace tp4
 
             do
             {
-                Console.WriteLine("\nIngrese el peso del paquete que se esta interesado en enviar, luego ingrese la tecla enter");
+                Console.WriteLine("\nIngrese el peso del paquete (en gramos) que esta interesado en enviar, luego ingrese la tecla enter");
                 ingreso = Console.ReadLine();
 
                 if (string.IsNullOrWhiteSpace(ingreso))
@@ -106,6 +106,13 @@ namespace tp4
                 if (peso <= 0)
                 {
                     Console.WriteLine("\nEl peso del paquete debe de ser positivo");
+                    continue;
+                }
+
+
+                if (peso >= 30000)
+                {
+                    Console.WriteLine("\nEl peso del paquete no puede superar los 30kg");
                     continue;
                 }
 

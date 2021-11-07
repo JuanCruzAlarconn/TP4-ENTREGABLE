@@ -38,7 +38,7 @@ namespace tp4
                 }
                 else
                 {
-                    
+                    Paquete.crear();
                 }
             } while (!sucursales.existe(sucursal));
         }
