@@ -44,13 +44,29 @@ namespace tp4
             return sucursal;
         }
 
-        public static void asignar_orden_servicio(int codigo_orden)
+        public void asignar_orden_servicio(int codigo_orden)
         {
-            //Le paso el codigo de la orden de servicio a la entidad para que en el momento en que tome contacto físico con la misma pueda modificar el estado partiendo de la base de datos unificada
-            throw new NotImplementedException();
+            var lista = Sucursal.abrir_archivo();
+
+            var centro = Sucursal.hallar(this.codigo_sucursal);
+
+            centro.codigos_ordenes_asignadas.Add(codigo_orden);
+
+            foreach (var elemento in lista)
+            {
+                if (elemento.codigo_sucursal == this.codigo_sucursal)
+                {
+                    lista.Remove(elemento);
+                }
+            }
+
+            lista.Add(centro);
+
+            Sucursal.actualizar_archivo(lista);
+
         }
 
-        public static void actuliazar_archivo(List<Sucursal> lista)
+        public static void actualizar_archivo(List<Sucursal> lista)
         {
             string lista_modificada = JsonConvert.SerializeObject(lista);
 

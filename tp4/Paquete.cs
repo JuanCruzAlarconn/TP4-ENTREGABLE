@@ -12,7 +12,6 @@ namespace tp4
     {
         public decimal peso { get; set; }
         public int codigo { get; set; }
-        public string descripción { get; set; }
         public string tipo { get; set; }//Si es un sobre o un bulto
 
         public decimal valor_declarado { get; set; }
@@ -23,9 +22,8 @@ namespace tp4
             var paquete = new Paquete();
 
             paquete.codigo = asignar_codigo();
-            paquete.peso = asignar_peso();
-            paquete.descripción = asignar_descripcion();
-            paquete.tipo = asignar_tipo();
+            paquete.peso = asignar_peso();            
+            paquete.tipo = asignar_tipo(paquete.peso);
             paquete.valor_declarado = asignar_valor_declarado();
 
             return paquete;
@@ -34,31 +32,95 @@ namespace tp4
 
         private static decimal asignar_valor_declarado()
         {
-            //ingreso del user, importante para calcular el precio del seguro
-            throw new NotImplementedException();
+            string ingreso = "";
+            decimal cotización = 0;
+
+            do
+            {
+                Console.WriteLine("\nIngrese el valor designado para el paquete, al finanlizar ingrese la tecla enter");
+                ingreso = Console.ReadLine();
+
+                if(string.IsNullOrWhiteSpace(ingreso))
+                {
+                    Console.WriteLine("\nNo puede dejar el valor como vacio");
+                    continue;
+                }
+
+                if(!decimal.TryParse(ingreso, out cotización))
+                {
+                    Console.WriteLine("\nDebe de ingresar una cotización numérica");
+                    continue;
+                }
+
+                if(cotización<=0)
+                {
+                    Console.WriteLine("\nLa cotización ingresada debe de ser positiva");
+                    continue;
+                }
+
+                break;
+
+
+            } while (true);
+
+            return cotización;
         }
 
-        private static string asignar_tipo()
+        private static string asignar_tipo(decimal peso)
         {
-            //ingreso del user
-            throw new NotImplementedException();
+            string tipo;
+            if(peso > 500 )
+            {
+                tipo = "Bultos";
+            }
+            else
+            {
+                tipo = "Correspondencia";
+            }
+
+            return tipo;
         }
 
         private static decimal asignar_peso()
         {
-            //ingreso del user
-            throw new NotImplementedException();
+            string ingreso = "";
+            decimal peso = 0;
+
+            do
+            {
+                Console.WriteLine("\nIngrese el peso del paquete que se esta interesado en enviar, luego ingrese la tecla enter");
+                ingreso = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(ingreso))
+                {
+                    Console.WriteLine("\nNo puede dejar el peso como vacio");
+                    continue;
+                }
+
+                if (!decimal.TryParse(ingreso, out peso))
+                {
+                    Console.WriteLine("\nEl peso del paquete debe de ser numérico");
+                    continue;
+                }
+
+                if (peso <= 0)
+                {
+                    Console.WriteLine("\nEl peso del paquete debe de ser positivo");
+                    continue;
+                }
+
+                break;
+            } while (true);
+
+            return peso;
         }
 
-        private static string asignar_descripcion()
-        {
-            //ingreso del user
-            throw new NotImplementedException();
-        }
-
+       
         private static int asignar_codigo()
         {
-            throw new NotImplementedException();
+            var ramdom = new Random();
+
+            return ramdom.Next(0, 999999);
         }
     }
 }

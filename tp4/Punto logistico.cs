@@ -40,8 +40,8 @@ namespace tp4
                 punto_geografico.localidad = asignar("localidad");
                 punto_geografico.provincia = asignar("provincia");
                 punto_geografico.region = asignar("región");
-                punto_geografico.codigo_sucursal = asignar_sucursal();
-                punto_geografico.codigo_centro_provincial = asignar_centro_provincial();
+                punto_geografico.codigo_sucursal = asignar_sucursal(punto_geografico.localidad);
+                punto_geografico.codigo_centro_provincial = asignar_centro_provincial(punto_geografico.provincia);
                 punto_geografico.codigo_centro_regional = asignar_centro_regional();
             }
             else
@@ -59,16 +59,40 @@ namespace tp4
         private static int asignar_centro_regional()
         {
             throw new NotImplementedException();
+            //SE PUEDE GENERAR UN ARCHIVO PARA PODER RASTREAR A QUE REGIÓN SE CORREPSONDE UNA DETERMINADA PROVINCIA
         }
 
-        private static int asignar_centro_provincial()
+        private static int asignar_centro_provincial(string provincia)
         {
-            throw new NotImplementedException();
+            var lista = Centro_Provincial.abrir_archivo();
+            int codigo_provincia = 0;
+
+            foreach(var prov in lista)
+            {
+                if(prov.ubicacion==provincia)
+                {
+                    codigo_provincia = prov.codigo;
+                }
+
+            }
+
+            return codigo_provincia;
         }
 
-        private static int asignar_sucursal()
+        private static int asignar_sucursal(string localidad)
         {
-            throw new NotImplementedException();
+            var lista = Sucursal.abrir_archivo();
+            int codigo_sucursal = 0;
+
+            foreach(var sucursal in lista)
+            {
+                if(sucursal.localidad_dominante=="localidad")
+                {
+                    codigo_sucursal = sucursal.codigo_sucursal;
+                }
+            }
+
+            return codigo_sucursal;
         }
 
         private static string asingar_extranjero()
