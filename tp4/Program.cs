@@ -163,56 +163,6 @@ namespace tp4
             Console.WriteLine("\n4.SALIR");
             Console.WriteLine("******************************************************************************************\n");
         }
-
-
-        public static void salir()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static string crear_order_de_servicio()
-        {
-            throw new NotImplementedException();
-        }
-        public static string estado_servicio()
-        {
-            string ingreso = "";
-            int codigo_orden = 0;
-            do
-            {
-                Console.WriteLine("\nIngrese el nº de orden de servicio del cual desea consultar su estado");
-                ingreso = Console.ReadLine();
-
-                if (string.IsNullOrWhiteSpace(ingreso))
-                {
-                    Console.WriteLine("\nEl el nº de orden no debe de ser vacio, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
-                    continue;
-                }
-                if (!Int32.TryParse(ingreso, out codigo_orden))
-                {
-                    Console.WriteLine("\nEl nº de orden debe de ser numérico, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
-                    continue;
-                }
-                if (codigo_orden < 0)
-                {
-                    Console.WriteLine("\nEl nº de orden debe de ser positivo, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
-                    continue;
-                }
-                if (!Orden_de_servicio.validar_codigo_orden(codigo_orden))
-                {
-                    Console.WriteLine("\nEl nº de orden ingresado no se correpsonde con ninguno de los elementos dentro de la base de datos del repositorio, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
-                    continue;
-                }
-
-                break;
-
-
-            } while (true);
-
-            string estado = Orden_de_servicio.consultar_estado(codigo_orden);
-
-            return $"\nEl estado de la orden de servicio de código {codigo_orden} es: {estado}";
-        }
         public static string estado_cuenta()
         {
             throw new NotImplementedException();
@@ -289,13 +239,6 @@ namespace tp4
 
             
         }
-        
-      
-
-    
-        public static void volver_atras()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
