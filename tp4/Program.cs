@@ -13,7 +13,7 @@ namespace tp4
     {
         static void Main(string[] args)
         {
-            interaccion_validar_cliente();
+            validar_cliente();
 
             Console.WriteLine("\nIngrese una tecla para poder detener la ejecución");
             Console.ReadKey();
