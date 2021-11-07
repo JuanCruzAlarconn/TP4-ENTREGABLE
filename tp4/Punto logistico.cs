@@ -49,13 +49,16 @@ namespace tp4
                 punto_geografico.direccion = asignar("dirección");
                 punto_geografico.localidad = asignar("localidad");
                 punto_geografico.provincia = asignar("provincia");
-                punto_geografico.region = asignar("región");
+                
+
+                //Esto se asigna por sistema
                 punto_geografico.codigo_sucursal = asignar_sucursal(punto_geografico.localidad);
                 punto_geografico.codigo_centro_provincial = asignar_centro_provincial(punto_geografico.provincia);
-                punto_geografico.codigo_centro_regional = asignar_centro_regional();
+                punto_geografico.codigo_centro_regional = asignar_centro_regional(punto_geografico.codigo_centro_provincial);
             }
             else
             {
+                //En caso de tratarse de un envío internacional solo debo de hacerlo llegar hasta el centro regional metropolitano para que se despache hacia el exterior
                 punto_geografico.direccion = asingar_extranjero();
                 punto_geografico.localidad = null;
                 punto_geografico.provincia = null;
@@ -106,10 +109,23 @@ namespace tp4
             return documento;
         }
 
-        private static int asignar_centro_regional()
+        private static int asignar_centro_regional(int codigo_provincia)
         {
-            throw new NotImplementedException();
-            //SE PUEDE GENERAR UN ARCHIVO PARA PODER RASTREAR A QUE REGIÓN SE CORREPSONDE UNA DETERMINADA PROVINCIA
+            var lista = Centro_Regional.abrir_archivo();
+
+            int codigo_regional = 0;
+
+            foreach(var reg in lista)
+            {
+                if(reg.codigos_centros_provinciales_incluidos.Contains(codigo_provincia))
+                {
+                    codigo_regional = reg.codigo;
+                    break;
+                }
+            }
+
+            return codigo_regional;
+
         }
 
         private static int asignar_centro_provincial(string provincia)
