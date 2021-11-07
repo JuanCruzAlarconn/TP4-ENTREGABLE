@@ -47,14 +47,28 @@ namespace tp4
 
         }
 
-        public void asignar_orden_servicio()
+        public void asignar_orden_servicio(int codigo_orden)
         {
-            //Le paso el codigo de la orden de servicio a la entidad para que en el momento en que tome contacto físico con la misma pueda modificar el estado partiendo de la base de datos unificada
+            var lista = Centro_Provincial.abrir_archivo();
 
-            throw new NotImplementedException();
+            var centro = Centro_Provincial.hallar(this.codigo);
+
+            centro.codigos_ordenes_asignadas.Add(codigo_orden);
+
+            foreach (var elemento in lista)
+            {
+                if (elemento.codigo == this.codigo)
+                {
+                    lista.Remove(elemento);
+                }
+            }
+
+            lista.Add(centro);
+
+            Centro_Provincial.actualizar_archivo(lista);
         }
 
-        public static void actuliazar_archivo(List<Centro_Provincial> lista)
+        public static void actualizar_archivo(List<Centro_Provincial> lista)
         {
             string lista_modificada = JsonConvert.SerializeObject(lista);
 

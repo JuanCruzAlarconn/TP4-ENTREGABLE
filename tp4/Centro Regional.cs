@@ -49,12 +49,28 @@ namespace tp4
 
         }
 
-        public static void asignar_orden_servicio(int codigo_servicio)
+        public void asignar_orden_servicio(int codigo_servicio)
         {
-            throw new NotImplementedException();
+            var lista = Centro_Regional.abrir_archivo();
+
+            var centro = Centro_Regional.hallar(this.codigo);
+
+            centro.codigos_ordenes_asignadas.Add(codigo_servicio);
+
+            foreach(var elemento in lista)
+            {
+                if(elemento.codigo==this.codigo)
+                {
+                    lista.Remove(elemento);
+                }
+            }
+
+            lista.Add(centro);
+
+            Centro_Regional.actualizar_archivo(lista);
         }
 
-        public static void actuliazar_archivo(List<Centro_Regional> lista)
+        public static void actualizar_archivo(List<Centro_Regional> lista)
         {
             string lista_modificada = JsonConvert.SerializeObject(lista);
 
