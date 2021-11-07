@@ -35,7 +35,8 @@ namespace tp4
 
             if (punto_geografico.pais == "Argentina")
             {
-
+                punto_geografico.nombre_y_apellido = asignar("nombre y apellido");
+                punto_geografico.DNI_o_Documentacion_correspondiente = asignar("Documentación");
                 punto_geografico.direccion = asignar("dirección");
                 punto_geografico.localidad = asignar("localidad");
                 punto_geografico.provincia = asignar("provincia");
