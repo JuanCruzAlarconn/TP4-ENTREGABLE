@@ -107,19 +107,11 @@ namespace tp4
                 }
                 if (opcion==3)
                 {
-                    Console.WriteLine("\nEjecución de la rutina consultar estado de cuenta");
-                   /* validar_eleccion(codigo_cliente);*/
-                    EstadoCuenta.carga_prueba_estadocuenta();
-                   /* EstadoCuenta.mostrar_menu_estado_de_cuenta();*/
-                    string nombreyapellido = (EstadoCuenta.hallar(codigo_cliente).codigo_cliente).ToString();
-                    Console.WriteLine($"\nBienvenido {nombreyapellido}");
-                    EstadoCuenta.mostrarCuenta(codigo_cliente);
-                    EstadoCuenta.CalcularSaldoCta(codigo_cliente);
-                    EstadoCuenta.filtrarPorFechas(codigo_cliente, DateTime.Now, DateTime.Now.AddDays(10));
 
-
-
+                    estado_cuenta(codigo_cliente);
+                    validar_eleccion(codigo_cliente);
                     break;
+
                 }
                 if (opcion==4)
                 {
@@ -156,8 +148,8 @@ namespace tp4
         {
             Console.WriteLine("******************************************************************************************");
             Console.WriteLine("\nIngrese por teclado cualquiera de las siguientes opciones según la tarea que desee realizar, y luego presione la tecla enter");
-            Console.WriteLine("\n1. GENERAR ENVÍO");
-            Console.WriteLine("\n2. CONSULTAR ESTADO DE ENVÍO");
+            Console.WriteLine("\n1.GENERAR ENVÍO");
+            Console.WriteLine("\n2.CONSULTAR ESTADO DE ENVÍO");
             Console.WriteLine("\n3.CONSULTAR ESTADO DE CUENTA");
             Console.WriteLine("\n4.SALIR");
             Console.WriteLine("******************************************************************************************\n");
@@ -212,10 +204,72 @@ namespace tp4
 
             return $"\nEl estado de la orden de servicio de código {codigo_orden} es: {estado}";
         }
-        public static string estado_cuenta()
+
+
+
+
+        public static void estado_cuenta(int codigo_cliente)
         {
-            throw new NotImplementedException();
+
+         string ingreso = "";
+         int opcion = 0;
+         string fechaINI;
+         string fechaFIN;
+         DateTime inicial;
+         DateTime final;
+
+               do
+               {
+               Console.WriteLine("******************************************************************************************\n");
+               Console.WriteLine("\nEjecución de la rutina consultar estado de cuenta");
+               EstadoCuenta.carga_prueba_estadocuenta();
+               string clavesecreta = (Cliente_corportativo.hallar(codigo_cliente).clave_secreta).ToString();
+               Console.WriteLine($"\nBienvenido, su clave secreta es  {clavesecreta}" + " por si no la recuerda\n");
+               if  ((EstadoCuenta.ValidarClaveSecreta(clavesecreta))== true)
+                { 
+               Console.WriteLine("");
+               Console.WriteLine("A continuación se le mostrará el estado de cuenta");
+               Console.WriteLine("");
+               EstadoCuenta.mostrarCuenta(codigo_cliente);
+               EstadoCuenta.CalcularSaldoCta(codigo_cliente);
+               Console.WriteLine("");
+               Console.WriteLine("Si desea filtrar entre dos fechas presione la tecla A, de otra forma regresará al menú anterior");
+               Console.WriteLine("\n******************************************************************************************\n");
+               
+               if (Console.ReadKey(true).Key == ConsoleKey.A)
+                    {
+                            do
+                            { 
+                                           Console.WriteLine("");
+                                           Console.WriteLine("Por favor ingrese dos fechas válidas para las que quiera filtrar\n");
+                                           Console.WriteLine("Por favor ingrese la fecha inicial\n");
+                                           fechaINI = Console.ReadLine();
+                                           Console.WriteLine("Por favor ingrese la fecha final\n");
+                                           fechaFIN = Console.ReadLine();
+                                           DateTime.TryParse(fechaINI, out inicial);
+                                           DateTime.TryParse(fechaFIN, out final);
+                                           if (inicial!= null &&  final!=null)
+                                           {
+                                            EstadoCuenta.filtrarPorFechas(codigo_cliente, inicial, final);
+                                           }
+
+                                           break;
+
+
+                            } while (true);
+                    }
+
+                }
+
+
+                break;
+
+               } while (true);
+
         }
+
+
+
         public static void validar_identidad()
         {
             string ingreso = "";
