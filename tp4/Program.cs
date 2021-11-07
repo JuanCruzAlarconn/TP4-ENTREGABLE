@@ -102,7 +102,7 @@ namespace tp4
                 if (opcion==2)
                 {
                     Console.WriteLine("\nEjecución de la rutina consultar estado de envío");
-                    Orden_de_servicio.consultar_estado();
+                    Orden_de_servicio.consultar_estado(codigo_cliente);
                     validar_eleccion(codigo_cliente);
                     break;
                 }
