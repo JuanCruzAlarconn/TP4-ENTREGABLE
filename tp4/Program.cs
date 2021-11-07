@@ -110,6 +110,8 @@ namespace tp4
                 }
                 if (opcion==3)
                 {
+<<<<<<< HEAD
+=======
                     Console.WriteLine("\nEjecución de la rutina consultar estado de cuenta\n");
                    /* validar_eleccion(codigo_cliente);*/
                     EstadoCuenta.carga_prueba_estadocuenta();
@@ -121,8 +123,12 @@ namespace tp4
                     EstadoCuenta.filtrarPorFechas(codigo_cliente, DateTime.Now, DateTime.Now.AddDays(10));
 
 
+>>>>>>> af5ee75395ea5aaeb0c0d75fb0ed00f8c0167dd8
 
+                    estado_cuenta(codigo_cliente);
+                    validar_eleccion(codigo_cliente);
                     break;
+
                 }
                 if (opcion==4)
                 {
@@ -159,6 +165,130 @@ namespace tp4
         {
             Console.WriteLine("******************************************************************************************");
             Console.WriteLine("\nIngrese por teclado cualquiera de las siguientes opciones según la tarea que desee realizar, y luego presione la tecla enter");
+<<<<<<< HEAD
+            Console.WriteLine("\n1.GENERAR ENVÍO");
+            Console.WriteLine("\n2.CONSULTAR ESTADO DE ENVÍO");
+            Console.WriteLine("\n3.CONSULTAR ESTADO DE CUENTA");
+            Console.WriteLine("\n4.SALIR");
+            Console.WriteLine("******************************************************************************************\n");
+        }
+
+
+        public static void salir()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static string crear_order_de_servicio()
+        {
+            throw new NotImplementedException();
+        }
+        public static string estado_servicio()
+        {
+            string ingreso = "";
+            int codigo_orden = 0;
+            do
+            {
+                Console.WriteLine("\nIngrese el nº de orden de servicio del cual desea consultar su estado");
+                ingreso = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(ingreso))
+                {
+                    Console.WriteLine("\nEl el nº de orden no debe de ser vacio, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    continue;
+                }
+                if (!Int32.TryParse(ingreso, out codigo_orden))
+                {
+                    Console.WriteLine("\nEl nº de orden debe de ser numérico, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    continue;
+                }
+                if (codigo_orden < 0)
+                {
+                    Console.WriteLine("\nEl nº de orden debe de ser positivo, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    continue;
+                }
+                if (!Orden_de_servicio.validar_codigo_orden(codigo_orden))
+                {
+                    Console.WriteLine("\nEl nº de orden ingresado no se correpsonde con ninguno de los elementos dentro de la base de datos del repositorio, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    continue;
+                }
+
+                break;
+
+
+            } while (true);
+
+            string estado = Orden_de_servicio.consultar_estado(codigo_orden);
+
+            return $"\nEl estado de la orden de servicio de código {codigo_orden} es: {estado}";
+        }
+
+
+
+
+        public static void estado_cuenta(int codigo_cliente)
+        {
+
+         string ingreso = "";
+         int opcion = 0;
+         string fechaINI;
+         string fechaFIN;
+         DateTime inicial;
+         DateTime final;
+
+               do
+               {
+               Console.WriteLine("******************************************************************************************\n");
+               Console.WriteLine("\nEjecución de la rutina consultar estado de cuenta");
+               EstadoCuenta.carga_prueba_estadocuenta();
+               string clavesecreta = (Cliente_corportativo.hallar(codigo_cliente).clave_secreta).ToString();
+               Console.WriteLine($"\nBienvenido, su clave secreta es  {clavesecreta}" + " por si no la recuerda\n");
+               if  ((EstadoCuenta.ValidarClaveSecreta(clavesecreta))== true)
+                { 
+               Console.WriteLine("");
+               Console.WriteLine("A continuación se le mostrará el estado de cuenta");
+               Console.WriteLine("");
+               EstadoCuenta.mostrarCuenta(codigo_cliente);
+               EstadoCuenta.CalcularSaldoCta(codigo_cliente);
+               Console.WriteLine("");
+               Console.WriteLine("Si desea filtrar entre dos fechas presione la tecla A, de otra forma regresará al menú anterior");
+               Console.WriteLine("\n******************************************************************************************\n");
+               
+               if (Console.ReadKey(true).Key == ConsoleKey.A)
+                    {
+                            do
+                            { 
+                                           Console.WriteLine("");
+                                           Console.WriteLine("Por favor ingrese dos fechas válidas para las que quiera filtrar\n");
+                                           Console.WriteLine("Por favor ingrese la fecha inicial\n");
+                                           fechaINI = Console.ReadLine();
+                                           Console.WriteLine("Por favor ingrese la fecha final\n");
+                                           fechaFIN = Console.ReadLine();
+                                           DateTime.TryParse(fechaINI, out inicial);
+                                           DateTime.TryParse(fechaFIN, out final);
+                                           if (inicial!= null &&  final!=null)
+                                           {
+                                            EstadoCuenta.filtrarPorFechas(codigo_cliente, inicial, final);
+                                           }
+
+                                           break;
+
+
+                            } while (true);
+                    }
+
+                }
+
+
+                break;
+
+               } while (true);
+
+        }
+
+
+
+=======
             Console.WriteLine("\n1. GENERAR ENVÍO");
             Console.WriteLine("\n2. CONSULTAR ESTADO DE ENVÍO");
             Console.WriteLine("\n3. CONSULTAR ESTADO DE CUENTA");
@@ -166,6 +296,7 @@ namespace tp4
             Console.WriteLine("******************************************************************************************\n");
         }
        
+>>>>>>> af5ee75395ea5aaeb0c0d75fb0ed00f8c0167dd8
         public static void validar_identidad()
         {
             string ingreso = "";

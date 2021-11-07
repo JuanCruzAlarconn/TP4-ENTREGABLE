@@ -7,6 +7,7 @@ using System.IO;
 using Newtonsoft.Json;
 
 
+
 namespace tp4
 {
     public class EstadoCuenta
@@ -18,7 +19,7 @@ namespace tp4
         public int cargos { get; set; }
         public int abonos { get; set; }
         public List<EstadoCuenta> ListaEstadoCuentaPorCliente { get; set; }
-
+        private static Random random = new Random();
         
 /*        public EstadoCuenta(int Codigo_cliente, int Codigo_operacion,  DateTime Fecha_operacion, string Concepto, int Cargos,  int Abonos)
         {
@@ -37,30 +38,47 @@ namespace tp4
             a.codigo_operacion = 12;
             a.codigo_cliente = 38456910;
             a.fecha_operacion = DateTime.Now;
-            a.concepto = "calle falsa 123";
+            a.concepto = "Encomienda Cerro Tronador-Aldo Bonzi";
             a.cargos = 10000;
             a.abonos = 10000;
 
             var b = new EstadoCuenta();
             b.codigo_operacion = 13;
             b.codigo_cliente = 38456910;
-            b.fecha_operacion = DateTime.Now.AddDays(50);
-            b.concepto = "calle falsa 123";
+            b.fecha_operacion = DateTime.Now.AddDays(-50);
+            b.concepto = "Encomienda Zárate-Tucumán";
             b.cargos = 20000;
             b.abonos = 10000;
 
             var c = new EstadoCuenta();
-            c.codigo_operacion = 13;
+            c.codigo_operacion = 14;
             c.codigo_cliente = 38456910;
-            c.fecha_operacion = DateTime.Now.AddDays(100);
-            c.concepto = "calle falsa 123";
+            c.fecha_operacion = DateTime.Now.AddDays(-100);
+            c.concepto = "Encomienda CABA-Río Luján";
             c.cargos = 20000;
             c.abonos = 30000;
 
+            var d = new EstadoCuenta();
+            d.codigo_operacion = 15;
+            d.codigo_cliente = 38456910;
+            d.fecha_operacion = DateTime.Now.AddDays(-40);
+            d.concepto = "Encomienda CABA-Santiago del Estero";
+            d.cargos = 20000;
+            d.abonos = 0;
+
+            var e = new EstadoCuenta();
+            e.codigo_operacion = 16;
+            e.codigo_cliente = 38456910;
+            e.fecha_operacion = DateTime.Now.AddDays(-120);
+            e.concepto = "Encomienda CABA-Río Luján";
+            e.cargos = 60000;
+            e.abonos = 30000;
             List<EstadoCuenta> lista = new List<EstadoCuenta>();
             lista.Add(a);
             lista.Add(b);
             lista.Add(c);
+            lista.Add(d);
+            lista.Add(e);
            
             string estadoCliente = JsonConvert.SerializeObject(lista);
 
@@ -109,7 +127,7 @@ namespace tp4
         var estado = new EstadoCuenta();
         foreach (var e in lista_estadoscuenta)
             {
-                if (e.codigo_cliente == codigo && (Ini<=e.fecha_operacion || e.fecha_operacion<=Fin) )
+                if (e.codigo_cliente == codigo && (Ini<=e.fecha_operacion && e.fecha_operacion<=Fin) )
                 {
 
                     estado = e;
@@ -143,10 +161,46 @@ namespace tp4
             Console.WriteLine("En conjunto con el HASH que aparecerá abajo");
             Console.WriteLine("******************************************************************************************\n");
         }
-        private void  ValidarClaveSecreta(int clave_secreta)
+        public static bool ValidarClaveSecreta(string clave_secreta)
+        {   bool bandera = true;
+            int contador=1;
+            int intentos = 3;
+            string ingresoCaptcha = "";
+            string ingresoClave = "";
+            string Hash = EstadoCuenta.RandomString(5);
+            Console.WriteLine("Por favor ingrese el CAPTCHA y a continuación su clave secreta");
+            Console.WriteLine(Hash);
+            do { 
+
+                ingresoCaptcha = Console.ReadLine();
+                ingresoClave = Console.ReadLine();
+                if ((ingresoClave==clave_secreta && ingresoCaptcha==Hash) == false)
+                {
+                    intentos --;
+                    Console.WriteLine("Ha ingresado un CAPTCHA y o clave secreta erroneos, le quedan "+ intentos+" intentos");}
+                    contador ++;
+
+
+                if (contador==4)
+                {
+                bandera = false;
+                Console.WriteLine("Se devuelve al menú anterior");
+                }
+                }
+
+                
+            while (!((ingresoClave==clave_secreta && ingresoCaptcha==Hash)|| 4<=contador));
+            return bandera; 
+        }              
+
+
+
+        public static string RandomString(int length)
         {
-            Console.WriteLine("A implementar");
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
         }
+
 
         public static EstadoCuenta CalcularSaldoCta(int codigo)
         {
