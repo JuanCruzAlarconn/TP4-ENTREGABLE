@@ -95,6 +95,7 @@ namespace tp4
                 if (opcion==1)
                 {
                     Console.WriteLine("\nEjecución de la rutina generar envío");
+                    Orden_de_servicio.crear(codigo_cliente);
                     validar_eleccion(codigo_cliente);
                     break;
                 }

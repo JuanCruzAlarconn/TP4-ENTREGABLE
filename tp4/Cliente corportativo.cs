@@ -32,14 +32,14 @@ namespace tp4
             cliente_corporativo.codigo_postal = 1439;
 
             var cliente_corporativo2 = new Cliente_corportativo();
-            cliente_corporativo2.nombre = "Juan Cruz";
-            cliente_corporativo2.apellido = "Alarcón";
+            cliente_corporativo2.nombre = "Roy";
+            cliente_corporativo2.apellido = "Russo";
             cliente_corporativo2.codigo_cliente = 12345678;
-            cliente_corporativo2.domicilio = "calle falsa 123";
-            cliente_corporativo2.telefono = 1145788956;
-            cliente_corporativo2.codigo_cuenta_corriente = 0001;
+            cliente_corporativo2.domicilio = "calle turbia 123";
+            cliente_corporativo2.telefono = 1145237789;
+            cliente_corporativo2.codigo_cuenta_corriente = 0002;
             cliente_corporativo2.clave_secreta = 1234;
-            cliente_corporativo2.codigo_postal = 1439;
+            cliente_corporativo2.codigo_postal = 1414;
 
             List<Cliente_corportativo> lista = new List<Cliente_corportativo>();
             lista.Add(cliente_corporativo);
