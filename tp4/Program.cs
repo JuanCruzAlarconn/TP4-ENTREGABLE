@@ -19,7 +19,7 @@ namespace tp4
             Console.ReadKey();
         }
 
-        public static void interaccion_validar_cliente()
+        public static void validar_cliente()
         {
 
 
@@ -163,10 +163,7 @@ namespace tp4
             Console.WriteLine("\n4.SALIR");
             Console.WriteLine("******************************************************************************************\n");
         }
-        public static string estado_cuenta()
-        {
-            throw new NotImplementedException();
-        }
+       
         public static void validar_identidad()
         {
             string ingreso = "";
