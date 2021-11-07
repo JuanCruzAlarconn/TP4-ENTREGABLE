@@ -222,6 +222,13 @@ namespace tp4
                 Console.WriteLine("\nIngrese por consola el comando ATRAS para volver al menú anterior en caso de necesitarlo\n");
                 ingreso = Console.ReadLine();
 
+                if (ingreso == "ATRAS")
+                {
+                    Console.WriteLine("\nHa ingresado el comando de para volver al menú anterior");
+                    Console.WriteLine("\nSe lo redirijira al menú anterior a continuación");
+                    Program.validar_eleccion(codigo_cliente);
+                    break;
+                }
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
                     Console.WriteLine("\nEl código de orden ingresado esta vacio y no se corresponde con la solicitud");
@@ -258,13 +265,7 @@ namespace tp4
                     continue;
                 }
 
-                if(ingreso=="ATRAS")
-                {
-                    Console.WriteLine("\nHa ingresado el comando de para volver al menú anterior");
-                    Console.WriteLine("\nSe lo redirijira al menú anterior a continuación");
-                    Program.validar_eleccion(codigo_cliente);
-                    break;
-                }
+                
 
                 break;
 
