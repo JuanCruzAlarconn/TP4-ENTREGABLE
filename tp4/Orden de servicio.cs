@@ -219,7 +219,7 @@ namespace tp4
             do
             {
                 Console.WriteLine("\nIngrese el código de orden de servicio que desea consultar, el mismo esta compuesto como máximo de 7 elementos númericos y le fue otorgado en el momento en que se finaliza la realizacion del pedido como tal");
-                Console.WriteLine("\nIngrese por consola el comando ATRAS para volver al menú anterior en caso de necesitarlo");
+                Console.WriteLine("\nIngrese por consola el comando ATRAS para volver al menú anterior en caso de necesitarlo\n");
                 ingreso = Console.ReadLine();
 
                 if (string.IsNullOrWhiteSpace(ingreso))
