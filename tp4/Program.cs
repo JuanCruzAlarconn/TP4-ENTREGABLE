@@ -110,21 +110,16 @@ namespace tp4
                 }
                 if (opcion==3)
                 {
-<<<<<<< HEAD
-=======
-                    Console.WriteLine("\nEjecución de la rutina consultar estado de cuenta\n");
-                   /* validar_eleccion(codigo_cliente);*/
+          Console.WriteLine("\nEjecución de la rutina consultar estado de cuenta\n");
+                  /*validar_eleccion(codigo_cliente);
                     EstadoCuenta.carga_prueba_estadocuenta();
-                   /* EstadoCuenta.mostrar_menu_estado_de_cuenta();*/
+                    EstadoCuenta.mostrar_menu_estado_de_cuenta();
                     string nombreyapellido = (EstadoCuenta.hallar(codigo_cliente).codigo_cliente).ToString();
                     Console.WriteLine($"\nBienvenido {nombreyapellido}");
                     EstadoCuenta.mostrarCuenta(codigo_cliente);
                     EstadoCuenta.CalcularSaldoCta(codigo_cliente);
                     EstadoCuenta.filtrarPorFechas(codigo_cliente, DateTime.Now, DateTime.Now.AddDays(10));
-
-
->>>>>>> af5ee75395ea5aaeb0c0d75fb0ed00f8c0167dd8
-
+                  */
                     estado_cuenta(codigo_cliente);
                     validar_eleccion(codigo_cliente);
                     break;
@@ -164,8 +159,7 @@ namespace tp4
         public static void mostrar_menu_opciones()
         {
             Console.WriteLine("******************************************************************************************");
-            Console.WriteLine("\nIngrese por teclado cualquiera de las siguientes opciones según la tarea que desee realizar, y luego presione la tecla enter");
-<<<<<<< HEAD
+            Console.WriteLine("\nIngrese por teclado cualquiera de las siguientes opciones según la tarea que desee realizar, y luego presione la tecla enter\n");
             Console.WriteLine("\n1.GENERAR ENVÍO");
             Console.WriteLine("\n2.CONSULTAR ESTADO DE ENVÍO");
             Console.WriteLine("\n3.CONSULTAR ESTADO DE CUENTA");
@@ -288,15 +282,7 @@ namespace tp4
 
 
 
-=======
-            Console.WriteLine("\n1. GENERAR ENVÍO");
-            Console.WriteLine("\n2. CONSULTAR ESTADO DE ENVÍO");
-            Console.WriteLine("\n3. CONSULTAR ESTADO DE CUENTA");
-            Console.WriteLine("\n4. SALIR");
-            Console.WriteLine("******************************************************************************************\n");
-        }
-       
->>>>>>> af5ee75395ea5aaeb0c0d75fb0ed00f8c0167dd8
+
         public static void validar_identidad()
         {
             string ingreso = "";

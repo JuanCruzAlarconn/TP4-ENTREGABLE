@@ -59,7 +59,6 @@ namespace tp4
                     {
                         int codigo = ordenes.asignar_codigo_servicio();
                         ordenes.agregar(new Orden_de_servicio2(codigo, tipo, postal, sucursal, tipo2, nombre, direccion, costo));
-
                         Console.WriteLine("Orden de servicio generada Nro:" + codigo);
                     }
                 }
