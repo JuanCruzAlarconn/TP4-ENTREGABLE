@@ -74,6 +74,7 @@ namespace tp4
 
             var estado = new EstadoCuenta();
 
+<<<<<<< HEAD
             foreach (var e in lista_estadoscuenta)
             {
                 if (e.codigo_cliente == codigo)
@@ -82,11 +83,29 @@ namespace tp4
                     break;
                 }
             }
+=======
+            return lista; 
+>>>>>>> 46f8903f55a89dc33a57e0419de0d49b1f80eb1e
 
             return estado;
         }
+<<<<<<< HEAD
 
         public static EstadoCuenta mostrarCuenta(int codigo)
+=======
+   */
+
+        /*public static void mostrar_menu_estado_de_cuenta()
+        {
+            // Hola vengo a flotar 4
+            Console.WriteLine("******************************************************************************************");
+            foreach (var a in ListaEstadoCuentaPorCliente) {System.Diagnostics.Debug.WriteLine(a.ToString()); }
+            Console.WriteLine();
+            Console.WriteLine("******************************************************************************************\n");
+        }
+        */
+        private void  ValidarClaveSecreta(int clave_secreta)
+>>>>>>> 46f8903f55a89dc33a57e0419de0d49b1f80eb1e
         {
         var lista_estadoscuenta = EstadoCuenta.abrir();    
         var estado = new EstadoCuenta();
@@ -148,6 +167,7 @@ namespace tp4
             Console.WriteLine("A implementar");
         }
 
+<<<<<<< HEAD
         public static EstadoCuenta CalcularSaldoCta(int codigo)
         {
             var lista_estadoscuenta = EstadoCuenta.abrir();
@@ -172,6 +192,11 @@ namespace tp4
         public override string ToString()
         {
         return  this.codigo_operacion +"  "+  this.fecha_operacion +" "+ this.concepto +" "+ this.cargos +" "+ this.abonos;
+=======
+        public override string ToString()
+        {
+        return "Cliente: " + this.codigo_cliente + " " + this.codigo_operacion +  this.fecha_operacion + this.concepto + this.cargos + this.abonos;
+>>>>>>> 46f8903f55a89dc33a57e0419de0d49b1f80eb1e
         }
 
 
