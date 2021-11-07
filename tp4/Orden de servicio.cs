@@ -33,8 +33,8 @@ namespace tp4
             orden_de_servicio.fecha_ingreso = asignar_fecha_ingreso();//la fecha en que ingreso el pedido
             orden_de_servicio.fecha_egreso = asignar_fecha_egreso();//cuando el paquete llego finalmente a destino
             orden_de_servicio.codigo_seguro = asignar_seguro();//El paquete debe de tener un seguro según el enunciado
-            orden_de_servicio.origen = Punto_logistico.crear();//lugar de donde parte, puede ser una sucursal o que se halla retirado a domicilio
-            orden_de_servicio.destino = Punto_logistico.crear();//lugar en que se deposita al final puede ser una sucursal o lo envío a domicilio
+            orden_de_servicio.origen = Punto_logistico.crear("origen");//lugar de donde parte, puede ser una sucursal o que se halla retirado a domicilio
+            orden_de_servicio.destino = Punto_logistico.crear("destino");//lugar en que se deposita al final puede ser una sucursal o lo envío a domicilio
             orden_de_servicio.paquete = asignar_paquetes();//Información sobre el paquete          
             orden_de_servicio.modalidad = asignar_modalidad();//aspectos acerca de como debe de llegar y entregar el paquete además de que si es o no urgente           
             orden_de_servicio.transportes_asignados = asignar_transportes(orden_de_servicio.origen, orden_de_servicio.destino, orden_de_servicio.codigo_servicio, orden_de_servicio.paquete);//Todos los transportes propios de la empresa implicados en la operación, si no son necesarios se los deja en null

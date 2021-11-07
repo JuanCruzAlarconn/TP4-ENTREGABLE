@@ -27,16 +27,25 @@ namespace tp4
         public int codigo_centro_provincial { get; set; }
         public int codigo_centro_regional { get; set; }
 
-        public static Punto_logistico crear()
+        public static Punto_logistico crear(string modo)
         {
             Punto_logistico punto_geografico = new Punto_logistico();
+
+            if(modo=="origen")
+            {
+                Console.WriteLine("\nA continuación se solicitara el ingreso de los datos correspondientes con el punto de origen de la operación\n");
+            }
+            else
+            {
+                Console.WriteLine("\nA continuación se solicitara el ingreso de los datos correspondientes con el punto de destino de la operación\n");
+            }
 
             punto_geografico.pais = asignar("pais");
 
             if (punto_geografico.pais == "Argentina")
             {
                 punto_geografico.nombre_y_apellido = asignar("nombre y apellido");
-                punto_geografico.DNI_o_Documentacion_correspondiente = asignar("Documentación");
+                punto_geografico.DNI_o_Documentacion_correspondiente = asignar_documentacion();
                 punto_geografico.direccion = asignar("dirección");
                 punto_geografico.localidad = asignar("localidad");
                 punto_geografico.provincia = asignar("provincia");
@@ -55,6 +64,46 @@ namespace tp4
 
             return punto_geografico;
 
+        }
+
+        private static int asignar_documentacion()
+        {
+            string ingreso = "";
+            int documento = 0;
+
+            do
+            {
+                Console.WriteLine("\nIngrese la documentación correpondiente");
+                ingreso = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(ingreso))
+                {
+                    Console.WriteLine("\nLa documentación ingresado no puede ser nula");
+                    continue;
+                }
+
+                if (!int.TryParse(ingreso, out documento))
+                {
+                    Console.WriteLine("\nLa documentación ingresada debe de ser numérica");
+                    continue;
+                }
+
+                if (documento <= 0)
+                {
+                    Console.WriteLine("\nLa documentación ingresada debe de ser un número positivo");
+                    continue;
+                }
+
+                if (ingreso.Length < 7)
+                {
+                    Console.WriteLine("\nLa documentación ingresado debe de contar como mínimo con 7 elementos numéricos positivos");
+                    continue;
+                }
+
+                break;
+            } while (true);
+
+            return documento;
         }
 
         private static int asignar_centro_regional()
@@ -103,7 +152,38 @@ namespace tp4
 
         private static string asignar(string campo)
         {
-            throw new NotImplementedException();
+            string ingreso = "";
+
+            do
+            {
+                Console.WriteLine($"\nIngrese los datos que se corresponde con el {campo}");
+                ingreso = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(ingreso))
+                {
+                    Console.WriteLine($"\nEl campo {campo} no puede permanecer vacio");
+                    continue;
+                }
+
+                if (ingreso.Length < 10)
+                {
+                    Console.WriteLine($"\nEl campo {campo} no pude contener pocos elementos de escritura");
+                    continue;
+                }
+
+                if (campo != "dirección")
+                {
+                    if (ingreso.Any(char.IsDigit))
+                    {
+                        Console.WriteLine($"\nEl campo {campo} no puede tener elementos numéricos dentro de su definición");
+                        continue;
+                    }
+                }
+
+                break;
+            } while (true);
+
+            return ingreso;
         }
 
         public static string tipo_envio(Punto_logistico A, Punto_logistico B)
@@ -117,12 +197,17 @@ namespace tp4
 
             }
 
+            if(A.provincia==B.provincia)
+            {
+                tipo = "provincial";
+            }
+
             if (A.region == B.region)
             {
                 tipo = "regional";
             }
 
-            if (A.pais == B.pais)
+            if (A.pais != B.pais)
             {
                 tipo = "internacional";
             }
