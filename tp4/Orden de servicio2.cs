@@ -23,6 +23,8 @@ namespace tp4
             return orden != null &&
                    codigo == orden.codigo;
         }
+        
+        public override int GetHashCode() { return 0; }
 
     }
 }

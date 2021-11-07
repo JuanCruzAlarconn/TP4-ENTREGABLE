@@ -16,6 +16,19 @@ namespace tp4
         {
             ordenes = new List<Orden_de_servicio2>();
         }
+
+        public string listado()
+        {
+            string retorno = "";
+
+            foreach (Orden_de_servicio2 orden in ordenes)
+            {
+                retorno = retorno + orden.ToString() + "\n";
+            }
+
+            return (retorno);
+        }
+
         public bool agregar(Orden_de_servicio2 orden)
         {
             if (!ordenes.Contains(orden))
@@ -27,6 +40,21 @@ namespace tp4
             {
                 return (false);
             }
+        }
+
+        public Orden_de_servicio2 obtener(int codigo, string tipo)
+        {
+            Orden_de_servicio2 retorno = null;
+            Orden_de_servicio2 aBuscar = new Orden_de_servicio2(codigo, "");
+
+            int posicion = this.ordenes.IndexOf(aBuscar);
+
+            if (posicion != -1)
+            {
+                retorno = ordenes[posicion];
+            }
+
+            return (retorno);
         }
     }
 }

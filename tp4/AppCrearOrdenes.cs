@@ -38,22 +38,12 @@ namespace tp4
                 }
                 else
                 {
-
+                    
                 }
             } while (!sucursales.existe(sucursal));
         }
 
-        private void cargaInicial()
-        {
-            sucursales.agregar(new Sucursal2(100, "Microcentro", "CABA", "Metropolitana"));
-            sucursales.agregar(new Sucursal2(115, "Liniers", "CABA", "Metropolitana"));
-            sucursales.agregar(new Sucursal2(150, "La Plata", "Buenos Aires", "Metropolitana"));
-            sucursales.agregar(new Sucursal2(175, "Olavarria", "Buenos Aires", "Metropolitana");
-            sucursales.agregar(new Sucursal2(200, "Villa Central Norte", "Resistencia", "Norte"));
-            sucursales.agregar(new Sucursal2(300, "Alberdi", "Ciudad de Córdoba", "Centro"));
-            sucursales.agregar(new Sucursal2(311, "Arguello", "Ciudad de Córdoba", "Centro"));
-            sucursales.agregar(new Sucursal2(405, "Santa Clara", "Viedma", "Sur"));
-        }
+        
     }
 
     

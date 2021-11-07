@@ -25,6 +25,7 @@ namespace tp4
             return sucursal != null &&
                    codigo == sucursal.codigo;
         }
+        public override int GetHashCode() { return 0; }
 
         public override string ToString()
         {

@@ -13,6 +13,24 @@ namespace tp4
         public ConjuntoDeSucursales()
         {
             sucursales = new List<Sucursal2>();
+            cargaInicial();
+        }
+
+        private void cargaInicial()
+        {
+            sucursales.Add(new Sucursal2(100, "Microcentro", "CABA", "Metropolitana"));
+            sucursales.Add(new Sucursal2(115, "Liniers", "CABA", "Metropolitana"));
+            sucursales.Add(new Sucursal2(150, "La Plata", "Buenos Aires", "Metropolitana"));
+            sucursales.Add(new Sucursal2(175, "Olavarria", "Buenos Aires", "Metropolitana"));
+            sucursales.Add(new Sucursal2(200, "Villa Central Norte", "Resistencia", "Norte"));
+            sucursales.Add(new Sucursal2(300, "Alberdi", "Ciudad de Córdoba", "Centro"));
+            sucursales.Add(new Sucursal2(311, "Arguello", "Ciudad de Córdoba", "Centro"));
+            sucursales.Add(new Sucursal2(405, "Santa Clara", "Viedma", "Sur"));
+        }
+
+        internal Sucursal2 obtenerMesa(int sucursal)
+        {
+            return (sucursales[sucursales.IndexOf(new Sucursal2(sucursal, "", "", ""))]); ;
         }
 
         public bool existe(int codigo)
@@ -32,7 +50,7 @@ namespace tp4
             return (retorno);
         }
 
-        public bool agregar(Sucursal2 sucursal)
+        /*public bool agregar(Sucursal2 sucursal)
         {
             if (!sucursales.Contains(sucursal))
             {
@@ -43,9 +61,9 @@ namespace tp4
             {
                 return (false);
             }
-        }
+        }*/
 
-        public Sucursal2 obtener(int codigo)
+        /*public Sucursal2 obtener(int codigo)
         {
             Sucursal2 retorno = null;
             Sucursal2 aBuscar = new Sucursal2(codigo, "", "", "");
@@ -58,6 +76,6 @@ namespace tp4
             }
 
             return (retorno);
-        }
+        }*/
     }
 }
