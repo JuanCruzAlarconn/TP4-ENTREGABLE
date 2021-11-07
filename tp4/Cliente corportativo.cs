@@ -82,6 +82,8 @@ namespace tp4
             return cliente;
         }
 
+
+
         public static bool validar_cliente(int codigo)
         {
          
