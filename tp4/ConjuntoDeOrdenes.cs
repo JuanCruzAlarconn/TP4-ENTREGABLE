@@ -45,7 +45,7 @@ namespace tp4
         public Orden_de_servicio2 obtener(int codigo, string tipo)
         {
             Orden_de_servicio2 retorno = null;
-            Orden_de_servicio2 aBuscar = new Orden_de_servicio2(codigo, "");
+            Orden_de_servicio2 aBuscar = new Orden_de_servicio2(codigo, "", 0, 0, "", "", "", 0);
 
             int posicion = this.ordenes.IndexOf(aBuscar);
 
