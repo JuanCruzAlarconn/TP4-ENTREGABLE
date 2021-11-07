@@ -56,5 +56,14 @@ namespace tp4
 
             return (retorno);
         }
+
+        public int asignar_codigo_servicio()
+        {
+            Random r = new Random();
+
+            int servicio = r.Next(0, 9999999);
+
+            return servicio;
+        }
     }
 }

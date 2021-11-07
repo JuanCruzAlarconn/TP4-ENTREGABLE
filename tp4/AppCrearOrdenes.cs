@@ -25,6 +25,7 @@ namespace tp4
         {
             int sucursal = 0;
             string continuar = "";
+            decimal costo = 0; //quitar luego de desarrollar el metodo para calcular el costo
 
             Console.WriteLine("Completa los datos de tu envío" + "\n");
             string tipo = validador.pedirTipo("¿Qué tipo de paquete quieres enviar? (nacional/internacional)\n");
@@ -51,10 +52,16 @@ namespace tp4
 
                     //decimal costo = calcularCosto(tipo, postal, paquete.peso, tipo2);
                     //Console.WriteLine("El costo del servicio es:" + costo);
-                    
+
                     continuar = validador.pedirSoN("Desea confirmar la orden? S/N\n");
 
+                    if (continuar == "S")
+                    {
+                        int codigo = ordenes.asignar_codigo_servicio();
+                        ordenes.agregar(new Orden_de_servicio2(codigo, tipo, postal, sucursal, tipo2, nombre, direccion, costo));
 
+                        Console.WriteLine("Orden de servicio generada Nro:" + codigo);
+                    }
                 }
             } while (!sucursales.existe(sucursal));
         }

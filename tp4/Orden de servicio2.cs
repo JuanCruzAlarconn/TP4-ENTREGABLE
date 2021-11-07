@@ -10,11 +10,23 @@ namespace tp4
     {
         private int codigo;
         private string tipo;
+        private int postal;
+        private int sucursal;
+        private string tipo2;
+        private string nombre;
+        private string direccion;
+        private decimal costo;
 
-        public Orden_de_servicio2(int codigo, string tipo)
+        public Orden_de_servicio2(int codigo, string tipo, int postal, int sucursal, string tipo2, string nombre, string direccion, decimal costo)
         {
             this.codigo = codigo;
             this.tipo = tipo;
+            this.postal = postal;
+            this.sucursal = sucursal;
+            this.tipo2 = tipo2;
+            this.nombre = nombre;
+            this.direccion = direccion;
+            this.costo = costo;
         }
 
         public override bool Equals(object obj)
