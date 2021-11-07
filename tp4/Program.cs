@@ -110,6 +110,7 @@ namespace tp4
                     Console.WriteLine("\nEjecución de la rutina consultar estado de cuenta");
                    /* validar_eleccion(codigo_cliente);*/
                     EstadoCuenta.carga_prueba_estadocuenta();
+<<<<<<< HEAD
                    /* EstadoCuenta.mostrar_menu_estado_de_cuenta();*/
                     string nombreyapellido = (EstadoCuenta.hallar(codigo_cliente).codigo_cliente).ToString();
                     Console.WriteLine($"\nBienvenido {nombreyapellido}");
@@ -119,6 +120,9 @@ namespace tp4
 
 
 
+=======
+                 //  EstadoCuenta.mostrar_menu_estado_de_cuenta();
+>>>>>>> 46f8903f55a89dc33a57e0419de0d49b1f80eb1e
                     break;
                 }
                 if (opcion==4)
@@ -158,14 +162,22 @@ namespace tp4
             Console.WriteLine("\nIngrese por teclado cualquiera de las siguientes opciones según la tarea que desee realizar, y luego presione la tecla enter");
             Console.WriteLine("\n1. GENERAR ENVÍO");
             Console.WriteLine("\n2. CONSULTAR ESTADO DE ENVÍO");
+<<<<<<< HEAD
             Console.WriteLine("\n3.CONSULTAR ESTADO DE CUENTA");
             Console.WriteLine("\n4.SALIR");
             Console.WriteLine("******************************************************************************************\n");
         }
 
+=======
+            Console.WriteLine("\n3. CONSULTAR ESTADO DE CUENTA");
+            Console.WriteLine("\n4. SALIR");
+            Console.WriteLine("******************************************************************************************\n");
+        }
+>>>>>>> 46f8903f55a89dc33a57e0419de0d49b1f80eb1e
+
 
         public static void salir()
-        {
+        {   
             throw new NotImplementedException();
         }
 
@@ -225,7 +237,7 @@ namespace tp4
             {
                 Console.WriteLine("\nIngrese su código de cliente corporativo para poder acceder a las funciones del sistema y luego presione la tecla enter");
                 Console.WriteLine("\nSi desea detener la ejecución del programa introduzca por teclado la frase SALIR tal y como se le comunico");
-                Console.WriteLine("\n38456910");
+                
                 ingreso = Console.ReadLine();
                 Cliente_corportativo.carga_prueba();
 
