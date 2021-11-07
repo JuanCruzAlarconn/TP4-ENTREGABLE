@@ -48,8 +48,7 @@ namespace tp4
 
             if (punto_geografico.pais == "Argentina")
             {
-                punto_geografico.nombre_y_apellido = asignar("nombre y apellido");
-                punto_geografico.DNI_o_Documentacion_correspondiente = asignar_documentacion();
+                
                 punto_geografico.direccion = asignar("dirección");
                 punto_geografico.localidad = asignar("localidad");
                 punto_geografico.provincia = asignar("provincia");
@@ -64,8 +63,7 @@ namespace tp4
             {
                 //En caso de tratarse de un envío internacional solo debo de hacerlo llegar hasta el centro regional metropolitano para que se despache hacia el exterior
                 punto_geografico.direccion = asingar_extranjero();
-                punto_geografico.nombre_y_apellido = asignar("nombre y apellido");
-                punto_geografico.DNI_o_Documentacion_correspondiente = asignar_documentacion();
+              
                 punto_geografico.localidad = null;
                 punto_geografico.provincia = null;
                 punto_geografico.region = null;
