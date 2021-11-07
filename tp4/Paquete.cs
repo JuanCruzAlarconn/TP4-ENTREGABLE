@@ -27,7 +27,6 @@ namespace tp4
             paquete.valor_declarado = asignar_valor_declarado();
 
             return paquete;
-
         }
 
         private static decimal asignar_valor_declarado()

@@ -12,6 +12,7 @@ namespace tp4
         public string pedirString(string mensaje)
         {
             string retorno = "";
+
             do
             {
                 Console.WriteLine(mensaje);
@@ -21,6 +22,7 @@ namespace tp4
                     Console.WriteLine("El string no puede estar vacio" + "\n");
                 }
             } while (retorno == "");
+
             return (retorno);
         }
 
@@ -53,6 +55,7 @@ namespace tp4
         public double pedirDouble(string mensaje, double minimo, int maximo)
         {
             double retorno = 0;
+
             do
             {
                 Console.WriteLine(mensaje);
@@ -68,12 +71,14 @@ namespace tp4
                     retorno = minimo - 1;
                 }
             } while (retorno < minimo && retorno > maximo);
+
             return (retorno);
         }
 
         public string pedirSoN(string mensaje)
         {
             string retorno = "";
+
             do
             {
                 Console.WriteLine(mensaje);
@@ -83,6 +88,7 @@ namespace tp4
                     Console.WriteLine("El string debe ser S o N" + "\n");
                 }
             } while (retorno != "S" && retorno != "N");
+
             return (retorno);
         }
 
@@ -90,6 +96,7 @@ namespace tp4
         {
             string retorno = "";
             Regex Val = new Regex(@"^[a-zA-Z]+$");
+
             do
             {
                 Console.WriteLine(mensaje);
@@ -110,6 +117,7 @@ namespace tp4
                     continue;
                 }
             } while (retorno == "" || !Val.IsMatch(retorno) || retorno.Length > maximo);
+
             return (retorno);
         }
 
@@ -119,17 +127,17 @@ namespace tp4
             {
                 Console.WriteLine(mensaje);
                 var ingreso = Console.ReadLine();
-                if (!DateTime.TryParse(ingreso, out var fechaNacimiento))
+                if (!DateTime.TryParse(ingreso, out var fecha))
                 {
                     Console.WriteLine("No es una fecha válida");
                     continue;
                 }
-                if (fechaNacimiento > DateTime.Now)
+                if (fecha > DateTime.Now)
                 {
                     Console.WriteLine("La fecha debe ser menor a la actual");
                     continue;
                 }
-                return fechaNacimiento;
+                return fecha;
             }
             while (true);
         }
@@ -137,6 +145,7 @@ namespace tp4
         public string pedirTipo(string mensaje)
         {
             string retorno = "";
+
             do
             {
                 Console.WriteLine(mensaje);
@@ -146,6 +155,24 @@ namespace tp4
                     Console.WriteLine("El tipo de paquete debe ser Nacional/Internacional" + "\n");
                 }
             } while (retorno != "NACIONAL" && retorno != "INTERNACIONAL");
+
+            return (retorno);
+        }
+
+        public string pedirTipo2(string mensaje)
+        {
+            string retorno = "";
+
+            do
+            {
+                Console.WriteLine(mensaje);
+                retorno = Console.ReadLine().ToUpper();
+                if (retorno != "ESTANDAR" && retorno != "URGENTE")
+                {
+                    Console.WriteLine("El tipo de entrega debe ser Estándar/Urgente" + "\n");
+                }
+            } while (retorno != "ESTANDAR" && retorno != "URGENTE");
+
             return (retorno);
         }
     }

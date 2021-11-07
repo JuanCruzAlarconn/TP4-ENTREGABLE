@@ -94,7 +94,7 @@ namespace tp4
 
                 if (opcion==1)
                 {
-                    Console.WriteLine("\nEjecución de la rutina generar envío");
+                    Console.WriteLine("\nEjecución de la rutina generar envío\n");
                     AppCrearOrdenes app = new AppCrearOrdenes();
                     app.ejecutar();
                     validar_eleccion(codigo_cliente);
@@ -103,14 +103,14 @@ namespace tp4
 
                 if (opcion==2)
                 {
-                    Console.WriteLine("\nEjecución de la rutina consultar estado de envío");
+                    Console.WriteLine("\nEjecución de la rutina consultar estado de envío\n");
                     Orden_de_servicio.consultar_estado(codigo_cliente);
                     validar_eleccion(codigo_cliente);
                     break;
                 }
                 if (opcion==3)
                 {
-                    Console.WriteLine("\nEjecución de la rutina consultar estado de cuenta");
+                    Console.WriteLine("\nEjecución de la rutina consultar estado de cuenta\n");
                    /* validar_eleccion(codigo_cliente);*/
                     EstadoCuenta.carga_prueba_estadocuenta();
                    /* EstadoCuenta.mostrar_menu_estado_de_cuenta();*/
