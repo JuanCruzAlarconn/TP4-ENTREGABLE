@@ -39,7 +39,7 @@ namespace tp4
             orden_de_servicio.modalidad = asignar_modalidad();//aspectos acerca de como debe de llegar y entregar el paquete además de que si es o no urgente           
             orden_de_servicio.transportes_asignados = asignar_transportes(orden_de_servicio.origen, orden_de_servicio.destino, orden_de_servicio.codigo_servicio, orden_de_servicio.paquete);//Todos los transportes propios de la empresa implicados en la operación, si no son necesarios se los deja en null
             orden_de_servicio.precio = asignar_precio();
-
+            
             return orden_de_servicio;
         }
 

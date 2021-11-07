@@ -46,13 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppCrearOrdenes.cs" />
     <Compile Include="Centro Regional.cs" />
     <Compile Include="Centro_Provincial.cs" />
+    <Compile Include="ConjuntoDeOrdenes.cs" />
     <Compile Include="Estado de cuenta.cs" />
     <Compile Include="Cliente corportativo.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="Modalidad.cs" />
     <Compile Include="Orden de servicio.cs" />
+    <Compile Include="Orden de servicio2.cs" />
     <Compile Include="Paquete.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,6 +63,7 @@
     <Compile Include="Sucursal.cs" />
     <Compile Include="Transporte designado.cs" />
     <Compile Include="Transporte.cs" />
+    <Compile Include="Validador.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
