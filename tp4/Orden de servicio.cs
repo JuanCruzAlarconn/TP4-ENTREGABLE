@@ -45,7 +45,9 @@ namespace tp4
 
         private static Paquete asignar_paquetes()
         {
-            throw new NotImplementedException();
+            var paquete = Paquete.crear();
+
+            return paquete;
         }
 
         private static List<Transporte_designado> asignar_transportes(Punto_logistico origen, Punto_logistico destino, int codigo_servicio, Paquete paquete)
@@ -62,8 +64,9 @@ namespace tp4
 
         private static Modalidad asignar_modalidad()
         {
-            //Implica ver las condiciones de retiro, entrega y la urgencia
-            throw new NotImplementedException();
+            var modalidad = Modalidad.crear();
+
+            return modalidad;
         }
 
         private static List<Estado> asignar_estado_inicial()
@@ -78,9 +81,9 @@ namespace tp4
 
 
 
-        public static string consultar_estado()
+        public static string consultar_estado(int codigo_cliente)
         {
-            var codigo = menu_ingreso();
+            var codigo = menu_ingreso(codigo_cliente);
 
             var elemento = hallar(codigo);//saco una copia de la orden de servicio desde la base de datos para poder consultar
 
@@ -206,10 +209,9 @@ namespace tp4
             return estado;
         }
 
-        private static int menu_ingreso()
+        private static int menu_ingreso(int codigo_cliente)
         {
-            var lista = Orden_de_servicio.abrir_archivo();
-
+            
             string ingreso = "";
 
             int codigo = 0;
@@ -254,6 +256,14 @@ namespace tp4
                 {
                     Console.WriteLine("\nEl código ingresado no se corresponde con ninguna de las ordenes de servicio contenidas dentro de nuestras bases de datos");
                     continue;
+                }
+
+                if(ingreso=="ATRAS")
+                {
+                    Console.WriteLine("\nHa ingresado el comando de para volver al menú anterior");
+                    Console.WriteLine("\nSe lo redirijira al menú anterior a continuación");
+                    Program.validar_eleccion(codigo_cliente);
+                    break;
                 }
 
                 break;
