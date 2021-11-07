@@ -102,6 +102,7 @@ namespace tp4
                 if (opcion==2)
                 {
                     Console.WriteLine("\nEjecución de la rutina consultar estado de envío");
+                    Orden_de_servicio.consultar_estado();
                     validar_eleccion(codigo_cliente);
                     break;
                 }
@@ -289,19 +290,9 @@ namespace tp4
             
         }
         
-        public static string validar_texto()
-        {
-            throw new NotImplementedException();
-        }
+      
 
-        public static string validar_formato_texto()
-        {
-            throw new NotImplementedException();
-        }
-        public static int validar_formato_numerico()
-        {
-            throw new NotImplementedException();
-        }
+    
         public static void volver_atras()
         {
             throw new NotImplementedException();

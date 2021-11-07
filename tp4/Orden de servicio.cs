@@ -78,11 +78,11 @@ namespace tp4
 
 
 
-        public static string consultar_estado(int codigo_orden)
+        public static string consultar_estado()
         {
-            //FUNCIÓN PRINCIPAL
+            var codigo = menu_ingreso();
 
-            var elemento = hallar(codigo_orden);//saco una copia de la orden de servicio desde la base de datos para poder consultar
+            var elemento = hallar(codigo);//saco una copia de la orden de servicio desde la base de datos para poder consultar
 
             var estado_de_orden = elemento.estado;//El estado es una lista de los diferentes estados por lo que pasa el conjunto de bultos hasta llegar al final del recorrido
 
@@ -205,6 +205,82 @@ namespace tp4
 
             return estado;
         }
+
+        private static int menu_ingreso()
+        {
+            var lista = Orden_de_servicio.abrir_archivo();
+
+            string ingreso = "";
+
+            int codigo = 0;
+
+            do
+            {
+                Console.WriteLine("\nIngrese el código de orden de servicio que desea consultar, el mismo esta compuesto como máximo de 7 elementos númericos y le fue otorgado en el momento en que se finaliza la realizacion del pedido como tal");
+                Console.WriteLine("\nIngrese por consola el comando ATRAS para volver al menú anterior en caso de necesitarlo");
+                ingreso = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(ingreso))
+                {
+                    Console.WriteLine("\nEl código de orden ingresado esta vacio y no se corresponde con la solicitud");
+                    continue;
+
+                }
+
+                if (!int.TryParse(ingreso, out codigo))
+                {
+                    Console.WriteLine("\nEl código ingresado debe de ser del tipo númerico");
+                    continue;
+                }
+
+                if (codigo < 0)
+                {
+                    Console.WriteLine("\nEl código ingresado debe de ser numérico positivo");
+                    continue;
+                }
+
+                if (ingreso.Length > 7)
+                {
+                    Console.WriteLine("\nEl código ingresado cuenta con más de 7 elementos");
+                    continue;
+                }
+                if (ingreso.Length == 0)
+                {
+                    Console.WriteLine("\nEl código ingresado cuenta con menos elementos de los esperados");
+                    continue;
+                }
+
+                if(!validar_pertenecia_codigo(codigo))
+                {
+                    Console.WriteLine("\nEl código ingresado no se corresponde con ninguna de las ordenes de servicio contenidas dentro de nuestras bases de datos");
+                    continue;
+                }
+
+                break;
+
+            } while (true);
+
+            return codigo;
+        }
+
+        private static bool validar_pertenecia_codigo(int codigo)
+        {
+            var lista = Orden_de_servicio.abrir_archivo();
+
+            bool flag = false;
+
+            foreach(var elemento in lista)
+            {
+                if(elemento.codigo_servicio==codigo)
+                {
+                    flag = true;
+                    break;
+                }
+            }
+
+            return flag;
+        }
+
         private static int asignar_seguro()
         {
             Random r = new Random();

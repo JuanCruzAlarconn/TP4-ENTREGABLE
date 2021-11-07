@@ -60,6 +60,8 @@ namespace tp4
             {
                 //En caso de tratarse de un envío internacional solo debo de hacerlo llegar hasta el centro regional metropolitano para que se despache hacia el exterior
                 punto_geografico.direccion = asingar_extranjero();
+                punto_geografico.nombre_y_apellido = asignar("nombre y apellido");
+                punto_geografico.DNI_o_Documentacion_correspondiente = asignar_documentacion();
                 punto_geografico.localidad = null;
                 punto_geografico.provincia = null;
                 punto_geografico.region = null;
@@ -163,7 +165,36 @@ namespace tp4
 
         private static string asingar_extranjero()
         {
-            throw new NotImplementedException();
+            string ingreso = "";
+
+            do
+            {
+                Console.WriteLine("\nHa ingresado que el paquete cuenta con un destino internacional, se solicitara que ingrese de forma estricta la dirección en el extranjero a la que hace referencia");
+                ingreso = Console.ReadLine();
+
+
+                if (string.IsNullOrWhiteSpace(ingreso))
+                {
+                    Console.WriteLine("\nLa dirección no debe de quedar vacia");
+                    continue;
+                }
+
+                if (ingreso.Length < 6)
+                {
+                    Console.WriteLine("\nLa dirección ingresada debe de estar completa, detectamos que la cantidad de caracteres ingresados es insuficiente");
+                    continue;
+                }
+
+                if (!ingreso.Any(char.IsDigit))
+                {
+                    Console.WriteLine("\nLa dirección en el extranjero debe de contar de manera estricta con el nombre de calle y la altura en número de donde se desea enviar");
+                    continue;
+                }
+
+                break;
+            } while (true);
+
+            return ingreso;
         }
 
         private static string asignar(string campo)
@@ -181,7 +212,7 @@ namespace tp4
                     continue;
                 }
 
-                if (ingreso.Length < 10)
+                if (ingreso.Length < 5)
                 {
                     Console.WriteLine($"\nEl campo {campo} no pude contener pocos elementos de escritura");
                     continue;
