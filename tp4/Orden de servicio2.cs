@@ -17,11 +17,11 @@ namespace tp4
         //private int sucursal;
         //private string nombre;
         //private string direccion;
-        private decimal costo;
+        private double costo;
         private string estado;
         private DateTime fecha;
 
-        public Orden_de_servicio2(int codigo, int cliente, /*int postal, */Punto_logistico origen, Punto_logistico destino, Modalidad modalidad, /*int sucursal, string nombre, string direccion, */decimal costo, string estado, DateTime fecha)
+        public Orden_de_servicio2(int codigo, int cliente, /*int postal, */Punto_logistico origen, Punto_logistico destino, Modalidad modalidad, /*int sucursal, string nombre, string direccion, */double costo, string estado, DateTime fecha)
         {
             this.codigo = codigo;
             this.cliente = cliente;
