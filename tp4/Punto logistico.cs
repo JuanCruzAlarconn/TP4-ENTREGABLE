@@ -104,6 +104,7 @@ namespace tp4
 
         private static int asignar_cp()
         {
+            archivo.generar_archivo();
             string cpJson = File.ReadAllText("Codigos postales.Json");
             var lista = JsonConvert.DeserializeObject<List<archivo>>(cpJson);
 
