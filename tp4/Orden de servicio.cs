@@ -307,12 +307,15 @@ namespace tp4
        
         private static int asignar_codigo_servicio()
         {
-            //Aprobado
-            Random r = new Random();
+            //Generado a partir de consultar el último código de servicio que fue generado y guardado
+            var lista = Orden_de_servicio.abrir_archivo();
 
-            int servicio = r.Next(0, 9999999);
+            var elemento = lista.Last();
 
-            return servicio;
+            var codigo = elemento.codigo_servicio;
+
+
+            return codigo+1;
         }
         public static List<Orden_de_servicio> abrir_archivo()
         {
