@@ -63,7 +63,6 @@
     <Compile Include="Punto logistico.cs" />
     <Compile Include="Sucursal.cs" />
     <Compile Include="Sucursal2.cs" />
-    <Compile Include="Transporte designado.cs" />
     <Compile Include="Transporte.cs" />
     <Compile Include="Validador.cs" />
   </ItemGroup>
