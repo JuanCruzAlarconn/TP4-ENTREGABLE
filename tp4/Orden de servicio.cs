@@ -12,10 +12,8 @@ namespace tp4
     {
         public int codigo_servicio { get; set; }//Generado aleatoriamente para poder brindar una identifición sobre el pedido que llegara a otras clases, para que las mismas puedan contar con el acceso y puedan modificar la base de datos en consecuencia
         public List<Estado> estado { get; set; } //Genera una lista de todos los estados por los que va transitando el paquete hasta el momento de la consulta, GENERA TRAZABILIDAD
-        public DateTime fecha_ingreso { get; set; }//Se asigna la fecha del momento en que se creo el pedido
-       
-        public  Paquete paquete { get; set; }//caracteristicas del paquete
-       
+        public DateTime fecha_ingreso { get; set; }//Se asigna la fecha del momento en que se creo el pedido      
+        public  Paquete paquete { get; set; }//caracteristicas del paquete      
         public int codigo_cliente { get; set; }//Quien es el iniciador del proceso
         public int codigo_seguro { get; set; }//Asignación de un seguro de acuerdo con el valor declarado por el cliente
         public decimal precio { get; set; }//Calculo del precio del servicio
@@ -30,7 +28,7 @@ namespace tp4
             orden_de_servicio.codigo_cliente = codigo_cliente;//codigo de cliente corporativo
             orden_de_servicio.codigo_servicio = asignar_codigo_servicio();//codigo de la orden
             orden_de_servicio.estado = asignar_estado_inicial();//cuando se crea la orden cuenta con el estado de inicializado, hay que volcar los datos iniciales del envío
-            orden_de_servicio.fecha_ingreso = asignar_fecha_ingreso();//la fecha en que ingreso el pedido
+            orden_de_servicio.fecha_ingreso = DateTime.Now;
            
             orden_de_servicio.codigo_seguro = asignar_seguro();//El paquete debe de tener un seguro según el enunciado
             orden_de_servicio.origen = Punto_logistico.crear("origen");//lugar de donde parte, puede ser una sucursal o que se halla retirado a domicilio
@@ -299,12 +297,7 @@ namespace tp4
             return seguro;//se genera un número aleatorio para el seguro, para luego ser cotejado por el sistema
 
         }
-        private static DateTime asignar_fecha_ingreso()
-        {
-            //Aprobado
-            return DateTime.Now;
-        }
-       
+      
         private static int asignar_codigo_servicio()
         {
             //Generado a partir de consultar el último código de servicio que fue generado y guardado
