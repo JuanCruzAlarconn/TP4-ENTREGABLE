@@ -9,41 +9,61 @@ namespace tp4
 {
     class Cliente_corportativo
     {
-        public string nombre { get; set; }
-        public string apellido { get; set; }
+        public string nombreyapellido { get; set; }
         public int codigo_cliente { get; set; }
-        public string domicilio { get; set; }
-        public int telefono { get; set; }
+
         public int codigo_cuenta_corriente { get; set; }
         public int clave_secreta { get; set; }
-        public int codigo_postal { get; set; }
+        public Cliente_corportativo()
+            {}
+
+        public Cliente_corportativo(string nombre,int cc, int ccc)
+        
+        {
+            this.nombreyapellido = nombre;
+            this.codigo_cliente = cc;
+            this.codigo_cuenta_corriente = ccc;
+            this.clave_secreta = 0000;
+
+        }
 
         public static void carga_prueba()
         {
             //Un método que permite cargar un cliente en json, para poder realizar un prueba de carga por consola
             var cliente_corporativo = new Cliente_corportativo();
-            cliente_corporativo.nombre = "Juan Cruz";
-            cliente_corporativo.apellido = "Alarcón";
-            cliente_corporativo.codigo_cliente = 38456910;
-            cliente_corporativo.domicilio = "calle falsa 123";
-            cliente_corporativo.telefono = 1145788956;
+            cliente_corporativo.nombreyapellido = "Juan Cruz Alarcón";         
+            cliente_corporativo.codigo_cliente = 38456910;            
             cliente_corporativo.codigo_cuenta_corriente = 0001;
             cliente_corporativo.clave_secreta = 1234;
-            cliente_corporativo.codigo_postal = 1439;
+           
 
             var cliente_corporativo2 = new Cliente_corportativo();
-            cliente_corporativo2.nombre = "Roy";
-            cliente_corporativo2.apellido = "Russo";
+            cliente_corporativo2.nombreyapellido = "Roy Russo";           
             cliente_corporativo2.codigo_cliente = 12345678;
-            cliente_corporativo2.domicilio = "calle turbia 123";
-            cliente_corporativo2.telefono = 1145237789;
             cliente_corporativo2.codigo_cuenta_corriente = 0002;
             cliente_corporativo2.clave_secreta = 1234;
-            cliente_corporativo2.codigo_postal = 1414;
+
+
+            var c3 = new Cliente_corportativo("Julian Alvarez", 00000001, 0003);
+            var c4 = new Cliente_corportativo("Enzo perez", 00000002, 0004);
+            var c5 = new Cliente_corportativo("Franco Armani", 00000003, 0005);
+            var c6 = new Cliente_corportativo("Roberto Rojas", 00000004, 0006);
+            var c7 = new Cliente_corportativo("Brian Romero", 00000005, 0007);
+            var c8 = new Cliente_corportativo("Jorge Carrascal", 00000006, 0008);
+            var c9 = new Cliente_corportativo("Paulo Días", 00000007, 0009);
+            var c10 = new Cliente_corportativo("Santiago Simon", 00000008, 0010);
 
             List<Cliente_corportativo> lista = new List<Cliente_corportativo>();
             lista.Add(cliente_corporativo);
             lista.Add(cliente_corporativo2);
+            lista.Add(c9);
+            lista.Add(c10);
+            lista.Add(c3);
+            lista.Add(c4);
+            lista.Add(c5);
+            lista.Add(c6);
+            lista.Add(c7);
+            lista.Add(c8);
             string clienteJson = JsonConvert.SerializeObject(lista);
 
             File.WriteAllText("clientes.json", clienteJson);
