@@ -9,10 +9,8 @@ namespace tp4
 {
     class Centro_Regional
     {
-        public string ubicacion { get; set; }
+        public string nombre { get; set; }
         public int codigo { get; set; }
-
-        public string descripcion { get; set; }
 
         public List<int> codigos_ordenes_asignadas { get; set; } //A medida que le van llegando los pedidos los almancenan en una lista 
 
