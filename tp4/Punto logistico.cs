@@ -32,6 +32,8 @@ namespace tp4
         public static Punto_logistico crear(string modo)
         {
             Punto_logistico punto_geografico = new Punto_logistico();
+            Punto_logistico.cargar_paises();
+            continente.generar_archivo();
 
             if (modo == "origen")
             {
@@ -181,11 +183,13 @@ namespace tp4
         private static string asignar(string campo)
         {
             string ingreso = "";
-
+            
             do
             {
                 Console.WriteLine($"\nIngrese los datos que se corresponde con el {campo}");
                 ingreso = Console.ReadLine();
+
+                
 
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
@@ -196,6 +200,11 @@ namespace tp4
                 if (ingreso.Length < 5)
                 {
                     Console.WriteLine($"\nEl campo {campo} no pude contener pocos elementos de escritura");
+                    continue;
+                }
+                if (!Punto_logistico.leer_pais(ingreso) && campo=="pais")
+                {
+                    Console.WriteLine("\nEl elemento ingresado no se corresponde con un pais válido dentro de la lista");
                     continue;
                 }
 
@@ -267,7 +276,7 @@ namespace tp4
         
         }
 
-        public void cargar_paises()
+        public static void cargar_paises()
         {
             List<string> lista = new List<string>();
 
@@ -289,6 +298,23 @@ namespace tp4
 
             File.WriteAllText("Paises.Json", listaJson);
 
+        }
+
+        public static bool leer_pais(string pais)
+        {
+            string cadena = File.ReadAllText("Paises.Json");
+            var lista = JsonConvert.DeserializeObject<List<string>>(cadena);
+            bool flag = false;
+            foreach(var p in lista)
+            {
+                if (p == pais) 
+                {
+                    flag = true;
+                    break;
+                }
+            }
+
+            return flag;
         }
 
 
