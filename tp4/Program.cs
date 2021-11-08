@@ -339,7 +339,6 @@ namespace tp4
 
                 if(Cliente_corportativo.validar_cliente(codigo_cliente))
                 {
-                    EstadoCuenta.mostrar_menu_estado_de_cuenta();
                     string nombreyapellido = Cliente_corportativo.hallar(codigo_cliente).nombreyapellido;
                     Console.WriteLine($"\nBienvenido {nombreyapellido}");
                     Console.WriteLine("\nSe lo redirigira al menu con las opciones");
