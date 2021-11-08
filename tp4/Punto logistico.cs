@@ -27,6 +27,7 @@ namespace tp4
 
         public string pais { get; set; }
 
+        public string continente_asignado { get; set; }
        
 
         public static Punto_logistico crear(string modo)
@@ -58,6 +59,7 @@ namespace tp4
                 punto_geografico.localidad = asignar_localidad(punto_geografico.codigo_postal);
                 punto_geografico.provincia = asignar_provincia(punto_geografico.codigo_postal);
                 punto_geografico.region = asignar_region(punto_geografico.codigo_postal);
+                punto_geografico.continente_asignado = "America del sur limitrofe";
                 
             }
             else
@@ -68,11 +70,14 @@ namespace tp4
                 punto_geografico.localidad = null;
                 punto_geografico.provincia = null;
                 punto_geografico.region = null;
+                punto_geografico.continente_asignado = continente.pasar_continente(punto_geografico.pais);
             }
 
             return punto_geografico;
 
         }
+
+        
 
         private static string asignar_provincia(int codigo_postal)
         {
@@ -329,6 +334,28 @@ namespace tp4
         public continente()
         { }
 
+        public static string pasar_continente (string pais)
+        {
+            string arreglo = File.ReadAllText("Continentes.Json");
+
+            var lista = JsonConvert.DeserializeObject<List<continente>>(arreglo);
+            string continente = "";
+            foreach(var elemento in lista)
+            {
+                var lista_paises = elemento.paises;
+
+                foreach(var p in lista_paises)
+                {
+                    if(p==pais)
+                    {
+                        continente = elemento.nombre;
+                    }
+                }
+            }
+
+            return continente;
+        }
+
         public static void generar_archivo()
         {
             var c1 = new continente();
@@ -362,7 +389,7 @@ namespace tp4
 
             string listaJson = JsonConvert.SerializeObject(lista);
 
-            File.WriteAllText("Continente.Json", listaJson);
+            File.WriteAllText("Continentes.Json", listaJson);
         }
     }
  
