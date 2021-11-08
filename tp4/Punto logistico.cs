@@ -266,7 +266,82 @@ namespace tp4
             }
         
         }
+
+        public void cargar_paises()
+        {
+            List<string> lista = new List<string>();
+
+            lista.Add("Argentina");
+            lista.Add("Chile");
+            lista.Add("Paraguay");
+            lista.Add("Estados Unidos");
+            lista.Add("Canada");
+            lista.Add("Colombia");
+            lista.Add("Peru");
+            lista.Add("Alemania");
+            lista.Add("Italia");
+            lista.Add("Japon");
+            lista.Add("China");
+            lista.Add("Australia");
+            lista.Add("Nueva Zelanda");
+
+            string listaJson = JsonConvert.SerializeObject(lista);
+
+            File.WriteAllText("Paises.Json", listaJson);
+
+        }
+
+
     }
+
+    class continente
+    {
+        public string nombre { get; set; }
+
+        public List<String> paises { get; set; }
+
+        public continente()
+        { }
+
+        public static void generar_archivo()
+        {
+            var c1 = new continente();
+            c1.nombre = "America del sur limitrofe";
+            c1.paises =new List<string> { "Chile" ,"Paraguay" };
+            var c2 = new continente();
+            c2.nombre = "America del sur";
+            c2.paises= new List<string> { "Colombia", "Peru" };
+            var c3 = new continente();
+            c3.nombre = "America del norte";
+            c3.paises = new List<string> { "Estados Unidos", "Canada" };
+            var c4 = new continente();
+            c4.nombre = "Europa";
+            c4.paises = new List<string> { "Alemania", "Italia" };
+            var c5 = new continente();
+
+            c5.nombre = "Asia";
+            c5.paises = new List<string> { "Japon", "China" };
+            var c6 = new continente();
+
+            c6.nombre = "Oceania";
+            c6.paises = new List<string> { "Nueva Zelanda", "Australia" };
+
+            var lista = new List<continente>();
+            lista.Add(c1);
+            lista.Add(c2);
+            lista.Add(c3);
+            lista.Add(c4);
+            lista.Add(c5);
+            lista.Add(c6);
+
+            string listaJson = JsonConvert.SerializeObject(lista);
+
+            File.WriteAllText("Continente.Json", listaJson);
+        }
+    }
+ 
+
+    
 
     class archivo
     {
