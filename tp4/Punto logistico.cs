@@ -27,9 +27,7 @@ namespace tp4
 
         public string pais { get; set; }
 
-        public int? codigo_sucursal { get; set; }
-        public int? codigo_centro_provincial { get; set; }
-        public int? codigo_centro_regional { get; set; }
+       
 
         public static Punto_logistico crear(string modo)
         {
@@ -58,9 +56,7 @@ namespace tp4
                 punto_geografico.localidad = asignar_localidad(punto_geografico.codigo_postal);
                 punto_geografico.provincia = asignar_provincia(punto_geografico.codigo_postal);
                 punto_geografico.region = asignar_region(punto_geografico.codigo_postal);
-                punto_geografico.codigo_sucursal = asignar_sucursal(punto_geografico.localidad);
-                punto_geografico.codigo_centro_provincial = asignar_centro_provincial(punto_geografico.provincia);
-                punto_geografico.codigo_centro_regional = asignar_centro_regional(punto_geografico.region);
+                
             }
             else
             {
@@ -147,58 +143,7 @@ namespace tp4
             return cp;
         }
 
-        private static int? asignar_centro_regional(string region)
-        {
-            var lista = Centro_Regional.abrir_archivo();
-
-            int codigo_regional = 0;
-
-            foreach (var reg in lista)
-            {
-                if (reg.nombre==region)
-                {
-                    codigo_regional = reg.codigo;
-                    break;
-                }
-            }
-
-            return codigo_regional;
-
-        }
-
-        private static int? asignar_centro_provincial(string provincia)
-        {
-            var lista = Centro_Provincial.abrir_archivo();
-            int codigo_provincia = 0;
-
-            foreach (var prov in lista)
-            {
-                if (prov.nombre == provincia)
-                {
-                    codigo_provincia = prov.codigo;
-                }
-
-            }
-
-            return codigo_provincia;
-        }
-
-        private static int? asignar_sucursal(string localidad)
-        {
-            var lista = Sucursal.abrir_archivo();
-            int codigo_sucursal = 0;
-
-            foreach (var sucursal in lista)
-            {
-                if (sucursal.localidad_dominante == localidad)
-                {
-                    codigo_sucursal = sucursal.codigo_sucursal;
-                }
-            }
-
-            return codigo_sucursal;
-        }
-
+   
         private static string asingar_extranjero()
         {
             string ingreso = "";
@@ -317,9 +262,7 @@ namespace tp4
                 this.provincia = asignar_provincia(cp);
                 this.localidad = asignar_localidad(cp);
                 this.region = asignar_region(cp);
-                this.codigo_sucursal = asignar_sucursal(localidad);
-                this.codigo_centro_provincial = asignar_centro_provincial(provincia);
-                this.codigo_centro_regional = asignar_centro_regional(region);
+                
             }
         
         }

@@ -83,16 +83,21 @@ namespace tp4
 
 
 
-        public static string consultar_estado(int codigo_cliente)
+        public static void consultar_estado(int codigo_cliente)
         {
+            archivo.generar_archivo();
+            Orden_de_servicio.cargar_prueba();
             var codigo = menu_ingreso(codigo_cliente);
 
             var elemento = hallar(codigo);//saco una copia de la orden de servicio desde la base de datos para poder consultar
 
             var estado_de_orden = elemento.estado;//El estado es una lista de los diferentes estados por lo que pasa el conjunto de bultos hasta llegar al final del recorrido
 
+           
+
             var ultimo_estado = estado_de_orden.Last();
 
+          
             string estado="";
 
             
@@ -165,7 +170,7 @@ namespace tp4
                  */
 
                 var penultimo_estado = estado_de_orden[estado_de_orden.Count - 2];
-
+               
                 if (penultimo_estado.estado == "En distribución desde la sucursal hacia el centro provincial")
                 {
                     estado = $"El paquete se halla dentro del centro provincial de {elemento.origen.provincia}";
@@ -208,7 +213,9 @@ namespace tp4
                 estado = "El paquete se halla en distribución internacional";
             }
 
-            return estado;
+            Console.WriteLine("\n******************ESTADO DE SOLCITUD*******************\n");
+            Console.WriteLine(estado);
+            Console.WriteLine("\n*******************************************************\n");
         }
 
         private static int menu_ingreso(int codigo_cliente)
@@ -396,7 +403,7 @@ namespace tp4
         {
             List<Estado> prueba = new List<Estado>();
             var e1 = new Estado(0001, "aplicación", "Inicializado", "12/07/2021");
-            var e2 = new Estado(0002, "transporte", "En distribución desde la sucursal hasta el centro provincial", "13/07/2021");
+            var e2 = new Estado(0002, "transporte", "En distribución desde la sucursal hacia el centro provincial", "13/07/2021");
             var e3 = new Estado(0002, "Centro provincial", "En centro provincial", "13/07/2021");
 
             prueba.Add(e1);

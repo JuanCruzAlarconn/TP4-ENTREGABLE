@@ -177,7 +177,7 @@ namespace tp4
         {
             throw new NotImplementedException();
         }
-        public static string estado_servicio()
+        public static void estado_servicio()
         {
             string ingreso = "";
             int codigo_orden = 0;
@@ -212,9 +212,7 @@ namespace tp4
 
             } while (true);
 
-            string estado = Orden_de_servicio.consultar_estado(codigo_orden);
-
-            return $"\nEl estado de la orden de servicio de código {codigo_orden} es: {estado}";
+            Orden_de_servicio.consultar_estado(codigo_orden);
         }
 
 
@@ -342,7 +340,7 @@ namespace tp4
                 if(Cliente_corportativo.validar_cliente(codigo_cliente))
                 {
                     EstadoCuenta.mostrar_menu_estado_de_cuenta();
-                    string nombreyapellido = Cliente_corportativo.hallar(codigo_cliente).nombre+" "+ Cliente_corportativo.hallar(codigo_cliente).apellido;
+                    string nombreyapellido = Cliente_corportativo.hallar(codigo_cliente).nombreyapellido;
                     Console.WriteLine($"\nBienvenido {nombreyapellido}");
                     Console.WriteLine("\nSe lo redirigira al menu con las opciones");
                     validar_eleccion(codigo_cliente);
