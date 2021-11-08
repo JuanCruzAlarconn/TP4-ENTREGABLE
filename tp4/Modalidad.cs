@@ -34,7 +34,7 @@ namespace tp4
                 Console.WriteLine("\nA.El destinatario recibira el paquete dentro de la sucursal");
                 Console.WriteLine("\nB.El destinatario recibira el paquete dentro del domicilio indicado");
 
-                ingreso = Console.ReadLine();
+                ingreso = Console.ReadLine().ToUpper();
 
                 if (string.IsNullOrEmpty(ingreso))
                 {
@@ -64,13 +64,11 @@ namespace tp4
                   
                 }
 
-
                 if (ingreso != "A" && ingreso != "B")
                 {
                     Console.WriteLine("\nLa opción ingresada no se corresponde con ninguna de las opciones disponibles");
                     continue;
                 }
-
             } while (true);
         }
 
@@ -81,10 +79,10 @@ namespace tp4
             do
             {
                 Console.WriteLine("\nIngrese las siguientes opciones que se corresponden con la modalidad del envío, luego presione enter");
-                Console.WriteLine("\nA.Urgente, desea que el paquete sea entrgado dentro de las próximas 48 hs");
-                Console.WriteLine("\nB.Normal, se demorara de acuerdo con la distancia establecida del recorrido");
+                Console.WriteLine("\nA.Normal, se demorara de acuerdo con la distancia establecida del recorrido");
+                Console.WriteLine("\nB.Urgente, desea que el paquete sea entrgado dentro de las próximas 48 hs");
 
-                ingreso = Console.ReadLine();
+                ingreso = Console.ReadLine().ToUpper();
 
                 if (string.IsNullOrEmpty(ingreso))
                 {
@@ -114,13 +112,11 @@ namespace tp4
                     
                 }
 
-
                 if (ingreso != "A" && ingreso != "B")
                 {
                     Console.WriteLine("\nLa opción ingresada no se corresponde con ninguna de las opciones disponibles");
                     continue;
                 }
-
             } while (true);
         }
 
@@ -135,7 +131,7 @@ namespace tp4
                 Console.WriteLine("\nA.Llevara el paquete hasta la sucursal que se corresponde con su localidad");
                 Console.WriteLine("\nB.Quiero que se retire el paquete en mi domicilio");
 
-                ingreso = Console.ReadLine();
+                ingreso = Console.ReadLine().ToUpper();
 
                 if(string.IsNullOrEmpty(ingreso))
                 {
@@ -165,13 +161,11 @@ namespace tp4
                     
                 }
 
-
                 if(ingreso!="A" && ingreso!="B")
                 {
                     Console.WriteLine("\nLa opción ingresada no se corresponde con ninguna de las opciones disponibles");
                     continue;
                 }
-
             } while (true);
         }
 

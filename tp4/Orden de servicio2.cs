@@ -9,24 +9,30 @@ namespace tp4
     class Orden_de_servicio2
     {
         private int codigo;
-        private string tipo;
-        private int postal;
-        private int sucursal;
-        private string tipo2;
-        private string nombre;
-        private string direccion;
+        private int cliente;
+        //private int postal;
+        private Punto_logistico logistica;
+        private Modalidad modalidad;
+        //private int sucursal;
+        //private string nombre;
+        //private string direccion;
         private decimal costo;
+        private string estado;
+        private DateTime fecha;
 
-        public Orden_de_servicio2(int codigo, string tipo, int postal, int sucursal, string tipo2, string nombre, string direccion, decimal costo)
+        public Orden_de_servicio2(int codigo, int cliente, /*int postal, */Punto_logistico logistica, Modalidad modalidad, /*int sucursal, string nombre, string direccion, */decimal costo, string estado, DateTime fecha)
         {
             this.codigo = codigo;
-            this.tipo = tipo;
-            this.postal = postal;
-            this.sucursal = sucursal;
-            this.tipo2 = tipo2;
-            this.nombre = nombre;
-            this.direccion = direccion;
+            this.cliente = cliente;
+            //this.postal = postal;
+            this.logistica = logistica;
+            this.modalidad = modalidad;
+            //this.sucursal = sucursal;
+            //this.nombre = nombre;
+            //this.direccion = direccion;
             this.costo = costo;
+            this.estado = estado;
+            this.fecha = fecha;
         }
 
         public override bool Equals(object obj)
@@ -38,5 +44,6 @@ namespace tp4
         
         public override int GetHashCode() { return 0; }
 
+        
     }
 }

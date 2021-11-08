@@ -142,7 +142,7 @@ namespace tp4
             while (true);
         }
 
-        public string pedirTipo(string mensaje)
+        /*public string pedirTipo(string mensaje)
         {
             string retorno = "";
 
@@ -174,6 +174,6 @@ namespace tp4
             } while (retorno != "ESTANDAR" && retorno != "URGENTE");
 
             return (retorno);
-        }
+        }*/
     }
 }

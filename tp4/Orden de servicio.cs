@@ -21,6 +21,8 @@ namespace tp4
         public Punto_logistico destino { get; set; }//puede ser una sucursa, otro pais, o que el paquete deba de ser retirado dentro de la sucursal
         public Modalidad modalidad { get; set; }//Cuales son las formas de entrega del paquete dentro del servicio
 
+
+        
         public static Orden_de_servicio crear(int codigo_cliente)
         {
             //Se da inicio cuando se hace el proceso de generar un nuevo servicio de entrega de algo

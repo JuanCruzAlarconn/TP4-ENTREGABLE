@@ -96,7 +96,7 @@ namespace tp4
                 {
                     Console.WriteLine("\nEjecución de la rutina generar envío\n");
                     AppCrearOrdenes app = new AppCrearOrdenes();
-                    app.ejecutar();
+                    app.ejecutar(codigo_cliente);
                     validar_eleccion(codigo_cliente);
                     break;
                 }
