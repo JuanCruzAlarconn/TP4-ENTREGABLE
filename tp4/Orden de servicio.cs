@@ -402,9 +402,9 @@ namespace tp4
         public static void cargar_prueba ()
         {
             List<Estado> prueba = new List<Estado>();
-            var e1 = new Estado(0001, "aplicación", "Inicializado", "12/07/2021");
-            var e2 = new Estado(0002, "transporte", "En distribución desde la sucursal hacia el centro provincial", "13/07/2021");
-            var e3 = new Estado(0002, "Centro provincial", "En centro provincial", "13/07/2021");
+            var e1 = new Estado(0001, "Aplicación", "Inicializado", "12/07/2021");
+            var e2 = new Estado(0002, "Transporte", "En distribución desde la sucursal hacia el centro provincial", "13/07/2021");
+            var e3 = new Estado(0003, "Centro provincial", "En centro provincial", "13/07/2021");
 
             prueba.Add(e1);
             prueba.Add(e2);
@@ -415,15 +415,27 @@ namespace tp4
 
             var mod = new Modalidad("Domicilio", "Sucursal", "urgente");
             var paq = new Paquete(1000, "Bultos", 1000);
-
+            
             var orden1 = new Orden_de_servicio(0000001, 1234, 100, 00000001, prueba, Convert.ToDateTime("12/07/2021"),paq,orig,dest, mod);
-            var orden2 = new Orden_de_servicio(0000002, 1234, 900, 00000002, prueba, Convert.ToDateTime("12/07/2021"), paq, orig, dest, mod);
-            var orden3 = new Orden_de_servicio(0000003, 1234, 600, 00000003, prueba, Convert.ToDateTime("12/07/2021"), paq, orig, dest, mod);
+            var orden2 = new Orden_de_servicio(0000002, 1234, 900, 00000001, prueba, Convert.ToDateTime("12/07/2021"), paq, orig, dest, mod);
+            var orden3 = new Orden_de_servicio(0000003, 1234, 600, 00000001, prueba, Convert.ToDateTime("12/07/2021"), paq, orig, dest, mod);
 
+            var e4 = new Estado(0002, "Transporte", "En distribución desde el centro provincial hacia el centro regional", "14/07/2021");
+
+            prueba.Add(e4);
+            var orden4 = new Orden_de_servicio(0000004, 1234, 600, 00000001, prueba, Convert.ToDateTime("12/07/2021"), paq, orig, dest, mod);
+
+
+            var e5 = new Estado(0002, "Centro regional", "En centro regional", "15/07/2021");
+
+            prueba.Add(e5);
+            var orden5= new Orden_de_servicio(0000005, 1234, 600, 00000001, prueba, Convert.ToDateTime("12/07/2021"), paq, orig, dest, mod);
             List<Orden_de_servicio> lista = new List<Orden_de_servicio>();
             lista.Add(orden1);
             lista.Add(orden2);
             lista.Add(orden3);
+            lista.Add(orden4);
+            lista.Add(orden5);
 
             string LJson = JsonConvert.SerializeObject(lista);
             File.WriteAllText("Ordenes de servicio.Json", LJson);
