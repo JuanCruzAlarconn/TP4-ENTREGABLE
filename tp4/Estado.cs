@@ -33,5 +33,19 @@ namespace tp4
 
         }
 
+        public Estado (int c, string entidad, string estado, string fecha)
+        {
+            this.codigo_entidad = c;
+            this.entidad = entidad;
+            this.estado = estado;
+            this.fecha = Convert.ToDateTime(fecha);
+
+        }
+
+        public Estado()
+        {
+
+        }
+
     }
 }

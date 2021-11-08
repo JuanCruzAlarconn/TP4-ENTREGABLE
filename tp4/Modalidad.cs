@@ -174,5 +174,18 @@ namespace tp4
 
             } while (true);
         }
+
+        public Modalidad()
+        {
+
+        }
+
+        public Modalidad(string ret, string ent, string tipo)
+        {
+            this.modo_entrega = ent;
+            this.modo_retiro = ret;
+            this.tipo_envio = "urgente";
+
+        }
     }
 }

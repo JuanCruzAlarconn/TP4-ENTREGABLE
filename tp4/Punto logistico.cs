@@ -27,9 +27,9 @@ namespace tp4
 
         public string pais { get; set; }
 
-        public int codigo_sucursal { get; set; }
-        public int codigo_centro_provincial { get; set; }
-        public int codigo_centro_regional { get; set; }
+        public int? codigo_sucursal { get; set; }
+        public int? codigo_centro_provincial { get; set; }
+        public int? codigo_centro_regional { get; set; }
 
         public static Punto_logistico crear(string modo)
         {
@@ -147,7 +147,7 @@ namespace tp4
             return cp;
         }
 
-        private static int asignar_centro_regional(string region)
+        private static int? asignar_centro_regional(string region)
         {
             var lista = Centro_Regional.abrir_archivo();
 
@@ -166,7 +166,7 @@ namespace tp4
 
         }
 
-        private static int asignar_centro_provincial(string provincia)
+        private static int? asignar_centro_provincial(string provincia)
         {
             var lista = Centro_Provincial.abrir_archivo();
             int codigo_provincia = 0;
@@ -183,7 +183,7 @@ namespace tp4
             return codigo_provincia;
         }
 
-        private static int asignar_sucursal(string localidad)
+        private static int? asignar_sucursal(string localidad)
         {
             var lista = Sucursal.abrir_archivo();
             int codigo_sucursal = 0;
@@ -296,6 +296,32 @@ namespace tp4
             }
 
             return tipo;
+        }
+
+        public Punto_logistico()
+        {
+
+        }
+
+        public Punto_logistico(string n, string domicilio, int cp, string pais)
+        {
+            this.nombre = n;
+            this.direccion = domicilio;
+            this.codigo_postal = cp;
+            this.pais = pais;
+
+            if (pais == "Argentina")
+            {
+
+
+                this.provincia = asignar_provincia(cp);
+                this.localidad = asignar_localidad(cp);
+                this.region = asignar_region(cp);
+                this.codigo_sucursal = asignar_sucursal(localidad);
+                this.codigo_centro_provincial = asignar_centro_provincial(provincia);
+                this.codigo_centro_regional = asignar_centro_regional(region);
+            }
+        
         }
     }
 

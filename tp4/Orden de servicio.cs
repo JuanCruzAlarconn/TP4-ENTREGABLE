@@ -115,12 +115,12 @@ namespace tp4
                 var penultimo_estado = estado_de_orden[estado_de_orden.Count - 2];
 
 
-                if (penultimo_estado.estado == "En distribución desde centro provincial hacia sucursal" && elemento.modalidad.modo_entrega == "Entregado en sucursal")
+                if (penultimo_estado.estado == "En distribución desde centro provincial hacia sucursal" && elemento.modalidad.modo_entrega == "Sucursal")
                 {
                     estado = "El paquete se halla en la sucursal disponible para el retiro por parte del destinatario";
                 }
 
-                if (penultimo_estado.estado == "En distribución desde centro provincial hacia sucursal" && elemento.modalidad.modo_entrega == "Entrega en domicilio")
+                if (penultimo_estado.estado == "En distribución desde centro provincial hacia sucursal" && elemento.modalidad.modo_entrega == "Domicilio")
                 {
                     //fue entregado hasta una sucursal de destino
                     estado = $"El paquete se halla dentro de las inmediaciones de la sucursal que se corresponde con la localidad de {elemento.destino.localidad}";
@@ -372,6 +372,56 @@ namespace tp4
             }
 
             return flag;
+        }
+
+        public Orden_de_servicio()
+        { }
+
+        public Orden_de_servicio(int cs,int cseg,decimal precio, int cc, List<Estado> estado, DateTime f, Paquete p,Punto_logistico origen, Punto_logistico destino, Modalidad modalidad)
+        {
+            this.codigo_servicio = cs;
+            this.codigo_seguro = cseg;
+            this.precio = precio;
+            this.codigo_cliente = cc;
+            this.estado = estado;
+            this.fecha_ingreso = f;
+            this.paquete = p;
+            this.origen = origen;
+            this.destino = destino;
+            this.modalidad = modalidad;
+
+        }
+
+        public static void cargar_prueba ()
+        {
+            List<Estado> prueba = new List<Estado>();
+            var e1 = new Estado(0001, "aplicación", "Inicializado", "12/07/2021");
+            var e2 = new Estado(0002, "transporte", "En distribución desde la sucursal hasta el centro provincial", "13/07/2021");
+            var e3 = new Estado(0002, "Centro provincial", "En centro provincial", "13/07/2021");
+
+            prueba.Add(e1);
+            prueba.Add(e2);
+            prueba.Add(e3);
+
+            var orig = new Punto_logistico("Julian Alvarez", "calle falsa 1234", 0001, "Argentina");
+            var dest = new Punto_logistico("Roman Riquelme", "calle falsa 4561", 0002, "Argentina");
+
+            var mod = new Modalidad("Domicilio", "Sucursal", "urgente");
+            var paq = new Paquete(1000, "Bultos", 1000);
+
+            var orden1 = new Orden_de_servicio(0000001, 1234, 100, 00000001, prueba, Convert.ToDateTime("12/07/2021"),paq,orig,dest, mod);
+            var orden2 = new Orden_de_servicio(0000002, 1234, 900, 00000002, prueba, Convert.ToDateTime("12/07/2021"), paq, orig, dest, mod);
+            var orden3 = new Orden_de_servicio(0000003, 1234, 600, 00000003, prueba, Convert.ToDateTime("12/07/2021"), paq, orig, dest, mod);
+
+            List<Orden_de_servicio> lista = new List<Orden_de_servicio>();
+            lista.Add(orden1);
+            lista.Add(orden2);
+            lista.Add(orden3);
+
+            string LJson = JsonConvert.SerializeObject(lista);
+            File.WriteAllText("Ordenes de servicio.Json", LJson);
+
+
         }
     }
 }

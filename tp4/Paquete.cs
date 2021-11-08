@@ -11,17 +11,30 @@ namespace tp4
     class Paquete
     {
         public decimal peso { get; set; }
-        public int codigo { get; set; }
         public string tipo { get; set; }//Si es un sobre o un bulto
 
         public decimal valor_declarado { get; set; }
+
+        public Paquete()
+        {
+
+        }
+
+        public Paquete (decimal peso, string tipo, decimal valor)
+        {
+            this.peso = peso;
+          
+            this.valor_declarado = valor;
+            this.tipo = tipo;
+
+        }
 
 
         public static Paquete crear()
         {
             var paquete = new Paquete();
 
-            paquete.codigo = asignar_codigo();
+          
             paquete.peso = asignar_peso();            
             paquete.tipo = asignar_tipo(paquete.peso);
             paquete.valor_declarado = asignar_valor_declarado();
@@ -122,11 +135,6 @@ namespace tp4
         }
 
        
-        private static int asignar_codigo()
-        {
-            var ramdom = new Random();
-
-            return ramdom.Next(0, 999999);
-        }
+ 
     }
 }
