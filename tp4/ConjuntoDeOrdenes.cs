@@ -45,7 +45,7 @@ namespace tp4
         public Orden_de_servicio2 obtener(int codigo, string tipo)
         {
             Orden_de_servicio2 retorno = null;
-            Orden_de_servicio2 aBuscar = new Orden_de_servicio2(codigo, 0, /*0, */null, null, /*0, "", "", */0, "", default);
+            Orden_de_servicio2 aBuscar = new Orden_de_servicio2(codigo, 0, /*0, */null, null, null, /*0, "", "", */0, "", default);
 
             int posicion = this.ordenes.IndexOf(aBuscar);
 
@@ -57,13 +57,26 @@ namespace tp4
             return (retorno);
         }
 
-        public int asignar_codigo_servicio()
+        /*public int asignar_codigo_servicio()
         {
             Random r = new Random();
 
             int servicio = r.Next(0, 9999999);
 
             return servicio;
+        }*/
+
+        public int asignar_codigo_servicio()
+        {
+            //Generado a partir de consultar el último código de servicio que fue generado y guardado
+            var lista = Orden_de_servicio.abrir_archivo();
+
+            var elemento = lista.Last();
+
+            var codigo = elemento.codigo_servicio;
+
+
+            return codigo + 1;
         }
 
         /*public static void carga_prueba()

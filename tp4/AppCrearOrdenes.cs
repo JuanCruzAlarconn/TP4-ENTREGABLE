@@ -26,7 +26,7 @@ namespace tp4
             int cliente = codigo_cliente;
             //int sucursal = 0;
             string continuar = "";
-            decimal costo = 0; //quitar luego de desarrollar el metodo para calcular el costo
+            double costo = 0; //quitar luego de desarrollar el metodo para calcular el costo
 
             Console.WriteLine("Completa los datos de tu envío" + "\n");
             //int postal = validador.pedirInteger("Ingrese el código postal del destino\n", 0, 999999);
@@ -49,8 +49,8 @@ namespace tp4
                     string nombre = validador.pedirChar("Ingrese el nombre del destinatario\n", 30);
                     string direccion = validador.pedirString("Ingrese la dirección del destinatario\n");
 
-                    //decimal costo = calcularCosto(tipo, postal, paquete.peso, tipo2);
-                    //Console.WriteLine("El costo del servicio es:" + costo);
+                    //costo = calcularCosto(tipo, postal, paquete.peso, tipo2);
+                    //Console.WriteLine("El costo del servicio es:" + costo + "\n");
 
                     continuar = validador.pedirSoN("Desea confirmar la orden? S/N\n");
 
@@ -65,12 +65,13 @@ namespace tp4
                 }
             } while (!sucursales.existe(sucursal));*/
 
-            Punto_logistico logistica = Punto_logistico.crear("destino");
+            Punto_logistico origen = Punto_logistico.crear("origen");
+            Punto_logistico destino = Punto_logistico.crear("destino");
             Modalidad modalidad = Modalidad.crear();
             Paquete paquete = Paquete.crear();
 
-            //decimal costo = calcularCosto(tipo, postal, paquete.peso, tipo2);
-            //Console.WriteLine("El costo del servicio es:" + costo);
+            costo = calcularCosto(origen, destino, modalidad, paquete.peso);
+            Console.WriteLine("El costo del servicio es:" + costo + "\n");
 
             continuar = validador.pedirSoN("Desea confirmar la orden? S/N\n");
 
@@ -79,13 +80,135 @@ namespace tp4
                 int codigo = ordenes.asignar_codigo_servicio();
                 string estado = "Inicializado";
                 DateTime fecha = DateTime.Now;
-                ordenes.agregar(new Orden_de_servicio2(codigo, cliente, logistica, modalidad, costo, estado, fecha));
+                ordenes.agregar(new Orden_de_servicio2(codigo, cliente, origen, destino, modalidad, costo, estado, fecha));
                 Console.WriteLine("Orden de servicio generada Nro:" + codigo);
             }
 
+
         }
 
-        
+        private double calcularCosto(Punto_logistico origen, Punto_logistico destino, Modalidad modalidad, decimal peso)
+        {
+            double costo = 0;        
+            double urgente = 1.10;
+            double enPuerta = 20;
+
+            if (destino.pais != "Argentina") 
+            {
+                if(peso > 20000)
+                {
+                    if (modalidad.tipo_envio == "Urgente")
+                    {
+                        if(modalidad.modo_entrega == "Retirado en domicilio")
+                        {
+                            if(modalidad.modo_retiro == "Entregado en domicilio")
+                            {
+                                costo = 10000 * urgente + (enPuerta * 2);
+                            }
+                            else
+                            {
+                                costo = 10000 * urgente + enPuerta;
+                            }
+                        }
+                        else
+                        {
+                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                            {
+                                costo = 10000 * urgente + enPuerta;
+                            }
+                            else
+                            {
+                                costo = 10000 * urgente;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                        {
+                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                            {
+                                costo = 10000 + (enPuerta * 2);
+                            }
+                            else
+                            {
+                                costo = 10000 + enPuerta;
+                            }
+                        }
+                        else
+                        {
+                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                            {
+                                costo = 10000 + enPuerta;
+                            }
+                            else
+                            {
+                                costo = 10000;
+                            }
+                        }
+                    }
+
+                }
+                else
+                {
+                    if(peso > 10000)
+                    {
+                        if (modalidad.tipo_envio == "Urgente")
+                        {
+                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                            {
+                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                {
+                                    costo = 10000 * urgente + (enPuerta * 2);
+                                }
+                                else
+                                {
+                                    costo = 10000 * urgente + enPuerta;
+                                }
+                            }
+                            else
+                            {
+                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                {
+                                    costo = 10000 * urgente + enPuerta;
+                                }
+                                else
+                                {
+                                    costo = 10000 * urgente;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                            {
+                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                {
+                                    costo = 10000 + (enPuerta * 2);
+                                }
+                                else
+                                {
+                                    costo = 10000 + enPuerta;
+                                }
+                            }
+                            else
+                            {
+                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                {
+                                    costo = 10000 + enPuerta;
+                                }
+                                else
+                                {
+                                    costo = 10000;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return costo;
+        }
     }
 
     
