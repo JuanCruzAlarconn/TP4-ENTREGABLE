@@ -67,6 +67,7 @@ namespace tp4
                 //En caso de tratarse de un envío internacional solo debo de hacerlo llegar hasta el centro regional metropolitano para que se despache hacia el exterior
                 punto_geografico.direccion = asingar_extranjero();
                 punto_geografico.nombre = asignar("Nombre");
+                punto_geografico.codigo_postal = 0000;
                 punto_geografico.localidad = null;
                 punto_geografico.provincia = null;
                 punto_geografico.region = null;
