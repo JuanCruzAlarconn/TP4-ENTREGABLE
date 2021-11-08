@@ -97,6 +97,8 @@ namespace tp4
 
             var ultimo_estado = estado_de_orden.Last();
 
+            Console.WriteLine(ultimo_estado.estado);
+            Console.WriteLine(ultimo_estado.entidad);
           
             string estado="";
 
@@ -106,11 +108,11 @@ namespace tp4
                 estado = "La orden de servicio correspondiente se halla inicializada y cargada dentro de la base de datos del sistema";
             }
 
-            if (ultimo_estado.estado == "Entregado")//Es un estado que debe de quemarlo una sucursal
+            if (ultimo_estado.estado == "Entregado")
             {
                 estado = "El paquete fue entragado a su destinatario";
             }
-            if (ultimo_estado.entidad == "Sucursal")
+            if (ultimo_estado.entidad == "Sucursal" && ultimo_estado.estado != "Entregado")
             {
                 /*ESTADOS POSIBLES
                  * En sucursal de origen
@@ -430,12 +432,28 @@ namespace tp4
 
             prueba.Add(e5);
             var orden5= new Orden_de_servicio(0000005, 1234, 600, 00000001, prueba, Convert.ToDateTime("12/07/2021"), paq, orig, dest, mod);
+
+            var orig2 = new Punto_logistico("Enzo Perez", "calle falsa 4561", 0003, "Argentina");
+            var e6 = new Estado(0002,"Sucursal", "Entregado", "20/07/2021");
+            prueba.Add(e6);
+            var orden6 = new Orden_de_servicio(0000006, 1234, 600, 00000002, prueba, Convert.ToDateTime("12/07/2021"), paq, orig2, dest, mod);
+
+            var dest2 = new Punto_logistico("Lionel Messi", "calle falsa 4561", 5689, "Francia");
+
+            var e7 = new Estado(0032, "Distribución internacional", "En ditribución internacional", "20/07/2021");
+
+            prueba.Add(e7);
+
+            var orden7 = new Orden_de_servicio(0000007, 1234, 600, 00000002, prueba, Convert.ToDateTime("12/07/2021"), paq, orig2, dest2, mod);
+
             List<Orden_de_servicio> lista = new List<Orden_de_servicio>();
             lista.Add(orden1);
             lista.Add(orden2);
             lista.Add(orden3);
             lista.Add(orden4);
             lista.Add(orden5);
+            lista.Add(orden6);
+            lista.Add(orden7);
 
             string LJson = JsonConvert.SerializeObject(lista);
             File.WriteAllText("Ordenes de servicio.Json", LJson);
