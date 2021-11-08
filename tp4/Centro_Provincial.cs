@@ -12,7 +12,6 @@ namespace tp4
         public string nombre { get; set; }
         public int codigo { get; set; }
         public List<int> codigos_ordenes_asignadas { get; set; } //A medida que le van llegando los pedidos los almancenan en una lista 
-
         public List<int> codigos_sucursales_incluidas { get; set; }
 
 

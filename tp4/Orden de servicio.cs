@@ -28,8 +28,7 @@ namespace tp4
             orden_de_servicio.codigo_cliente = codigo_cliente;//codigo de cliente corporativo
             orden_de_servicio.codigo_servicio = asignar_codigo_servicio();//codigo de la orden
             orden_de_servicio.estado = asignar_estado_inicial();//cuando se crea la orden cuenta con el estado de inicializado, hay que volcar los datos iniciales del envío
-            orden_de_servicio.fecha_ingreso = DateTime.Now;
-           
+            orden_de_servicio.fecha_ingreso = DateTime.Now;          
             orden_de_servicio.codigo_seguro = asignar_seguro();//El paquete debe de tener un seguro según el enunciado
             orden_de_servicio.origen = Punto_logistico.crear("origen");//lugar de donde parte, puede ser una sucursal o que se halla retirado a domicilio
             orden_de_servicio.destino = Punto_logistico.crear("destino");//lugar en que se deposita al final puede ser una sucursal o lo envío a domicilio
@@ -37,8 +36,16 @@ namespace tp4
             orden_de_servicio.modalidad = asignar_modalidad();//aspectos acerca de como debe de llegar y entregar el paquete además de que si es o no urgente           
             
             orden_de_servicio.precio = asignar_precio();
-            
+
+
+            comunicar_codigo(orden_de_servicio.codigo_servicio);
+
             return orden_de_servicio;
+        }
+
+        private static void comunicar_codigo(int codigo_servicio)
+        {
+            throw new NotImplementedException();
         }
 
         private static Paquete asignar_paquetes()

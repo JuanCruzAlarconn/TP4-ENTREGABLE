@@ -10,7 +10,7 @@ namespace tp4
 {
     class Sucursal
     {
-        public string ubicacion { get; set; }
+        public string nombre { get; set; }
         public string localidad_dominante { get; set; }//cual es su zona de influencia en donde maneja la operación de forma independiente
         public int codigo_sucursal { get; set; }
         public List<int> codigos_ordenes_asignadas { get; set; } //A medida que le van llegando los pedidos los almancenan en una lista 
@@ -27,14 +27,14 @@ namespace tp4
 
         }
 
-        public static Sucursal hallar(int codigo)
+        public static Sucursal hallar(string localidad)
         {
             var lista = abrir_archivo();
             var sucursal = new Sucursal();//envío una copia de la información
 
             foreach (var s in lista)
             {
-                if (s.codigo_sucursal == codigo)
+                if (s.localidad_dominante==localidad)
                 {
                     sucursal = s;
                     break;
@@ -44,25 +44,17 @@ namespace tp4
             return sucursal;
         }
 
-        public void asignar_orden_servicio(int codigo_orden)
+        public void asignar_orden_servicio(int codigo_orden, string localidad)
         {
             var lista = Sucursal.abrir_archivo();
 
-            var centro = Sucursal.hallar(this.codigo_sucursal);
+            var elemento = Sucursal.hallar(localidad);
 
-            centro.codigos_ordenes_asignadas.Add(codigo_orden);
+            lista.Remove(elemento);
 
-            foreach (var elemento in lista)
-            {
-                if (elemento.codigo_sucursal == this.codigo_sucursal)
-                {
-                    lista.Remove(elemento);
-                }
-            }
+            lista.Add(elemento);
 
-            lista.Add(centro);
-
-            Sucursal.actualizar_archivo(lista);
+            
 
         }
 
