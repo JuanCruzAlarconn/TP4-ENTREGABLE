@@ -413,6 +413,10 @@ namespace tp4
         public static void cargar_prueba ()
         {
             List<Estado> prueba = new List<Estado>();
+            List<Estado> prueba2 = new List<Estado>();
+            List<Estado> prueba3 = new List<Estado>();
+            List<Estado> prueba4 = new List<Estado>();
+            List<Estado> prueba5 = new List<Estado>();
             var e1 = new Estado(0001, "Aplicación", "Inicializado", "12/07/2021");
             var e2 = new Estado(0002, "Transporte", "En distribución desde la sucursal hacia el centro provincial", "13/07/2021");
             var e3 = new Estado(0003, "Centro provincial", "En centro provincial", "13/07/2021");
@@ -421,6 +425,18 @@ namespace tp4
             prueba.Add(e2);
             prueba.Add(e3);
 
+            prueba2.Add(new Estado(0001, "Aplicación", "Iniciado", "13/08/2020"));
+
+            prueba3.Add(new Estado(0001, "Aplicación", "Inicializado", "23/08/2020") );
+            prueba3.Add(new Estado(0002, "Sucursal", "En sucursal", "24/08/2020"));
+            prueba3.Add(new Estado(0002, "Sucursal", "En distribución hacia el destinatario", "30/08/2020"));
+
+            prueba4.Add(new Estado(0001, "Aplicación", "Inicializado", "30/08/2020"));
+            prueba4.Add(new Estado(0002, "Sucursal", "En distribución hacia la sucursal de origen", "01/09/2020"));
+
+            prueba5.Add(new Estado(0001, "Aplicación", "Inicializado", "23/08/2020"));
+            prueba5.Add(new Estado(9999, "Transporte", "En distribución desde el centro provincial hacia el centro regional", "30/08/2020"));
+
             var orig = new Punto_logistico("Julian Alvarez", "calle falsa 1234", 0001, "Argentina");
             var dest = new Punto_logistico("Roman Riquelme", "calle falsa 4561", 0002, "Argentina");
 
@@ -428,8 +444,8 @@ namespace tp4
             var paq = new Paquete(1000, "Bultos", 1000);
             
             var orden1 = new Orden_de_servicio(0000001, 1234, 100, 00000001, prueba, Convert.ToDateTime("12/07/2021"),paq,orig,dest, mod);
-            var orden2 = new Orden_de_servicio(0000002, 1234, 900, 00000001, prueba, Convert.ToDateTime("12/07/2021"), paq, orig, dest, mod);
-            var orden3 = new Orden_de_servicio(0000003, 1234, 600, 00000001, prueba, Convert.ToDateTime("12/07/2021"), paq, orig, dest, mod);
+            var orden2 = new Orden_de_servicio(0000002, 1234, 900, 00000001, prueba2, Convert.ToDateTime("12/07/2021"), paq, orig, dest, mod);
+            var orden3 = new Orden_de_servicio(0000003, 1234, 600, 00000001, prueba3, Convert.ToDateTime("12/07/2021"), paq, orig, dest, mod);
 
             var e4 = new Estado(0002, "Transporte", "En distribución desde el centro provincial hacia el centro regional", "14/07/2021");
 
@@ -440,12 +456,12 @@ namespace tp4
             var e5 = new Estado(0002, "Centro regional", "En centro regional", "15/07/2021");
 
             prueba.Add(e5);
-            var orden5= new Orden_de_servicio(0000005, 1234, 600, 00000001, prueba, Convert.ToDateTime("12/07/2021"), paq, orig, dest, mod);
+            var orden5= new Orden_de_servicio(0000005, 1234, 600, 00000001, prueba4, Convert.ToDateTime("12/07/2021"), paq, orig, dest, mod);
 
             var orig2 = new Punto_logistico("Enzo Perez", "calle falsa 4561", 0003, "Argentina");
             var e6 = new Estado(0002,"Sucursal", "Entregado", "20/07/2021");
             prueba.Add(e6);
-            var orden6 = new Orden_de_servicio(0000006, 1234, 600, 00000002, prueba, Convert.ToDateTime("12/07/2021"), paq, orig2, dest, mod);
+            var orden6 = new Orden_de_servicio(0000006, 1234, 600, 00000002, prueba5, Convert.ToDateTime("12/07/2021"), paq, orig2, dest, mod);
 
             var dest2 = new Punto_logistico("Lionel Messi", "calle falsa 4561", 5689, "Francia");
 
