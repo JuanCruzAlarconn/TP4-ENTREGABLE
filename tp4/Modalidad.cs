@@ -96,7 +96,7 @@ namespace tp4
                     continue;
                 }
 
-                if (ingreso == "A")
+                if (ingreso == "B")
                 {
                     Console.WriteLine("\nHa seleccionado que quiere una entrega urgente");
                     return "Urgente";
@@ -104,7 +104,7 @@ namespace tp4
 
                 }
 
-                if (ingreso == "B")
+                if (ingreso == "A")
                 {
                     Console.WriteLine("\nHa seleccionado que quiere una entrega normal");
                     return "Normal";
