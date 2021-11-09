@@ -82,6 +82,8 @@ namespace tp4
                 DateTime fecha = DateTime.Now;
                 ordenes.agregar(new Orden_de_servicio2(codigo, cliente, origen, destino, modalidad, costo, estado, fecha));
                 Console.WriteLine("Orden de servicio generada Nro:" + codigo);
+                //METODO PARA GRABAR
+
             }
 
 
