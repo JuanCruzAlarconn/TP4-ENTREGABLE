@@ -16,7 +16,7 @@ namespace tp4
         public  Paquete paquete { get; set; }//caracteristicas del paquete      
         public int codigo_cliente { get; set; }//Quien es el iniciador del proceso
         public int codigo_seguro { get; set; }//Asignación de un seguro de acuerdo con el valor declarado por el cliente
-        public decimal precio { get; set; }//Calculo del precio del servicio
+        public double precio { get; set; }//Calculo del precio del servicio
         public Punto_logistico origen { get; set; }//puede ser una sucursal o ser retirado en domicilio
         public Punto_logistico destino { get; set; }//puede ser una sucursa, otro pais, o que el paquete deba de ser retirado dentro de la sucursal
         public Modalidad modalidad { get; set; }//Cuales son las formas de entrega del paquete dentro del servicio
@@ -37,7 +37,7 @@ namespace tp4
             orden_de_servicio.paquete = asignar_paquetes();//Información sobre el paquete          
             orden_de_servicio.modalidad = asignar_modalidad();//aspectos acerca de como debe de llegar y entregar el paquete además de que si es o no urgente           
             
-            orden_de_servicio.precio = asignar_precio();
+            
 
 
             comunicar_codigo(orden_de_servicio.codigo_servicio);
@@ -58,12 +58,7 @@ namespace tp4
             return paquete;
         }
 
-        private static decimal asignar_precio()
-        {
-            //En función de las propiedades del paquete, la distancia y si es urgente defino el precio que es información que debo de entregar al cliente junto con el codigo de estado para poder consultarlo
-            throw new NotImplementedException();
-        }
-
+       
         private static Modalidad asignar_modalidad()
         {
             //Implementar
@@ -74,7 +69,7 @@ namespace tp4
 
         private static List<Estado> asignar_estado_inicial()
         {
-            //A implementar
+           
             List<Estado> lista_estados = new List<Estado>();
             var estado_inicial = Estado.crear();
 
@@ -344,6 +339,17 @@ namespace tp4
 
             return lista;
         }
+
+        public static void grabar(Orden_de_servicio orden)
+        {
+            var lista = Orden_de_servicio.abrir_archivo();
+
+            lista.Add(orden);
+
+            Orden_de_servicio.actualizar_archivo(lista);
+
+            Console.WriteLine("\nLA ORDEN DE SERVICIO FUE CORRECTAMENTE ALMACENADA");
+        }
         public static void actualizar_archivo(List<Orden_de_servicio> lista)
         {
             string lista_modificada = JsonConvert.SerializeObject(lista);
@@ -395,15 +401,15 @@ namespace tp4
         public Orden_de_servicio()
         { }
 
-        public Orden_de_servicio(int cs,int cseg,decimal precio, int cc, List<Estado> estado, DateTime f, Paquete p,Punto_logistico origen, Punto_logistico destino, Modalidad modalidad)
+        public Orden_de_servicio(int codigo_servicio,int codigo_seguro,double precio, int codigo_cliente, List<Estado> estado, DateTime fecha, Paquete paquete,Punto_logistico origen, Punto_logistico destino, Modalidad modalidad)
         {
-            this.codigo_servicio = cs;
-            this.codigo_seguro = cseg;
+            this.codigo_servicio = codigo_servicio;
+            this.codigo_seguro = codigo_seguro;
             this.precio = precio;
-            this.codigo_cliente = cc;
+            this.codigo_cliente = codigo_cliente;
             this.estado = estado;
-            this.fecha_ingreso = f;
-            this.paquete = p;
+            this.fecha_ingreso = fecha;
+            this.paquete = paquete;
             this.origen = origen;
             this.destino = destino;
             this.modalidad = modalidad;
