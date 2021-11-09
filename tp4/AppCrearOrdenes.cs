@@ -13,33 +13,15 @@ namespace tp4
         private Validador validador;
         private ConjuntoDeOrdenes ordenes;
         private ConjuntoDeSucursales sucursales;
-        private static List<Estado> asignar_estado_inicial()
-        {
-
-            List<Estado> lista_estados = new List<Estado>();
-            var estado_inicial = Estado.crear();
-
-            lista_estados.Add(estado_inicial);
-
-            return lista_estados;
-        }
+        
         public AppCrearOrdenes()
         {
             validador = new Validador();
             ordenes = new ConjuntoDeOrdenes();
             sucursales = new ConjuntoDeSucursales();
         }
-        private static int asignar_seguro()
-        {
-            //Aprobado
-            Random r = new Random();
-
-            int seguro = r.Next(0, 10001);
-
-            return seguro;//se genera un número aleatorio para el seguro, para luego ser cotejado por el sistema
-
-        }
-
+      
+        
         public void ejecutar(int codigo_cliente)
         {
             int cliente = codigo_cliente;
@@ -97,10 +79,10 @@ namespace tp4
 
             if (continuar == "S")
             {
-                int codigo = ordenes.asignar_codigo_servicio();
-                List<Estado> estado = asignar_estado_inicial();
+                int codigo = Orden_de_servicio.asignar_codigo_servicio();//Asigna un código de orden de servicio
+                List<Estado> estado = Orden_de_servicio.asignar_estado_inicial();//Genera la lista y le coloca el 1º estado
                 var fecha = DateTime.Now;
-                int codigo_seguro = asignar_seguro();
+                int codigo_seguro = Orden_de_servicio.asignar_seguro();//Aleatoria
                 var orden=new Orden_de_servicio(codigo, codigo_seguro,costo,codigo_cliente,estado,fecha,paquete,origen, destino, modalidad);
                 Console.WriteLine("Orden de servicio generada Nro:" + codigo);
                 Orden_de_servicio.grabar(orden);

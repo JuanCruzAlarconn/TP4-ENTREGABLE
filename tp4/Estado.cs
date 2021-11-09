@@ -25,7 +25,7 @@ namespace tp4
 
             estado.codigo_entidad = 0000001;
             estado.entidad = "Aplicación de servicio";
-            estado.estado = "Inicializado";
+            estado.estado = "Iniciado";
             estado.fecha = DateTime.Now;
 
             return estado;

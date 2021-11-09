@@ -367,7 +367,7 @@ namespace tp4
 
                 if (!Cliente_corportativo.validar_cliente(codigo_cliente))
                 {
-                    Console.WriteLine("\nEl código de cliente corporativo ingresado no se corresponde con ninguno de los elemenos ingresados dentro de la base de datos");
+                    Console.WriteLine("\nEl código de cliente corporativo ingresado no se corresponde con ninguno de los elementos ingresados dentro de la base de datos");
                     Console.WriteLine("*******************************************************************************************************************\n");
                     continue;
                 }

@@ -23,54 +23,14 @@ namespace tp4
 
 
         
-        public static Orden_de_servicio crear(int codigo_cliente)
-        {
-            //Se da inicio cuando se hace el proceso de generar un nuevo servicio de entrega de algo
-            Orden_de_servicio orden_de_servicio = new Orden_de_servicio();
-            orden_de_servicio.codigo_cliente = codigo_cliente;//codigo de cliente corporativo
-            orden_de_servicio.codigo_servicio = asignar_codigo_servicio();//codigo de la orden
-            orden_de_servicio.estado = asignar_estado_inicial();//cuando se crea la orden cuenta con el estado de inicializado, hay que volcar los datos iniciales del envío
-            orden_de_servicio.fecha_ingreso = DateTime.Now;          
-            orden_de_servicio.codigo_seguro = asignar_seguro();//El paquete debe de tener un seguro según el enunciado
-            orden_de_servicio.origen = Punto_logistico.crear("origen");//lugar de donde parte, puede ser una sucursal o que se halla retirado a domicilio
-            orden_de_servicio.destino = Punto_logistico.crear("destino");//lugar en que se deposita al final puede ser una sucursal o lo envío a domicilio
-            orden_de_servicio.paquete = asignar_paquetes();//Información sobre el paquete          
-            orden_de_servicio.modalidad = asignar_modalidad();//aspectos acerca de como debe de llegar y entregar el paquete además de que si es o no urgente           
-            
-            
+   
 
-
-            comunicar_codigo(orden_de_servicio.codigo_servicio);
-
-            return orden_de_servicio;
-        }
-
-        private static void comunicar_codigo(int codigo_servicio)
-        {
-            throw new NotImplementedException();
-        }
-
-        private static Paquete asignar_paquetes()
-        {
-            //aprobado
-            var paquete = Paquete.crear();
-
-            return paquete;
-        }
-
-       
-        private static Modalidad asignar_modalidad()
-        {
-            //Implementar
-            var modalidad = Modalidad.crear();
-
-            return modalidad;
-        }
-
-        private static List<Estado> asignar_estado_inicial()
+        public static List<Estado> asignar_estado_inicial()
         {
            
             List<Estado> lista_estados = new List<Estado>();
+
+
             var estado_inicial = Estado.crear();
 
             lista_estados.Add(estado_inicial);
@@ -82,8 +42,8 @@ namespace tp4
 
         public static void consultar_estado(int codigo_cliente)
         {
-            archivo.generar_archivo();
-            Orden_de_servicio.cargar_prueba();
+          /*  archivo.generar_archivo();
+            Orden_de_servicio.cargar_prueba();*/
             var codigo = menu_ingreso(codigo_cliente);
 
             var elemento = hallar(codigo);//saco una copia de la orden de servicio desde la base de datos para poder consultar
@@ -94,8 +54,7 @@ namespace tp4
 
             var ultimo_estado = estado_de_orden.Last();
 
-            Console.WriteLine(ultimo_estado.estado);
-            Console.WriteLine(ultimo_estado.entidad);
+            
           
             string estado="";
 
@@ -307,7 +266,7 @@ namespace tp4
             return flag;
         }
 
-        private static int asignar_seguro()
+        public static int asignar_seguro()
         {
             //Aprobado
             Random r = new Random();
@@ -318,17 +277,22 @@ namespace tp4
 
         }
       
-        private static int asignar_codigo_servicio()
+        public static int asignar_codigo_servicio()
         {
             //Generado a partir de consultar el último código de servicio que fue generado y guardado
             var lista = Orden_de_servicio.abrir_archivo();
+            int codigo = 0;
+            if(lista.Count>0)
+            {
+                var elemento = lista.Last();
 
-            var elemento = lista.Last();
+                codigo = elemento.codigo_servicio;
+            }
 
-            var codigo = elemento.codigo_servicio;
+            codigo++;
 
 
-            return codigo+1;
+            return codigo;
         }
         public static List<Orden_de_servicio> abrir_archivo()
         {
