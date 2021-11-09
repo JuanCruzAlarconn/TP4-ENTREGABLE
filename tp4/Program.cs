@@ -21,14 +21,34 @@ namespace tp4
 
         public static void validar_cliente()
         {
-
+            string ingreso = "";
 
             do
             {
                 mostrar_menu_inicio();
+                ingreso = Console.ReadLine();
 
+                ingreso = ingreso.ToUpper();
 
-                if (Console.ReadKey(true).Key == ConsoleKey.A)
+                if(string.IsNullOrEmpty(ingreso))
+                {
+                    Console.WriteLine("\nNo puede ingresar un espacio vacio como opción a elegir");
+                    continue;
+                }
+
+                if(int.TryParse(ingreso, out int salida))
+                {
+                    Console.WriteLine("\nLas opciones disponibles no son numéricas");
+                    continue;
+                }
+
+                if(ingreso.Length!=1)
+                {
+                    Console.WriteLine("\nSolo debe de ingresar una de las opciones disponibles dentro del menu");
+                    continue;
+                }
+
+                if (ingreso == "A")
                 {
                     
                     Program.validar_identidad();
@@ -41,15 +61,19 @@ namespace tp4
                     break;
                 }
 
-                if (Console.ReadKey(true).Key == ConsoleKey.B)
+                if (ingreso == "B")
                 {
-                    Console.WriteLine("\nHa decidido finanlizar la ejecución del programa");
-                    Console.WriteLine("\nGracias por utilizar nuestra aplicación");
+                    Console.WriteLine("\nHa seleccionado la opción salir de la aplicación");
+                    Console.WriteLine("\nGracias por utilizar nuestros servicios");
+                    Console.WriteLine("\nHa decidido salir definitivamente de la aplicación \nGracias por usar nuestros servicio\nLa ventana de consola se cerrara al cabo de 10 segundos");
+                    Thread.Sleep(10000);
+
+                    Environment.Exit(0);
 
                     break;
-                    //función para detener la ejecución
+                   
                 }
-                if (Console.ReadKey(true).Key != ConsoleKey.B && Console.ReadKey(true).Key != ConsoleKey.A)
+                if (ingreso!="B" && ingreso!="A")
                 {
                     Console.WriteLine("\nEl comando ingresado no se correponde con ninguno de los comandos válidos disponibles, se lo redirigira a la línea anterior para que tenga la posibilidad de ingresar nuevamente el comando deseado");
 
@@ -94,33 +118,36 @@ namespace tp4
 
                 if (opcion==1)
                 {
-                    Console.WriteLine("\nEjecución de la rutina generar envío\n");
+                    Console.WriteLine("\n**************************************************");
+                    Console.WriteLine("*****************GENERAR ENVÍO************************");
+                    Console.WriteLine("****************************************************\n");
                     AppCrearOrdenes app = new AppCrearOrdenes();
                     app.ejecutar(codigo_cliente);
+                    Console.WriteLine("\nSE LO REDIRIGIRÁ AL MENÚ ANTERIOR PARA QUE PUEDA SEGUIR OPERANDO\n");
                     validar_eleccion(codigo_cliente);
                     break;
                 }
 
                 if (opcion==2)
                 {
-                    Console.WriteLine("\nEjecución de la rutina consultar estado de envío\n");
+                    Console.WriteLine("\n**************************************************");
+                    Console.WriteLine("******************CONSULTAR ESTADO DE ENVÍO***********");
+                    Console.WriteLine("****************************************************\n");
                     Orden_de_servicio.consultar_estado(codigo_cliente);
+
+                    Console.WriteLine("\nSE LO REDIRIGIRÁ AL MENÚ ANTERIOR PARA QUE PUEDA SEGUIR OPERANDO\n");
+
                     validar_eleccion(codigo_cliente);
                     break;
                 }
                 if (opcion==3)
                 {
-          Console.WriteLine("\nEjecución de la rutina consultar estado de cuenta\n");
-                  /*validar_eleccion(codigo_cliente);
-                    EstadoCuenta.carga_prueba_estadocuenta();
-                    EstadoCuenta.mostrar_menu_estado_de_cuenta();
-                    string nombreyapellido = (EstadoCuenta.hallar(codigo_cliente).codigo_cliente).ToString();
-                    Console.WriteLine($"\nBienvenido {nombreyapellido}");
-                    EstadoCuenta.mostrarCuenta(codigo_cliente);
-                    EstadoCuenta.CalcularSaldoCta(codigo_cliente);
-                    EstadoCuenta.filtrarPorFechas(codigo_cliente, DateTime.Now, DateTime.Now.AddDays(10));
-                  */
+                    Console.WriteLine("\n**************************************************");
+                    Console.WriteLine("******************CONSULTAR ESTADO DE CUENTA***********");
+                    Console.WriteLine("****************************************************\n");
+
                     estado_cuenta(codigo_cliente);
+                    Console.WriteLine("\nSE LO REDIRIGIRÁ AL MENÚ ANTERIOR PARA QUE PUEDA SEGUIR OPERANDO\n");
                     validar_eleccion(codigo_cliente);
                     break;
 
@@ -136,9 +163,11 @@ namespace tp4
 
                     break;
                 }
-                if (Console.ReadKey(true).Key != ConsoleKey.NumPad1 && Console.ReadKey(true).Key != ConsoleKey.NumPad2 && Console.ReadKey(true).Key != ConsoleKey.NumPad3 && Console.ReadKey(true).Key != ConsoleKey.NumPad4)
+                if (opcion!=1 && opcion !=2 && opcion !=3 && opcion !=4)
                 {
                     Console.WriteLine("\nLa opción registrada no se correponde con ninguna de las opciones disponibles dentro del sistema");
+                    Console.WriteLine("\nSe lo devolvera al menú anterior para poder volver a ingresar una opción");
+                    Console.WriteLine("\nSE LO REDIRIGIRÁ AL MENÚ ANTERIOR PARA QUE PUEDA SEGUIR OPERANDO\n");
                     validar_eleccion(codigo_cliente);
                     continue;
                 }
@@ -152,12 +181,14 @@ namespace tp4
         {
             Console.WriteLine("******************************************************************************************");
             Console.WriteLine("\nBienvenido al programa de gestión integral de encomiendas");
-            Console.WriteLine("\nIngrese A para comenzar");
-            Console.WriteLine("\nIngrese B en caso de querer detener la aplicación en curso");
+            Console.WriteLine("\nIngrese A para comenzar y luego presiones enter");
+            Console.WriteLine("\nIngrese B en caso de querer detener la aplicación en curso y luego presione enter");
             Console.WriteLine("\n******************************************************************************************\n");
         }
         public static void mostrar_menu_opciones()
         {
+            Console.WriteLine("******************************************************************************************");
+            Console.WriteLine("***************APLICACIÓN DE CLIENTE CORPORATIVO*******************************************");
             Console.WriteLine("******************************************************************************************");
             Console.WriteLine("\nIngrese por teclado cualquiera de las siguientes opciones según la tarea que desee realizar, y luego presione la tecla enter\n");
             Console.WriteLine("\n1.GENERAR ENVÍO");
@@ -288,11 +319,14 @@ namespace tp4
 
             do
             {
-                Console.WriteLine("\nIngrese su código de cliente corporativo para poder acceder a las funciones del sistema y luego presione la tecla enter");
-                Console.WriteLine("\nSi desea detener la ejecución del programa introduzca por teclado la frase SALIR tal y como se le comunico");
-                Console.WriteLine("\n38456910");
+                Console.WriteLine("\n**********************************************************");
+                Console.WriteLine("****************INGRESO DE CÓDIGO DE CLIENTE***************");
+                Console.WriteLine("***********************************************************\n");
+                Console.WriteLine("\n* Ingrese su código de cliente corporativo para poder acceder a las funciones del sistema y luego presione la tecla enter");
+                Console.WriteLine("\n* Si desea detener la ejecución del programa introduzca por teclado la frase SALIR tal y como se le comunico\n");
+                
                 ingreso = Console.ReadLine();
-                Cliente_corportativo.carga_prueba();
+                Cliente_corportativo.carga_prueba();//Carga una lista de clientes para poder evaluar el funcionamiento del programa
 
                 if(ingreso=="SALIR")
                 {
@@ -307,41 +341,43 @@ namespace tp4
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
                     Console.WriteLine("\nEl código de cliente corporativo no puede ser vacio, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
-                    Console.WriteLine("******************************************************************************************\n");
+                    Console.WriteLine("*************************************************************************************************************\n");
                     continue;
                 }
                 if (!Int32.TryParse(ingreso, out codigo_cliente))
                 {
                     Console.WriteLine("\nEl código de cliente corporativo debe de ser del tipo numérico, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
-                    Console.WriteLine("******************************************************************************************\n");
+                    Console.WriteLine("*************************************************************************************************************\n");
                     continue;
                 }
                 if (codigo_cliente < 0)
                 {
                     Console.WriteLine("\nEl código de cliente corporativo debe de ser positivo, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
-                    Console.WriteLine("******************************************************************************************\n");
+                    Console.WriteLine("*****************************************************************************************************************\n");
                     continue;
                 }
                 if (ingreso.Count() != 8)
                 {
                     
                     Console.WriteLine("\nEl código de cliente corporativo debe de contener 8 digitos numéricos en su extensión, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
-                    Console.WriteLine("******************************************************************************************\n");
+                    Console.WriteLine("******************************************************************************************************************\n");
                     continue;
                 }
 
                 if (!Cliente_corportativo.validar_cliente(codigo_cliente))
                 {
                     Console.WriteLine("\nEl código de cliente corporativo ingresado no se corresponde con ninguno de los elemenos ingresados dentro de la base de datos");
-                    Console.WriteLine("******************************************************************************************\n");
+                    Console.WriteLine("*******************************************************************************************************************\n");
                     continue;
                 }
 
                 if(Cliente_corportativo.validar_cliente(codigo_cliente))
                 {
                     string nombreyapellido = Cliente_corportativo.hallar(codigo_cliente).nombreyapellido;
-                    Console.WriteLine($"\nBienvenido {nombreyapellido}");
-                    Console.WriteLine("\nSe lo redirigira al menu con las opciones");
+                    Console.WriteLine("**************************************");
+                    Console.WriteLine($"Bienvenido {nombreyapellido}");
+                    Console.WriteLine("**************************************");
+                    Console.WriteLine("\nSe lo redirigira al menu con las opciones\n");
                     validar_eleccion(codigo_cliente);
                     break;
                 }

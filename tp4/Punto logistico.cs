@@ -38,42 +38,53 @@ namespace tp4
 
             if (modo == "origen")
             {
+                Console.WriteLine("\n*********************************************************************************************************************");
                 Console.WriteLine("\nA continuación se solicitara el ingreso de los datos correspondientes con el punto de origen de la operación\n");
-            }
-            else
-            {
-                Console.WriteLine("\nA continuación se solicitara el ingreso de los datos correspondientes con el punto de destino de la operación\n");
-            }
-
-            punto_geografico.pais = asignar("pais");
-
-            if (punto_geografico.pais == "Argentina")
-            {
-
-                punto_geografico.direccion = asignar("dirección");
-                punto_geografico.nombre = asignar("Nombre");
+                Console.WriteLine("**********************************************************************************************************************\n");
+                Console.WriteLine("\nInformación postal del origen, es decir su información postal");
                 punto_geografico.codigo_postal = asignar_cp();
-
-
-                //Esto se asigna por sistema
                 punto_geografico.localidad = asignar_localidad(punto_geografico.codigo_postal);
                 punto_geografico.provincia = asignar_provincia(punto_geografico.codigo_postal);
                 punto_geografico.region = asignar_region(punto_geografico.codigo_postal);
-                punto_geografico.continente_asignado = "America del sur limitrofe";
-                
+                punto_geografico.pais = "Argentina";
+
             }
             else
             {
-                //En caso de tratarse de un envío internacional solo debo de hacerlo llegar hasta el centro regional metropolitano para que se despache hacia el exterior
-                punto_geografico.direccion = asingar_extranjero();
-                punto_geografico.nombre = asignar("Nombre");
-                punto_geografico.codigo_postal = 0000;
-                punto_geografico.localidad = null;
-                punto_geografico.provincia = null;
-                punto_geografico.region = null;
-                punto_geografico.continente_asignado = continente.pasar_continente(punto_geografico.pais);
-            }
+                Console.WriteLine("\n*********************************************************************************************************************");
+                Console.WriteLine("\nA continuación se solicitara el ingreso de los datos correspondientes con el punto de destino de la operación\n");
+                Console.WriteLine("**********************************************************************************************************************\n");
 
+
+                punto_geografico.pais = asignar("pais");
+
+                if (punto_geografico.pais == "Argentina")
+                {
+
+                    punto_geografico.direccion = asignar("dirección");
+                    punto_geografico.nombre = asignar("Nombre");
+                    punto_geografico.codigo_postal = asignar_cp();
+
+
+                    //Esto se asigna por sistema
+                    punto_geografico.localidad = asignar_localidad(punto_geografico.codigo_postal);
+                    punto_geografico.provincia = asignar_provincia(punto_geografico.codigo_postal);
+                    punto_geografico.region = asignar_region(punto_geografico.codigo_postal);
+                    punto_geografico.continente_asignado = "America del sur limitrofe";
+
+                }
+                else
+                {
+                    //En caso de tratarse de un envío internacional solo debo de hacerlo llegar hasta el centro regional metropolitano para que se despache hacia el exterior
+                    punto_geografico.direccion = asingar_extranjero();
+                    punto_geografico.nombre = asignar("Nombre");
+                    punto_geografico.codigo_postal = 0000;
+                    punto_geografico.localidad = null;
+                    punto_geografico.provincia = null;
+                    punto_geografico.region = null;
+                    punto_geografico.continente_asignado = continente.pasar_continente(punto_geografico.pais);
+                }
+            }
             return punto_geografico;
 
         }
@@ -193,7 +204,9 @@ namespace tp4
             
             do
             {
-                Console.WriteLine($"\nIngrese los datos que se corresponde con el {campo}");
+                Console.WriteLine("\n----------------------------------------------------------------------------------------------");
+                Console.WriteLine($"\nIngrese los datos que se corresponde con el {campo} y luego presione la tecla enter");
+                Console.WriteLine("-----------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
 
                 
@@ -204,12 +217,12 @@ namespace tp4
                     continue;
                 }
 
-                if (ingreso.Length < 5)
+                if (ingreso.Length < 2)
                 {
                     Console.WriteLine($"\nEl campo {campo} no pude contener pocos elementos de escritura");
                     continue;
                 }
-                if (!Punto_logistico.leer_pais(ingreso) && campo=="pais")
+                if ((!Punto_logistico.leer_pais(ingreso)) && campo=="pais")
                 {
                     Console.WriteLine("\nEl elemento ingresado no se corresponde con un pais válido dentro de la lista");
                     continue;
@@ -223,6 +236,8 @@ namespace tp4
                         continue;
                     }
                 }
+
+               
 
                 break;
             } while (true);

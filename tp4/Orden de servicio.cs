@@ -231,11 +231,12 @@ namespace tp4
 
             do
             {
+                Console.WriteLine("\nSELECCIONE E INGRESE LOS COMANDOS");
                 Console.WriteLine("\nIngrese el código de orden de servicio que desea consultar, el mismo esta compuesto como máximo de 7 elementos númericos y le fue otorgado en el momento en que se finaliza la realizacion del pedido como tal");
-                Console.WriteLine("\nIngrese por consola el comando ATRAS para volver al menú anterior en caso de necesitarlo\n");
+                Console.WriteLine("\nEn caso de que desee volver anterior ingrese por consola el comando ATRAS para volver al menú anterior en caso de necesitarlo\n");
                 ingreso = Console.ReadLine();
 
-                if (ingreso == "ATRAS")
+                if (ingreso == "ATRAS" || ingreso=="atras")
                 {
                     Console.WriteLine("\nHa ingresado el comando de para volver al menú anterior");
                     Console.WriteLine("\nSe lo redirijira al menú anterior a continuación");
@@ -442,7 +443,7 @@ namespace tp4
 
             var dest2 = new Punto_logistico("Lionel Messi", "calle falsa 4561", 5689, "Francia");
 
-            var e7 = new Estado(0032, "Distribución internacional", "En ditribución internacional", "20/07/2021");
+            var e7 = new Estado(0032, "Transporte", "En ditribución internacional", "20/07/2021");
 
             prueba.Add(e7);
 

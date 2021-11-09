@@ -16,6 +16,7 @@ namespace tp4
 
         public static Modalidad crear()
         {
+            Console.WriteLine("\n*******************COMPLETE LA INFORMACIÓN SOLICITADA PARA GENERAR EL ENVÍO***********************\n");
             var modalidad = new Modalidad();
             modalidad.modo_retiro = asignar_retiro();
             modalidad.modo_entrega = asignar_entrega();
@@ -30,9 +31,11 @@ namespace tp4
 
             do
             {
+                Console.WriteLine("\n-------------------------------------------------------------------------------------------------------------------------------");
                 Console.WriteLine("\nIngrese las siguientes opciones cuando a como quiere que el paquete se entregue al destinatario, luego presione enter");
                 Console.WriteLine("\nA.El destinatario recibira el paquete dentro de la sucursal");
                 Console.WriteLine("\nB.El destinatario recibira el paquete dentro del domicilio indicado");
+                Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------------\n");
 
                 ingreso = Console.ReadLine().ToUpper();
 
@@ -78,10 +81,11 @@ namespace tp4
 
             do
             {
+                Console.WriteLine("\n-------------------------------------------------------------------------------------------------------------------------------");
                 Console.WriteLine("\nIngrese las siguientes opciones que se corresponden con la modalidad del envío, luego presione enter");
                 Console.WriteLine("\nA.Normal, se demorara de acuerdo con la distancia establecida del recorrido");
                 Console.WriteLine("\nB.Urgente, desea que el paquete sea entrgado dentro de las próximas 48 hs");
-
+                Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine().ToUpper();
 
                 if (string.IsNullOrEmpty(ingreso))
@@ -127,10 +131,11 @@ namespace tp4
 
             do
             {
+                Console.WriteLine("\n-------------------------------------------------------------------------------------------------------------------------------");
                 Console.WriteLine("\nIngrese las siguientes opciones cuando a como quiere que el paquete ingrese sea retirado por la empresa, luego presione enter");
                 Console.WriteLine("\nA.Llevara el paquete hasta la sucursal que se corresponde con su localidad");
                 Console.WriteLine("\nB.Quiero que se retire el paquete en mi domicilio");
-
+                Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine().ToUpper();
 
                 if(string.IsNullOrEmpty(ingreso))
