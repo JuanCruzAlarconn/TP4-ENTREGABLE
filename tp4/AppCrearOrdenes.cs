@@ -89,124 +89,502 @@ namespace tp4
 
         private double calcularCosto(Punto_logistico origen, Punto_logistico destino, Modalidad modalidad, decimal peso)
         {
-            double costo = 0;        
+            double costo = 0;
+            double costoInternacional = 0;
             double urgente = 1.10;
             double enPuerta = 20;
-
-            if (destino.pais != "Argentina") 
+            
+            if (destino.continente_asignado == "America del sur limitrofe")
             {
-                if(peso > 20000)
+                costoInternacional = 1000;
+            }
+            else
+            {
+                if (destino.continente_asignado == "America del sur")
                 {
-                    if (modalidad.tipo_envio == "Urgente")
-                    {
-                        if(modalidad.modo_entrega == "Retirado en domicilio")
-                        {
-                            if(modalidad.modo_retiro == "Entregado en domicilio")
-                            {
-                                costo = 10000 * urgente + (enPuerta * 2);
-                            }
-                            else
-                            {
-                                costo = 10000 * urgente + enPuerta;
-                            }
-                        }
-                        else
-                        {
-                            if (modalidad.modo_retiro == "Entregado en domicilio")
-                            {
-                                costo = 10000 * urgente + enPuerta;
-                            }
-                            else
-                            {
-                                costo = 10000 * urgente;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (modalidad.modo_entrega == "Retirado en domicilio")
-                        {
-                            if (modalidad.modo_retiro == "Entregado en domicilio")
-                            {
-                                costo = 10000 + (enPuerta * 2);
-                            }
-                            else
-                            {
-                                costo = 10000 + enPuerta;
-                            }
-                        }
-                        else
-                        {
-                            if (modalidad.modo_retiro == "Entregado en domicilio")
-                            {
-                                costo = 10000 + enPuerta;
-                            }
-                            else
-                            {
-                                costo = 10000;
-                            }
-                        }
-                    }
-
+                    costoInternacional = 2000;
                 }
                 else
                 {
-                    if(peso > 10000)
+                    if (destino.continente_asignado == "America del norte")
                     {
-                        if (modalidad.tipo_envio == "Urgente")
+                        costoInternacional = 3000;
+                    }
+                    else
+                    {
+                        if (destino.continente_asignado == "Europa")
                         {
-                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                            costoInternacional = 4000;
+                        }
+                        else
+                        {
+                            if (destino.continente_asignado == "Asia")
                             {
-                                if (modalidad.modo_retiro == "Entregado en domicilio")
-                                {
-                                    costo = 8000 * urgente + (enPuerta * 2);
-                                }
-                                else
-                                {
-                                    costo = 8000 * urgente + enPuerta;
-                                }
+                                costoInternacional = 5000;
                             }
                             else
                             {
-                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                costoInternacional = 5000;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (destino.pais != "Argentina") 
+            {
+                if (destino.localidad != origen.localidad)
+                {
+                    if (destino.provincia != origen.provincia)
+                    {
+                        if (destino.region != origen.region)
+                        {
+                            if (peso > 20000)
+                            {
+                                if (modalidad.tipo_envio == "Urgente")
                                 {
-                                    costo = 8000 * urgente + enPuerta;
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 10000 * urgente + (enPuerta * 2) + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 10000 * urgente + enPuerta + costoInternacional;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 10000 * urgente + enPuerta + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 10000 * urgente + costoInternacional;
+                                        }
+                                    }
                                 }
                                 else
                                 {
-                                    costo = 8000 * urgente;
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 10000 + (enPuerta * 2) + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 10000 + enPuerta + costoInternacional;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 10000 + enPuerta + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 10000 + costoInternacional;
+                                        }
+                                    }
+                                }
+
+                            }
+                            else
+                            {
+                                if (peso > 10000)
+                                {
+                                    if (modalidad.tipo_envio == "Urgente")
+                                    {
+                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 8000 * urgente + (enPuerta * 2) + costoInternacional;
+                                            }
+                                            else
+                                            {
+                                                costo = 8000 * urgente + enPuerta + costoInternacional;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 8000 * urgente + enPuerta + costoInternacional;
+                                            }
+                                            else
+                                            {
+                                                costo = 8000 * urgente + costoInternacional;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 8000 + (enPuerta * 2) + costoInternacional;
+                                            }
+                                            else
+                                            {
+                                                costo = 8000 + enPuerta + costoInternacional;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 8000 + enPuerta + costoInternacional;
+                                            }
+                                            else
+                                            {
+                                                costo = 8000 + costoInternacional;
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (peso > 500)
+                                    {
+                                        if (modalidad.tipo_envio == "Urgente")
+                                        {
+                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 4000 * urgente + (enPuerta * 2) + costoInternacional;
+                                                }
+                                                else
+                                                {
+                                                    costo = 4000 * urgente + enPuerta + costoInternacional;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 4000 * urgente + enPuerta + costoInternacional;
+                                                }
+                                                else
+                                                {
+                                                    costo = 4000 * urgente + costoInternacional;
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 4000 + (enPuerta * 2) + costoInternacional;
+                                                }
+                                                else
+                                                {
+                                                    costo = 4000 + enPuerta + costoInternacional;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 4000 + enPuerta + costoInternacional;
+                                                }
+                                                else
+                                                {
+                                                    costo = 4000 + costoInternacional;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.tipo_envio == "Urgente")
+                                        {
+                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 2000 * urgente + (enPuerta * 2) + costoInternacional;
+                                                }
+                                                else
+                                                {
+                                                    costo = 2000 * urgente + enPuerta + costoInternacional;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 2000 * urgente + enPuerta + costoInternacional;
+                                                }
+                                                else
+                                                {
+                                                    costo = 2000 * urgente + costoInternacional;
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 2000 + (enPuerta * 2) + costoInternacional;
+                                                }
+                                                else
+                                                {
+                                                    costo = 2000 + enPuerta + costoInternacional;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 2000 + enPuerta + costoInternacional;
+                                                }
+                                                else
+                                                {
+                                                    costo = 2000 + costoInternacional;
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
                         else
                         {
-                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                            if (peso > 20000)
                             {
-                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                if (modalidad.tipo_envio == "Urgente")
                                 {
-                                    costo = 8000 + (enPuerta * 2);
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 8000 * urgente + (enPuerta * 2) + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 8000 * urgente + enPuerta + costoInternacional;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 8000 * urgente + enPuerta + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 8000 * urgente + costoInternacional;
+                                        }
+                                    }
                                 }
                                 else
                                 {
-                                    costo = 8000 + enPuerta;
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 8000 + (enPuerta * 2) + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 8000 + enPuerta + costoInternacional;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 8000 + enPuerta + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 8000 + costoInternacional;
+                                        }
+                                    }
                                 }
+
                             }
                             else
                             {
-                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                if (peso > 10000)
                                 {
-                                    costo = 8000 + enPuerta;
+                                    if (modalidad.tipo_envio == "Urgente")
+                                    {
+                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 6000 * urgente + (enPuerta * 2) + costoInternacional;
+                                            }
+                                            else
+                                            {
+                                                costo = 6000 * urgente + enPuerta + costoInternacional;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 6000 * urgente + enPuerta + costoInternacional;
+                                            }
+                                            else
+                                            {
+                                                costo = 6000 * urgente + costoInternacional;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 6000 + (enPuerta * 2) + costoInternacional;
+                                            }
+                                            else
+                                            {
+                                                costo = 6000 + enPuerta + costoInternacional;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 6000 + enPuerta + costoInternacional;
+                                            }
+                                            else
+                                            {
+                                                costo = 6000 + costoInternacional;
+                                            }
+                                        }
+                                    }
                                 }
                                 else
                                 {
-                                    costo = 8000;
+                                    if (peso > 500)
+                                    {
+                                        if (modalidad.tipo_envio == "Urgente")
+                                        {
+                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 3000 * urgente + (enPuerta * 2) + costoInternacional;
+                                                }
+                                                else
+                                                {
+                                                    costo = 3000 * urgente + enPuerta + costoInternacional;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 3000 * urgente + enPuerta + costoInternacional;
+                                                }
+                                                else
+                                                {
+                                                    costo = 3000 * urgente + costoInternacional;
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 3000 + (enPuerta * 2) + costoInternacional;
+                                                }
+                                                else
+                                                {
+                                                    costo = 3000 + enPuerta + costoInternacional;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 3000 + enPuerta + costoInternacional;
+                                                }
+                                                else
+                                                {
+                                                    costo = 3000 + costoInternacional;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.tipo_envio == "Urgente")
+                                        {
+                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 1000 * urgente + (enPuerta * 2) + costoInternacional;
+                                                }
+                                                else
+                                                {
+                                                    costo = 1000 * urgente + enPuerta + costoInternacional;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 1000 * urgente + enPuerta + costoInternacional;
+                                                }
+                                                else
+                                                {
+                                                    costo = 1000 * urgente + costoInternacional;
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 1000 + (enPuerta * 2) + costoInternacional;
+                                                }
+                                                else
+                                                {
+                                                    costo = 1000 + enPuerta + costoInternacional;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 1000 + enPuerta + costoInternacional;
+                                                }
+                                                else
+                                                {
+                                                    costo = 1000 + costoInternacional;
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                     else
                     {
-                        if(peso > 500)
+                        if (peso > 20000)
                         {
                             if (modalidad.tipo_envio == "Urgente")
                             {
@@ -214,22 +592,22 @@ namespace tp4
                                 {
                                     if (modalidad.modo_retiro == "Entregado en domicilio")
                                     {
-                                        costo = 5000 * urgente + (enPuerta * 2);
+                                        costo = 6000 * urgente + (enPuerta * 2) + costoInternacional;
                                     }
                                     else
                                     {
-                                        costo = 5000 * urgente + enPuerta;
+                                        costo = 6000 * urgente + enPuerta + costoInternacional;
                                     }
                                 }
                                 else
                                 {
                                     if (modalidad.modo_retiro == "Entregado en domicilio")
                                     {
-                                        costo = 5000 * urgente + enPuerta;
+                                        costo = 6000 * urgente + enPuerta + costoInternacional;
                                     }
                                     else
                                     {
-                                        costo = 5000 * urgente;
+                                        costo = 6000 * urgente + costoInternacional;
                                     }
                                 }
                             }
@@ -239,27 +617,1150 @@ namespace tp4
                                 {
                                     if (modalidad.modo_retiro == "Entregado en domicilio")
                                     {
-                                        costo = 5000 + (enPuerta * 2);
+                                        costo = 6000 + (enPuerta * 2) + costoInternacional;
                                     }
                                     else
                                     {
-                                        costo = 5000 + enPuerta;
+                                        costo = 6000 + enPuerta + costoInternacional;
                                     }
                                 }
                                 else
                                 {
                                     if (modalidad.modo_retiro == "Entregado en domicilio")
                                     {
-                                        costo = 5000 + enPuerta;
+                                        costo = 6000 + enPuerta + costoInternacional;
                                     }
                                     else
                                     {
-                                        costo = 5000;
+                                        costo = 6000 + costoInternacional;
+                                    }
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                            if (peso > 10000)
+                            {
+                                if (modalidad.tipo_envio == "Urgente")
+                                {
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 4000 * urgente + (enPuerta * 2) + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 4000 * urgente + enPuerta + costoInternacional;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 4000 * urgente + enPuerta + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 4000 * urgente + costoInternacional;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 4000 + (enPuerta * 2) + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 4000 + enPuerta + costoInternacional;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 4000 + enPuerta + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 4000 + costoInternacional;
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (peso > 500)
+                                {
+                                    if (modalidad.tipo_envio == "Urgente")
+                                    {
+                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 2000 * urgente + (enPuerta * 2) + costoInternacional;
+                                            }
+                                            else
+                                            {
+                                                costo = 2000 * urgente + enPuerta + costoInternacional;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 2000 * urgente + enPuerta + costoInternacional;
+                                            }
+                                            else
+                                            {
+                                                costo = 2000 * urgente + costoInternacional;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 2000 + (enPuerta * 2) + costoInternacional;
+                                            }
+                                            else
+                                            {
+                                                costo = 2000 + enPuerta + costoInternacional;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 2000 + enPuerta + costoInternacional;
+                                            }
+                                            else
+                                            {
+                                                costo = 2000 + costoInternacional;
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (modalidad.tipo_envio == "Urgente")
+                                    {
+                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 500 * urgente + (enPuerta * 2) + costoInternacional;
+                                            }
+                                            else
+                                            {
+                                                costo = 500 * urgente + enPuerta + costoInternacional;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 500 * urgente + enPuerta + costoInternacional;
+                                            }
+                                            else
+                                            {
+                                                costo = 500 * urgente + costoInternacional;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 500 + (enPuerta * 2) + costoInternacional;
+                                            }
+                                            else
+                                            {
+                                                costo = 500 + enPuerta + costoInternacional;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 500 + enPuerta + costoInternacional;
+                                            }
+                                            else
+                                            {
+                                                costo = 500 + costoInternacional;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (peso > 20000)
+                    {
+                        if (modalidad.tipo_envio == "Urgente")
+                        {
+                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                            {
+                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                {
+                                    costo = 4000 * urgente + (enPuerta * 2) + costoInternacional;
+                                }
+                                else
+                                {
+                                    costo = 4000 * urgente + enPuerta + costoInternacional;
+                                }
+                            }
+                            else
+                            {
+                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                {
+                                    costo = 4000 * urgente + enPuerta + costoInternacional;
+                                }
+                                else
+                                {
+                                    costo = 4000 * urgente + costoInternacional;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                            {
+                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                {
+                                    costo = 4000 + (enPuerta * 2) + costoInternacional;
+                                }
+                                else
+                                {
+                                    costo = 4000 + enPuerta + costoInternacional;
+                                }
+                            }
+                            else
+                            {
+                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                {
+                                    costo = 4000 + enPuerta + costoInternacional;
+                                }
+                                else
+                                {
+                                    costo = 4000 + costoInternacional;
+                                }
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        if (peso > 10000)
+                        {
+                            if (modalidad.tipo_envio == "Urgente")
+                            {
+                                if (modalidad.modo_entrega == "Retirado en domicilio")
+                                {
+                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    {
+                                        costo = 2000 * urgente + (enPuerta * 2) + costoInternacional;
+                                    }
+                                    else
+                                    {
+                                        costo = 2000 * urgente + enPuerta + costoInternacional;
+                                    }
+                                }
+                                else
+                                {
+                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    {
+                                        costo = 2000 * urgente + enPuerta + costoInternacional;
+                                    }
+                                    else
+                                    {
+                                        costo = 2000 * urgente + costoInternacional;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (modalidad.modo_entrega == "Retirado en domicilio")
+                                {
+                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    {
+                                        costo = 2000 + (enPuerta * 2) + costoInternacional;
+                                    }
+                                    else
+                                    {
+                                        costo = 2000 + enPuerta + costoInternacional;
+                                    }
+                                }
+                                else
+                                {
+                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    {
+                                        costo = 2000 + enPuerta + costoInternacional;
+                                    }
+                                    else
+                                    {
+                                        costo = 2000 + costoInternacional;
                                     }
                                 }
                             }
                         }
                         else
+                        {
+                            if (peso > 500)
+                            {
+                                if (modalidad.tipo_envio == "Urgente")
+                                {
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 1000 * urgente + (enPuerta * 2) + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 1000 * urgente + enPuerta + costoInternacional;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 1000 * urgente + enPuerta + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 1000 * urgente + costoInternacional;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 1000 + (enPuerta * 2) + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 1000 + enPuerta + costoInternacional;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 1000 + enPuerta + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 1000 + costoInternacional;
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (modalidad.tipo_envio == "Urgente")
+                                {
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 250 * urgente + (enPuerta * 2) + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 250 * urgente + enPuerta + costoInternacional;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 250 * urgente + enPuerta + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 250 * urgente + costoInternacional;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 250 + (enPuerta * 2) + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 250 + enPuerta + costoInternacional;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 250 + enPuerta + costoInternacional;
+                                        }
+                                        else
+                                        {
+                                            costo = 250 + costoInternacional;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (destino.localidad != origen.localidad)
+                {
+                    if (destino.provincia != origen.provincia)
+                    {
+                        if (destino.region != origen.region)
+                        {
+                            if (peso > 20000)
+                            {
+                                if (modalidad.tipo_envio == "Urgente")
+                                {
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 10000 * urgente + (enPuerta * 2);
+                                        }
+                                        else
+                                        {
+                                            costo = 10000 * urgente + enPuerta;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 10000 * urgente + enPuerta;
+                                        }
+                                        else
+                                        {
+                                            costo = 10000 * urgente;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 10000 + (enPuerta * 2);
+                                        }
+                                        else
+                                        {
+                                            costo = 10000 + enPuerta;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 10000 + enPuerta;
+                                        }
+                                        else
+                                        {
+                                            costo = 10000;
+                                        }
+                                    }
+                                }
+
+                            }
+                            else
+                            {
+                                if (peso > 10000)
+                                {
+                                    if (modalidad.tipo_envio == "Urgente")
+                                    {
+                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 8000 * urgente + (enPuerta * 2);
+                                            }
+                                            else
+                                            {
+                                                costo = 8000 * urgente + enPuerta;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 8000 * urgente + enPuerta;
+                                            }
+                                            else
+                                            {
+                                                costo = 8000 * urgente;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 8000 + (enPuerta * 2);
+                                            }
+                                            else
+                                            {
+                                                costo = 8000 + enPuerta;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 8000 + enPuerta;
+                                            }
+                                            else
+                                            {
+                                                costo = 8000;
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (peso > 500)
+                                    {
+                                        if (modalidad.tipo_envio == "Urgente")
+                                        {
+                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 4000 * urgente + (enPuerta * 2);
+                                                }
+                                                else
+                                                {
+                                                    costo = 4000 * urgente + enPuerta;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 4000 * urgente + enPuerta;
+                                                }
+                                                else
+                                                {
+                                                    costo = 4000 * urgente;
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 4000 + (enPuerta * 2);
+                                                }
+                                                else
+                                                {
+                                                    costo = 4000 + enPuerta;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 4000 + enPuerta;
+                                                }
+                                                else
+                                                {
+                                                    costo = 4000;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.tipo_envio == "Urgente")
+                                        {
+                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 2000 * urgente + (enPuerta * 2);
+                                                }
+                                                else
+                                                {
+                                                    costo = 2000 * urgente + enPuerta;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 2000 * urgente + enPuerta;
+                                                }
+                                                else
+                                                {
+                                                    costo = 2000 * urgente;
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 2000 + (enPuerta * 2);
+                                                }
+                                                else
+                                                {
+                                                    costo = 2000 + enPuerta;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 2000 + enPuerta;
+                                                }
+                                                else
+                                                {
+                                                    costo = 2000;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (peso > 20000)
+                            {
+                                if (modalidad.tipo_envio == "Urgente")
+                                {
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 8000 * urgente + (enPuerta * 2);
+                                        }
+                                        else
+                                        {
+                                            costo = 8000 * urgente + enPuerta;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 8000 * urgente + enPuerta;
+                                        }
+                                        else
+                                        {
+                                            costo = 8000 * urgente;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 8000 + (enPuerta * 2);
+                                        }
+                                        else
+                                        {
+                                            costo = 8000 + enPuerta;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 8000 + enPuerta;
+                                        }
+                                        else
+                                        {
+                                            costo = 8000;
+                                        }
+                                    }
+                                }
+
+                            }
+                            else
+                            {
+                                if (peso > 10000)
+                                {
+                                    if (modalidad.tipo_envio == "Urgente")
+                                    {
+                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 6000 * urgente + (enPuerta * 2);
+                                            }
+                                            else
+                                            {
+                                                costo = 6000 * urgente + enPuerta;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 6000 * urgente + enPuerta;
+                                            }
+                                            else
+                                            {
+                                                costo = 6000 * urgente;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 6000 + (enPuerta * 2);
+                                            }
+                                            else
+                                            {
+                                                costo = 6000 + enPuerta;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 6000 + enPuerta;
+                                            }
+                                            else
+                                            {
+                                                costo = 6000;
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (peso > 500)
+                                    {
+                                        if (modalidad.tipo_envio == "Urgente")
+                                        {
+                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 3000 * urgente + (enPuerta * 2);
+                                                }
+                                                else
+                                                {
+                                                    costo = 3000 * urgente + enPuerta;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 3000 * urgente + enPuerta;
+                                                }
+                                                else
+                                                {
+                                                    costo = 3000 * urgente;
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 3000 + (enPuerta * 2);
+                                                }
+                                                else
+                                                {
+                                                    costo = 3000 + enPuerta;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 3000 + enPuerta;
+                                                }
+                                                else
+                                                {
+                                                    costo = 3000;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.tipo_envio == "Urgente")
+                                        {
+                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 1000 * urgente + (enPuerta * 2);
+                                                }
+                                                else
+                                                {
+                                                    costo = 1000 * urgente + enPuerta;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 1000 * urgente + enPuerta;
+                                                }
+                                                else
+                                                {
+                                                    costo = 1000 * urgente;
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 1000 + (enPuerta * 2);
+                                                }
+                                                else
+                                                {
+                                                    costo = 1000 + enPuerta;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                {
+                                                    costo = 1000 + enPuerta;
+                                                }
+                                                else
+                                                {
+                                                    costo = 1000;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (peso > 20000)
+                        {
+                            if (modalidad.tipo_envio == "Urgente")
+                            {
+                                if (modalidad.modo_entrega == "Retirado en domicilio")
+                                {
+                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    {
+                                        costo = 6000 * urgente + (enPuerta * 2);
+                                    }
+                                    else
+                                    {
+                                        costo = 6000 * urgente + enPuerta;
+                                    }
+                                }
+                                else
+                                {
+                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    {
+                                        costo = 6000 * urgente + enPuerta;
+                                    }
+                                    else
+                                    {
+                                        costo = 6000 * urgente;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (modalidad.modo_entrega == "Retirado en domicilio")
+                                {
+                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    {
+                                        costo = 6000 + (enPuerta * 2);
+                                    }
+                                    else
+                                    {
+                                        costo = 6000 + enPuerta;
+                                    }
+                                }
+                                else
+                                {
+                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    {
+                                        costo = 6000 + enPuerta;
+                                    }
+                                    else
+                                    {
+                                        costo = 6000;
+                                    }
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                            if (peso > 10000)
+                            {
+                                if (modalidad.tipo_envio == "Urgente")
+                                {
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 4000 * urgente + (enPuerta * 2);
+                                        }
+                                        else
+                                        {
+                                            costo = 4000 * urgente + enPuerta;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 4000 * urgente + enPuerta;
+                                        }
+                                        else
+                                        {
+                                            costo = 4000 * urgente;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 4000 + (enPuerta * 2);
+                                        }
+                                        else
+                                        {
+                                            costo = 4000 + enPuerta;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 4000 + enPuerta;
+                                        }
+                                        else
+                                        {
+                                            costo = 4000;
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (peso > 500)
+                                {
+                                    if (modalidad.tipo_envio == "Urgente")
+                                    {
+                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 2000 * urgente + (enPuerta * 2);
+                                            }
+                                            else
+                                            {
+                                                costo = 2000 * urgente + enPuerta;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 2000 * urgente + enPuerta;
+                                            }
+                                            else
+                                            {
+                                                costo = 2000 * urgente;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 2000 + (enPuerta * 2);
+                                            }
+                                            else
+                                            {
+                                                costo = 2000 + enPuerta;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 2000 + enPuerta;
+                                            }
+                                            else
+                                            {
+                                                costo = 2000;
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (modalidad.tipo_envio == "Urgente")
+                                    {
+                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 500 * urgente + (enPuerta * 2);
+                                            }
+                                            else
+                                            {
+                                                costo = 500 * urgente + enPuerta;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 500 * urgente + enPuerta;
+                                            }
+                                            else
+                                            {
+                                                costo = 500 * urgente;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 500 + (enPuerta * 2);
+                                            }
+                                            else
+                                            {
+                                                costo = 500 + enPuerta;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            {
+                                                costo = 500 + enPuerta;
+                                            }
+                                            else
+                                            {
+                                                costo = 500;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (peso > 20000)
+                    {
+                        if (modalidad.tipo_envio == "Urgente")
+                        {
+                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                            {
+                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                {
+                                    costo = 4000 * urgente + (enPuerta * 2);
+                                }
+                                else
+                                {
+                                    costo = 4000 * urgente + enPuerta;
+                                }
+                            }
+                            else
+                            {
+                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                {
+                                    costo = 4000 * urgente + enPuerta;
+                                }
+                                else
+                                {
+                                    costo = 4000 * urgente;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                            {
+                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                {
+                                    costo = 4000 + (enPuerta * 2);
+                                }
+                                else
+                                {
+                                    costo = 4000 + enPuerta;
+                                }
+                            }
+                            else
+                            {
+                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                {
+                                    costo = 4000 + enPuerta;
+                                }
+                                else
+                                {
+                                    costo = 4000;
+                                }
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        if (peso > 10000)
                         {
                             if (modalidad.tipo_envio == "Urgente")
                             {
@@ -308,6 +1809,115 @@ namespace tp4
                                     else
                                     {
                                         costo = 2000;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (peso > 500)
+                            {
+                                if (modalidad.tipo_envio == "Urgente")
+                                {
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 1000 * urgente + (enPuerta * 2);
+                                        }
+                                        else
+                                        {
+                                            costo = 1000 * urgente + enPuerta;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 1000 * urgente + enPuerta;
+                                        }
+                                        else
+                                        {
+                                            costo = 1000 * urgente;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 1000 + (enPuerta * 2);
+                                        }
+                                        else
+                                        {
+                                            costo = 1000 + enPuerta;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 1000 + enPuerta;
+                                        }
+                                        else
+                                        {
+                                            costo = 1000;
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (modalidad.tipo_envio == "Urgente")
+                                {
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 250 * urgente + (enPuerta * 2);
+                                        }
+                                        else
+                                        {
+                                            costo = 250 * urgente + enPuerta;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 250 * urgente + enPuerta;
+                                        }
+                                        else
+                                        {
+                                            costo = 250 * urgente;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 250 + (enPuerta * 2);
+                                        }
+                                        else
+                                        {
+                                            costo = 250 + enPuerta;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        {
+                                            costo = 250 + enPuerta;
+                                        }
+                                        else
+                                        {
+                                            costo = 250;
+                                        }
                                     }
                                 }
                             }
