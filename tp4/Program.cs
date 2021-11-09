@@ -322,9 +322,10 @@ namespace tp4
                 Console.WriteLine("\n**********************************************************");
                 Console.WriteLine("****************INGRESO DE CÓDIGO DE CLIENTE***************");
                 Console.WriteLine("***********************************************************\n");
-                Console.WriteLine("\n* Ingrese su código de cliente corporativo para poder acceder a las funciones del sistema y luego presione la tecla enter");
-                Console.WriteLine("\n* Si desea detener la ejecución del programa introduzca por teclado la frase SALIR tal y como se le comunico\n");
-                
+                Console.WriteLine("\n---------------------------------------------------------------------------------------------------------------");
+                Console.WriteLine(" Ingrese su código de cliente corporativo para inicial y luego presione la tecla enter");
+                Console.WriteLine("\n Si desea detener la ejecución del programa introduzca por teclado la frase SALIR tal y como se le comunico");
+                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
                 Cliente_corportativo.carga_prueba();//Carga una lista de clientes para poder evaluar el funcionamiento del programa
 
@@ -374,10 +375,15 @@ namespace tp4
                 if(Cliente_corportativo.validar_cliente(codigo_cliente))
                 {
                     string nombreyapellido = Cliente_corportativo.hallar(codigo_cliente).nombreyapellido;
-                    Console.WriteLine("**************************************");
-                    Console.WriteLine($"Bienvenido {nombreyapellido}");
-                    Console.WriteLine("**************************************");
-                    Console.WriteLine("\nSe lo redirigira al menu con las opciones\n");
+                    Console.WriteLine("\n********************************************************************");
+                    Console.WriteLine("********************************************************************");
+                    Console.WriteLine("********************************************************************");
+                    Console.WriteLine($"\n                    B I E N V E N I D O \n\n                    {nombreyapellido.ToUpper()}");
+                    Console.WriteLine("\n******************************************************************");
+                    Console.WriteLine("********************************************************************");
+                    Console.WriteLine("********************************************************************");
+                    Console.WriteLine("\n");
+
                     validar_eleccion(codigo_cliente);
                     break;
                 }

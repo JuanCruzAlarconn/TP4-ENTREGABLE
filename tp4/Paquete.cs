@@ -34,7 +34,10 @@ namespace tp4
         {
             var paquete = new Paquete();
 
-          
+
+            Console.WriteLine("\n*********************************************************************");
+            Console.WriteLine("********COMPLETE INFORMACIÓN ACERCA DEL PAQUETE***********************");
+            Console.WriteLine("***********************************************************************\n");
             paquete.peso = asignar_peso();            
             paquete.tipo = asignar_tipo(paquete.peso);
             paquete.valor_declarado = asignar_valor_declarado();
@@ -49,7 +52,9 @@ namespace tp4
 
             do
             {
-                Console.WriteLine("\nIngrese el valor designado para el paquete, al finanlizar ingrese la tecla enter");
+                Console.WriteLine("\n-----------------------------------------------------------------------------------");
+                Console.WriteLine("Ingrese el valor designado para el paquete, al finanlizar ingrese la tecla enter");
+                Console.WriteLine("-----------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
 
                 if(string.IsNullOrWhiteSpace(ingreso))
@@ -100,7 +105,9 @@ namespace tp4
 
             do
             {
-                Console.WriteLine("\nIngrese el peso del paquete (en gramos) que esta interesado en enviar, luego ingrese la tecla enter");
+                Console.WriteLine("\n---------------------------------------------------------------------------------------------------");
+                Console.WriteLine("Ingrese el peso del paquete (en gramos) que esta interesado en enviar, luego ingrese la tecla enter");
+                Console.WriteLine("----------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
 
                 if (string.IsNullOrWhiteSpace(ingreso))

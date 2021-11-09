@@ -39,7 +39,7 @@ namespace tp4
             if (modo == "origen")
             {
                 Console.WriteLine("\n*********************************************************************************************************************");
-                Console.WriteLine("\nA continuación se solicitara el ingreso de los datos correspondientes con el punto de origen de la operación\n");
+                Console.WriteLine("A continuación se solicitara el ingreso de los datos correspondientes con el punto de origen de la operación");
                 Console.WriteLine("**********************************************************************************************************************\n");
                 Console.WriteLine("\nInformación postal del origen, es decir su información postal");
                 punto_geografico.codigo_postal = asignar_cp();
@@ -52,7 +52,7 @@ namespace tp4
             else
             {
                 Console.WriteLine("\n*********************************************************************************************************************");
-                Console.WriteLine("\nA continuación se solicitara el ingreso de los datos correspondientes con el punto de destino de la operación\n");
+                Console.WriteLine("A continuación se solicitara el ingreso de los datos correspondientes con el punto de destino de la operación");
                 Console.WriteLine("**********************************************************************************************************************\n");
 
 
@@ -125,7 +125,9 @@ namespace tp4
 
             do
             {
-                Console.WriteLine("\nIngrese el código postal y luego presione enter");
+                Console.WriteLine("\n--------------------------------------------------------------");
+                Console.WriteLine("Ingrese el código postal y luego presione enter");
+                Console.WriteLine("----------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
 
                 if (string.IsNullOrWhiteSpace(ingreso))
@@ -157,8 +159,17 @@ namespace tp4
                     continue;
                 }
 
+                
+
                 break;
             } while (true);
+
+            Console.WriteLine("\n*************INFORMACIÓN POSTAL**************");
+            Console.WriteLine("Código Postal: {0}",archivo.hallar(cp).cp);
+            Console.WriteLine("Localidad: {0}", archivo.hallar(cp).localidad);
+            Console.WriteLine("Provincia:{0}", archivo.hallar(cp).provincia);
+            Console.WriteLine("Región: {0}", archivo.hallar(cp).region);
+            Console.WriteLine("País: {0}", "Argentina");
 
             return cp;
         }
@@ -205,7 +216,7 @@ namespace tp4
             do
             {
                 Console.WriteLine("\n----------------------------------------------------------------------------------------------");
-                Console.WriteLine($"\nIngrese los datos que se corresponde con el {campo} y luego presione la tecla enter");
+                Console.WriteLine($"Ingrese los datos que se corresponde con el {campo} y luego presione la tecla enter");
                 Console.WriteLine("-----------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
 
