@@ -143,9 +143,9 @@ namespace tp4
                             {
                                 if (modalidad.tipo_envio == "Urgente")
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 10000 * urgente + (enPuerta * 2) + costoInternacional;
                                         }
@@ -156,7 +156,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 10000 * urgente + enPuerta + costoInternacional;
                                         }
@@ -168,9 +168,9 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 10000 + (enPuerta * 2) + costoInternacional;
                                         }
@@ -181,7 +181,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 10000 + enPuerta + costoInternacional;
                                         }
@@ -199,9 +199,9 @@ namespace tp4
                                 {
                                     if (modalidad.tipo_envio == "Urgente")
                                     {
-                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        if (modalidad.modo_entrega == "Entregado en domicilio")
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 8000 * urgente + (enPuerta * 2) + costoInternacional;
                                             }
@@ -212,7 +212,7 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 8000 * urgente + enPuerta + costoInternacional;
                                             }
@@ -224,9 +224,9 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        if (modalidad.modo_entrega == "Entregado en domicilio")
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 8000 + (enPuerta * 2) + costoInternacional;
                                             }
@@ -237,7 +237,7 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 8000 + enPuerta + costoInternacional;
                                             }
@@ -254,9 +254,9 @@ namespace tp4
                                     {
                                         if (modalidad.tipo_envio == "Urgente")
                                         {
-                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            if (modalidad.modo_entrega == "Entregado en domicilio")
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 4000 * urgente + (enPuerta * 2) + costoInternacional;
                                                 }
@@ -267,7 +267,7 @@ namespace tp4
                                             }
                                             else
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 4000 * urgente + enPuerta + costoInternacional;
                                                 }
@@ -279,9 +279,9 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            if (modalidad.modo_entrega == "Entregado en domicilio")
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 4000 + (enPuerta * 2) + costoInternacional;
                                                 }
@@ -292,7 +292,7 @@ namespace tp4
                                             }
                                             else
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 4000 + enPuerta + costoInternacional;
                                                 }
@@ -307,9 +307,9 @@ namespace tp4
                                     {
                                         if (modalidad.tipo_envio == "Urgente")
                                         {
-                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            if (modalidad.modo_entrega == "Entregado en domicilio")
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 2000 * urgente + (enPuerta * 2) + costoInternacional;
                                                 }
@@ -320,7 +320,7 @@ namespace tp4
                                             }
                                             else
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 2000 * urgente + enPuerta + costoInternacional;
                                                 }
@@ -332,9 +332,9 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            if (modalidad.modo_entrega == "Entregado en domicilio")
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 2000 + (enPuerta * 2) + costoInternacional;
                                                 }
@@ -345,7 +345,7 @@ namespace tp4
                                             }
                                             else
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 2000 + enPuerta + costoInternacional;
                                                 }
@@ -365,9 +365,9 @@ namespace tp4
                             {
                                 if (modalidad.tipo_envio == "Urgente")
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 8000 * urgente + (enPuerta * 2) + costoInternacional;
                                         }
@@ -378,7 +378,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 8000 * urgente + enPuerta + costoInternacional;
                                         }
@@ -390,9 +390,9 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 8000 + (enPuerta * 2) + costoInternacional;
                                         }
@@ -403,7 +403,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 8000 + enPuerta + costoInternacional;
                                         }
@@ -421,9 +421,9 @@ namespace tp4
                                 {
                                     if (modalidad.tipo_envio == "Urgente")
                                     {
-                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        if (modalidad.modo_entrega == "Entregado en domicilio")
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 6000 * urgente + (enPuerta * 2) + costoInternacional;
                                             }
@@ -434,7 +434,7 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 6000 * urgente + enPuerta + costoInternacional;
                                             }
@@ -446,9 +446,9 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        if (modalidad.modo_entrega == "Entregado en domicilio")
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 6000 + (enPuerta * 2) + costoInternacional;
                                             }
@@ -459,7 +459,7 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 6000 + enPuerta + costoInternacional;
                                             }
@@ -476,9 +476,9 @@ namespace tp4
                                     {
                                         if (modalidad.tipo_envio == "Urgente")
                                         {
-                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            if (modalidad.modo_entrega == "Entregado en domicilio")
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 3000 * urgente + (enPuerta * 2) + costoInternacional;
                                                 }
@@ -489,7 +489,7 @@ namespace tp4
                                             }
                                             else
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 3000 * urgente + enPuerta + costoInternacional;
                                                 }
@@ -501,9 +501,9 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            if (modalidad.modo_entrega == "Entregado en domicilio")
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 3000 + (enPuerta * 2) + costoInternacional;
                                                 }
@@ -514,7 +514,7 @@ namespace tp4
                                             }
                                             else
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 3000 + enPuerta + costoInternacional;
                                                 }
@@ -529,9 +529,9 @@ namespace tp4
                                     {
                                         if (modalidad.tipo_envio == "Urgente")
                                         {
-                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            if (modalidad.modo_entrega == "Entregado en domicilio")
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 1000 * urgente + (enPuerta * 2) + costoInternacional;
                                                 }
@@ -542,7 +542,7 @@ namespace tp4
                                             }
                                             else
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 1000 * urgente + enPuerta + costoInternacional;
                                                 }
@@ -554,9 +554,9 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            if (modalidad.modo_entrega == "Entregado en domicilio")
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 1000 + (enPuerta * 2) + costoInternacional;
                                                 }
@@ -567,7 +567,7 @@ namespace tp4
                                             }
                                             else
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 1000 + enPuerta + costoInternacional;
                                                 }
@@ -588,9 +588,9 @@ namespace tp4
                         {
                             if (modalidad.tipo_envio == "Urgente")
                             {
-                                if (modalidad.modo_entrega == "Retirado en domicilio")
+                                if (modalidad.modo_entrega == "Entregado en domicilio")
                                 {
-                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
                                         costo = 6000 * urgente + (enPuerta * 2) + costoInternacional;
                                     }
@@ -601,7 +601,7 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
                                         costo = 6000 * urgente + enPuerta + costoInternacional;
                                     }
@@ -613,9 +613,9 @@ namespace tp4
                             }
                             else
                             {
-                                if (modalidad.modo_entrega == "Retirado en domicilio")
+                                if (modalidad.modo_entrega == "Entregado en domicilio")
                                 {
-                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
                                         costo = 6000 + (enPuerta * 2) + costoInternacional;
                                     }
@@ -626,7 +626,7 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
                                         costo = 6000 + enPuerta + costoInternacional;
                                     }
@@ -644,9 +644,9 @@ namespace tp4
                             {
                                 if (modalidad.tipo_envio == "Urgente")
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 4000 * urgente + (enPuerta * 2) + costoInternacional;
                                         }
@@ -657,7 +657,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 4000 * urgente + enPuerta + costoInternacional;
                                         }
@@ -669,9 +669,9 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 4000 + (enPuerta * 2) + costoInternacional;
                                         }
@@ -682,7 +682,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 4000 + enPuerta + costoInternacional;
                                         }
@@ -699,9 +699,9 @@ namespace tp4
                                 {
                                     if (modalidad.tipo_envio == "Urgente")
                                     {
-                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        if (modalidad.modo_entrega == "Entregado en domicilio")
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 2000 * urgente + (enPuerta * 2) + costoInternacional;
                                             }
@@ -712,7 +712,7 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 2000 * urgente + enPuerta + costoInternacional;
                                             }
@@ -724,9 +724,9 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        if (modalidad.modo_entrega == "Entregado en domicilio")
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 2000 + (enPuerta * 2) + costoInternacional;
                                             }
@@ -737,7 +737,7 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 2000 + enPuerta + costoInternacional;
                                             }
@@ -752,9 +752,9 @@ namespace tp4
                                 {
                                     if (modalidad.tipo_envio == "Urgente")
                                     {
-                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        if (modalidad.modo_entrega == "Entregado en domicilio")
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 500 * urgente + (enPuerta * 2) + costoInternacional;
                                             }
@@ -765,7 +765,7 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 500 * urgente + enPuerta + costoInternacional;
                                             }
@@ -777,9 +777,9 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        if (modalidad.modo_entrega == "Entregado en domicilio")
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 500 + (enPuerta * 2) + costoInternacional;
                                             }
@@ -790,7 +790,7 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 500 + enPuerta + costoInternacional;
                                             }
@@ -811,9 +811,9 @@ namespace tp4
                     {
                         if (modalidad.tipo_envio == "Urgente")
                         {
-                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                            if (modalidad.modo_entrega == "Entregado en domicilio")
                             {
-                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                 {
                                     costo = 4000 * urgente + (enPuerta * 2) + costoInternacional;
                                 }
@@ -824,7 +824,7 @@ namespace tp4
                             }
                             else
                             {
-                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                 {
                                     costo = 4000 * urgente + enPuerta + costoInternacional;
                                 }
@@ -836,9 +836,9 @@ namespace tp4
                         }
                         else
                         {
-                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                            if (modalidad.modo_entrega == "Entregado en domicilio")
                             {
-                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                 {
                                     costo = 4000 + (enPuerta * 2) + costoInternacional;
                                 }
@@ -849,7 +849,7 @@ namespace tp4
                             }
                             else
                             {
-                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                 {
                                     costo = 4000 + enPuerta + costoInternacional;
                                 }
@@ -867,9 +867,9 @@ namespace tp4
                         {
                             if (modalidad.tipo_envio == "Urgente")
                             {
-                                if (modalidad.modo_entrega == "Retirado en domicilio")
+                                if (modalidad.modo_entrega == "Entregado en domicilio")
                                 {
-                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
                                         costo = 2000 * urgente + (enPuerta * 2) + costoInternacional;
                                     }
@@ -880,7 +880,7 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
                                         costo = 2000 * urgente + enPuerta + costoInternacional;
                                     }
@@ -892,9 +892,9 @@ namespace tp4
                             }
                             else
                             {
-                                if (modalidad.modo_entrega == "Retirado en domicilio")
+                                if (modalidad.modo_entrega == "Entregado en domicilio")
                                 {
-                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
                                         costo = 2000 + (enPuerta * 2) + costoInternacional;
                                     }
@@ -905,7 +905,7 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
                                         costo = 2000 + enPuerta + costoInternacional;
                                     }
@@ -922,9 +922,9 @@ namespace tp4
                             {
                                 if (modalidad.tipo_envio == "Urgente")
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 1000 * urgente + (enPuerta * 2) + costoInternacional;
                                         }
@@ -935,7 +935,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 1000 * urgente + enPuerta + costoInternacional;
                                         }
@@ -947,9 +947,9 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 1000 + (enPuerta * 2) + costoInternacional;
                                         }
@@ -960,7 +960,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 1000 + enPuerta + costoInternacional;
                                         }
@@ -975,9 +975,9 @@ namespace tp4
                             {
                                 if (modalidad.tipo_envio == "Urgente")
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 250 * urgente + (enPuerta * 2) + costoInternacional;
                                         }
@@ -988,7 +988,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 250 * urgente + enPuerta + costoInternacional;
                                         }
@@ -1000,9 +1000,9 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 250 + (enPuerta * 2) + costoInternacional;
                                         }
@@ -1013,7 +1013,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 250 + enPuerta + costoInternacional;
                                         }
@@ -1040,9 +1040,9 @@ namespace tp4
                             {
                                 if (modalidad.tipo_envio == "Urgente")
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 10000 * urgente + (enPuerta * 2);
                                         }
@@ -1053,7 +1053,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 10000 * urgente + enPuerta;
                                         }
@@ -1065,9 +1065,9 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 10000 + (enPuerta * 2);
                                         }
@@ -1078,7 +1078,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 10000 + enPuerta;
                                         }
@@ -1096,9 +1096,9 @@ namespace tp4
                                 {
                                     if (modalidad.tipo_envio == "Urgente")
                                     {
-                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        if (modalidad.modo_entrega == "Entregado en domicilio")
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 8000 * urgente + (enPuerta * 2);
                                             }
@@ -1109,7 +1109,7 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 8000 * urgente + enPuerta;
                                             }
@@ -1121,9 +1121,9 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        if (modalidad.modo_entrega == "Entregado en domicilio")
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 8000 + (enPuerta * 2);
                                             }
@@ -1134,7 +1134,7 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 8000 + enPuerta;
                                             }
@@ -1151,9 +1151,9 @@ namespace tp4
                                     {
                                         if (modalidad.tipo_envio == "Urgente")
                                         {
-                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            if (modalidad.modo_entrega == "Entregado en domicilio")
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 4000 * urgente + (enPuerta * 2);
                                                 }
@@ -1164,7 +1164,7 @@ namespace tp4
                                             }
                                             else
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 4000 * urgente + enPuerta;
                                                 }
@@ -1176,9 +1176,9 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            if (modalidad.modo_entrega == "Entregado en domicilio")
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 4000 + (enPuerta * 2);
                                                 }
@@ -1189,7 +1189,7 @@ namespace tp4
                                             }
                                             else
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 4000 + enPuerta;
                                                 }
@@ -1204,9 +1204,9 @@ namespace tp4
                                     {
                                         if (modalidad.tipo_envio == "Urgente")
                                         {
-                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            if (modalidad.modo_entrega == "Entregado en domicilio")
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 2000 * urgente + (enPuerta * 2);
                                                 }
@@ -1217,7 +1217,7 @@ namespace tp4
                                             }
                                             else
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 2000 * urgente + enPuerta;
                                                 }
@@ -1229,9 +1229,9 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            if (modalidad.modo_entrega == "Entregado en domicilio")
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 2000 + (enPuerta * 2);
                                                 }
@@ -1242,7 +1242,7 @@ namespace tp4
                                             }
                                             else
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 2000 + enPuerta;
                                                 }
@@ -1262,9 +1262,9 @@ namespace tp4
                             {
                                 if (modalidad.tipo_envio == "Urgente")
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 8000 * urgente + (enPuerta * 2);
                                         }
@@ -1275,7 +1275,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 8000 * urgente + enPuerta;
                                         }
@@ -1287,9 +1287,9 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 8000 + (enPuerta * 2);
                                         }
@@ -1300,7 +1300,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 8000 + enPuerta;
                                         }
@@ -1318,9 +1318,9 @@ namespace tp4
                                 {
                                     if (modalidad.tipo_envio == "Urgente")
                                     {
-                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        if (modalidad.modo_entrega == "Entregado en domicilio")
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 6000 * urgente + (enPuerta * 2);
                                             }
@@ -1331,7 +1331,7 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 6000 * urgente + enPuerta;
                                             }
@@ -1343,9 +1343,9 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        if (modalidad.modo_entrega == "Entregado en domicilio")
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 6000 + (enPuerta * 2);
                                             }
@@ -1356,7 +1356,7 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 6000 + enPuerta;
                                             }
@@ -1373,9 +1373,9 @@ namespace tp4
                                     {
                                         if (modalidad.tipo_envio == "Urgente")
                                         {
-                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            if (modalidad.modo_entrega == "Entregado en domicilio")
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 3000 * urgente + (enPuerta * 2);
                                                 }
@@ -1386,7 +1386,7 @@ namespace tp4
                                             }
                                             else
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 3000 * urgente + enPuerta;
                                                 }
@@ -1398,9 +1398,9 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            if (modalidad.modo_entrega == "Entregado en domicilio")
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 3000 + (enPuerta * 2);
                                                 }
@@ -1411,7 +1411,7 @@ namespace tp4
                                             }
                                             else
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 3000 + enPuerta;
                                                 }
@@ -1426,9 +1426,9 @@ namespace tp4
                                     {
                                         if (modalidad.tipo_envio == "Urgente")
                                         {
-                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            if (modalidad.modo_entrega == "Entregado en domicilio")
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 1000 * urgente + (enPuerta * 2);
                                                 }
@@ -1439,7 +1439,7 @@ namespace tp4
                                             }
                                             else
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 1000 * urgente + enPuerta;
                                                 }
@@ -1451,9 +1451,9 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                                            if (modalidad.modo_entrega == "Entregado en domicilio")
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 1000 + (enPuerta * 2);
                                                 }
@@ -1464,7 +1464,7 @@ namespace tp4
                                             }
                                             else
                                             {
-                                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
                                                     costo = 1000 + enPuerta;
                                                 }
@@ -1485,9 +1485,9 @@ namespace tp4
                         {
                             if (modalidad.tipo_envio == "Urgente")
                             {
-                                if (modalidad.modo_entrega == "Retirado en domicilio")
+                                if (modalidad.modo_entrega == "Entregado en domicilio")
                                 {
-                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
                                         costo = 6000 * urgente + (enPuerta * 2);
                                     }
@@ -1498,7 +1498,7 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
                                         costo = 6000 * urgente + enPuerta;
                                     }
@@ -1510,9 +1510,9 @@ namespace tp4
                             }
                             else
                             {
-                                if (modalidad.modo_entrega == "Retirado en domicilio")
+                                if (modalidad.modo_entrega == "Entregado en domicilio")
                                 {
-                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
                                         costo = 6000 + (enPuerta * 2);
                                     }
@@ -1523,7 +1523,7 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
                                         costo = 6000 + enPuerta;
                                     }
@@ -1541,9 +1541,9 @@ namespace tp4
                             {
                                 if (modalidad.tipo_envio == "Urgente")
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 4000 * urgente + (enPuerta * 2);
                                         }
@@ -1554,7 +1554,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 4000 * urgente + enPuerta;
                                         }
@@ -1566,9 +1566,9 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 4000 + (enPuerta * 2);
                                         }
@@ -1579,7 +1579,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 4000 + enPuerta;
                                         }
@@ -1596,9 +1596,9 @@ namespace tp4
                                 {
                                     if (modalidad.tipo_envio == "Urgente")
                                     {
-                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        if (modalidad.modo_entrega == "Entregado en domicilio")
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 2000 * urgente + (enPuerta * 2);
                                             }
@@ -1609,7 +1609,7 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 2000 * urgente + enPuerta;
                                             }
@@ -1621,9 +1621,9 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        if (modalidad.modo_entrega == "Entregado en domicilio")
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 2000 + (enPuerta * 2);
                                             }
@@ -1634,7 +1634,7 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 2000 + enPuerta;
                                             }
@@ -1649,9 +1649,9 @@ namespace tp4
                                 {
                                     if (modalidad.tipo_envio == "Urgente")
                                     {
-                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        if (modalidad.modo_entrega == "Entregado en domicilio")
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 500 * urgente + (enPuerta * 2);
                                             }
@@ -1662,7 +1662,7 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 500 * urgente + enPuerta;
                                             }
@@ -1674,9 +1674,9 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_entrega == "Retirado en domicilio")
+                                        if (modalidad.modo_entrega == "Entregado en domicilio")
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 500 + (enPuerta * 2);
                                             }
@@ -1687,7 +1687,7 @@ namespace tp4
                                         }
                                         else
                                         {
-                                            if (modalidad.modo_retiro == "Entregado en domicilio")
+                                            if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
                                                 costo = 500 + enPuerta;
                                             }
@@ -1708,9 +1708,9 @@ namespace tp4
                     {
                         if (modalidad.tipo_envio == "Urgente")
                         {
-                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                            if (modalidad.modo_entrega == "Entregado en domicilio")
                             {
-                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                 {
                                     costo = 4000 * urgente + (enPuerta * 2);
                                 }
@@ -1721,7 +1721,7 @@ namespace tp4
                             }
                             else
                             {
-                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                 {
                                     costo = 4000 * urgente + enPuerta;
                                 }
@@ -1733,9 +1733,9 @@ namespace tp4
                         }
                         else
                         {
-                            if (modalidad.modo_entrega == "Retirado en domicilio")
+                            if (modalidad.modo_entrega == "Entregado en domicilio")
                             {
-                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                 {
                                     costo = 4000 + (enPuerta * 2);
                                 }
@@ -1746,7 +1746,7 @@ namespace tp4
                             }
                             else
                             {
-                                if (modalidad.modo_retiro == "Entregado en domicilio")
+                                if (modalidad.modo_retiro == "Retirado en domicilio")
                                 {
                                     costo = 4000 + enPuerta;
                                 }
@@ -1764,9 +1764,9 @@ namespace tp4
                         {
                             if (modalidad.tipo_envio == "Urgente")
                             {
-                                if (modalidad.modo_entrega == "Retirado en domicilio")
+                                if (modalidad.modo_entrega == "Entregado en domicilio")
                                 {
-                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
                                         costo = 2000 * urgente + (enPuerta * 2);
                                     }
@@ -1777,7 +1777,7 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
                                         costo = 2000 * urgente + enPuerta;
                                     }
@@ -1789,9 +1789,9 @@ namespace tp4
                             }
                             else
                             {
-                                if (modalidad.modo_entrega == "Retirado en domicilio")
+                                if (modalidad.modo_entrega == "Entregado en domicilio")
                                 {
-                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
                                         costo = 2000 + (enPuerta * 2);
                                     }
@@ -1802,7 +1802,7 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_retiro == "Entregado en domicilio")
+                                    if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
                                         costo = 2000 + enPuerta;
                                     }
@@ -1819,9 +1819,9 @@ namespace tp4
                             {
                                 if (modalidad.tipo_envio == "Urgente")
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 1000 * urgente + (enPuerta * 2);
                                         }
@@ -1832,7 +1832,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 1000 * urgente + enPuerta;
                                         }
@@ -1844,9 +1844,9 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 1000 + (enPuerta * 2);
                                         }
@@ -1857,7 +1857,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 1000 + enPuerta;
                                         }
@@ -1872,9 +1872,9 @@ namespace tp4
                             {
                                 if (modalidad.tipo_envio == "Urgente")
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 250 * urgente + (enPuerta * 2);
                                         }
@@ -1885,7 +1885,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 250 * urgente + enPuerta;
                                         }
@@ -1897,9 +1897,9 @@ namespace tp4
                                 }
                                 else
                                 {
-                                    if (modalidad.modo_entrega == "Retirado en domicilio")
+                                    if (modalidad.modo_entrega == "Entregado en domicilio")
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 250 + (enPuerta * 2);
                                         }
@@ -1910,7 +1910,7 @@ namespace tp4
                                     }
                                     else
                                     {
-                                        if (modalidad.modo_retiro == "Entregado en domicilio")
+                                        if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
                                             costo = 250 + enPuerta;
                                         }
