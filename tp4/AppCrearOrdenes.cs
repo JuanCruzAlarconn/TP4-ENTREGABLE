@@ -74,7 +74,7 @@ namespace tp4
             costo = calcularCosto(origen, destino, modalidad, paquete.peso);
             Console.WriteLine("El costo del servicio es:" + costo + "\n");
 
-            continuar = validador.pedirSoN("Desea confirmar la orden? S/N\n");
+            continuar = validador.pedirSoN("Desea confirmar la orden? S/N\n Presione ENTER A CONTINUACIÓN");
             
 
             if (continuar == "S")

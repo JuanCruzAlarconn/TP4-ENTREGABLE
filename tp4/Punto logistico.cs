@@ -126,40 +126,50 @@ namespace tp4
             do
             {
                 Console.WriteLine("\n--------------------------------------------------------------");
-                Console.WriteLine("Ingrese el código postal y luego presione enter");
+                Console.WriteLine("Ingrese el código postal y luego presione ENTER");
+                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación");
                 Console.WriteLine("----------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
 
-                if (string.IsNullOrWhiteSpace(ingreso))
+                if (ingreso == "SALIR" || ingreso == "salir")
                 {
-                    Console.WriteLine("\nNo puede ingresar un código postal vacio");
-                    continue;
-                }
+                    Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Program.validar_cliente();
+                    break;
 
-                if (!int.TryParse(ingreso, out cp))
-                {
-                    Console.WriteLine("\nEl código postal debe de ser un valor numérico positivo que consta de 4 dígitos");
-                    continue;
                 }
+                else
+                {
+                    if (string.IsNullOrWhiteSpace(ingreso))
+                    {
+                        Console.WriteLine("\nNo puede ingresar un código postal vacio");
+                        continue;
+                    }
 
-                if (cp < 0)
-                {
-                    Console.WriteLine("\nEl código postal debe de ser un valor numérico positivo que consta de 4 dígitos");
-                    continue;
-                }
-                if (ingreso.Length != 4)
-                {
-                    Console.WriteLine("\nEl código postal debe de ser un valor numérico positivo que consta de 4 dígitos");
-                    continue;
-                }
+                    if (!int.TryParse(ingreso, out cp))
+                    {
+                        Console.WriteLine("\nEl código postal debe de ser un valor numérico positivo que consta de 4 dígitos");
+                        continue;
+                    }
 
-                if (!archivo.validar_cp(cp))
-                {
-                    Console.WriteLine("\nEl código postal ingresado no se corresponde con ninguno del pais");
-                    continue;
-                }
+                    if (cp < 0)
+                    {
+                        Console.WriteLine("\nEl código postal debe de ser un valor numérico positivo que consta de 4 dígitos");
+                        continue;
+                    }
+                    if (ingreso.Length != 4)
+                    {
+                        Console.WriteLine("\nEl código postal debe de ser un valor numérico positivo que consta de 4 dígitos");
+                        continue;
+                    }
 
-                
+                    if (!archivo.validar_cp(cp))
+                    {
+                        Console.WriteLine("\nEl código postal ingresado no se corresponde con ninguno del pais");
+                        continue;
+                    }
+
+                }
 
                 break;
             } while (true);
@@ -181,9 +191,19 @@ namespace tp4
 
             do
             {
-                Console.WriteLine("\nHa ingresado que el paquete cuenta con un destino internacional, se solicitara que ingrese de forma estricta la dirección en el extranjero a la que hace referencia");
+                Console.WriteLine("\n------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                Console.WriteLine("Ha ingresado que el paquete cuenta con un destino internacional, se solicitara que ingrese de forma estricta la dirección en el extranjero a la que hace referencia");
+                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación");
+                Console.WriteLine("------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
 
+                if (ingreso == "SALIR" || ingreso == "salir")
+                {
+                    Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Program.validar_cliente();
+                    break;
+
+                }
 
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
@@ -217,11 +237,18 @@ namespace tp4
             {
                 Console.WriteLine("\n----------------------------------------------------------------------------------------------");
                 Console.WriteLine($"Ingrese los datos que se corresponde con el {campo} y luego presione la tecla enter");
+                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación");
                 Console.WriteLine("-----------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
 
-                
 
+                if (ingreso == "SALIR" || ingreso == "salir")
+                {
+                    Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Program.validar_cliente();
+                    break;
+
+                }
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
                     Console.WriteLine($"\nEl campo {campo} no puede permanecer vacio");

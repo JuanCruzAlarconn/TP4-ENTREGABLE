@@ -54,10 +54,17 @@ namespace tp4
             {
                 Console.WriteLine("\n-----------------------------------------------------------------------------------");
                 Console.WriteLine("Ingrese el valor designado para el paquete, al finanlizar ingrese la tecla enter");
+                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación");
                 Console.WriteLine("-----------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
+                if (ingreso == "SALIR" || ingreso == "salir")
+                {
+                    Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Program.validar_cliente();
+                    break;
 
-                if(string.IsNullOrWhiteSpace(ingreso))
+                }
+                if (string.IsNullOrWhiteSpace(ingreso))
                 {
                     Console.WriteLine("\nNo puede dejar el valor como vacio");
                     continue;
@@ -107,9 +114,16 @@ namespace tp4
             {
                 Console.WriteLine("\n---------------------------------------------------------------------------------------------------");
                 Console.WriteLine("Ingrese el peso del paquete (en gramos) que esta interesado en enviar, luego ingrese la tecla enter");
+                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación");
                 Console.WriteLine("----------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
+                if (ingreso == "SALIR" || ingreso == "salir")
+                {
+                    Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Program.validar_cliente();
+                    break;
 
+                }
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
                     Console.WriteLine("\nNo puede dejar el peso como vacio");
