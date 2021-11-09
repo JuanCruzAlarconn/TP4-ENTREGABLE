@@ -86,6 +86,7 @@ namespace tp4
                 var orden=new Orden_de_servicio(codigo, codigo_seguro,costo,codigo_cliente,estado,fecha,paquete,origen, destino, modalidad);
                 Console.WriteLine("Orden de servicio generada Nro:" + codigo);
                 Orden_de_servicio.grabar(orden);
+                Orden_de_servicio.enviar_comunicado(orden, fecha);
                 //METODO PARA PASAR OBJETO A ESTADO DE CUENTA
             }
 

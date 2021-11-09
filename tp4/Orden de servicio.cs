@@ -455,5 +455,25 @@ namespace tp4
 
 
         }
+
+        public static void enviar_comunicado(Orden_de_servicio orden, DateTime fecha)
+        {
+            if (orden.destino.localidad == orden.origen.localidad)
+            {
+                Sucursal.asignar_orden_servicio(orden, fecha);
+            }
+            if (orden.destino.localidad != orden.origen.localidad && orden.origen.provincia == orden.destino.provincia)
+            {
+                Sucursal.asignar_orden_servicio(orden, fecha);
+                Centro_Provincial.asignar_orden_servicio(orden, fecha);
+            }
+            if (orden.origen.provincia != orden.destino.provincia)
+            {
+                Sucursal.asignar_orden_servicio(orden, fecha);
+                Centro_Provincial.asignar_orden_servicio(orden, fecha);
+                Centro_Regional.asignar_orden_servicio(orden, fecha);
+            }
+
+        }
     }
 }

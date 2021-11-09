@@ -10,15 +10,18 @@ namespace tp4
 {
     class Sucursal
     {
-        public string nombre { get; set; }
-        public string localidad_dominante { get; set; }//cual es su zona de influencia en donde maneja la operación de forma independiente
-        public int codigo_sucursal { get; set; }
-        public List<int> codigos_ordenes_asignadas { get; set; } //A medida que le van llegando los pedidos los almancenan en una lista 
+        public DateTime fecha { get; set; }
+        
+        
+        public Orden_de_servicio orden_asignada { get; set; } //A medida que le van llegando los pedidos los almancenan en una lista 
 
 
 
+      
         public static List<Sucursal> abrir_archivo()
         {
+
+          
             string sucursalJson = File.ReadAllText("Sucursales.Json");
 
             List<Sucursal> lista_surcursal = JsonConvert.DeserializeObject<List<Sucursal>>(sucursalJson);
@@ -27,34 +30,20 @@ namespace tp4
 
         }
 
-        public static Sucursal hallar(string localidad)
-        {
-            var lista = abrir_archivo();
-            var sucursal = new Sucursal();//envío una copia de la información
+     
 
-            foreach (var s in lista)
-            {
-                if (s.localidad_dominante==localidad)
-                {
-                    sucursal = s;
-                    break;
-                }
-            }
-
-            return sucursal;
-        }
-
-        public void asignar_orden_servicio(int codigo_orden, string localidad)
+        public static void asignar_orden_servicio(Orden_de_servicio orden, DateTime fecha)
         {
             var lista = Sucursal.abrir_archivo();
 
-            var elemento = Sucursal.hallar(localidad);
+            var elemento = new Sucursal();
 
-            lista.Remove(elemento);
+            elemento.orden_asignada = orden;
+            elemento.fecha = fecha;
 
             lista.Add(elemento);
 
-            
+            Sucursal.actualizar_archivo(lista);
 
         }
 
@@ -62,7 +51,7 @@ namespace tp4
         {
             string lista_modificada = JsonConvert.SerializeObject(lista);
 
-            File.WriteAllText("Sucursales.Jso", lista_modificada);
+            File.WriteAllText("Sucursales.Json", lista_modificada);
 
             //Actualiza la base de datos de las sucursales con su asignación de orden de servicio
         }

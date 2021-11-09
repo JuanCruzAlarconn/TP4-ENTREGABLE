@@ -9,62 +9,39 @@ namespace tp4
 {
     class Centro_Provincial
     {
-        public string nombre { get; set; }
-        public int codigo { get; set; }
-        public List<int> codigos_ordenes_asignadas { get; set; } //A medida que le van llegando los pedidos los almancenan en una lista 
-        public List<int> codigos_sucursales_incluidas { get; set; }
+        public DateTime fecha { get; set; }
+        
+        public Orden_de_servicio orden_asignada { get; set; } //A medida que le van llegando los pedidos los almancenan en una lista 
+      
 
 
 
         public static List<Centro_Provincial> abrir_archivo()
         {
-            //Abre el archivo y lo pasa a formato lista para poder operar
 
+            
             string centrosprovincialesJson = File.ReadAllText("Centros Provinciales.Json");
             var lista = JsonConvert.DeserializeObject<List<Centro_Provincial>>(centrosprovincialesJson);
 
             return lista;
         }
-        public static Centro_Provincial hallar(int codigo)
-        {
-            var centro_provincial = new Centro_Provincial();
 
-            var lista_centros_provinciales = abrir_archivo();
-
-            foreach (var centro in lista_centros_provinciales)
-            {
-                if (centro.codigo == codigo)
-                {
-                    centro_provincial = centro;
-
-                    break;
-                }
-            }
-
-            return centro_provincial;
-
-        }
-
-        public void asignar_orden_servicio(int codigo_orden)
+        public static void asignar_orden_servicio(Orden_de_servicio orden, DateTime fecha)
         {
             var lista = Centro_Provincial.abrir_archivo();
 
-            var centro = Centro_Provincial.hallar(this.codigo);
+            var elemento = new Centro_Provincial();
 
-            centro.codigos_ordenes_asignadas.Add(codigo_orden);
+            elemento.orden_asignada = orden;
+            elemento.fecha = fecha;
 
-            foreach (var elemento in lista)
-            {
-                if (elemento.codigo == this.codigo)
-                {
-                    lista.Remove(elemento);
-                }
-            }
-
-            lista.Add(centro);
+            lista.Add(elemento);
 
             Centro_Provincial.actualizar_archivo(lista);
         }
+
+
+
 
         public static void actualizar_archivo(List<Centro_Provincial> lista)
         {
