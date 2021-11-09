@@ -231,9 +231,15 @@ namespace tp4
 
             do
             {
-                Console.WriteLine("\nSELECCIONE E INGRESE LOS COMANDOS");
+                Console.WriteLine("\n----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                Console.WriteLine("\n******************************************");
+                
+                Console.WriteLine("SELECCIONE E INGRESE LOS COMANDOS");
+                Console.WriteLine("******************************************");
+                Console.WriteLine("\n----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                 Console.WriteLine("\nIngrese el código de orden de servicio que desea consultar, el mismo esta compuesto como máximo de 7 elementos númericos y le fue otorgado en el momento en que se finaliza la realizacion del pedido como tal");
                 Console.WriteLine("\nEn caso de que desee volver anterior ingrese por consola el comando ATRAS para volver al menú anterior en caso de necesitarlo\n");
+                Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
 
                 if (ingreso == "ATRAS" || ingreso=="atras")
