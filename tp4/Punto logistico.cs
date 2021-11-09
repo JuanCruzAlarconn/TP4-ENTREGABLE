@@ -275,6 +275,12 @@ namespace tp4
                     }
                 }
 
+                if (campo=="dirección" && !ingreso.Any(char.IsDigit))
+                {
+                    Console.WriteLine("\nDebe de agregar la altura de la calle ingresada");
+                    continue;
+                }
+
                
 
                 break;
