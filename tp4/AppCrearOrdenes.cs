@@ -80,7 +80,7 @@ namespace tp4
                 int codigo = ordenes.asignar_codigo_servicio();
                 string estado = "Inicializado";
                 DateTime fecha = DateTime.Now;
-                ordenes.agregar(new Orden_de_servicio2(codigo, cliente, origen, destino, modalidad, costo, estado, fecha));//falta paquete
+                ordenes.agregar(new Orden_de_servicio2(codigo, cliente, origen, destino, modalidad, costo, estado, fecha));//falta paquete y seguro
                 Console.WriteLine("Orden de servicio generada Nro:" + codigo);
                 //METODO PARA GRABAR
                 //METODO PARA PASAR OBJETO A ESTADO DE CUENTA
