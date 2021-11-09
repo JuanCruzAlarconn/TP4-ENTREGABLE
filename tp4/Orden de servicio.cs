@@ -279,7 +279,7 @@ namespace tp4
                     continue;
                 }
 
-                if(!validar_pertenecia_codigo(codigo))
+                if(!validar_pertenecia_codigo(codigo, codigo_cliente))
                 {
                     Console.WriteLine("\nEl código ingresado no se corresponde con ninguna de las ordenes de servicio contenidas dentro de nuestras bases de datos");
                     continue;
@@ -294,7 +294,7 @@ namespace tp4
             return codigo;
         }
 
-        private static bool validar_pertenecia_codigo(int codigo)
+        private static bool validar_pertenecia_codigo(int codigo, int cod_cliente)
         {
             var lista = Orden_de_servicio.abrir_archivo();
 
@@ -302,7 +302,7 @@ namespace tp4
 
             foreach(var elemento in lista)
             {
-                if(elemento.codigo_servicio==codigo)
+                if(elemento.codigo_servicio==codigo && elemento.codigo_cliente==cod_cliente)
                 {
                     flag = true;
                     break;
