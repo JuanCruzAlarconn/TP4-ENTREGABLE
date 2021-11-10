@@ -15,9 +15,16 @@ namespace tp4
         {
             validar_cliente();
 
-            /*CARGAR FUNCIÓN EN CASO DE QUE SOLICITE LOS ARCHIVOS DE CLIENTES O ORDEN DE SERVICIO                         
+            /*CARGAR FUNCIÓN EN CASO DE QUE AL ABRIR EL PROGRAMA SE SOLICITEN ARCHIVO NO PRECARGADOS 
+             * 
             Cliente_corportativo.carga_prueba();
             Orden_de_servicio.cargar_prueba();
+            Sucursal.actualizar_archivo(new List<Sucursal>());
+            Centro_Provincial.actualizar_archivo(new List<Centro_Provincial>());
+            Centro_Regional.actualizar_archivo(new List<Centro_Regional>());                        
+            continente.generar_archivo();
+            archivo.generar_archivo();
+            Punto_logistico.cargar_paises();
             */
 
             Console.WriteLine("\nIngrese una tecla para poder detener la ejecución");
