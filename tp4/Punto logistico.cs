@@ -36,17 +36,18 @@ namespace tp4
             Punto_logistico.cargar_paises();
             continente.generar_archivo();
             string cadena = "";
-            if(campo== "Entregado en domicilio" || campo== "Retirado en domicilio")
-            {
-                cadena = "domicilio";
-            }
-            else if (campo== "Entregado en sucursal" || campo== "Retirado en sucursal")
-            {
-                cadena = "sucursal";
-            }
+          
 
             if (modo == "origen")
             {
+                if (campo == "Retirado en domicilio")
+                {
+                    cadena = "domicilio";
+                }
+                else if (campo == "Retirado en sucursal")
+                {
+                    cadena = "sucursal";
+                }
                 Console.WriteLine("\n*********************************************************************************************************************");
                 Console.WriteLine("A continuación se solicitara el ingreso de los datos correspondientes con el punto de origen de la operación");
                 Console.WriteLine("**********************************************************************************************************************\n");
@@ -74,18 +75,33 @@ namespace tp4
             else
             {
                 Console.WriteLine("\n*********************************************************************************************************************");
-                Console.WriteLine("A continuación se solicitara el ingreso de los datos correspondientes con el punto de destino de {0} la operación", cadena);
+                Console.WriteLine("A continuación se solicitara el ingreso de los datos correspondientes con el punto de destino de la operación");
                 Console.WriteLine("**********************************************************************************************************************\n");
-
+                if (campo == "Entregado en domicilio")
+                {
+                    cadena = "domicilio";
+                }
+                else if (campo == "Entregado en sucursal")
+                {
+                    cadena = "sucursal";
+                }
 
                 punto_geografico.pais = asignar("pais");
 
                 if (punto_geografico.pais == "Argentina")
                 {
-
-                    punto_geografico.direccion = asignar("dirección");
-                    punto_geografico.nombre = asignar("Nombre");
-                    punto_geografico.codigo_postal = asignar_cp(punto_geografico.direccion);
+                    if (cadena == "domicilio")
+                    {
+                        punto_geografico.direccion = asignar("dirección");
+                        punto_geografico.nombre = asignar("Nombre");
+                        punto_geografico.codigo_postal = asignar_cp(punto_geografico.direccion);
+                    }
+                    else
+                    {
+                        punto_geografico.direccion = "";
+                        punto_geografico.nombre = asignar("Nombre");
+                        punto_geografico.codigo_postal = asignar_cp(punto_geografico.direccion);
+                    }
 
 
                     //Esto se asigna por sistema
