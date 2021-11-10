@@ -12,7 +12,7 @@ namespace tp4
     class Program
     {
         static void Main(string[] args)
-        {
+        {   
             Cliente_corportativo.carga_prueba();
             Orden_de_servicio.cargar_prueba();
             validar_cliente();
@@ -253,7 +253,7 @@ namespace tp4
 
 
 
-        public static void estado_cuenta(int codigo_cliente)
+         public static void estado_cuenta(int codigo_cliente)
         {
 
          string ingreso = "";
@@ -275,6 +275,8 @@ namespace tp4
                Console.WriteLine("");
                Console.WriteLine("A continuación se le mostrará el estado de cuenta");
                Console.WriteLine("");
+               Console.WriteLine("******************************************************************************************\n");
+               Console.WriteLine("{0,-10} | {1,-10}  | {2,5}| {3,10} | {4,10} ", "cod", "fecha", "cargos", "abonos", "concepto");         
                EstadoCuenta.mostrarCuenta(codigo_cliente);
                EstadoCuenta.CalcularSaldoCta(codigo_cliente);
                Console.WriteLine("");
@@ -287,17 +289,23 @@ namespace tp4
                             { 
                                            Console.WriteLine("");
                                            Console.WriteLine("Por favor ingrese dos fechas válidas para las que quiera filtrar\n");
-                                           Console.WriteLine("Por favor ingrese la fecha inicial\n");
+                                           Console.WriteLine("Por favor ingrese la fecha inicial con el formato dd/mm/aaaa\n");
                                            fechaINI = Console.ReadLine();
-                                           Console.WriteLine("Por favor ingrese la fecha final\n");
+                                           Console.WriteLine("Por favor ingrese la fecha final con el formato dd/mm/aaaa\n");
                                            fechaFIN = Console.ReadLine();
+                                           Console.WriteLine("\n******************************************************************************************\n");
+
                                            DateTime.TryParse(fechaINI, out inicial);
                                            DateTime.TryParse(fechaFIN, out final);
                                            if (inicial!= null &&  final!=null)
                                            {
+                                            Console.WriteLine("{0,-10} | {1,-10}  | {2,5}| {3,10} | {4,10} ", "cod", "fecha", "cargos", "abonos", "concepto");   
                                             EstadoCuenta.filtrarPorFechas(codigo_cliente, inicial, final);
                                            }
-
+                                           else
+                                           {
+                                            Console.WriteLine("No ha ingresado una fecha válida, por favor intente nuveamente\n");
+                                           }
                                            break;
 
 
@@ -312,6 +320,7 @@ namespace tp4
                } while (true);
 
         }
+
 
 
 

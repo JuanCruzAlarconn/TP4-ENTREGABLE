@@ -125,16 +125,21 @@ namespace tp4
         {
         var lista_estadoscuenta = EstadoCuenta.abrir();    
         var estado = new EstadoCuenta();
+        int saldo = 0;
         foreach (var e in lista_estadoscuenta)
-            {
-                if (e.codigo_cliente == codigo && (Ini<=e.fecha_operacion && e.fecha_operacion<=Fin) )
+            {//x.StartDate >= sdate && x.EndDate <= edate)
+
+                if (e.codigo_cliente == codigo && (e.fecha_operacion >= Ini && Fin>=e.fecha_operacion) )
                 {
 
                     estado = e;
                     Console.WriteLine(e.ToString());
-                }
-                   
+                    saldo = saldo + e.abonos -e.cargos;
+
+                }          
             } 
+        Console.WriteLine("Su saldo entre ambas fechas es de: "+saldo.ToString()+" pesos");     
+        Console.WriteLine("******************************************************************************************\n");            
         return estado;
         }
 
@@ -168,8 +173,8 @@ namespace tp4
             string ingresoCaptcha = "";
             string ingresoClave = "";
             string Hash = EstadoCuenta.RandomString(5);
-            Console.WriteLine("Por favor ingrese el CAPTCHA y a continuación su clave secreta");
-            Console.WriteLine(Hash);
+            Console.WriteLine("Por favor ingrese el CAPTCHA, presione ENTER y a continuación su clave secreta y presione ENTER");
+            Console.WriteLine("CAPTCHA: "+Hash);
             do { 
 
                 ingresoCaptcha = Console.ReadLine();
@@ -177,7 +182,7 @@ namespace tp4
                 if ((ingresoClave==clave_secreta && ingresoCaptcha==Hash) == false)
                 {
                     intentos --;
-                    Console.WriteLine("Ha ingresado un CAPTCHA y o clave secreta erroneos, le quedan "+ intentos+" intentos");}
+                    Console.WriteLine("Ha ingresado un CAPTCHA y o clave secreta erroneos, le quedan "+ intentos+" intentos, le recordamos el hash "+Hash);}
                     contador ++;
 
 
@@ -225,7 +230,9 @@ namespace tp4
 
         public override string ToString()
         {
-        return  this.codigo_operacion +"  "+  this.fecha_operacion +" "+ this.concepto +" "+ this.cargos +" "+ this.abonos;
+            return string.Format("{0,-10} | {1,-10: dd/MM/yyyy} | {2,5} | {3,10} | {4,10} ", codigo_operacion, fecha_operacion, cargos, abonos, concepto);
+
+
         }
 
 
