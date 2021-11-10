@@ -21,7 +21,7 @@ namespace tp4
         public static List<Centro_Regional> abrir_archivo()
         {
 
-            
+            Centro_Regional.actualizar_archivo(new List<Centro_Regional>());
             string centrosregionalesJson = File.ReadAllText("Centros Regionales.json");
             var lista = JsonConvert.DeserializeObject<List<Centro_Regional>>(centrosregionalesJson);
 

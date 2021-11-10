@@ -59,6 +59,7 @@ namespace tp4
                 ingreso = Console.ReadLine();
                 if (ingreso == "SALIR" || ingreso == "salir")
                 {
+                    Console.WriteLine("\n***************OPERACIÓN ABORTADA******************");
                     Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
                     Program.validar_cliente();
                     break;
@@ -119,6 +120,7 @@ namespace tp4
                 ingreso = Console.ReadLine();
                 if (ingreso == "SALIR" || ingreso == "salir")
                 {
+                    Console.WriteLine("\n***************OPERACIÓN ABORTADA******************");
                     Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
                     Program.validar_cliente();
                     break;

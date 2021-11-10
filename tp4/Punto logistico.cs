@@ -30,29 +30,51 @@ namespace tp4
         public string continente_asignado { get; set; }
        
 
-        public static Punto_logistico crear(string modo)
+        public static Punto_logistico crear(string modo, string campo)
         {
             Punto_logistico punto_geografico = new Punto_logistico();
             Punto_logistico.cargar_paises();
             continente.generar_archivo();
+            string cadena = "";
+            if(campo== "Entregado en domicilio" || campo== "Retirado en domicilio")
+            {
+                cadena = "domicilio";
+            }
+            else if (campo== "Entregado en sucursal" || campo== "Retirado en sucursal")
+            {
+                cadena = "sucursal";
+            }
 
             if (modo == "origen")
             {
                 Console.WriteLine("\n*********************************************************************************************************************");
                 Console.WriteLine("A continuación se solicitara el ingreso de los datos correspondientes con el punto de origen de la operación");
                 Console.WriteLine("**********************************************************************************************************************\n");
-                Console.WriteLine("\nInformación postal del origen, es decir su información postal");
-                punto_geografico.codigo_postal = asignar_cp();
+                Console.WriteLine("\nInformación postal del origen, es decir información postal de {0} de origen", cadena);
+               
+                
+                if(cadena=="domicilio")
+                {
+                    punto_geografico.direccion = asignar("dirección");
+                }
+                else
+                {
+                    punto_geografico.direccion = "";
+                }
+
+
+                punto_geografico.codigo_postal = asignar_cp(punto_geografico.direccion);
                 punto_geografico.localidad = asignar_localidad(punto_geografico.codigo_postal);
                 punto_geografico.provincia = asignar_provincia(punto_geografico.codigo_postal);
                 punto_geografico.region = asignar_region(punto_geografico.codigo_postal);
                 punto_geografico.pais = "Argentina";
 
+
             }
             else
             {
                 Console.WriteLine("\n*********************************************************************************************************************");
-                Console.WriteLine("A continuación se solicitara el ingreso de los datos correspondientes con el punto de destino de la operación");
+                Console.WriteLine("A continuación se solicitara el ingreso de los datos correspondientes con el punto de destino de {0} la operación", cadena);
                 Console.WriteLine("**********************************************************************************************************************\n");
 
 
@@ -63,7 +85,7 @@ namespace tp4
 
                     punto_geografico.direccion = asignar("dirección");
                     punto_geografico.nombre = asignar("Nombre");
-                    punto_geografico.codigo_postal = asignar_cp();
+                    punto_geografico.codigo_postal = asignar_cp(punto_geografico.direccion);
 
 
                     //Esto se asigna por sistema
@@ -83,6 +105,31 @@ namespace tp4
                     punto_geografico.provincia = null;
                     punto_geografico.region = null;
                     punto_geografico.continente_asignado = continente.pasar_continente(punto_geografico.pais);
+
+
+                    Console.WriteLine("\n******INFORMACIÓN DE DESTINO********");
+                    Console.WriteLine("PAIS DE DESTINO: {0}", punto_geografico.pais);
+                    Console.WriteLine("CONTINENTE DE DESTINO: {0}", punto_geografico.continente_asignado);
+                    Console.WriteLine("NOMBRE DE DESTINATARIO: {0}", punto_geografico.nombre);
+                    Console.WriteLine("DIRECCIÓN DE DESTINO: {0}", punto_geografico.direccion);
+                    Console.WriteLine("***************************************");
+
+                    Console.WriteLine("\nIngrese S y luego ENTER para confirmar");
+                    Console.WriteLine("\nIngrese cualquier tecla y luego ENTER para abortar la operación");
+
+                    string teclado = "";
+
+                    teclado = Console.ReadLine();
+
+                    teclado = teclado.ToUpper();
+
+                    if (teclado != "S")
+                    {
+                        Console.WriteLine("\n***************OPERACIÓN ABORTADA******************\n");
+                        Program.validar_cliente();
+                        
+                    }
+                   
                 }
             }
             return punto_geografico;
@@ -114,7 +161,7 @@ namespace tp4
             return elemento.localidad;
         }
 
-        private static int asignar_cp()
+        private static int asignar_cp(string direccion)
         {
             archivo.generar_archivo();
             string cpJson = File.ReadAllText("Codigos postales.Json");
@@ -174,14 +221,43 @@ namespace tp4
                 break;
             } while (true);
 
-            Console.WriteLine("\n*************INFORMACIÓN POSTAL**************");
-            Console.WriteLine("Código Postal: {0}",archivo.hallar(cp).cp);
-            Console.WriteLine("Localidad: {0}", archivo.hallar(cp).localidad);
-            Console.WriteLine("Provincia:{0}", archivo.hallar(cp).provincia);
-            Console.WriteLine("Región: {0}", archivo.hallar(cp).region);
-            Console.WriteLine("País: {0}", "Argentina");
+            string teclado = "";
 
-            return cp;
+            
+           
+                Console.WriteLine("\n*************INFORMACIÓN POSTAL**************");
+                Console.WriteLine("Código Postal: {0}", archivo.hallar(cp).cp);
+                Console.WriteLine("Localidad: {0}", archivo.hallar(cp).localidad);
+                Console.WriteLine("Provincia:{0}", archivo.hallar(cp).provincia);
+                Console.WriteLine("Región: {0}", archivo.hallar(cp).region);
+                Console.WriteLine("País: {0}", "Argentina");
+            if(direccion!="")
+            {
+                Console.WriteLine("Dirección: {0}", direccion);
+            }
+                Console.WriteLine("************************************************\n");
+
+                Console.WriteLine("\nIngrese S y luego ENTER para confirmar");
+                Console.WriteLine("\nIngrese cualquier tecla y luego ENTER para abortar la operación");
+
+                teclado = Console.ReadLine();
+
+                teclado = teclado.ToUpper();
+
+                if(teclado!="S")
+                {
+                Console.WriteLine("\n***************OPERACIÓN ABORTADA******************\n");
+                Program.validar_cliente();
+                    return cp;
+                }
+                else
+                {
+                    return cp;
+                }
+
+              
+
+           
         }
 
    

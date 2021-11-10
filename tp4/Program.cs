@@ -15,6 +15,11 @@ namespace tp4
         {
             validar_cliente();
 
+            /*CARGAR FUNCIÓN EN CASO DE QUE SOLICITE LOS ARCHIVOS DE CLIENTES O ORDEN DE SERVICIO                         
+            Cliente_corportativo.carga_prueba();
+            Orden_de_servicio.cargar_prueba();
+            */
+
             Console.WriteLine("\nIngrese una tecla para poder detener la ejecución");
             Console.ReadKey();
         }

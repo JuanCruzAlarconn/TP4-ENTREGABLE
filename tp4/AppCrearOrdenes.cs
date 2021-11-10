@@ -65,10 +65,10 @@ namespace tp4
                     }
                 }
             } while (!sucursales.existe(sucursal));*/
-
-            Punto_logistico origen = Punto_logistico.crear("origen");
-            Punto_logistico destino = Punto_logistico.crear("destino");
             Modalidad modalidad = Modalidad.crear();
+            Punto_logistico origen = Punto_logistico.crear("origen",modalidad.modo_retiro);
+            Punto_logistico destino = Punto_logistico.crear("destino",modalidad.modo_entrega);
+           
             Paquete paquete = Paquete.crear();
 
             costo = calcularCosto(origen, destino, modalidad, paquete.peso);
