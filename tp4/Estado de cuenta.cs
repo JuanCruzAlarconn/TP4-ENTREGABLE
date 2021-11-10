@@ -129,7 +129,7 @@ namespace tp4
             h.pagado = true;
 
             var i = new EstadoCuenta();
-            i.codigo_operacion = 3;
+            i.codigo_operacion = 4;
             i.codigo_cliente = 12345678;
             i.fecha_operacion = DateTime.Now.AddDays(-50);
             i.concepto = "Encomienda Barbero Barbero -Barvero";
