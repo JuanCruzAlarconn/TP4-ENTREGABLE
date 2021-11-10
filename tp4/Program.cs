@@ -14,7 +14,7 @@ namespace tp4
         static void Main(string[] args)
         {   
             Cliente_corportativo.carga_prueba();
-            Orden_de_servicio.cargar_prueba();
+            
             validar_cliente();
           
            

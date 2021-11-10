@@ -143,8 +143,10 @@ namespace tp4
         return estado;
         }
 
-
-
+        internal static void obtener_objeto(int codigo_servicio, DateTime fecha_ingreso, double precio, string localidad, string pais)
+        {
+            throw new NotImplementedException();
+        }
 
         public static List<EstadoCuenta> abrir()
         {
