@@ -87,8 +87,7 @@ namespace tp4
                 Console.WriteLine("Orden de servicio generada Nro:" + codigo);
                 Orden_de_servicio.grabar(orden);
                 Orden_de_servicio.enviar_comunicado(orden, fecha);
-               EstadoCuenta.obtener_objeto(orden.codigo_servicio,orden.fecha_ingreso,orden.precio, orden.origen.localidad, orden.destino.pais);
-                //METODO PARA PASAR OBJETO A ESTADO DE CUENTA
+               
             }
 
 
