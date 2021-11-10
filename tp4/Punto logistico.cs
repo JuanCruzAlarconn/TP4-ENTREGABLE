@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 namespace tp4
 {
     class Punto_logistico
-    {
+    {   
         public string nombre { get; set; }
 
         public string direccion { get; set; }
@@ -32,6 +32,7 @@ namespace tp4
 
         public static Punto_logistico crear(string modo, string campo)
         {
+            archivo.generar_archivo();
             Punto_logistico punto_geografico = new Punto_logistico();
             Punto_logistico.cargar_paises();
             continente.generar_archivo();
