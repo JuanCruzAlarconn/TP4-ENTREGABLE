@@ -54,6 +54,8 @@ namespace tp4
 
             var ultimo_estado = estado_de_orden.Last();
 
+            Console.WriteLine(ultimo_estado.entidad);
+            Console.WriteLine(ultimo_estado.estado);
             
           
             string estado="";
@@ -296,6 +298,7 @@ namespace tp4
         }
         public static List<Orden_de_servicio> abrir_archivo()
         {
+            
             var lista = new List<Orden_de_servicio>();
             string ordendeservicioJson = File.ReadAllText("Ordenes de servicio.Json");
 
@@ -397,14 +400,14 @@ namespace tp4
 
             prueba2.Add(new Estado(0001, "Aplicación", "Iniciado", "13/08/2020"));
 
-            prueba3.Add(new Estado(0001, "Aplicación", "Inicializado", "23/08/2020") );
+            prueba3.Add(new Estado(0001, "Aplicación", "Iniciado", "23/08/2020") );
             prueba3.Add(new Estado(0002, "Sucursal", "En sucursal", "24/08/2020"));
             prueba3.Add(new Estado(0002, "Sucursal", "En distribución hacia el destinatario", "30/08/2020"));
 
-            prueba4.Add(new Estado(0001, "Aplicación", "Inicializado", "30/08/2020"));
+            prueba4.Add(new Estado(0001, "Aplicación", "Iniciado", "30/08/2020"));
             prueba4.Add(new Estado(0002, "Sucursal", "En distribución hacia la sucursal de origen", "01/09/2020"));
 
-            prueba5.Add(new Estado(0001, "Aplicación", "Inicializado", "23/08/2020"));
+            prueba5.Add(new Estado(0001, "Aplicación", "Iniciado", "23/08/2020"));
             prueba5.Add(new Estado(9999, "Transporte", "En distribución desde el centro provincial hacia el centro regional", "30/08/2020"));
 
             var orig = new Punto_logistico("Julian Alvarez", "calle falsa 1234", 0001, "Argentina");
