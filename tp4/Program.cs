@@ -275,8 +275,8 @@ namespace tp4
                Console.WriteLine("");
                Console.WriteLine("A continuación se le mostrará el estado de cuenta");
                Console.WriteLine("");
-               Console.WriteLine("******************************************************************************************\n");
-               Console.WriteLine("{0,-10} | {1,-10}  | {2,5}| {3,10} | {4,10} ", "cod", "fecha", "cargos", "abonos", "concepto");         
+               Console.WriteLine("******************************************************************************************\n");  
+               Console.WriteLine("{0,-10} | {1,-10} | {2,5:SI;0;NO} | {3,5} | {4,5: dd/MM/yyyy}| {5,10} | {6,10} | {7,10} ", "Cod operac", "Estado", "Fact ", "Pago", " Fecha      ", "Cargos", "Abonos  ", "Descripción   ");
                EstadoCuenta.mostrarCuenta(codigo_cliente);
                EstadoCuenta.CalcularSaldoCta(codigo_cliente);
                Console.WriteLine("");
@@ -299,7 +299,7 @@ namespace tp4
                                            DateTime.TryParse(fechaFIN, out final);
                                            if (inicial!= null &&  final!=null)
                                            {
-                                            Console.WriteLine("{0,-10} | {1,-10}  | {2,5}| {3,10} | {4,10} ", "cod", "fecha", "cargos", "abonos", "concepto");   
+                                            Console.WriteLine("{0,-10} | {1,-10} | {2,5:SI;0;NO} | {3,5} | {4,5: dd/MM/yyyy}| {5,10} | {6,10} | {7,10} ", "Cod operac", "Estado", "Fact ", "Pago", " Fecha      ", "Cargos", "Abonos  ", "Descripción   ");   
                                             EstadoCuenta.filtrarPorFechas(codigo_cliente, inicial, final);
                                            }
                                            else

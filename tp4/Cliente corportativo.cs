@@ -38,13 +38,13 @@ namespace tp4
            
 
             var cliente_corporativo2 = new Cliente_corportativo();
-            cliente_corporativo2.nombreyapellido = "Roy Russo";           
+            cliente_corporativo2.nombreyapellido = "Julián Alvarez";           
             cliente_corporativo2.codigo_cliente = 12345678;
             cliente_corporativo2.codigo_cuenta_corriente = 0002;
-            cliente_corporativo2.clave_secreta = 1234;
+            cliente_corporativo2.clave_secreta = 1111;
 
 
-            var c3 = new Cliente_corportativo("Julian Alvarez", 00000001, 0003);
+            var c3 = new Cliente_corportativo("Franco Armani", 00000001, 0003);
             var c4 = new Cliente_corportativo("Enzo perez", 00000002, 0004);
             var c5 = new Cliente_corportativo("Franco Armani", 00000003, 0005);
             var c6 = new Cliente_corportativo("Roberto Rojas", 00000004, 0006);
