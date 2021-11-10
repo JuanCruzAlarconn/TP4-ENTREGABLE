@@ -145,7 +145,8 @@ namespace tp4
 
         internal static void obtener_objeto(int codigo_servicio, DateTime fecha_ingreso, double precio, string localidad, string pais)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("A implementar");
+           
         }
 
         public static List<EstadoCuenta> abrir()
