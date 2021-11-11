@@ -141,39 +141,5 @@ namespace tp4
             }
             while (true);
         }
-
-        /*public string pedirTipo(string mensaje)
-        {
-            string retorno = "";
-
-            do
-            {
-                Console.WriteLine(mensaje);
-                retorno = Console.ReadLine().ToUpper();
-                if (retorno != "NACIONAL" && retorno != "INTERNACIONAL")
-                {
-                    Console.WriteLine("El tipo de paquete debe ser Nacional/Internacional" + "\n");
-                }
-            } while (retorno != "NACIONAL" && retorno != "INTERNACIONAL");
-
-            return (retorno);
-        }
-
-        public string pedirTipo2(string mensaje)
-        {
-            string retorno = "";
-
-            do
-            {
-                Console.WriteLine(mensaje);
-                retorno = Console.ReadLine().ToUpper();
-                if (retorno != "ESTANDAR" && retorno != "URGENTE")
-                {
-                    Console.WriteLine("El tipo de entrega debe ser Estándar/Urgente" + "\n");
-                }
-            } while (retorno != "ESTANDAR" && retorno != "URGENTE");
-
-            return (retorno);
-        }*/
     }
 }
