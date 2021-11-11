@@ -11,60 +11,20 @@ namespace tp4
     class AppCrearOrdenes
     {
         private Validador validador;
-        private ConjuntoDeOrdenes ordenes;
-        private ConjuntoDeSucursales sucursales;
         
         public AppCrearOrdenes()
         {
             validador = new Validador();
-            ordenes = new ConjuntoDeOrdenes();
-            sucursales = new ConjuntoDeSucursales();
         }
-      
         
         public void ejecutar(int codigo_cliente)
         {
             int cliente = codigo_cliente;
-            //int sucursal = 0;
             string continuar = "";
-            double costo = 0; //quitar luego de desarrollar el metodo para calcular el costo
+            double costo = 0;
 
             Console.WriteLine("Completa los datos de tu envío" + "\n");
-            //int postal = validador.pedirInteger("Ingrese el código postal del destino\n", 0, 999999);
-
-            /*do
-            {
-                Console.WriteLine("Listado de sucursales" + "\n");
-                string mensajeAMostrar = sucursales.listado();
-                Console.WriteLine(mensajeAMostrar);
-                sucursal = validador.pedirInteger("Ingrese la sucursal de origen\n", 0, 999);
-
-                if (!sucursales.existe(sucursal))
-                {
-                    Console.WriteLine("El codigo ingresado no se corresponde con ninguna de las sucursales que se encuentran dentro de la base de datos,\n por favor ingrese una sucursal nuevamente\n");
-                }
-                else
-                {
-                    Paquete paquete = Paquete.crear();
-
-                    string nombre = validador.pedirChar("Ingrese el nombre del destinatario\n", 30);
-                    string direccion = validador.pedirString("Ingrese la dirección del destinatario\n");
-
-                    //costo = calcularCosto(tipo, postal, paquete.peso, tipo2);
-                    //Console.WriteLine("El costo del servicio es:" + costo + "\n");
-
-                    continuar = validador.pedirSoN("Desea confirmar la orden? S/N\n");
-
-                    if (continuar == "S")
-                    {
-                        int codigo = ordenes.asignar_codigo_servicio();
-                        string estado = "Inicializado";
-                        DateTime fecha = DateTime.Now;
-                        ordenes.agregar(new Orden_de_servicio2(codigo, cliente, postal, logistica, modalidad, sucursal, nombre, direccion, costo, estado, fecha));
-                        Console.WriteLine("Orden de servicio generada Nro:" + codigo);
-                    }
-                }
-            } while (!sucursales.existe(sucursal));*/
+           
             Modalidad modalidad = Modalidad.crear();
             Punto_logistico origen = Punto_logistico.crear("origen",modalidad.modo_retiro);
             Punto_logistico destino = Punto_logistico.crear("destino",modalidad.modo_entrega);
@@ -76,7 +36,6 @@ namespace tp4
 
             continuar = validador.pedirSoN("Desea confirmar la orden? S/N\n Presione ENTER A CONTINUACIÓN");
             
-
             if (continuar == "S")
             {
                 int codigo = Orden_de_servicio.asignar_codigo_servicio();//Asigna un código de orden de servicio
@@ -87,10 +46,7 @@ namespace tp4
                 Console.WriteLine("Orden de servicio generada Nro:" + codigo);
                 Orden_de_servicio.grabar(orden);
                 Orden_de_servicio.enviar_comunicado(orden, fecha);
-               
             }
-
-
         }
 
         private double calcularCosto(Punto_logistico origen, Punto_logistico destino, Modalidad modalidad, decimal peso)
