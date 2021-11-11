@@ -214,8 +214,6 @@ namespace tp4
         }
 
 
-
-
         public static List<EstadoCuenta> abrir()
         {
             var lista_estadoscuenta = new List<EstadoCuenta>();

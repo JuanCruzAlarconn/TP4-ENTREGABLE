@@ -36,7 +36,7 @@ namespace tp4
                 Console.WriteLine("\n------------------------------------------------------------------------------------------------------------");
                 Console.WriteLine("------------------------------------------FORMA DE ENTREGA A DESTINATARIO-------------------------------------");
                 Console.WriteLine("--------------------------------------------------------------------------------------------------------------\n");
-                Console.WriteLine("Ingrese las siguientes opciones cuando a como quiere que el paquete se entregue al destinatario, luego presione enter");
+                Console.WriteLine("Ingrese las siguientes opciones acerca de como quiere que el paquete se entregue al destinatario, luego presione ENTER");
                 Console.WriteLine("A.El destinatario recibira el paquete dentro de la sucursal");
                 Console.WriteLine("B.El destinatario recibira el paquete dentro del domicilio indicado");
                 Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación");
@@ -98,7 +98,7 @@ namespace tp4
                 Console.WriteLine("\n--------------------------------------------------------------------------------------------------------------");
                 Console.WriteLine("---------------------------------QUE TAN RÁPIDO NECESITA QUE SE CONCRETE EL ENVÍO----------------------------");
                 Console.WriteLine("--------------------------------------------------------------------------------------------------------------\n");
-                Console.WriteLine("Ingrese las siguientes opciones que se corresponden con la modalidad del envío, luego presione enter");
+                Console.WriteLine("Ingrese las siguientes opciones que se corresponden con la modalidad del envío, luego presione ENTER");
                 Console.WriteLine("A.Normal, se demorara de acuerdo con la distancia establecida del recorrido");
                 Console.WriteLine("B.Urgente, desea que el paquete sea entrgado dentro de las próximas 48 hs");
                 Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación");

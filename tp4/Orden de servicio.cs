@@ -54,8 +54,7 @@ namespace tp4
 
             var ultimo_estado = estado_de_orden.Last();
 
-            Console.WriteLine(ultimo_estado.entidad);
-            Console.WriteLine(ultimo_estado.estado);
+
             
           
             string estado="";
