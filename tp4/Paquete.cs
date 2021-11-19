@@ -54,33 +54,44 @@ namespace tp4
             do
             {
                 Console.WriteLine("\n-----------------------------------------------------------------------------------");
-                Console.WriteLine("Ingrese el valor designado para el paquete, al finanlizar ingrese la tecla enter");
-                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("INGRESE EL VALOR EN PESOS EL PAQUETE LUEGO PRESIONE ENTER");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación".ToUpper()) ;
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("-----------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
                 if (ingreso == "SALIR" || ingreso == "salir")
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\n***************OPERACIÓN ABORTADA******************");
                     Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Program.validar_cliente();
                     break;
 
                 }
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nNo puede dejar el valor como vacio");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if(!decimal.TryParse(ingreso, out cotización))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nDebe de ingresar una cotización numérica");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if(cotización<=0)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nLa cotización ingresada debe de ser positiva");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
@@ -115,40 +126,54 @@ namespace tp4
             do
             {
                 Console.WriteLine("\n---------------------------------------------------------------------------------------------------");
-                Console.WriteLine("Ingrese el peso del paquete (en gramos) que esta interesado en enviar, luego ingrese la tecla enter");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Ingrese el peso del paquete (en gramos), luego ingrese la tecla enter".ToUpper());
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("----------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
                 if (ingreso == "SALIR" || ingreso == "salir")
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\n***************OPERACIÓN ABORTADA******************");
                     Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Program.validar_cliente();
                     break;
 
                 }
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nNo puede dejar el peso como vacio");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if (!decimal.TryParse(ingreso, out peso))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nEl peso del paquete debe de ser numérico");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if (peso <= 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nEl peso del paquete debe de ser positivo");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
 
                 if (peso >= 30000)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
+
                     Console.WriteLine("\nEl peso del paquete no puede superar los 30kg");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
