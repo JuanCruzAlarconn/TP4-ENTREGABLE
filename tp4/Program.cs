@@ -223,27 +223,37 @@ namespace tp4
             int codigo_orden = 0;
             do
             {
-                Console.WriteLine("\nIngrese el nº de orden de servicio del cual desea consultar su estado");
+                Console.WriteLine("\n******************************************************************");
+                Console.WriteLine("Ingrese el nº de orden de servicio".ToUpper());
+                Console.WriteLine("********************************************************************\n");
                 ingreso = Console.ReadLine();
 
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nEl el nº de orden no debe de ser vacio, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
                 if (!Int32.TryParse(ingreso, out codigo_orden))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nEl nº de orden debe de ser numérico, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
                 if (codigo_orden < 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nEl nº de orden debe de ser positivo, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
                 if (!Orden_de_servicio.validar_codigo_orden(codigo_orden))
                 {
-                    Console.WriteLine("\nEl nº de orden ingresado no se correpsonde con ninguno de los elementos dentro de la base de datos del repositorio, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nEl nº de orden ingresado no se corresponde con ninguno de los elementos dentro de la base de datos del repositorio, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 

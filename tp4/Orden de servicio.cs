@@ -172,9 +172,11 @@ namespace tp4
                 estado = "El paquete se halla en distribución internacional";
             }
 
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("\n******************ESTADO DE SOLCITUD*******************\n");
             Console.WriteLine(estado);
             Console.WriteLine("\n*******************************************************\n");
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         private static int menu_ingreso(int codigo_cliente)
@@ -188,55 +190,73 @@ namespace tp4
             {
                 Console.WriteLine("\n----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                 Console.WriteLine("\n******************************************");
-                
-                Console.WriteLine("SELECCIONE E INGRESE LOS COMANDOS");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("INGRESE LOS COMANDOS");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("******************************************");
                 Console.WriteLine("\n----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-                Console.WriteLine("\nIngrese el código de orden de servicio que desea consultar, el mismo esta compuesto como máximo de 7 elementos númericos y le fue otorgado en el momento en que se finaliza la realizacion del pedido como tal");
-                Console.WriteLine("\nEn caso de que desee volver anterior ingrese por consola el comando ATRAS para volver al menú anterior en caso de necesitarlo\n");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\nINGRESE EL CÓDIGO DE ORDEN DE SERVICIO A CONSULTAR, LUEGO PRESIONE ENTER");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nINGRESE LA FRASE ATRAS Y PRESIONE ENTER PARA VOLVER A LA PANTALLA ANTERIOR");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
 
                 if (ingreso == "ATRAS" || ingreso=="atras")
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nHa ingresado el comando de para volver al menú anterior");
                     Console.WriteLine("\nSe lo redirijira al menú anterior a continuación");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Program.validar_eleccion(codigo_cliente);
                     break;
                 }
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nEl código de orden ingresado esta vacio y no se corresponde con la solicitud");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
 
                 }
 
                 if (!int.TryParse(ingreso, out codigo))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nEl código ingresado debe de ser del tipo númerico");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if (codigo < 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nEl código ingresado debe de ser numérico positivo");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if (ingreso.Length > 7)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nEl código ingresado cuenta con más de 7 elementos");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
                 if (ingreso.Length == 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nEl código ingresado cuenta con menos elementos de los esperados");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if(!validar_pertenecia_codigo(codigo, codigo_cliente))
                 {
-                    Console.WriteLine("\nEl código ingresado no se corresponde con ninguna de las ordenes de servicio contenidas dentro de nuestras bases de datos");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nEl código ingresado no se corresponde con ninguna de las ordenes de servicio contenidas dentro de nuestras bases de datos".ToUpper());
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
