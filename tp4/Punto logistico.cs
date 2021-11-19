@@ -272,13 +272,13 @@ namespace tp4
             {
                 Console.WriteLine("Dirección: {0}", direccion);
             }
-            Console.ForegroundColor = ConsoleColor.White;
+          
                 Console.WriteLine("************************************************\n");
             Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\nINGRESE S MAS ENTER PARA CONFIRMAR LOS DATOS INGRESADOS");
             Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\nINGRESE CUALQUIER TECLA MÁS ENTER PARA ABORTAR LA OPERACIÓN");
-
+            Console.ForegroundColor = ConsoleColor.White;
                 teclado = Console.ReadLine();
 
                 teclado = teclado.ToUpper();

@@ -34,10 +34,11 @@ namespace tp4
         {
             var paquete = new Paquete();
 
-
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("\n*********************************************************************");
             Console.WriteLine("********COMPLETE INFORMACIÓN ACERCA DEL PAQUETE***********************");
             Console.WriteLine("***********************************************************************\n");
+            Console.ForegroundColor = ConsoleColor.White;
             paquete.peso = asignar_peso();            
             paquete.tipo = asignar_tipo(paquete.peso);
             paquete.valor_declarado = asignar_valor_declarado();
