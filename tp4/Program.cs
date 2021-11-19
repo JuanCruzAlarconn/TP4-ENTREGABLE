@@ -36,19 +36,25 @@ namespace tp4
 
                 if(string.IsNullOrEmpty(ingreso))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nNo puede ingresar un espacio vacio como opción a elegir");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if(int.TryParse(ingreso, out int salida))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nLas opciones disponibles no son numéricas");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if(ingreso.Length!=1)
                 {
-                    Console.WriteLine("\nSolo debe de ingresar una de las opciones disponibles dentro del menu");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nSolo debe de ingresar na de las opciones disponibles dentro del menu");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
@@ -67,6 +73,7 @@ namespace tp4
 
                 if (ingreso == "B")
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nHa seleccionado la opción salir de la aplicación");
                     Console.WriteLine("\nGracias por utilizar nuestros servicios");
                     Console.WriteLine("\nHa decidido salir definitivamente de la aplicación \nGracias por usar nuestros servicio\nLa ventana de consola se cerrara al cabo de 10 segundos");
@@ -186,12 +193,16 @@ namespace tp4
             Console.WriteLine("******************************************************************************************");
             Console.WriteLine("\nBIENVENIDO AL PROGRAMA DE GESTIÓN INTEGRAL DE ENCOMIENDAS");
             Console.WriteLine("\nIngrese cualquiera de las siguientes opciones y luego presione ENTER");
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\nA: INICIAR APLICACIÓN");
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nB: SALIR");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\n******************************************************************************************\n");
         }
         public static void mostrar_menu_opciones()
         {
+            
             Console.WriteLine("******************************************************************************************");
             Console.WriteLine("***************APLICACIÓN DE CLIENTE CORPORATIVO*******************************************");
             Console.WriteLine("******************************************************************************************");
@@ -201,6 +212,7 @@ namespace tp4
             Console.WriteLine("\n3.CONSULTAR ESTADO DE CUENTA");
             Console.WriteLine("\n4.SALIR");
             Console.WriteLine("******************************************************************************************\n");
+            
         }
 
 
@@ -325,55 +337,72 @@ namespace tp4
 
             do
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n**********************************************************");
                 Console.WriteLine("****************INGRESO DE CÓDIGO DE CLIENTE***************");
                 Console.WriteLine("***********************************************************\n");
+                Console.ForegroundColor = ConsoleColor.White;
+
                 Console.WriteLine("\n---------------------------------------------------------------------------------------------------------------");
-                Console.WriteLine(" Ingrese su código de cliente corporativo para inicial y luego presione la tecla enter");
-                Console.WriteLine("\n Si desea detener la ejecución del programa introduzca por teclado la frase SALIR tal y como se le comunico");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("INGRESE SU CÓDIGO DE CLIENTE CORPORATIVO Y PRESIONE ENTER");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nINGRESE LA FRASE SALIR Y PRESIONE LA TECLA ENTER SI DESEA SALIR DEL PROGRAMA");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("-----------------------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
                
 
                 if(ingreso=="SALIR")
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nHa decidido salir definitivamente de la aplicación \nGracias por usar nuestros servicio\nLa ventana de consola se cerrara al cabo de 10 segundos");
                     Thread.Sleep(10000);
 
                    Environment.Exit(0);
-
+                    Console.ForegroundColor = ConsoleColor.White;
 
                 }
 
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nEl código de cliente corporativo no puede ser vacio, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("*************************************************************************************************************\n");
                     continue;
                 }
                 if (!Int32.TryParse(ingreso, out codigo_cliente))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    
                     Console.WriteLine("\nEl código de cliente corporativo debe de ser del tipo numérico, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("*************************************************************************************************************\n");
                     continue;
                 }
                 if (codigo_cliente < 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nEl código de cliente corporativo debe de ser positivo, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("*****************************************************************************************************************\n");
                     continue;
                 }
                 if (ingreso.Count() != 8)
                 {
-                    
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nEl código de cliente corporativo debe de contener 8 digitos numéricos en su extensión, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("******************************************************************************************************************\n");
                     continue;
                 }
 
                 if (!Cliente_corportativo.validar_cliente(codigo_cliente))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nEl código de cliente corporativo ingresado no se corresponde con ninguno de los elementos ingresados dentro de la base de datos");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("*******************************************************************************************************************\n");
                     continue;
                 }
@@ -381,6 +410,7 @@ namespace tp4
                 if(Cliente_corportativo.validar_cliente(codigo_cliente))
                 {
                     string nombreyapellido = Cliente_corportativo.hallar(codigo_cliente).nombreyapellido;
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("\n********************************************************************");
                     Console.WriteLine("********************************************************************");
                     Console.WriteLine("********************************************************************");
@@ -389,7 +419,7 @@ namespace tp4
                     Console.WriteLine("********************************************************************");
                     Console.WriteLine("********************************************************************");
                     Console.WriteLine("\n");
-
+                    Console.ForegroundColor = ConsoleColor.White;
                     validar_eleccion(codigo_cliente);
                     break;
                 }

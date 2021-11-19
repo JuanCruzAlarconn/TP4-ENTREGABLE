@@ -16,9 +16,11 @@ namespace tp4
 
         public static Modalidad crear()
         {
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("\n***************************************************************************************************");
             Console.WriteLine("*******************COMPLETE LA INFORMACIÓN SOLICITADA PARA GENERAR EL ENVÍO***********************");
             Console.WriteLine("***************************************************************************************************\n");
+            Console.ForegroundColor = ConsoleColor.White;
             var modalidad = new Modalidad();
             modalidad.modo_retiro = asignar_retiro();
             modalidad.modo_entrega = asignar_entrega();
@@ -33,39 +35,52 @@ namespace tp4
 
             do
             {
+                
                 Console.WriteLine("\n------------------------------------------------------------------------------------------------------------");
                 Console.WriteLine("------------------------------------------FORMA DE ENTREGA A DESTINATARIO-------------------------------------");
                 Console.WriteLine("--------------------------------------------------------------------------------------------------------------\n");
-                Console.WriteLine("Ingrese las siguientes opciones acerca de como quiere que el paquete se entregue al destinatario, luego presione ENTER");
-                Console.WriteLine("A.El destinatario recibira el paquete dentro de la sucursal");
-                Console.WriteLine("B.El destinatario recibira el paquete dentro del domicilio indicado");
-                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación");
+               
+                Console.WriteLine("INGRESE LA OPCIÓN Y LUEGO PRESIONE ENTER");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("A.EL DESTINATARIO RECOGERA EL PAQUETE DENTRO DE LA SUCURSAL");
+                Console.WriteLine("B.EL PAQUETE LLEGARA AL DOMICILIO DEL DESTINATARIO");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("INGRESE LA FRASE SALIR Y PRESIONE ENTER PARA ABORTAR LA OPERACIÓN");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("--------------------------------------------------------------------------------------------------------------\n");
 
                 ingreso = Console.ReadLine().ToUpper();
                 if (ingreso == "SALIR" || ingreso == "salir")
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\n***************OPERACIÓN ABORTADA******************");
                     Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Program.validar_cliente();
                     break;
 
                 }
                 if (string.IsNullOrEmpty(ingreso))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nNo puede ingresar vacio como un a opción válida");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if (int.TryParse(ingreso, out int salida))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nLa opción ingresada no puede ser numérica");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if (ingreso == "A")
                 {
-                    Console.WriteLine("\nHa seleccionado que el destinatario recibira el paquete dentro de la sucursal pertinente");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nHa seleccionado que el destinatario recibira el paquete dentro de la sucursal pertinente".ToUpper());
+                    Console.ForegroundColor = ConsoleColor.White;
                     return "Entregado en sucursal";
                     
 
@@ -73,7 +88,9 @@ namespace tp4
 
                 if (ingreso == "B")
                 {
-                    Console.WriteLine("\nHa seleccionado que desea que el paquete llegue al domicilio indicado para el destinatario");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nHa seleccionado que desea que el paquete llegue al domicilio indicado para el destinatario".ToUpper());
+                    Console.ForegroundColor = ConsoleColor.White;
                     return "Entregado en domicilio";
 
                   
@@ -81,7 +98,9 @@ namespace tp4
 
                 if (ingreso != "A" && ingreso != "B")
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nLa opción ingresada no se corresponde con ninguna de las opciones disponibles");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
             } while (true);
@@ -95,38 +114,51 @@ namespace tp4
 
             do
             {
+                
                 Console.WriteLine("\n--------------------------------------------------------------------------------------------------------------");
-                Console.WriteLine("---------------------------------QUE TAN RÁPIDO NECESITA QUE SE CONCRETE EL ENVÍO----------------------------");
+                Console.WriteLine("---------------------------------TIEMPOS DE ENVÍO---------------------------------------------------------------");
                 Console.WriteLine("--------------------------------------------------------------------------------------------------------------\n");
-                Console.WriteLine("Ingrese las siguientes opciones que se corresponden con la modalidad del envío, luego presione ENTER");
-                Console.WriteLine("A.Normal, se demorara de acuerdo con la distancia establecida del recorrido");
-                Console.WriteLine("B.Urgente, desea que el paquete sea entrgado dentro de las próximas 48 hs");
-                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación");
+                
+                Console.WriteLine("INGRESE LA OPCIÓN Y PRESIONE ENTER");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("A.NORMAL, EL TIEMPO DE ENVÍO DEPENDERA DE LA DISTANCIA");
+                Console.WriteLine("B.Urgente, EL PAQUETE DEMORARA 48 HORAS EN LLEGAR A DESTINO");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("INGRESE LA FRASE SALIR Y LUEGO PRESIONE ENTER PARA ABORTAR LA OPERACIÓN");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine().ToUpper();
                 if (ingreso == "SALIR" || ingreso == "salir")
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\n***************OPERACIÓN ABORTADA******************");
                     Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Program.validar_cliente();
                     break;
 
                 }
                 if (string.IsNullOrEmpty(ingreso))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nNo puede ingresar vacio como un a opción válida");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if (int.TryParse(ingreso, out int salida))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nLa opción ingresada no puede ser numérica");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if (ingreso == "B")
                 {
-                    Console.WriteLine("\nHa seleccionado que quiere una entrega urgente");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nHa seleccionado que quiere una entrega urgente".ToUpper());
+                    Console.ForegroundColor = ConsoleColor.White;
                     return "Urgente";
                     
 
@@ -134,7 +166,9 @@ namespace tp4
 
                 if (ingreso == "A")
                 {
-                    Console.WriteLine("\nHa seleccionado que quiere una entrega normal");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nHa seleccionado que quiere una entrega normal".ToUpper());
+                    Console.ForegroundColor = ConsoleColor.White;
                     return "Normal";
 
                     
@@ -142,7 +176,9 @@ namespace tp4
 
                 if (ingreso != "A" && ingreso != "B")
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nLa opción ingresada no se corresponde con ninguna de las opciones disponibles");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
             } while (true);
@@ -157,20 +193,27 @@ namespace tp4
 
             do
             {
+                
                 Console.WriteLine("\n-----------------------------------------------------------------------------------------------------------------");
                 Console.WriteLine("-----------------------------------FORMA EN QUE DEPOSITARA EL PAQUETE AL INICIO DE LA OPERACIÓN----------------------");
-               Console.WriteLine("--------------------------------------------------------------------------------------------------------------------"); 
-                Console.WriteLine("Ingrese las siguientes opciones cuando a como quiere que el paquete ingrese sea retirado por la empresa, luego presione enter");
-                Console.WriteLine("A.Llevara el paquete hasta la sucursal que se corresponde con su localidad");
-                Console.WriteLine("B.Quiero que se retire el paquete en mi domicilio");
-                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación");
+               Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+                
+                Console.WriteLine("INGRESE LA OPCIÓN Y LUEGO PRESIONE ENTER");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("A.LLEVO EL PAQUETE HASTA LA SUCURSAL");
+                Console.WriteLine("B.QUIERO QUE RETIREN EL PAQUETE EN MI DOMICILIO");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("INGRESE LA FRASE SALIR Y PRESIONE ENTER PARA ABORTAR LA OPERACIÓN");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine().ToUpper();
 
                 if (ingreso == "SALIR" || ingreso == "salir")
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\n***************OPERACIÓN ABORTADA******************");
                     Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Program.validar_cliente();
                     break;
 
@@ -178,19 +221,25 @@ namespace tp4
 
                 if (string.IsNullOrEmpty(ingreso))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nNo puede ingresar vacio como un a opción válida");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if(int.TryParse(ingreso, out int salida))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nLa opción ingresada no puede ser numérica");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if (ingreso == "A")
                 {
-                    Console.WriteLine("\nHa seleccionado que dejara el paquete dentro de la sucursal de su localidad");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nHa seleccionado que dejara el paquete dentro de la sucursal de su localidad".ToUpper());
+                    Console.ForegroundColor = ConsoleColor.White;
                     return "Retirado en sucursal";
                     
                   
@@ -199,7 +248,9 @@ namespace tp4
 
                 if(ingreso=="B")
                 {
-                    Console.WriteLine("\nHa seleccionado que se pase a retirar el paquete a su domicilio");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nHa seleccionado que se pase a retirar el paquete a su domicilio".ToUpper());
+                    Console.ForegroundColor = ConsoleColor.White;
                     return "Retirado en domicilio";
 
                     
@@ -207,7 +258,9 @@ namespace tp4
 
                 if(ingreso!="A" && ingreso!="B")
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nLa opción ingresada no se corresponde con ninguna de las opciones disponibles");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
             } while (true);
