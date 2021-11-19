@@ -13,7 +13,7 @@ namespace tp4
     {
         static void Main(string[] args)
         {   
-            Cliente_corportativo.carga_prueba();
+            
             
             validar_cliente();
           
@@ -184,9 +184,10 @@ namespace tp4
         public static void mostrar_menu_inicio()
         {
             Console.WriteLine("******************************************************************************************");
-            Console.WriteLine("\nBienvenido al programa de gestión integral de encomiendas");
-            Console.WriteLine("\nIngrese A para comenzar y luego presiones enter");
-            Console.WriteLine("\nIngrese B en caso de querer detener la aplicación en curso y luego presione enter");
+            Console.WriteLine("\nBIENVENIDO AL PROGRAMA DE GESTIÓN INTEGRAL DE ENCOMIENDAS");
+            Console.WriteLine("\nIngrese cualquiera de las siguientes opciones y luego presione ENTER");
+            Console.WriteLine("\nA: INICIAR APLICACIÓN");
+            Console.WriteLine("\nB: SALIR");
             Console.WriteLine("\n******************************************************************************************\n");
         }
         public static void mostrar_menu_opciones()
@@ -332,7 +333,7 @@ namespace tp4
                 Console.WriteLine("\n Si desea detener la ejecución del programa introduzca por teclado la frase SALIR tal y como se le comunico");
                 Console.WriteLine("-----------------------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
-                Cliente_corportativo.carga_prueba();//Carga una lista de clientes para poder evaluar el funcionamiento del programa
+               
 
                 if(ingreso=="SALIR")
                 {

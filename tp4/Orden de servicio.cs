@@ -381,7 +381,8 @@ namespace tp4
             this.modalidad = modalidad;
 
         }
-
+/* MODULO CORRESPONDIENTE A LA CARGA DE ELEMENTOS DE PRUEBA, EMPLEADOS EN UNA VERSIÓN INICIAL DEL PROGRAMA
+ * AHORA QUEDAN COMO COMENTARIOS A MODO DE EJEMPLO DADO QUE PARA EL MANEJO DE ARCHIVO SE DESARROLLARÁ UNA CARGA EXTERNA Y SU CONSIGUIENTE CARGA DENTRO DE LA CARPETA DEL PROGRAMA PARA SU UTILIZACIÓN
         public static void cargar_prueba ()
         {
             List<Estado> prueba = new List<Estado>();
@@ -457,7 +458,7 @@ namespace tp4
 
 
         }
-
+*/
         public static void enviar_comunicado(Orden_de_servicio orden, DateTime fecha)
         {
             if (orden.destino.localidad == orden.origen.localidad)

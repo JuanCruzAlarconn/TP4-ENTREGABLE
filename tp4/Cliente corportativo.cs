@@ -26,7 +26,8 @@ namespace tp4
             this.clave_secreta = 0000;
 
         }
-
+        /*
+         * EL SIGUIENTE MODULO SE CORRESPONDÍA EN LAS VERSIONES INICIALES A LAS CARGAS DE PRUEBA NECESARIAS EN UNA PRIMERA INSTANCIA PARA COMPROBAR EL FUNCIONAMIENTO DE LA APLICACIÓN
         public static void carga_prueba()
         {
             //Un método que permite cargar un cliente en json, para poder realizar un prueba de carga por consola
@@ -72,7 +73,7 @@ namespace tp4
 
 
         }
-
+        */
         public static List<Cliente_corportativo> abrir()
         {
             var lista_cliente = new List<Cliente_corportativo>();

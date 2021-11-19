@@ -21,7 +21,7 @@ namespace tp4
         public static List<Sucursal> abrir_archivo()
         {
 
-            Sucursal.actualizar_archivo(new List<Sucursal>());
+           
             string sucursalJson = File.ReadAllText("Sucursales.Json");
 
             List<Sucursal> lista_surcursal = JsonConvert.DeserializeObject<List<Sucursal>>(sucursalJson);

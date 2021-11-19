@@ -32,10 +32,10 @@ namespace tp4
 
         public static Punto_logistico crear(string modo, string campo)
         {
-            archivo.generar_archivo();
+            
             Punto_logistico punto_geografico = new Punto_logistico();
-            Punto_logistico.cargar_paises();
-            continente.generar_archivo();
+           
+            
             string cadena = "";
           
 
@@ -180,7 +180,7 @@ namespace tp4
 
         private static int asignar_cp(string direccion)
         {
-            archivo.generar_archivo();
+            
             string cpJson = File.ReadAllText("Codigos postales.Json");
             var lista = JsonConvert.DeserializeObject<List<archivo>>(cpJson);
 
@@ -434,7 +434,8 @@ namespace tp4
             }
         
         }
-
+        /*MODULO CORRESPONDIENTE A LA CARGA DE ELEMENTOS DE PRUEBA, EMPLEADOS EN UNA VERSIÓN INICIAL DEL PROGRAMA
+          * AHORA QUEDAN COMO COMENTARIOS A MODO DE EJEMPLO DADO QUE PARA EL MANEJO DE ARCHIVO SE DESARROLLARÁ UNA CARGA EXTERNA Y SU CONSIGUIENTE CARGA DENTRO DE LA CARPETA DEL PROGRAMA PARA SU UTILIZACIÓN
         public static void cargar_paises()
         {
             List<string> lista = new List<string>();
@@ -458,7 +459,7 @@ namespace tp4
             File.WriteAllText("Paises.Json", listaJson);
 
         }
-
+*/
         public static bool leer_pais(string pais)
         {
             string cadena = File.ReadAllText("Paises.Json");
@@ -509,7 +510,9 @@ namespace tp4
 
             return continente;
         }
-
+        /*
+         * MODULO CORRESPONDIENTE A LA CARGA DE ELEMENTOS DE PRUEBA, EMPLEADOS EN UNA VERSIÓN INICIAL DEL PROGRAMA
+ * AHORA QUEDAN COMO COMENTARIOS A MODO DE EJEMPLO DADO QUE PARA EL MANEJO DE ARCHIVO SE DESARROLLARÁ UNA CARGA EXTERNA Y SU CONSIGUIENTE CARGA DENTRO DE LA CARPETA DEL PROGRAMA PARA SU UTILIZACIÓN
         public static void generar_archivo()
         {
             var c1 = new continente();
@@ -545,10 +548,11 @@ namespace tp4
 
             File.WriteAllText("Continentes.Json", listaJson);
         }
+        */
     }
- 
 
-    
+
+
 
     class archivo
     {
@@ -568,7 +572,9 @@ namespace tp4
             this.region = region;
 
         }
-
+        /*
+         * MODULO CORRESPONDIENTE A LA CARGA DE ELEMENTOS DE PRUEBA, EMPLEADOS EN UNA VERSIÓN INICIAL DEL PROGRAMA
+ * AHORA QUEDAN COMO COMENTARIOS A MODO DE EJEMPLO DADO QUE PARA EL MANEJO DE ARCHIVO SE DESARROLLARÁ UNA CARGA EXTERNA Y SU CONSIGUIENTE CARGA DENTRO DE LA CARPETA DEL PROGRAMA PARA SU UTILIZACIÓN
         public static void generar_archivo()
         {
             var carga1 = new archivo(0001, "Duende", "Tucuman", "Norte");
@@ -601,7 +607,7 @@ namespace tp4
             File.WriteAllText("Codigos postales.Json", listaJson);
 
         }
-
+        */
         public static bool validar_cp(int cp)
         {
             string cpJson = File.ReadAllText("Codigos postales.Json");
