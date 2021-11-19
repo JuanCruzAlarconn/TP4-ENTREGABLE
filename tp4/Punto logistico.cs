@@ -127,16 +127,20 @@ namespace tp4
                     punto_geografico.region = null;
                     punto_geografico.continente_asignado = continente.pasar_continente(punto_geografico.pais);
 
-
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("\n******INFORMACIÓN DE DESTINO********");
                     Console.WriteLine("PAIS DE DESTINO: {0}", punto_geografico.pais);
                     Console.WriteLine("CONTINENTE DE DESTINO: {0}", punto_geografico.continente_asignado);
                     Console.WriteLine("NOMBRE DE DESTINATARIO: {0}", punto_geografico.nombre);
                     Console.WriteLine("DIRECCIÓN DE DESTINO: {0}", punto_geografico.direccion);
                     Console.WriteLine("***************************************");
+                    Console.ForegroundColor = ConsoleColor.White;
 
-                    Console.WriteLine("\nIngrese S y luego ENTER para confirmar");
-                    Console.WriteLine("\nIngrese cualquier tecla y luego ENTER para abortar la operación");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\nIngrese S y luego ENTER para confirmar".ToUpper());
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nIngrese cualquier tecla y luego ENTER para abortar la operación".ToUpper());
+                    Console.ForegroundColor = ConsoleColor.White;
 
                     string teclado = "";
 
@@ -146,7 +150,9 @@ namespace tp4
 
                     if (teclado != "S")
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("\n***************OPERACIÓN ABORTADA******************\n");
+                        Console.ForegroundColor = ConsoleColor.White;
                         Program.validar_cliente();
                         
                     }
@@ -310,7 +316,7 @@ namespace tp4
             {
                 Console.WriteLine("\n------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("PAQUE CON DESTINO INTERNACIONAL");
+                Console.WriteLine("PAQUETE CON DESTINO INTERNACIONAL");
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("INGRESE EL DOMICILIO INTERNACIONAL DE DESTINO");
                 Console.ForegroundColor = ConsoleColor.Red;

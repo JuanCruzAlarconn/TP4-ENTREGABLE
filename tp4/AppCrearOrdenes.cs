@@ -32,10 +32,13 @@ namespace tp4
             Paquete paquete = Paquete.crear();
 
             costo = calcularCosto(origen, destino, modalidad, paquete.peso);
-            Console.WriteLine("El costo del servicio es:" + costo + "\n");
 
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("\nEl costo del servicio es:" + costo + "\n".ToUpper());
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Green;
             continuar = validador.pedirSoN("Desea confirmar la orden? S/N\n Presione ENTER A CONTINUACIÓN");
-            
+            Console.ForegroundColor = ConsoleColor.White;
             if (continuar == "S")
             {
                 int codigo = Orden_de_servicio.asignar_codigo_servicio();//Asigna un código de orden de servicio
@@ -43,7 +46,9 @@ namespace tp4
                 var fecha = DateTime.Now;
                 int codigo_seguro = Orden_de_servicio.asignar_seguro();//Aleatoria
                 var orden=new Orden_de_servicio(codigo, codigo_seguro,costo,codigo_cliente,estado,fecha,paquete,origen, destino, modalidad);
-                Console.WriteLine("Orden de servicio generada Nro:" + codigo);
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("Orden de servicio generada Nro:".ToUpper() + codigo);
+                Console.ForegroundColor = ConsoleColor.White;
                 Orden_de_servicio.grabar(orden);
                 Orden_de_servicio.enviar_comunicado(orden, fecha);
             }
