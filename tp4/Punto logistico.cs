@@ -49,10 +49,12 @@ namespace tp4
                 {
                     cadena = "sucursal";
                 }
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("\n*********************************************************************************************************************");
-                Console.WriteLine("A continuación se solicitara el ingreso de los datos correspondientes con el punto de origen de la operación");
+                Console.WriteLine("INGRESE INFORMACIÓN CORRESPONDIENTE A DONDE SE HALLA UBICADO");
                 Console.WriteLine("**********************************************************************************************************************\n");
-                Console.WriteLine("\nInformación postal del origen, es decir información postal de {0} de origen", cadena);
+                Console.ForegroundColor = ConsoleColor.White;
+                
                
                 
                 if(cadena=="domicilio")
@@ -75,9 +77,11 @@ namespace tp4
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("\n*********************************************************************************************************************");
-                Console.WriteLine("A continuación se solicitara el ingreso de los datos correspondientes con el punto de destino de la operación");
+                Console.WriteLine("INGRESE LA INFORMACIÓN DE DESTINO DEL ENVÍO");
                 Console.WriteLine("**********************************************************************************************************************\n");
+                Console.ForegroundColor = ConsoleColor.White;
                 if (campo == "Entregado en domicilio")
                 {
                     cadena = "domicilio";
@@ -190,14 +194,19 @@ namespace tp4
             do
             {
                 Console.WriteLine("\n--------------------------------------------------------------");
-                Console.WriteLine("Ingrese el código postal y luego presione ENTER");
-                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("INGRESE EL CÓDIGO POSTAL LUEGO PRESIONE ENTER");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("INGRESE LA FRASE ENTER MÁS ENTER PARA ABORTAR LA OPERACIÓN");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("----------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
 
                 if (ingreso == "SALIR" || ingreso == "salir")
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Program.validar_cliente();
                     break;
 
@@ -206,30 +215,40 @@ namespace tp4
                 {
                     if (string.IsNullOrWhiteSpace(ingreso))
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("\nNo puede ingresar un código postal vacio");
+                        Console.ForegroundColor = ConsoleColor.White;
                         continue;
                     }
 
                     if (!int.TryParse(ingreso, out cp))
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("\nEl código postal debe de ser un valor numérico positivo que consta de 4 dígitos");
+                        Console.ForegroundColor = ConsoleColor.White;
                         continue;
                     }
 
                     if (cp < 0)
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("\nEl código postal debe de ser un valor numérico positivo que consta de 4 dígitos");
+                        Console.ForegroundColor = ConsoleColor.White;
                         continue;
                     }
                     if (ingreso.Length != 4)
                     {
-                        Console.WriteLine("\nEl código postal debe de ser un valor numérico positivo que consta de 4 dígitos");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\nEl código postal debe e ser un valor numérico positivo que consta de 4 dígitos");
+                        Console.ForegroundColor = ConsoleColor.White;
                         continue;
                     }
 
                     if (!archivo.validar_cp(cp))
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("\nEl código postal ingresado no se corresponde con ninguno del pais");
+                        Console.ForegroundColor = ConsoleColor.White;
                         continue;
                     }
 
@@ -240,8 +259,9 @@ namespace tp4
 
             string teclado = "";
 
-            
-           
+
+
+            Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("\n*************INFORMACIÓN POSTAL**************");
                 Console.WriteLine("Código Postal: {0}", archivo.hallar(cp).cp);
                 Console.WriteLine("Localidad: {0}", archivo.hallar(cp).localidad);
@@ -252,10 +272,12 @@ namespace tp4
             {
                 Console.WriteLine("Dirección: {0}", direccion);
             }
+            Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("************************************************\n");
-
-                Console.WriteLine("\nIngrese S y luego ENTER para confirmar");
-                Console.WriteLine("\nIngrese cualquier tecla y luego ENTER para abortar la operación");
+            Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\nINGRESE S MAS ENTER PARA CONFIRMAR LOS DATOS INGRESADOS");
+            Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nINGRESE CUALQUIER TECLA MÁS ENTER PARA ABORTAR LA OPERACIÓN");
 
                 teclado = Console.ReadLine();
 
@@ -263,7 +285,9 @@ namespace tp4
 
                 if(teclado!="S")
                 {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\n***************OPERACIÓN ABORTADA******************\n");
+                Console.ForegroundColor = ConsoleColor.White;
                 Program.validar_cliente();
                     return cp;
                 }
@@ -285,14 +309,21 @@ namespace tp4
             do
             {
                 Console.WriteLine("\n------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-                Console.WriteLine("Ha ingresado que el paquete cuenta con un destino internacional, se solicitara que ingrese de forma estricta la dirección en el extranjero a la que hace referencia");
-                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("PAQUE CON DESTINO INTERNACIONAL");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("INGRESE EL DOMICILIO INTERNACIONAL DE DESTINO");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación".ToUpper());
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
 
                 if (ingreso == "SALIR" || ingreso == "salir")
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Program.validar_cliente();
                     break;
 
@@ -300,19 +331,25 @@ namespace tp4
 
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nLa dirección no debe de quedar vacia");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if (ingreso.Length < 6)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nLa dirección ingresada debe de estar completa, detectamos que la cantidad de caracteres ingresados es insuficiente");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if (!ingreso.Any(char.IsDigit))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nLa dirección en el extranjero debe de contar de manera estricta con el nombre de calle y la altura en número de donde se desea enviar");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
@@ -329,33 +366,44 @@ namespace tp4
             do
             {
                 Console.WriteLine("\n----------------------------------------------------------------------------------------------");
-                Console.WriteLine($"Ingrese los datos que se corresponde con el {campo} y luego presione la tecla enter");
-                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"Ingrese los datos que se corresponde con el campo {campo} y luego presione la tecla enter".ToUpper());
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación".ToUpper());
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("-----------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
 
 
                 if (ingreso == "SALIR" || ingreso == "salir")
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Program.validar_cliente();
                     break;
 
                 }
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"\nEl campo {campo} no puede permanecer vacio");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if (ingreso.Length < 2)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"\nEl campo {campo} no pude contener pocos elementos de escritura");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
                 if ((!Punto_logistico.leer_pais(ingreso)) && campo=="pais")
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nEl elemento ingresado no se corresponde con un pais válido dentro de la lista");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
@@ -363,14 +411,18 @@ namespace tp4
                 {
                     if (ingreso.Any(char.IsDigit))
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine($"\nEl campo {campo} no puede tener elementos numéricos dentro de su definición");
+                        Console.ForegroundColor = ConsoleColor.White;
                         continue;
                     }
                 }
 
                 if (campo=="dirección" && !ingreso.Any(char.IsDigit))
                 {
-                    Console.WriteLine("\nDebe de agregar la altura de la calle ingresada");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nDebe de agregar la altra de la calle ingresada");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
