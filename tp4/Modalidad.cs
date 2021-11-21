@@ -195,7 +195,7 @@ namespace tp4
             {
                 
                 Console.WriteLine("\n-----------------------------------------------------------------------------------------------------------------");
-                Console.WriteLine("-----------------------------------FORMA EN QUE DEPOSITARA EL PAQUETE AL INICIO DE LA OPERACIÓN----------------------");
+                Console.WriteLine("-----------------------------------FORMA EN QUE DEPOSITARA EL PAQUETE ---------------------------------------------");
                Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
                 
                 Console.WriteLine("INGRESE LA OPCIÓN Y LUEGO PRESIONE ENTER");
