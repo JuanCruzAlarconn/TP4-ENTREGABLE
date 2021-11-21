@@ -135,7 +135,7 @@ namespace tp4
                     AppCrearOrdenes app = new AppCrearOrdenes();
                     app.ejecutar(codigo_cliente);
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("\nSE LO REDIRIGIRÁ AL MENÚ ANTERIOR PARA QUE PUEDA SEGUIR OPERANDO\n");
+                    Console.WriteLine("\nSE LO REDIRIGIRÁ AL MENÚ ANTERIOR\n");
                     Console.ForegroundColor = ConsoleColor.White;
                     validar_eleccion(codigo_cliente);
                     break;
@@ -149,7 +149,7 @@ namespace tp4
                     Orden_de_servicio.consultar_estado(codigo_cliente);
 
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("\nSE LO REDIRIGIRÁ AL MENÚ ANTERIOR PARA QUE PUEDA SEGUIR OPERANDO\n");
+                    Console.WriteLine("\nSE LO REDIRIGIRÁ AL MENÚ ANTERIOR\n");
                     Console.ForegroundColor = ConsoleColor.White;
                     validar_eleccion(codigo_cliente);
                     break;
@@ -162,7 +162,7 @@ namespace tp4
 
                     estado_cuenta(codigo_cliente);
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("\nSE LO REDIRIGIRÁ AL MENÚ ANTERIOR PARA QUE PUEDA SEGUIR OPERANDO\n");
+                    Console.WriteLine("\nSE LO REDIRIGIRÁ AL MENÚ ANTERIOR\n");
                     Console.ForegroundColor = ConsoleColor.White;
                     validar_eleccion(codigo_cliente);
                     break;
