@@ -42,7 +42,7 @@ namespace tp4
                
                 Console.WriteLine("INGRESE LA OPCIÓN Y LUEGO PRESIONE ENTER");
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("A.EL DESTINATARIO RECOGERA EL PAQUETE DENTRO DE LA SUCURSAL");
+                Console.WriteLine("\nA.EL DESTINATARIO RECOGERA EL PAQUETE DENTRO DE LA SUCURSAL");
                 Console.WriteLine("B.EL PAQUETE LLEGARA AL DOMICILIO DEL DESTINATARIO");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("INGRESE LA FRASE SALIR Y PRESIONE ENTER PARA ABORTAR LA OPERACIÓN");
@@ -121,7 +121,7 @@ namespace tp4
                 
                 Console.WriteLine("INGRESE LA OPCIÓN Y PRESIONE ENTER");
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("A.NORMAL, EL TIEMPO DE ENVÍO DEPENDERA DE LA DISTANCIA");
+                Console.WriteLine("\nA.NORMAL, EL TIEMPO DE ENVÍO DEPENDERA DE LA DISTANCIA");
                 Console.WriteLine("B.Urgente, EL PAQUETE DEMORARA 48 HORAS EN LLEGAR A DESTINO");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("INGRESE LA FRASE SALIR Y LUEGO PRESIONE ENTER PARA ABORTAR LA OPERACIÓN");
@@ -200,7 +200,7 @@ namespace tp4
                 
                 Console.WriteLine("INGRESE LA OPCIÓN Y LUEGO PRESIONE ENTER");
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("A.LLEVO EL PAQUETE HASTA LA SUCURSAL");
+                Console.WriteLine("\nA.LLEVO EL PAQUETE HASTA LA SUCURSAL");
                 Console.WriteLine("B.QUIERO QUE RETIREN EL PAQUETE EN MI DOMICILIO");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("INGRESE LA FRASE SALIR Y PRESIONE ENTER PARA ABORTAR LA OPERACIÓN");

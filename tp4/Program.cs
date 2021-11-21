@@ -146,8 +146,9 @@ namespace tp4
                     Console.WriteLine("****************************************************\n");
                     Orden_de_servicio.consultar_estado(codigo_cliente);
 
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\nSE LO REDIRIGIRÁ AL MENÚ ANTERIOR PARA QUE PUEDA SEGUIR OPERANDO\n");
-
+                    Console.ForegroundColor = ConsoleColor.White;
                     validar_eleccion(codigo_cliente);
                     break;
                 }
