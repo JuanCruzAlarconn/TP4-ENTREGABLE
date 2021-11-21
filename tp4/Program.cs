@@ -110,19 +110,25 @@ namespace tp4
 
                 if(string.IsNullOrWhiteSpace(ingreso))
                 {
-                    Console.WriteLine("\nNo puede dejar la opción como vacio");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nNO PUEDE INGRESAR UNA OPCIÓN VACÍA");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if(!Int32.TryParse(ingreso,out opcion))
                 {
-                    Console.WriteLine("\nDebe de ingresar una de las opciones numéricas indicadas");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nLA OPCIÓN DEBE DE SER NUMÉRICA");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
                 if(ingreso.Count()!=1)
                 {
-                    Console.WriteLine("\nSolo debe de ingresar un elemento dentro del campo de opción para poder ejecutar alguna de las funciones");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nSOLO DEBE DE INGRESAR UNA OPCIÓN");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
               
