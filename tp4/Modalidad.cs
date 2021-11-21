@@ -121,8 +121,8 @@ namespace tp4
                 
                 Console.WriteLine("INGRESE LA OPCIÓN Y PRESIONE ENTER");
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("\nA.NORMAL, EL TIEMPO DE ENVÍO DEPENDERA DE LA DISTANCIA");
-                Console.WriteLine("B.Urgente, EL PAQUETE DEMORARA 48 HORAS EN LLEGAR A DESTINO");
+                Console.WriteLine("\nA.NORMAL: EL TIEMPO DE ENVÍO DEPENDERA DE LA DISTANCIA");
+                Console.WriteLine("B.URGENTE: EL PAQUETE DEMORARA 48 HORAS EN LLEGAR A DESTINO");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\nINGRESE LA FRASE SALIR Y LUEGO PRESIONE ENTER PARA ABORTAR LA OPERACIÓN");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -194,8 +194,8 @@ namespace tp4
             do
             {
                 
-                Console.WriteLine("\n-----------------------------------------------------------------------------------------------------------------");
-                Console.WriteLine("-----------------------------------FORMA EN QUE DEPOSITARA EL PAQUETE ---------------------------------------------");
+               Console.WriteLine("\n-----------------------------------------------------------------------------------------------------------------");
+               Console.WriteLine("-----------------------------------FORMA EN QUE DEPOSITARA EL PAQUETE ---------------------------------------------");
                Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
                 
                 Console.WriteLine("INGRESE LA OPCIÓN Y LUEGO PRESIONE ENTER");

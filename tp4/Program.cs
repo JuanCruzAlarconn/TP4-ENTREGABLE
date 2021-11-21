@@ -134,7 +134,9 @@ namespace tp4
                     Console.WriteLine("****************************************************\n");
                     AppCrearOrdenes app = new AppCrearOrdenes();
                     app.ejecutar(codigo_cliente);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\nSE LO REDIRIGIRÁ AL MENÚ ANTERIOR PARA QUE PUEDA SEGUIR OPERANDO\n");
+                    Console.ForegroundColor = ConsoleColor.White;
                     validar_eleccion(codigo_cliente);
                     break;
                 }
@@ -178,9 +180,11 @@ namespace tp4
                 }
                 if (opcion!=1 && opcion !=2 && opcion !=3 && opcion !=4)
                 {
-                    Console.WriteLine("\nLa opción registrada no se correponde con ninguna de las opciones disponibles dentro del sistema");
-                    Console.WriteLine("\nSe lo devolvera al menú anterior para poder volver a ingresar una opción");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nLa opción registrada no se correponde con ninguna de las opciones disponibles dentro del sistema".ToUpper());
+                    
                     Console.WriteLine("\nSE LO REDIRIGIRÁ AL MENÚ ANTERIOR PARA QUE PUEDA SEGUIR OPERANDO\n");
+                    Console.ForegroundColor = ConsoleColor.White;
                     validar_eleccion(codigo_cliente);
                     continue;
                 }
