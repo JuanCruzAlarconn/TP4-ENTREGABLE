@@ -387,7 +387,7 @@ namespace tp4
                 if(ingreso=="SALIR")
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nHa decidido salir definitivamente de la aplicación \nGracias por usar nuestros servicio\nLa ventana de consola se cerrara al cabo de 10 segundos");
+                    Console.WriteLine("\nHa decidido salir definitivamente de la aplicación \nGracias por usar nuestros servicio\nLa ventana de consola se cerrara al cabo de 10 segundos".ToUpper());
                     Thread.Sleep(10000);
 
                    Environment.Exit(0);
@@ -398,7 +398,7 @@ namespace tp4
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nEl código de cliente corporativo no puede ser vacio, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    Console.WriteLine("\nEl código de cliente corporativo no puede ser vacio".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("*************************************************************************************************************\n");
                     continue;
@@ -407,7 +407,7 @@ namespace tp4
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     
-                    Console.WriteLine("\nEl código de cliente corporativo debe de ser del tipo numérico, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    Console.WriteLine("\nEL CÓDIGO DE CLIENTE ES NUMÉRICO");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("*************************************************************************************************************\n");
                     continue;
@@ -415,7 +415,7 @@ namespace tp4
                 if (codigo_cliente < 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nEl código de cliente corporativo debe de ser positivo, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    Console.WriteLine("\nEL CÓDIGO DE CLIENTE ES UN NÚMERO POSITIVO");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("*****************************************************************************************************************\n");
                     continue;
@@ -423,7 +423,7 @@ namespace tp4
                 if (ingreso.Count() != 8)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nEl código de cliente corporativo debe de contener 8 digitos numéricos en su extensión, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    Console.WriteLine("\nEL CÓDIGOD DE CLIENTE DEBE TENER 8 CIFRAS");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("******************************************************************************************************************\n");
                     continue;
@@ -432,7 +432,7 @@ namespace tp4
                 if (!Cliente_corportativo.validar_cliente(codigo_cliente))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nEl código de cliente corporativo ingresado no se corresponde con ninguno de los elementos ingresados dentro de la base de datos");
+                    Console.WriteLine("\nCÓDIGO DE CLIENTE INVÁLIDO");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("*******************************************************************************************************************\n");
                     continue;
