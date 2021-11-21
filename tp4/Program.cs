@@ -37,7 +37,7 @@ namespace tp4
                 if(string.IsNullOrEmpty(ingreso))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nNo puede ingresar un espacio vacio como opción a elegir");
+                    Console.WriteLine("\nNo puede ingresar un espacio vacio como opción a elegir".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
@@ -45,7 +45,7 @@ namespace tp4
                 if(int.TryParse(ingreso, out int salida))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nLas opciones disponibles no son numéricas");
+                    Console.WriteLine("\nLas opciones disponibles no son numéricas".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
@@ -53,7 +53,7 @@ namespace tp4
                 if(ingreso.Length!=1)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nSolo debe de ingresar na de las opciones disponibles dentro del menu");
+                    Console.WriteLine("\nSolo debe de ingresar na de las opciones disponibles dentro del menu".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
@@ -62,7 +62,7 @@ namespace tp4
                 {
                     
                     Program.validar_identidad();
-                    Console.WriteLine("\nA continuación se le presentaran las opciones disponible");
+                    
                   
                     
 
@@ -74,9 +74,10 @@ namespace tp4
                 if (ingreso == "B")
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nHa seleccionado la opción salir de la aplicación");
-                    Console.WriteLine("\nGracias por utilizar nuestros servicios");
-                    Console.WriteLine("\nHa decidido salir definitivamente de la aplicación \nGracias por usar nuestros servicio\nLa ventana de consola se cerrara al cabo de 10 segundos");
+                    Console.WriteLine("\nHa seleccionado la opción salir de la aplicación".ToUpper());
+                    Console.WriteLine("\nGracias por utilizar nuestros servicios".ToUpper());
+                    Console.WriteLine("\nLa ventana de consola se cerrara al cabo de 10 segundos".ToUpper());
+                    Console.ForegroundColor = ConsoleColor.White;
                     Thread.Sleep(10000);
 
                     Environment.Exit(0);
@@ -86,8 +87,9 @@ namespace tp4
                 }
                 if (ingreso!="B" && ingreso!="A")
                 {
-                    Console.WriteLine("\nEl comando ingresado no se correponde con ninguno de los comandos válidos disponibles, se lo redirigira a la línea anterior para que tenga la posibilidad de ingresar nuevamente el comando deseado");
-
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nCOMANDO INVÁLIDO");
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
                 break;
@@ -135,9 +137,11 @@ namespace tp4
 
                 if (opcion==1)
                 {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\n**************************************************");
                     Console.WriteLine("*****************GENERAR ENVÍO************************");
                     Console.WriteLine("****************************************************\n");
+                    Console.ForegroundColor = ConsoleColor.White;
                     AppCrearOrdenes app = new AppCrearOrdenes();
                     app.ejecutar(codigo_cliente);
                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -149,9 +153,11 @@ namespace tp4
 
                 if (opcion==2)
                 {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\n**************************************************");
                     Console.WriteLine("******************CONSULTAR ESTADO DE ENVÍO***********");
                     Console.WriteLine("****************************************************\n");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Orden_de_servicio.consultar_estado(codigo_cliente);
 
                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -162,10 +168,11 @@ namespace tp4
                 }
                 if (opcion==3)
                 {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\n**************************************************");
                     Console.WriteLine("******************CONSULTAR ESTADO DE CUENTA***********");
                     Console.WriteLine("****************************************************\n");
-
+                    Console.ForegroundColor = ConsoleColor.White;
                     estado_cuenta(codigo_cliente);
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\nSE LO REDIRIGIRÁ AL MENÚ ANTERIOR\n");
@@ -179,7 +186,7 @@ namespace tp4
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nHa seleccionado la opción salir de la aplicación".ToUpper());
                     Console.WriteLine("\nGracias por utilizar nuestros servicios".ToUpper());
-                   
+                    Console.WriteLine("\nLa ventana de consola se cerrara al cabo de 10 segundos".ToUpper());
                     Thread.Sleep(10000);
                     Console.ForegroundColor = ConsoleColor.White;
                     Environment.Exit(0);
