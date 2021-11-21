@@ -45,7 +45,7 @@ namespace tp4
                 Console.WriteLine("\nA.EL DESTINATARIO RECOGERA EL PAQUETE DENTRO DE LA SUCURSAL");
                 Console.WriteLine("B.EL PAQUETE LLEGARA AL DOMICILIO DEL DESTINATARIO");
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("INGRESE LA FRASE SALIR Y PRESIONE ENTER PARA ABORTAR LA OPERACIÓN");
+                Console.WriteLine("\nINGRESE LA FRASE SALIR Y PRESIONE ENTER PARA ABORTAR LA OPERACIÓN");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("--------------------------------------------------------------------------------------------------------------\n");
 
@@ -124,7 +124,7 @@ namespace tp4
                 Console.WriteLine("\nA.NORMAL, EL TIEMPO DE ENVÍO DEPENDERA DE LA DISTANCIA");
                 Console.WriteLine("B.Urgente, EL PAQUETE DEMORARA 48 HORAS EN LLEGAR A DESTINO");
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("INGRESE LA FRASE SALIR Y LUEGO PRESIONE ENTER PARA ABORTAR LA OPERACIÓN");
+                Console.WriteLine("\nINGRESE LA FRASE SALIR Y LUEGO PRESIONE ENTER PARA ABORTAR LA OPERACIÓN");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine().ToUpper();
@@ -203,7 +203,7 @@ namespace tp4
                 Console.WriteLine("\nA.LLEVO EL PAQUETE HASTA LA SUCURSAL");
                 Console.WriteLine("B.QUIERO QUE RETIREN EL PAQUETE EN MI DOMICILIO");
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("INGRESE LA FRASE SALIR Y PRESIONE ENTER PARA ABORTAR LA OPERACIÓN");
+                Console.WriteLine("\nINGRESE LA FRASE SALIR Y PRESIONE ENTER PARA ABORTAR LA OPERACIÓN");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine().ToUpper();

@@ -57,7 +57,7 @@ namespace tp4
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("INGRESE EL VALOR EN PESOS EL PAQUETE LUEGO PRESIONE ENTER");
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación".ToUpper()) ;
+                Console.WriteLine("\nIngrese SALIR y presione ENTER para abortar la operación".ToUpper()) ;
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("-----------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
@@ -129,7 +129,7 @@ namespace tp4
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Ingrese el peso del paquete (en gramos), luego ingrese la tecla enter".ToUpper());
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación");
+                Console.WriteLine("\nIngrese SALIR y presione ENTER para abortar la operación");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("----------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();

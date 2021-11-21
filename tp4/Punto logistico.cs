@@ -203,7 +203,7 @@ namespace tp4
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("INGRESE EL CÓDIGO POSTAL LUEGO PRESIONE ENTER");
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("INGRESE LA FRASE ENTER MÁS ENTER PARA ABORTAR LA OPERACIÓN");
+                Console.WriteLine("\nINGRESE LA FRASE SALIR MÁS ENTER PARA ABORTAR LA OPERACIÓN");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("----------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
@@ -320,7 +320,7 @@ namespace tp4
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("INGRESE EL DOMICILIO INTERNACIONAL DE DESTINO");
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación".ToUpper());
+                Console.WriteLine("\nIngrese SALIR y presione ENTER para abortar la operación".ToUpper());
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
@@ -375,7 +375,7 @@ namespace tp4
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"Ingrese los datos que se corresponde con el campo {campo} y luego presione la tecla enter".ToUpper());
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Ingrese SALIR y presione ENTER para abortar la operación".ToUpper());
+                Console.WriteLine("\nIngrese SALIR y presione ENTER para abortar la operación".ToUpper());
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("-----------------------------------------------------------------------------------------------\n");
                 ingreso = Console.ReadLine();
