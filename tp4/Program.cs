@@ -161,7 +161,9 @@ namespace tp4
                     Console.WriteLine("****************************************************\n");
 
                     estado_cuenta(codigo_cliente);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\nSE LO REDIRIGIRÁ AL MENÚ ANTERIOR PARA QUE PUEDA SEGUIR OPERANDO\n");
+                    Console.ForegroundColor = ConsoleColor.White;
                     validar_eleccion(codigo_cliente);
                     break;
 
@@ -212,7 +214,7 @@ namespace tp4
             Console.WriteLine("******************************************************************************************");
             Console.WriteLine("***************APLICACIÓN DE CLIENTE CORPORATIVO*******************************************");
             Console.WriteLine("******************************************************************************************");
-            Console.WriteLine("\nIngrese por teclado cualquiera de las siguientes opciones según la tarea que desee realizar, y luego presione la tecla enter\n");
+            Console.WriteLine("\nINGRESE LA OPCIÓN Y LUEGO PRESIONE ENTER");
             Console.WriteLine("\n1.GENERAR ENVÍO");
             Console.WriteLine("\n2.CONSULTAR ESTADO DE ENVÍO");
             Console.WriteLine("\n3.CONSULTAR ESTADO DE CUENTA");
