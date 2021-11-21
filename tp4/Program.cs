@@ -19,7 +19,7 @@ namespace tp4
           
            
 
-            Console.WriteLine("\nIngrese una tecla para poder detener la ejecución");
+            Console.WriteLine("\nIngrese una tecla para poder detener la ejecución".ToUpper());
             Console.ReadKey();
         }
 
