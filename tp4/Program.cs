@@ -166,11 +166,12 @@ namespace tp4
                 }
                 if (opcion==4)
                 {
-                    Console.WriteLine("\nHa seleccionado la opción salir de la aplicación");
-                    Console.WriteLine("\nGracias por utilizar nuestros servicios");
-                    Console.WriteLine("\nHa decidido salir definitivamente de la aplicación \nGracias por usar nuestros servicio\nLa ventana de consola se cerrara al cabo de 10 segundos");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nHa seleccionado la opción salir de la aplicación".ToUpper());
+                    Console.WriteLine("\nGracias por utilizar nuestros servicios".ToUpper());
+                   
                     Thread.Sleep(10000);
-
+                    Console.ForegroundColor = ConsoleColor.White;
                     Environment.Exit(0);
 
                     break;
