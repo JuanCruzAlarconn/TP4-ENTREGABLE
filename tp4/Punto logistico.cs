@@ -388,7 +388,7 @@ namespace tp4
                 if (ingreso == "SALIR" || ingreso == "salir")
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     Program.validar_cliente();
                     break;
@@ -397,7 +397,7 @@ namespace tp4
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"\nEl campo {campo} no puede permanecer vacio");
+                    Console.WriteLine($"\nEl campo {campo} no puede permanecer vacio".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
@@ -405,14 +405,14 @@ namespace tp4
                 if (ingreso.Length < 2)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"\nEl campo {campo} no pude contener pocos elementos de escritura");
+                    Console.WriteLine($"\nEl campo {campo} no pude contener pocos elementos de escritura".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
                 if ((!Punto_logistico.leer_pais(ingreso)) && campo=="pais")
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nEl elemento ingresado no se corresponde con un pais válido dentro de la lista");
+                    Console.WriteLine("\nEl elemento ingresado no se corresponde con un pais válido dentro de la lista".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
@@ -422,7 +422,7 @@ namespace tp4
                     if (ingreso.Any(char.IsDigit))
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"\nEl campo {campo} no puede tener elementos numéricos dentro de su definición");
+                        Console.WriteLine($"\nEl campo {campo} no puede tener elementos numéricos dentro de su definición".ToUpper());
                         Console.ForegroundColor = ConsoleColor.White;
                         continue;
                     }
@@ -431,7 +431,7 @@ namespace tp4
                 if (campo=="dirección" && !ingreso.Any(char.IsDigit))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nDebe de agregar la altra de la calle ingresada");
+                    Console.WriteLine("\nDebe de agregar la altra de la calle ingresada".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
