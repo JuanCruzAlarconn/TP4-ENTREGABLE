@@ -374,6 +374,10 @@ namespace tp4
                 Console.WriteLine("\n----------------------------------------------------------------------------------------------");
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"Ingrese los datos que se corresponde con el campo {campo} y luego presione la tecla enter".ToUpper());
+                if (campo == "pais")
+                {
+                    Console.WriteLine("INGRESE EL NOMBRE DEL PAÍS CON LA INICIAL EN MAYÚSCULA");
+                }
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\nIngrese SALIR y presione ENTER para abortar la operación".ToUpper());
                 Console.ForegroundColor = ConsoleColor.White;

@@ -12,9 +12,9 @@ namespace tp4
     class Program
     {
         static void Main(string[] args)
-        {   
-            
-            
+        {
+
+
             validar_cliente();
           
            
@@ -301,47 +301,64 @@ namespace tp4
 
                do
                {
+               Console.ForegroundColor = ConsoleColor.DarkCyan;
                Console.WriteLine("******************************************************************************************\n");
-               Console.WriteLine("\nEjecución de la rutina consultar estado de cuenta");
-               EstadoCuenta.carga_prueba_estadocuenta();
+               Console.WriteLine("\nEjecución de la rutina consultar estado de cuenta".ToUpper());
                string clavesecreta = (Cliente_corportativo.hallar(codigo_cliente).clave_secreta).ToString();
-               Console.WriteLine($"\nBienvenido, su clave secreta es  {clavesecreta}" + " por si no la recuerda\n");
+               Console.ForegroundColor = ConsoleColor.Green;
+               Console.WriteLine($"\nBienvenido, su clave secreta es  {clavesecreta}" + " por si no la recuerda\n".ToUpper());
+               Console.ForegroundColor = ConsoleColor.White;
                if  ((EstadoCuenta.ValidarClaveSecreta(clavesecreta))== true)
-                { 
+               {
+               Console.ForegroundColor = ConsoleColor.White;
                Console.WriteLine("");
-               Console.WriteLine("A continuación se le mostrará el estado de cuenta");
+               Console.WriteLine("A continuación se le mostrará el estado de cuenta".ToUpper());
                Console.WriteLine("");
-               Console.WriteLine("******************************************************************************************\n");  
+               Console.ForegroundColor = ConsoleColor.DarkCyan;
+               Console.WriteLine("******************************************************************************************\n");
+               Console.ForegroundColor = ConsoleColor.White;
                Console.WriteLine("{0,-10} | {1,-10} | {2,5:SI;0;NO} | {3,5} | {4,5: dd/MM/yyyy}| {5,10} | {6,10} | {7,10} ", "Cod operac", "Estado", "Fact ", "Pago", " Fecha      ", "Cargos", "Abonos  ", "Descripción   ");
                EstadoCuenta.mostrarCuenta(codigo_cliente);
                EstadoCuenta.CalcularSaldoCta(codigo_cliente);
                Console.WriteLine("");
-               Console.WriteLine("Si desea filtrar entre dos fechas presione la tecla A, de otra forma regresará al menú anterior");
+               Console.ForegroundColor = ConsoleColor.DarkCyan;
+               Console.WriteLine("Si desea filtrar entre dos fechas presione la tecla A, de otra forma regresará al menú anterior".ToUpper());
+               Console.ForegroundColor = ConsoleColor.Red;
+               Console.WriteLine("Si presiona cualquier otra tecla lo llevará al menú anterior".ToUpper());
+               Console.ForegroundColor = ConsoleColor.DarkCyan;
                Console.WriteLine("\n******************************************************************************************\n");
-               
-               if (Console.ReadKey(true).Key == ConsoleKey.A)
+               Console.ForegroundColor = ConsoleColor.White;
+
+                    if (Console.ReadKey(true).Key == ConsoleKey.A)
                     {
                             do
-                            { 
+                            {
+                                           Console.ForegroundColor = ConsoleColor.Yellow;
                                            Console.WriteLine("");
-                                           Console.WriteLine("Por favor ingrese dos fechas válidas para las que quiera filtrar\n");
-                                           Console.WriteLine("Por favor ingrese la fecha inicial con el formato dd/mm/aaaa\n");
+                                           Console.WriteLine("Por favor ingrese dos fechas válidas para las que quiera filtrar\n".ToUpper());
+                                           Console.WriteLine("Por favor ingrese la fecha inicial con el formato dd/mm/aaaa\n".ToUpper());
                                            fechaINI = Console.ReadLine();
-                                           Console.WriteLine("Por favor ingrese la fecha final con el formato dd/mm/aaaa\n");
+                                           Console.WriteLine("Por favor ingrese la fecha final con el formato dd/mm/aaaa\n".ToUpper());
                                            fechaFIN = Console.ReadLine();
+                                           Console.ForegroundColor = ConsoleColor.DarkCyan;
                                            Console.WriteLine("\n******************************************************************************************\n");
-
+                                           Console.ForegroundColor = ConsoleColor.White;
                                            DateTime.TryParse(fechaINI, out inicial);
                                            DateTime.TryParse(fechaFIN, out final);
                                            if (inicial!= null &&  final!=null)
                                            {
-                                            Console.WriteLine("{0,-10} | {1,-10} | {2,5:SI;0;NO} | {3,5} | {4,5: dd/MM/yyyy}| {5,10} | {6,10} | {7,10} ", "Cod operac", "Estado", "Fact ", "Pago", " Fecha      ", "Cargos", "Abonos  ", "Descripción   ");   
-                                            EstadoCuenta.filtrarPorFechas(codigo_cliente, inicial, final);
-                                           }
-                                           else
-                                           {
-                                            Console.WriteLine("No ha ingresado una fecha válida, por favor intente nuveamente\n");
-                                           }
+                                           Console.ForegroundColor = ConsoleColor.Cyan;
+                                           Console.WriteLine("{0,-10} | {1,-10} | {2,5:SI;0;NO} | {3,5} | {4,5: dd/MM/yyyy}| {5,10} | {6,10} | {7,10} ", "Cod operac", "Estado", "Fact ", "Pago", " Fecha      ", "Cargos", "Abonos  ", "Descripción   ");   
+                                           EstadoCuenta.filtrarPorFechas(codigo_cliente, inicial, final);
+                                           Console.ForegroundColor = ConsoleColor.White;
+                                            }
+                                           if (!DateTime.TryParse(fechaINI, out inicial) || !DateTime.TryParse(fechaFIN, out final))
+                                            {
+                                           Console.ForegroundColor = ConsoleColor.Red;
+                                           Console.WriteLine("No ha ingresado una fecha válida, por favor intente nuveamente\n".ToUpper()); 
+                                           Console.ForegroundColor = ConsoleColor.White;
+
+                                            }
                                            break;
 
 

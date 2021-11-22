@@ -24,137 +24,6 @@ namespace tp4
         public List<EstadoCuenta> ListaEstadoCuentaPorCliente { get; set; }
         private static Random random = new Random();
         
-/*        public EstadoCuenta(int Codigo_cliente, int Codigo_operacion,  DateTime Fecha_operacion, string Concepto, int Cargos,  int Abonos)
-        {
-            codigo_cliente = Codigo_cliente;
-            codigo_operacion = Codigo_operacion;
-            fecha_operacion = Fecha_operacion;
-            concepto = Concepto;
-            cargos = Cargos;
-            abonos = Abonos;
-        }
- */       
-        public static void carga_prueba_estadocuenta()
-        {
-            //Un método que permite cargar un cliente en json, para poder realizar un prueba de carga por consola
-            var a = new EstadoCuenta();
-            a.codigo_operacion = 12;
-            a.codigo_cliente = 38456910;
-            a.fecha_operacion = DateTime.Now;
-            a.concepto = "Encomienda Cerro Tronador-Aldo Bonzi";
-            a.cargos = 10000;
-            a.abonos = 10000;
-            a.estado = "Entregado";
-            a.facturado = true;
-            a.pagado = true;
-
-            var b = new EstadoCuenta();
-            b.codigo_operacion = 13;
-            b.codigo_cliente = 38456910;
-            b.fecha_operacion = DateTime.Now.AddDays(-50);
-            b.concepto = "Encomienda Zárate-Tucumán";
-            b.cargos = 20000;
-            b.abonos = 10000;
-            b.estado = "Entregado";
-            b.facturado = true;
-            b.pagado = true;
-
-
-            var c = new EstadoCuenta();
-            c.codigo_operacion = 14;
-            c.codigo_cliente = 38456910;
-            c.fecha_operacion = DateTime.Now.AddDays(-100);
-            c.concepto = "Encomienda CABA-Río Luján";
-            c.cargos = 20000;
-            c.abonos = 30000;
-            c.estado = "Entregado";
-            c.facturado = true;
-            c.pagado = true;
-
-
-            var d = new EstadoCuenta();
-            d.codigo_operacion = 15;
-            d.codigo_cliente = 38456910;
-            d.fecha_operacion = DateTime.Now.AddDays(-40);
-            d.concepto = "Encomienda CABA-Santiago del Estero";
-            d.cargos = 20000;
-            d.abonos = 0;
-            d.estado = "Entregado";
-            d.facturado = true;
-            d.pagado = false;
-
-
-            var e = new EstadoCuenta();
-            e.codigo_operacion = 16;
-            e.codigo_cliente = 38456910;
-            e.fecha_operacion = DateTime.Now.AddDays(-120);
-            e.concepto = "Encomienda CABA-Río Luján";
-            e.cargos = 60000;
-            e.abonos = 30000;
-            e.estado = "Entregado";
-            e.facturado = true;
-            e.pagado = true;
-
-            var f = new EstadoCuenta();
-            f.codigo_operacion = 1;
-            f.codigo_cliente = 12345678;
-            f.fecha_operacion = DateTime.Now.AddDays(-120);
-            f.concepto = "Encomienda Quinterno-La Boca";
-            f.cargos = 60000;
-            f.abonos = 30000;
-            f.estado = "Entregado";
-            f.facturado = true;
-            f.pagado = true;
-
-            var g = new EstadoCuenta();
-            g.codigo_operacion = 2;
-            g.codigo_cliente = 12345678;
-            g.fecha_operacion = DateTime.Now.AddDays(-20);
-            g.concepto = "Encomienda Caño Rincon-La Yapa";
-            g.cargos = 30000;
-            g.abonos = 30000;
-            g.estado = "Entregado";
-            g.facturado = false;
-            g.pagado = true;
-
-            var h = new EstadoCuenta();
-            h.codigo_operacion = 3;
-            h.codigo_cliente = 12345678;
-            h.fecha_operacion = DateTime.Now.AddDays(-25);
-            h.concepto = "Encomienda Entre Ríos-Polonia";
-            h.cargos = 40000;
-            h.abonos = 30000;
-            h.estado = "Tránsito";
-            h.facturado = false;
-            h.pagado = true;
-
-            var i = new EstadoCuenta();
-            i.codigo_operacion = 4;
-            i.codigo_cliente = 12345678;
-            i.fecha_operacion = DateTime.Now.AddDays(-50);
-            i.concepto = "Encomienda Barbero Barbero -Barvero";
-            i.cargos =10000;
-            i.abonos = 0000;
-            i.estado = "Tránsito";
-            i.facturado = false;
-            i.pagado = false;
-
-
-            List<EstadoCuenta> lista = new List<EstadoCuenta>();
-            lista.Add(a);
-            lista.Add(b);
-            lista.Add(c);
-            lista.Add(d);
-            lista.Add(e);
-            lista.Add(f);
-            lista.Add(g);
-            lista.Add(h);       
-            lista.Add(i);
-            string estadoCliente = JsonConvert.SerializeObject(lista);
-
-            File.WriteAllText("EstadoCuentaLista.json", estadoCliente);
-
-        }
 
         public static EstadoCuenta hallar(int codigo)
         {
@@ -227,13 +96,6 @@ namespace tp4
 
 
 
-        public static void mostrar_menu_estado_de_cuenta()
-        {
-            Console.WriteLine("******************************************************************************************");
-            Console.WriteLine("Ha Ingresado en el menú de estado de cuenta, por favor valide su clave secreta");
-            Console.WriteLine("En conjunto con el HASH que aparecerá abajo");
-            Console.WriteLine("******************************************************************************************\n");
-        }
         public static bool ValidarClaveSecreta(string clave_secreta)
         {   bool bandera = true;
             int contador=1;
@@ -242,22 +104,30 @@ namespace tp4
             string ingresoClave = "";
             string Hash = EstadoCuenta.RandomString(5);
             Console.WriteLine("Por favor ingrese el CAPTCHA, presione ENTER y a continuación su clave secreta y presione ENTER");
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("CAPTCHA: "+Hash);
+            Console.ForegroundColor = ConsoleColor.White;
             do { 
 
                 ingresoCaptcha = Console.ReadLine();
                 ingresoClave = Console.ReadLine();
-                if ((ingresoClave==clave_secreta && ingresoCaptcha==Hash) == false)
+                if ((ingresoClave == clave_secreta && ingresoCaptcha == Hash) == false)
                 {
-                    intentos --;
-                    Console.WriteLine("Ha ingresado un CAPTCHA y o clave secreta erroneos, le quedan "+ intentos+" intentos, le recordamos el hash "+Hash);}
-                    contador ++;
-
+                    intentos--;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Ingreso un CAPTCHA y o clave secreta erroneos, restan " + intentos + " intentos".ToUpper());
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Hash: " + Hash);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    contador++;
+                }
 
                 if (contador==4)
                 {
                 bandera = false;
-                Console.WriteLine("Se devuelve al menú anterior");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Se devuelve al menú anterior".ToUpper());
+                Console.ForegroundColor = ConsoleColor.White;
                 }
                 }
 
@@ -291,7 +161,9 @@ namespace tp4
 
                 }
             }
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Su saldo actual es de: "+saldo.ToString()+" pesos");
+            Console.ForegroundColor = ConsoleColor.White;
             return estado;
         }
 

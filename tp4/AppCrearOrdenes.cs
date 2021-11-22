@@ -58,36 +58,42 @@ namespace tp4
         {
             double costo = 0;
             double costoInternacional = 0;
-            double urgente = 1.10;
-            double enPuerta = 20;
-            
+            //double urgente = 1.10;
+            //double enPuerta = 20;
+
+            //Tarifario.carga_prueba_tarifario();
+            var precio = Tarifario.hallar("500g");
+            var precio2 = Tarifario.hallar("10kg");
+            var precio3 = Tarifario.hallar("20kg");
+            var precio4 = Tarifario.hallar("30kg");
+
             if (destino.continente_asignado == "America del sur limitrofe")
             {
-                costoInternacional = 1000;
+                costoInternacional = precio.limitrofes;
             }
             else
             {
                 if (destino.continente_asignado == "America del sur")
                 {
-                    costoInternacional = 2000;
+                    costoInternacional = precio.restoALatina;
                 }
                 else
                 {
                     if (destino.continente_asignado == "America del norte")
                     {
-                        costoInternacional = 3000;
+                        costoInternacional = precio.aNorte;
                     }
                     else
                     {
                         if (destino.continente_asignado == "Europa")
                         {
-                            costoInternacional = 4000;
+                            costoInternacional = precio.europa;
                         }
                         else
                         {
                             if (destino.continente_asignado == "Asia")
                             {
-                                costoInternacional = 5000;
+                                costoInternacional = precio.asia;
                             }
                             else
                             {
@@ -114,22 +120,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 10000 * urgente + (enPuerta * 2) + costoInternacional;
+                                            costo = precio4.nacional * precio4.urgente + (precio4.enPuerta * 2) + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 10000 * urgente + enPuerta + costoInternacional;
+                                            costo = precio4.nacional * precio4.urgente + precio4.enPuerta + costoInternacional;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 10000 * urgente + enPuerta + costoInternacional;
+                                            costo = precio4.nacional * precio4.urgente + precio4.enPuerta + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 10000 * urgente + costoInternacional;
+                                            costo = precio4.nacional * precio4.urgente + costoInternacional;
                                         }
                                     }
                                 }
@@ -139,22 +145,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 10000 + (enPuerta * 2) + costoInternacional;
+                                            costo = precio4.nacional + (precio4.enPuerta * 2) + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 10000 + enPuerta + costoInternacional;
+                                            costo = precio4.nacional + precio4.enPuerta + costoInternacional;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 10000 + enPuerta + costoInternacional;
+                                            costo = precio4.nacional + precio4.enPuerta + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 10000 + costoInternacional;
+                                            costo = precio4.nacional + costoInternacional;
                                         }
                                     }
                                 }
@@ -170,22 +176,22 @@ namespace tp4
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 8000 * urgente + (enPuerta * 2) + costoInternacional;
+                                                costo = precio3.nacional * precio3.urgente + (precio3.enPuerta * 2) + costoInternacional;
                                             }
                                             else
                                             {
-                                                costo = 8000 * urgente + enPuerta + costoInternacional;
+                                                costo = precio3.nacional * precio3.urgente + precio3.enPuerta + costoInternacional;
                                             }
                                         }
                                         else
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 8000 * urgente + enPuerta + costoInternacional;
+                                                costo = precio3.nacional * precio3.urgente + precio3.enPuerta + costoInternacional;
                                             }
                                             else
                                             {
-                                                costo = 8000 * urgente + costoInternacional;
+                                                costo = precio3.nacional * precio3.urgente + costoInternacional;
                                             }
                                         }
                                     }
@@ -195,22 +201,22 @@ namespace tp4
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 8000 + (enPuerta * 2) + costoInternacional;
+                                                costo = precio3.nacional + (precio3.enPuerta * 2) + costoInternacional;
                                             }
                                             else
                                             {
-                                                costo = 8000 + enPuerta + costoInternacional;
+                                                costo = precio3.nacional + precio3.enPuerta + costoInternacional;
                                             }
                                         }
                                         else
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 8000 + enPuerta + costoInternacional;
+                                                costo = precio3.nacional + precio3.enPuerta + costoInternacional;
                                             }
                                             else
                                             {
-                                                costo = 8000 + costoInternacional;
+                                                costo = precio3.nacional + costoInternacional;
                                             }
                                         }
                                     }
@@ -225,22 +231,22 @@ namespace tp4
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 4000 * urgente + (enPuerta * 2) + costoInternacional;
+                                                    costo = precio2.nacional * precio2.urgente + (precio2.enPuerta * 2) + costoInternacional;
                                                 }
                                                 else
                                                 {
-                                                    costo = 4000 * urgente + enPuerta + costoInternacional;
+                                                    costo = precio2.nacional * precio2.urgente + precio2.enPuerta + costoInternacional;
                                                 }
                                             }
                                             else
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 4000 * urgente + enPuerta + costoInternacional;
+                                                    costo = precio2.nacional * precio2.urgente + precio2.enPuerta + costoInternacional;
                                                 }
                                                 else
                                                 {
-                                                    costo = 4000 * urgente + costoInternacional;
+                                                    costo = precio2.nacional * precio2.urgente + costoInternacional;
                                                 }
                                             }
                                         }
@@ -250,22 +256,22 @@ namespace tp4
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 4000 + (enPuerta * 2) + costoInternacional;
+                                                    costo = precio2.nacional + (precio2.enPuerta * 2) + costoInternacional;
                                                 }
                                                 else
                                                 {
-                                                    costo = 4000 + enPuerta + costoInternacional;
+                                                    costo = precio2.nacional + precio2.enPuerta + costoInternacional;
                                                 }
                                             }
                                             else
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 4000 + enPuerta + costoInternacional;
+                                                    costo = precio2.nacional + precio2.enPuerta + costoInternacional;
                                                 }
                                                 else
                                                 {
-                                                    costo = 4000 + costoInternacional;
+                                                    costo = precio2.nacional + costoInternacional;
                                                 }
                                             }
                                         }
@@ -278,22 +284,22 @@ namespace tp4
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 2000 * urgente + (enPuerta * 2) + costoInternacional;
+                                                    costo = precio.nacional * precio.urgente + (precio.enPuerta * 2) + costoInternacional;
                                                 }
                                                 else
                                                 {
-                                                    costo = 2000 * urgente + enPuerta + costoInternacional;
+                                                    costo = precio.nacional * precio.urgente + precio.enPuerta + costoInternacional;
                                                 }
                                             }
                                             else
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 2000 * urgente + enPuerta + costoInternacional;
+                                                    costo = precio.nacional * precio.urgente + precio.enPuerta + costoInternacional;
                                                 }
                                                 else
                                                 {
-                                                    costo = 2000 * urgente + costoInternacional;
+                                                    costo = precio.nacional * precio.urgente + costoInternacional;
                                                 }
                                             }
                                         }
@@ -303,22 +309,22 @@ namespace tp4
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 2000 + (enPuerta * 2) + costoInternacional;
+                                                    costo = precio.nacional + (precio.enPuerta * 2) + costoInternacional;
                                                 }
                                                 else
                                                 {
-                                                    costo = 2000 + enPuerta + costoInternacional;
+                                                    costo = precio.nacional + precio.enPuerta + costoInternacional;
                                                 }
                                             }
                                             else
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 2000 + enPuerta + costoInternacional;
+                                                    costo = precio.nacional + precio.enPuerta + costoInternacional;
                                                 }
                                                 else
                                                 {
-                                                    costo = 2000 + costoInternacional;
+                                                    costo = precio.nacional + costoInternacional;
                                                 }
                                             }
                                         }
@@ -336,22 +342,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 8000 * urgente + (enPuerta * 2) + costoInternacional;
+                                            costo = precio4.regional * precio4.urgente + (precio4.enPuerta * 2) + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 8000 * urgente + enPuerta + costoInternacional;
+                                            costo = precio4.regional * precio4.urgente + precio4.enPuerta + costoInternacional;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 8000 * urgente + enPuerta + costoInternacional;
+                                            costo = precio4.regional * precio4.urgente + precio4.enPuerta + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 8000 * urgente + costoInternacional;
+                                            costo = precio4.regional * precio4.urgente + costoInternacional;
                                         }
                                     }
                                 }
@@ -361,22 +367,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 8000 + (enPuerta * 2) + costoInternacional;
+                                            costo = precio4.regional + (precio4.enPuerta * 2) + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 8000 + enPuerta + costoInternacional;
+                                            costo = precio4.regional + precio4.enPuerta + costoInternacional;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 8000 + enPuerta + costoInternacional;
+                                            costo = precio4.regional + precio4.enPuerta + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 8000 + costoInternacional;
+                                            costo = precio4.regional + costoInternacional;
                                         }
                                     }
                                 }
@@ -392,22 +398,22 @@ namespace tp4
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 6000 * urgente + (enPuerta * 2) + costoInternacional;
+                                                costo = precio3.regional * precio3.urgente + (precio3.enPuerta * 2) + costoInternacional;
                                             }
                                             else
                                             {
-                                                costo = 6000 * urgente + enPuerta + costoInternacional;
+                                                costo = precio3.regional * precio3.urgente + precio3.enPuerta + costoInternacional;
                                             }
                                         }
                                         else
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 6000 * urgente + enPuerta + costoInternacional;
+                                                costo = precio3.regional * precio3.urgente + precio3.enPuerta + costoInternacional;
                                             }
                                             else
                                             {
-                                                costo = 6000 * urgente + costoInternacional;
+                                                costo = precio3.regional * precio3.urgente + costoInternacional;
                                             }
                                         }
                                     }
@@ -417,22 +423,22 @@ namespace tp4
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 6000 + (enPuerta * 2) + costoInternacional;
+                                                costo = precio3.regional + (precio3.enPuerta * 2) + costoInternacional;
                                             }
                                             else
                                             {
-                                                costo = 6000 + enPuerta + costoInternacional;
+                                                costo = precio3.regional + precio3.enPuerta + costoInternacional;
                                             }
                                         }
                                         else
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 6000 + enPuerta + costoInternacional;
+                                                costo = precio3.regional + precio3.enPuerta + costoInternacional;
                                             }
                                             else
                                             {
-                                                costo = 6000 + costoInternacional;
+                                                costo = precio3.regional + costoInternacional;
                                             }
                                         }
                                     }
@@ -447,22 +453,22 @@ namespace tp4
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 3000 * urgente + (enPuerta * 2) + costoInternacional;
+                                                    costo = precio2.regional * precio2.urgente + (precio2.enPuerta * 2) + costoInternacional;
                                                 }
                                                 else
                                                 {
-                                                    costo = 3000 * urgente + enPuerta + costoInternacional;
+                                                    costo = precio2.regional * precio2.urgente + precio2.enPuerta + costoInternacional;
                                                 }
                                             }
                                             else
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 3000 * urgente + enPuerta + costoInternacional;
+                                                    costo = precio2.regional * precio2.urgente + precio2.enPuerta + costoInternacional;
                                                 }
                                                 else
                                                 {
-                                                    costo = 3000 * urgente + costoInternacional;
+                                                    costo = precio2.regional * precio2.urgente + costoInternacional;
                                                 }
                                             }
                                         }
@@ -472,22 +478,22 @@ namespace tp4
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 3000 + (enPuerta * 2) + costoInternacional;
+                                                    costo = precio2.regional + (precio2.enPuerta * 2) + costoInternacional;
                                                 }
                                                 else
                                                 {
-                                                    costo = 3000 + enPuerta + costoInternacional;
+                                                    costo = precio2.regional + precio2.enPuerta + costoInternacional;
                                                 }
                                             }
                                             else
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 3000 + enPuerta + costoInternacional;
+                                                    costo = precio2.regional + precio2.enPuerta + costoInternacional;
                                                 }
                                                 else
                                                 {
-                                                    costo = 3000 + costoInternacional;
+                                                    costo = precio2.regional + costoInternacional;
                                                 }
                                             }
                                         }
@@ -500,22 +506,22 @@ namespace tp4
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 1000 * urgente + (enPuerta * 2) + costoInternacional;
+                                                    costo = precio.regional * precio.urgente + (precio.enPuerta * 2) + costoInternacional;
                                                 }
                                                 else
                                                 {
-                                                    costo = 1000 * urgente + enPuerta + costoInternacional;
+                                                    costo = precio.regional * precio.urgente + precio.enPuerta + costoInternacional;
                                                 }
                                             }
                                             else
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 1000 * urgente + enPuerta + costoInternacional;
+                                                    costo = precio.regional * precio.urgente + precio.enPuerta + costoInternacional;
                                                 }
                                                 else
                                                 {
-                                                    costo = 1000 * urgente + costoInternacional;
+                                                    costo = precio.regional * precio.urgente + costoInternacional;
                                                 }
                                             }
                                         }
@@ -525,22 +531,22 @@ namespace tp4
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 1000 + (enPuerta * 2) + costoInternacional;
+                                                    costo = precio.regional + (precio.enPuerta * 2) + costoInternacional;
                                                 }
                                                 else
                                                 {
-                                                    costo = 1000 + enPuerta + costoInternacional;
+                                                    costo = precio.regional + precio.enPuerta + costoInternacional;
                                                 }
                                             }
                                             else
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 1000 + enPuerta + costoInternacional;
+                                                    costo = precio.regional + precio.enPuerta + costoInternacional;
                                                 }
                                                 else
                                                 {
-                                                    costo = 1000 + costoInternacional;
+                                                    costo = precio.regional + costoInternacional;
                                                 }
                                             }
                                         }
@@ -559,22 +565,22 @@ namespace tp4
                                 {
                                     if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
-                                        costo = 6000 * urgente + (enPuerta * 2) + costoInternacional;
+                                        costo = precio4.provincial * precio4.urgente + (precio4.enPuerta * 2) + costoInternacional;
                                     }
                                     else
                                     {
-                                        costo = 6000 * urgente + enPuerta + costoInternacional;
+                                        costo = precio4.provincial * precio4.urgente + precio4.enPuerta + costoInternacional;
                                     }
                                 }
                                 else
                                 {
                                     if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
-                                        costo = 6000 * urgente + enPuerta + costoInternacional;
+                                        costo = precio4.provincial * precio4.urgente + precio4.enPuerta + costoInternacional;
                                     }
                                     else
                                     {
-                                        costo = 6000 * urgente + costoInternacional;
+                                        costo = precio4.provincial * precio4.urgente + costoInternacional;
                                     }
                                 }
                             }
@@ -584,22 +590,22 @@ namespace tp4
                                 {
                                     if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
-                                        costo = 6000 + (enPuerta * 2) + costoInternacional;
+                                        costo = precio4.provincial + (precio4.enPuerta * 2) + costoInternacional;
                                     }
                                     else
                                     {
-                                        costo = 6000 + enPuerta + costoInternacional;
+                                        costo = precio4.provincial + precio4.enPuerta + costoInternacional;
                                     }
                                 }
                                 else
                                 {
                                     if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
-                                        costo = 6000 + enPuerta + costoInternacional;
+                                        costo = precio4.provincial + precio4.enPuerta + costoInternacional;
                                     }
                                     else
                                     {
-                                        costo = 6000 + costoInternacional;
+                                        costo = precio4.provincial + costoInternacional;
                                     }
                                 }
                             }
@@ -615,22 +621,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 4000 * urgente + (enPuerta * 2) + costoInternacional;
+                                            costo = precio3.provincial * precio3.urgente + (precio3.enPuerta * 2) + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 4000 * urgente + enPuerta + costoInternacional;
+                                            costo = precio3.provincial * precio3.urgente + precio3.enPuerta + costoInternacional;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 4000 * urgente + enPuerta + costoInternacional;
+                                            costo = precio3.provincial * precio3.urgente + precio3.enPuerta + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 4000 * urgente + costoInternacional;
+                                            costo = precio3.provincial * precio3.urgente + costoInternacional;
                                         }
                                     }
                                 }
@@ -640,22 +646,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 4000 + (enPuerta * 2) + costoInternacional;
+                                            costo = precio3.provincial + (precio3.enPuerta * 2) + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 4000 + enPuerta + costoInternacional;
+                                            costo = precio3.provincial + precio3.enPuerta + costoInternacional;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 4000 + enPuerta + costoInternacional;
+                                            costo = precio3.provincial + precio3.enPuerta + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 4000 + costoInternacional;
+                                            costo = precio3.provincial + costoInternacional;
                                         }
                                     }
                                 }
@@ -670,22 +676,22 @@ namespace tp4
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 2000 * urgente + (enPuerta * 2) + costoInternacional;
+                                                costo = precio2.provincial * precio2.urgente + (precio2.enPuerta * 2) + costoInternacional;
                                             }
                                             else
                                             {
-                                                costo = 2000 * urgente + enPuerta + costoInternacional;
+                                                costo = precio2.provincial * precio2.urgente + precio2.enPuerta + costoInternacional;
                                             }
                                         }
                                         else
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 2000 * urgente + enPuerta + costoInternacional;
+                                                costo = precio2.provincial * precio2.urgente + precio2.enPuerta + costoInternacional;
                                             }
                                             else
                                             {
-                                                costo = 2000 * urgente + costoInternacional;
+                                                costo = precio2.provincial * precio2.urgente + costoInternacional;
                                             }
                                         }
                                     }
@@ -695,22 +701,22 @@ namespace tp4
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 2000 + (enPuerta * 2) + costoInternacional;
+                                                costo = precio2.provincial + (precio2.enPuerta * 2) + costoInternacional;
                                             }
                                             else
                                             {
-                                                costo = 2000 + enPuerta + costoInternacional;
+                                                costo = precio2.provincial + precio2.enPuerta + costoInternacional;
                                             }
                                         }
                                         else
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 2000 + enPuerta + costoInternacional;
+                                                costo = precio2.provincial + precio2.enPuerta + costoInternacional;
                                             }
                                             else
                                             {
-                                                costo = 2000 + costoInternacional;
+                                                costo = precio2.provincial + costoInternacional;
                                             }
                                         }
                                     }
@@ -723,22 +729,22 @@ namespace tp4
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 500 * urgente + (enPuerta * 2) + costoInternacional;
+                                                costo = precio.provincial * precio.urgente + (precio.enPuerta * 2) + costoInternacional;
                                             }
                                             else
                                             {
-                                                costo = 500 * urgente + enPuerta + costoInternacional;
+                                                costo = precio.provincial * precio.urgente + precio.enPuerta + costoInternacional;
                                             }
                                         }
                                         else
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 500 * urgente + enPuerta + costoInternacional;
+                                                costo = precio.provincial * precio.urgente + precio.enPuerta + costoInternacional;
                                             }
                                             else
                                             {
-                                                costo = 500 * urgente + costoInternacional;
+                                                costo = precio.provincial * precio.urgente + costoInternacional;
                                             }
                                         }
                                     }
@@ -748,22 +754,22 @@ namespace tp4
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 500 + (enPuerta * 2) + costoInternacional;
+                                                costo = precio.provincial + (precio.enPuerta * 2) + costoInternacional;
                                             }
                                             else
                                             {
-                                                costo = 500 + enPuerta + costoInternacional;
+                                                costo = precio.provincial + precio.enPuerta + costoInternacional;
                                             }
                                         }
                                         else
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 500 + enPuerta + costoInternacional;
+                                                costo = precio.provincial + precio.enPuerta + costoInternacional;
                                             }
                                             else
                                             {
-                                                costo = 500 + costoInternacional;
+                                                costo = precio.provincial + costoInternacional;
                                             }
                                         }
                                     }
@@ -782,22 +788,22 @@ namespace tp4
                             {
                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                 {
-                                    costo = 4000 * urgente + (enPuerta * 2) + costoInternacional;
+                                    costo = precio4.local * precio4.urgente + (precio4.enPuerta * 2) + costoInternacional;
                                 }
                                 else
                                 {
-                                    costo = 4000 * urgente + enPuerta + costoInternacional;
+                                    costo = precio4.local * precio4.urgente + precio4.enPuerta + costoInternacional;
                                 }
                             }
                             else
                             {
                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                 {
-                                    costo = 4000 * urgente + enPuerta + costoInternacional;
+                                    costo = precio4.local * precio4.urgente + precio4.enPuerta + costoInternacional;
                                 }
                                 else
                                 {
-                                    costo = 4000 * urgente + costoInternacional;
+                                    costo = precio4.local * precio4.urgente + costoInternacional;
                                 }
                             }
                         }
@@ -807,22 +813,22 @@ namespace tp4
                             {
                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                 {
-                                    costo = 4000 + (enPuerta * 2) + costoInternacional;
+                                    costo = precio4.local + (precio4.enPuerta * 2) + costoInternacional;
                                 }
                                 else
                                 {
-                                    costo = 4000 + enPuerta + costoInternacional;
+                                    costo = precio4.local + precio4.enPuerta + costoInternacional;
                                 }
                             }
                             else
                             {
                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                 {
-                                    costo = 4000 + enPuerta + costoInternacional;
+                                    costo = precio4.local + precio4.enPuerta + costoInternacional;
                                 }
                                 else
                                 {
-                                    costo = 4000 + costoInternacional;
+                                    costo = precio4.local + costoInternacional;
                                 }
                             }
                         }
@@ -838,22 +844,22 @@ namespace tp4
                                 {
                                     if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
-                                        costo = 2000 * urgente + (enPuerta * 2) + costoInternacional;
+                                        costo = precio3.local * precio3.urgente + (precio3.enPuerta * 2) + costoInternacional;
                                     }
                                     else
                                     {
-                                        costo = 2000 * urgente + enPuerta + costoInternacional;
+                                        costo = precio3.local * precio3.urgente + precio3.enPuerta + costoInternacional;
                                     }
                                 }
                                 else
                                 {
                                     if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
-                                        costo = 2000 * urgente + enPuerta + costoInternacional;
+                                        costo = precio3.local * precio3.urgente + precio3.enPuerta + costoInternacional;
                                     }
                                     else
                                     {
-                                        costo = 2000 * urgente + costoInternacional;
+                                        costo = precio3.local * precio3.urgente + costoInternacional;
                                     }
                                 }
                             }
@@ -863,22 +869,22 @@ namespace tp4
                                 {
                                     if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
-                                        costo = 2000 + (enPuerta * 2) + costoInternacional;
+                                        costo = precio3.local + (precio3.enPuerta * 2) + costoInternacional;
                                     }
                                     else
                                     {
-                                        costo = 2000 + enPuerta + costoInternacional;
+                                        costo = precio3.local + precio3.enPuerta + costoInternacional;
                                     }
                                 }
                                 else
                                 {
                                     if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
-                                        costo = 2000 + enPuerta + costoInternacional;
+                                        costo = precio3.local + precio3.enPuerta + costoInternacional;
                                     }
                                     else
                                     {
-                                        costo = 2000 + costoInternacional;
+                                        costo = precio3.local + costoInternacional;
                                     }
                                 }
                             }
@@ -893,22 +899,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 1000 * urgente + (enPuerta * 2) + costoInternacional;
+                                            costo = precio2.local * precio2.urgente + (precio2.enPuerta * 2) + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 1000 * urgente + enPuerta + costoInternacional;
+                                            costo = precio2.local * precio2.urgente + precio2.enPuerta + costoInternacional;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 1000 * urgente + enPuerta + costoInternacional;
+                                            costo = precio2.local * precio2.urgente + precio2.enPuerta + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 1000 * urgente + costoInternacional;
+                                            costo = precio2.local * precio2.urgente + costoInternacional;
                                         }
                                     }
                                 }
@@ -918,22 +924,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 1000 + (enPuerta * 2) + costoInternacional;
+                                            costo = precio2.local + (precio2.enPuerta * 2) + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 1000 + enPuerta + costoInternacional;
+                                            costo = precio2.local + precio2.enPuerta + costoInternacional;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 1000 + enPuerta + costoInternacional;
+                                            costo = precio2.local + precio2.enPuerta + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 1000 + costoInternacional;
+                                            costo = precio2.local + costoInternacional;
                                         }
                                     }
                                 }
@@ -946,22 +952,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 250 * urgente + (enPuerta * 2) + costoInternacional;
+                                            costo = precio.local * precio.urgente + (precio.enPuerta * 2) + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 250 * urgente + enPuerta + costoInternacional;
+                                            costo = precio.local * precio.urgente + precio.enPuerta + costoInternacional;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 250 * urgente + enPuerta + costoInternacional;
+                                            costo = precio.local * precio.urgente + precio.enPuerta + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 250 * urgente + costoInternacional;
+                                            costo = precio.local * precio.urgente + costoInternacional;
                                         }
                                     }
                                 }
@@ -971,22 +977,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 250 + (enPuerta * 2) + costoInternacional;
+                                            costo = precio.local + (precio.enPuerta * 2) + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 250 + enPuerta + costoInternacional;
+                                            costo = precio.local + precio.enPuerta + costoInternacional;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 250 + enPuerta + costoInternacional;
+                                            costo = precio.local + precio.enPuerta + costoInternacional;
                                         }
                                         else
                                         {
-                                            costo = 250 + costoInternacional;
+                                            costo = precio.local + costoInternacional;
                                         }
                                     }
                                 }
@@ -1011,22 +1017,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 10000 * urgente + (enPuerta * 2);
+                                            costo = precio4.nacional * precio4.urgente + (precio4.enPuerta * 2);
                                         }
                                         else
                                         {
-                                            costo = 10000 * urgente + enPuerta;
+                                            costo = precio4.nacional * precio4.urgente + precio4.enPuerta;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 10000 * urgente + enPuerta;
+                                            costo = precio4.nacional * precio4.urgente + precio4.enPuerta;
                                         }
                                         else
                                         {
-                                            costo = 10000 * urgente;
+                                            costo = precio4.nacional * precio4.urgente;
                                         }
                                     }
                                 }
@@ -1036,22 +1042,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 10000 + (enPuerta * 2);
+                                            costo = precio4.nacional + (precio4.enPuerta * 2);
                                         }
                                         else
                                         {
-                                            costo = 10000 + enPuerta;
+                                            costo = precio4.nacional + precio4.enPuerta;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 10000 + enPuerta;
+                                            costo = precio4.nacional + precio4.enPuerta;
                                         }
                                         else
                                         {
-                                            costo = 10000;
+                                            costo = precio4.nacional;
                                         }
                                     }
                                 }
@@ -1067,22 +1073,22 @@ namespace tp4
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 8000 * urgente + (enPuerta * 2);
+                                                costo = precio3.nacional * precio3.urgente + (precio3.enPuerta * 2);
                                             }
                                             else
                                             {
-                                                costo = 8000 * urgente + enPuerta;
+                                                costo = precio3.nacional * precio3.urgente + precio3.enPuerta;
                                             }
                                         }
                                         else
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 8000 * urgente + enPuerta;
+                                                costo = precio3.nacional * precio3.urgente + precio3.enPuerta;
                                             }
                                             else
                                             {
-                                                costo = 8000 * urgente;
+                                                costo = precio3.nacional * precio3.urgente;
                                             }
                                         }
                                     }
@@ -1092,22 +1098,22 @@ namespace tp4
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 8000 + (enPuerta * 2);
+                                                costo = precio3.nacional + (precio3.enPuerta * 2);
                                             }
                                             else
                                             {
-                                                costo = 8000 + enPuerta;
+                                                costo = precio3.nacional + precio3.enPuerta;
                                             }
                                         }
                                         else
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 8000 + enPuerta;
+                                                costo = precio3.nacional + precio3.enPuerta;
                                             }
                                             else
                                             {
-                                                costo = 8000;
+                                                costo = precio3.nacional;
                                             }
                                         }
                                     }
@@ -1122,22 +1128,22 @@ namespace tp4
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 4000 * urgente + (enPuerta * 2);
+                                                    costo = precio2.nacional * precio2.urgente + (precio2.enPuerta * 2);
                                                 }
                                                 else
                                                 {
-                                                    costo = 4000 * urgente + enPuerta;
+                                                    costo = precio2.nacional * precio2.urgente + precio2.enPuerta;
                                                 }
                                             }
                                             else
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 4000 * urgente + enPuerta;
+                                                    costo = precio2.nacional * precio2.urgente + precio2.enPuerta;
                                                 }
                                                 else
                                                 {
-                                                    costo = 4000 * urgente;
+                                                    costo = precio2.nacional * precio2.urgente;
                                                 }
                                             }
                                         }
@@ -1147,22 +1153,22 @@ namespace tp4
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 4000 + (enPuerta * 2);
+                                                    costo = precio2.nacional + (precio2.enPuerta * 2);
                                                 }
                                                 else
                                                 {
-                                                    costo = 4000 + enPuerta;
+                                                    costo = precio2.nacional + precio2.enPuerta;
                                                 }
                                             }
                                             else
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 4000 + enPuerta;
+                                                    costo = precio2.nacional + precio2.enPuerta;
                                                 }
                                                 else
                                                 {
-                                                    costo = 4000;
+                                                    costo = precio2.nacional;
                                                 }
                                             }
                                         }
@@ -1175,22 +1181,22 @@ namespace tp4
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 2000 * urgente + (enPuerta * 2);
+                                                    costo = precio.nacional * precio.urgente + (precio.enPuerta * 2);
                                                 }
                                                 else
                                                 {
-                                                    costo = 2000 * urgente + enPuerta;
+                                                    costo = precio.nacional * precio.urgente + precio.enPuerta;
                                                 }
                                             }
                                             else
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 2000 * urgente + enPuerta;
+                                                    costo = precio.nacional * precio.urgente + precio.enPuerta;
                                                 }
                                                 else
                                                 {
-                                                    costo = 2000 * urgente;
+                                                    costo = precio.nacional * precio.urgente;
                                                 }
                                             }
                                         }
@@ -1200,22 +1206,22 @@ namespace tp4
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 2000 + (enPuerta * 2);
+                                                    costo = precio.nacional + (precio.enPuerta * 2);
                                                 }
                                                 else
                                                 {
-                                                    costo = 2000 + enPuerta;
+                                                    costo = precio.nacional + precio.enPuerta;
                                                 }
                                             }
                                             else
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 2000 + enPuerta;
+                                                    costo = precio.nacional + precio.enPuerta;
                                                 }
                                                 else
                                                 {
-                                                    costo = 2000;
+                                                    costo = precio.nacional;
                                                 }
                                             }
                                         }
@@ -1233,22 +1239,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 8000 * urgente + (enPuerta * 2);
+                                            costo = precio4.regional * precio4.urgente + (precio4.enPuerta * 2);
                                         }
                                         else
                                         {
-                                            costo = 8000 * urgente + enPuerta;
+                                            costo = precio4.regional * precio4.urgente + precio4.enPuerta;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 8000 * urgente + enPuerta;
+                                            costo = precio4.regional * precio4.urgente + precio4.enPuerta;
                                         }
                                         else
                                         {
-                                            costo = 8000 * urgente;
+                                            costo = precio4.regional * precio4.urgente;
                                         }
                                     }
                                 }
@@ -1258,22 +1264,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 8000 + (enPuerta * 2);
+                                            costo = precio4.regional + (precio4.enPuerta * 2);
                                         }
                                         else
                                         {
-                                            costo = 8000 + enPuerta;
+                                            costo = precio4.regional + precio4.enPuerta;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 8000 + enPuerta;
+                                            costo = precio4.regional + precio4.enPuerta;
                                         }
                                         else
                                         {
-                                            costo = 8000;
+                                            costo = precio4.regional;
                                         }
                                     }
                                 }
@@ -1289,22 +1295,22 @@ namespace tp4
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 6000 * urgente + (enPuerta * 2);
+                                                costo = precio3.regional * precio3.urgente + (precio3.enPuerta * 2);
                                             }
                                             else
                                             {
-                                                costo = 6000 * urgente + enPuerta;
+                                                costo = precio3.regional * precio3.urgente + precio3.enPuerta;
                                             }
                                         }
                                         else
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 6000 * urgente + enPuerta;
+                                                costo = precio3.regional * precio3.urgente + precio3.enPuerta;
                                             }
                                             else
                                             {
-                                                costo = 6000 * urgente;
+                                                costo = precio3.regional * precio3.urgente;
                                             }
                                         }
                                     }
@@ -1314,22 +1320,22 @@ namespace tp4
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 6000 + (enPuerta * 2);
+                                                costo = precio3.regional + (precio3.enPuerta * 2);
                                             }
                                             else
                                             {
-                                                costo = 6000 + enPuerta;
+                                                costo = precio3.regional + precio3.enPuerta;
                                             }
                                         }
                                         else
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 6000 + enPuerta;
+                                                costo = precio3.regional + precio3.enPuerta;
                                             }
                                             else
                                             {
-                                                costo = 6000;
+                                                costo = precio3.regional;
                                             }
                                         }
                                     }
@@ -1344,22 +1350,22 @@ namespace tp4
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 3000 * urgente + (enPuerta * 2);
+                                                    costo = precio2.regional * precio2.urgente + (precio2.enPuerta * 2);
                                                 }
                                                 else
                                                 {
-                                                    costo = 3000 * urgente + enPuerta;
+                                                    costo = precio2.regional * precio2.urgente + precio2.enPuerta;
                                                 }
                                             }
                                             else
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 3000 * urgente + enPuerta;
+                                                    costo = precio2.regional * precio2.urgente + precio2.enPuerta;
                                                 }
                                                 else
                                                 {
-                                                    costo = 3000 * urgente;
+                                                    costo = precio2.regional * precio2.urgente;
                                                 }
                                             }
                                         }
@@ -1369,22 +1375,22 @@ namespace tp4
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 3000 + (enPuerta * 2);
+                                                    costo = precio2.regional + (precio2.enPuerta * 2);
                                                 }
                                                 else
                                                 {
-                                                    costo = 3000 + enPuerta;
+                                                    costo = precio2.regional + precio2.enPuerta;
                                                 }
                                             }
                                             else
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 3000 + enPuerta;
+                                                    costo = precio2.regional + precio2.enPuerta;
                                                 }
                                                 else
                                                 {
-                                                    costo = 3000;
+                                                    costo = precio2.regional;
                                                 }
                                             }
                                         }
@@ -1397,22 +1403,22 @@ namespace tp4
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 1000 * urgente + (enPuerta * 2);
+                                                    costo = precio.regional * precio.urgente + (precio.enPuerta * 2);
                                                 }
                                                 else
                                                 {
-                                                    costo = 1000 * urgente + enPuerta;
+                                                    costo = precio.regional * precio.urgente + precio.enPuerta;
                                                 }
                                             }
                                             else
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 1000 * urgente + enPuerta;
+                                                    costo = precio.regional * precio.urgente + precio.enPuerta;
                                                 }
                                                 else
                                                 {
-                                                    costo = 1000 * urgente;
+                                                    costo = precio.regional * precio.urgente;
                                                 }
                                             }
                                         }
@@ -1422,22 +1428,22 @@ namespace tp4
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 1000 + (enPuerta * 2);
+                                                    costo = precio.regional + (precio.enPuerta * 2);
                                                 }
                                                 else
                                                 {
-                                                    costo = 1000 + enPuerta;
+                                                    costo = precio.regional + precio.enPuerta;
                                                 }
                                             }
                                             else
                                             {
                                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                                 {
-                                                    costo = 1000 + enPuerta;
+                                                    costo = precio.regional + precio.enPuerta;
                                                 }
                                                 else
                                                 {
-                                                    costo = 1000;
+                                                    costo = precio.regional;
                                                 }
                                             }
                                         }
@@ -1456,22 +1462,22 @@ namespace tp4
                                 {
                                     if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
-                                        costo = 6000 * urgente + (enPuerta * 2);
+                                        costo = precio4.provincial * precio4.urgente + (precio4.enPuerta * 2);
                                     }
                                     else
                                     {
-                                        costo = 6000 * urgente + enPuerta;
+                                        costo = precio4.provincial * precio4.urgente + precio4.enPuerta;
                                     }
                                 }
                                 else
                                 {
                                     if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
-                                        costo = 6000 * urgente + enPuerta;
+                                        costo = precio4.provincial * precio4.urgente + precio4.enPuerta;
                                     }
                                     else
                                     {
-                                        costo = 6000 * urgente;
+                                        costo = precio4.provincial * precio4.urgente;
                                     }
                                 }
                             }
@@ -1481,22 +1487,22 @@ namespace tp4
                                 {
                                     if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
-                                        costo = 6000 + (enPuerta * 2);
+                                        costo = precio4.provincial + (precio4.enPuerta * 2);
                                     }
                                     else
                                     {
-                                        costo = 6000 + enPuerta;
+                                        costo = precio4.provincial + precio4.enPuerta;
                                     }
                                 }
                                 else
                                 {
                                     if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
-                                        costo = 6000 + enPuerta;
+                                        costo = precio4.provincial + precio4.enPuerta;
                                     }
                                     else
                                     {
-                                        costo = 6000;
+                                        costo = precio4.provincial;
                                     }
                                 }
                             }
@@ -1512,22 +1518,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 4000 * urgente + (enPuerta * 2);
+                                            costo = precio3.provincial * precio3.urgente + (precio3.enPuerta * 2);
                                         }
                                         else
                                         {
-                                            costo = 4000 * urgente + enPuerta;
+                                            costo = precio3.provincial * precio3.urgente + precio3.enPuerta;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 4000 * urgente + enPuerta;
+                                            costo = precio3.provincial * precio3.urgente + precio3.enPuerta;
                                         }
                                         else
                                         {
-                                            costo = 4000 * urgente;
+                                            costo = precio3.provincial * precio3.urgente;
                                         }
                                     }
                                 }
@@ -1537,22 +1543,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 4000 + (enPuerta * 2);
+                                            costo = precio3.provincial + (precio3.enPuerta * 2);
                                         }
                                         else
                                         {
-                                            costo = 4000 + enPuerta;
+                                            costo = precio3.provincial + precio3.enPuerta;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 4000 + enPuerta;
+                                            costo = precio3.provincial + precio3.enPuerta;
                                         }
                                         else
                                         {
-                                            costo = 4000;
+                                            costo = precio3.provincial;
                                         }
                                     }
                                 }
@@ -1567,22 +1573,22 @@ namespace tp4
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 2000 * urgente + (enPuerta * 2);
+                                                costo = precio2.provincial * precio2.urgente + (precio2.enPuerta * 2);
                                             }
                                             else
                                             {
-                                                costo = 2000 * urgente + enPuerta;
+                                                costo = precio2.provincial * precio2.urgente + precio2.enPuerta;
                                             }
                                         }
                                         else
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 2000 * urgente + enPuerta;
+                                                costo = precio2.provincial * precio2.urgente + precio2.enPuerta;
                                             }
                                             else
                                             {
-                                                costo = 2000 * urgente;
+                                                costo = precio2.provincial * precio2.urgente;
                                             }
                                         }
                                     }
@@ -1592,22 +1598,22 @@ namespace tp4
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 2000 + (enPuerta * 2);
+                                                costo = precio2.provincial + (precio2.enPuerta * 2);
                                             }
                                             else
                                             {
-                                                costo = 2000 + enPuerta;
+                                                costo = precio2.provincial + precio2.enPuerta;
                                             }
                                         }
                                         else
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 2000 + enPuerta;
+                                                costo = precio2.provincial + precio2.enPuerta;
                                             }
                                             else
                                             {
-                                                costo = 2000;
+                                                costo = precio2.provincial;
                                             }
                                         }
                                     }
@@ -1620,22 +1626,22 @@ namespace tp4
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 500 * urgente + (enPuerta * 2);
+                                                costo = precio.provincial * precio.urgente + (precio.enPuerta * 2);
                                             }
                                             else
                                             {
-                                                costo = 500 * urgente + enPuerta;
+                                                costo = precio.provincial * precio.urgente + precio.enPuerta;
                                             }
                                         }
                                         else
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 500 * urgente + enPuerta;
+                                                costo = precio.provincial * precio.urgente + precio.enPuerta;
                                             }
                                             else
                                             {
-                                                costo = 500 * urgente;
+                                                costo = precio.provincial * precio.urgente;
                                             }
                                         }
                                     }
@@ -1645,22 +1651,22 @@ namespace tp4
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 500 + (enPuerta * 2);
+                                                costo = precio.provincial + (precio.enPuerta * 2);
                                             }
                                             else
                                             {
-                                                costo = 500 + enPuerta;
+                                                costo = precio.provincial + precio.enPuerta;
                                             }
                                         }
                                         else
                                         {
                                             if (modalidad.modo_retiro == "Retirado en domicilio")
                                             {
-                                                costo = 500 + enPuerta;
+                                                costo = precio.provincial + precio.enPuerta;
                                             }
                                             else
                                             {
-                                                costo = 500;
+                                                costo = precio.provincial;
                                             }
                                         }
                                     }
@@ -1679,22 +1685,22 @@ namespace tp4
                             {
                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                 {
-                                    costo = 4000 * urgente + (enPuerta * 2);
+                                    costo = precio4.local * precio4.urgente + (precio4.enPuerta * 2);
                                 }
                                 else
                                 {
-                                    costo = 4000 * urgente + enPuerta;
+                                    costo = precio4.local * precio4.urgente + precio4.enPuerta;
                                 }
                             }
                             else
                             {
                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                 {
-                                    costo = 4000 * urgente + enPuerta;
+                                    costo = precio4.local * precio4.urgente + precio4.enPuerta;
                                 }
                                 else
                                 {
-                                    costo = 4000 * urgente;
+                                    costo = precio4.local * precio4.urgente;
                                 }
                             }
                         }
@@ -1704,22 +1710,22 @@ namespace tp4
                             {
                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                 {
-                                    costo = 4000 + (enPuerta * 2);
+                                    costo = precio4.local + (precio4.enPuerta * 2);
                                 }
                                 else
                                 {
-                                    costo = 4000 + enPuerta;
+                                    costo = precio4.local + precio4.enPuerta;
                                 }
                             }
                             else
                             {
                                 if (modalidad.modo_retiro == "Retirado en domicilio")
                                 {
-                                    costo = 4000 + enPuerta;
+                                    costo = precio4.local + precio4.enPuerta;
                                 }
                                 else
                                 {
-                                    costo = 4000;
+                                    costo = precio4.local;
                                 }
                             }
                         }
@@ -1735,22 +1741,22 @@ namespace tp4
                                 {
                                     if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
-                                        costo = 2000 * urgente + (enPuerta * 2);
+                                        costo = precio3.local * precio3.urgente + (precio3.enPuerta * 2);
                                     }
                                     else
                                     {
-                                        costo = 2000 * urgente + enPuerta;
+                                        costo = precio3.local * precio3.urgente + precio3.enPuerta;
                                     }
                                 }
                                 else
                                 {
                                     if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
-                                        costo = 2000 * urgente + enPuerta;
+                                        costo = precio3.local * precio3.urgente + precio3.enPuerta;
                                     }
                                     else
                                     {
-                                        costo = 2000 * urgente;
+                                        costo = precio3.local * precio3.urgente;
                                     }
                                 }
                             }
@@ -1760,22 +1766,22 @@ namespace tp4
                                 {
                                     if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
-                                        costo = 2000 + (enPuerta * 2);
+                                        costo = precio3.local + (precio3.enPuerta * 2);
                                     }
                                     else
                                     {
-                                        costo = 2000 + enPuerta;
+                                        costo = precio3.local + precio3.enPuerta;
                                     }
                                 }
                                 else
                                 {
                                     if (modalidad.modo_retiro == "Retirado en domicilio")
                                     {
-                                        costo = 2000 + enPuerta;
+                                        costo = precio3.local + precio3.enPuerta;
                                     }
                                     else
                                     {
-                                        costo = 2000;
+                                        costo = precio3.local;
                                     }
                                 }
                             }
@@ -1790,22 +1796,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 1000 * urgente + (enPuerta * 2);
+                                            costo = precio2.local * precio2.urgente + (precio2.enPuerta * 2);
                                         }
                                         else
                                         {
-                                            costo = 1000 * urgente + enPuerta;
+                                            costo = precio2.local * precio2.urgente + precio2.enPuerta;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 1000 * urgente + enPuerta;
+                                            costo = precio2.local * precio2.urgente + precio2.enPuerta;
                                         }
                                         else
                                         {
-                                            costo = 1000 * urgente;
+                                            costo = precio2.local * precio2.urgente;
                                         }
                                     }
                                 }
@@ -1815,22 +1821,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 1000 + (enPuerta * 2);
+                                            costo = precio2.local + (precio2.enPuerta * 2);
                                         }
                                         else
                                         {
-                                            costo = 1000 + enPuerta;
+                                            costo = precio2.local + precio2.enPuerta;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 1000 + enPuerta;
+                                            costo = precio2.local + precio2.enPuerta;
                                         }
                                         else
                                         {
-                                            costo = 1000;
+                                            costo = precio2.local;
                                         }
                                     }
                                 }
@@ -1843,22 +1849,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 250 * urgente + (enPuerta * 2);
+                                            costo = precio.local * precio.urgente + (precio.enPuerta * 2);
                                         }
                                         else
                                         {
-                                            costo = 250 * urgente + enPuerta;
+                                            costo = precio.local * precio.urgente + precio.enPuerta;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 250 * urgente + enPuerta;
+                                            costo = precio.local * precio.urgente + precio.enPuerta;
                                         }
                                         else
                                         {
-                                            costo = 250 * urgente;
+                                            costo = precio.local * precio.urgente;
                                         }
                                     }
                                 }
@@ -1868,22 +1874,22 @@ namespace tp4
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 250 + (enPuerta * 2);
+                                            costo = precio.local + (precio.enPuerta * 2);
                                         }
                                         else
                                         {
-                                            costo = 250 + enPuerta;
+                                            costo = precio.local + precio.enPuerta;
                                         }
                                     }
                                     else
                                     {
                                         if (modalidad.modo_retiro == "Retirado en domicilio")
                                         {
-                                            costo = 250 + enPuerta;
+                                            costo = precio.local + precio.enPuerta;
                                         }
                                         else
                                         {
-                                            costo = 250;
+                                            costo = precio.local;
                                         }
                                     }
                                 }
