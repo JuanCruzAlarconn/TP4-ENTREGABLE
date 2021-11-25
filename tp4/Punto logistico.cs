@@ -211,7 +211,7 @@ namespace tp4
                 if (ingreso == "SALIR" || ingreso == "salir")
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     Program.validar_cliente();
                     break;
@@ -222,7 +222,7 @@ namespace tp4
                     if (string.IsNullOrWhiteSpace(ingreso))
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("\nNo puede ingresar un código postal vacio");
+                        Console.WriteLine("\nNo puede ingresar un código postal vacio".ToUpper());
                         Console.ForegroundColor = ConsoleColor.White;
                         continue;
                     }
@@ -230,7 +230,7 @@ namespace tp4
                     if (!int.TryParse(ingreso, out cp))
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("\nEl código postal debe de ser un valor numérico positivo que consta de 4 dígitos");
+                        Console.WriteLine("\nEl código postal debe de ser un valor numérico positivo que consta de 4 dígitos".ToUpper());
                         Console.ForegroundColor = ConsoleColor.White;
                         continue;
                     }
@@ -238,14 +238,14 @@ namespace tp4
                     if (cp < 0)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("\nEl código postal debe de ser un valor numérico positivo que consta de 4 dígitos");
+                        Console.WriteLine("\nEl código postal debe de ser un valor numérico positivo que consta de 4 dígitos".ToUpper());
                         Console.ForegroundColor = ConsoleColor.White;
                         continue;
                     }
                     if (ingreso.Length != 4)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("\nEl código postal debe e ser un valor numérico positivo que consta de 4 dígitos");
+                        Console.WriteLine("\nEl código postal debe e ser un valor numérico positivo que consta de 4 dígitos".ToUpper());
                         Console.ForegroundColor = ConsoleColor.White;
                         continue;
                     }
@@ -253,7 +253,7 @@ namespace tp4
                     if (!archivo.validar_cp(cp))
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("\nEl código postal ingresado no se corresponde con ninguno del pais");
+                        Console.WriteLine("\nEl código postal ingresado no se corresponde con ninguno del pais".ToUpper());
                         Console.ForegroundColor = ConsoleColor.White;
                         continue;
                     }
@@ -328,7 +328,7 @@ namespace tp4
                 if (ingreso == "SALIR" || ingreso == "salir")
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     Program.validar_cliente();
                     break;
@@ -338,7 +338,7 @@ namespace tp4
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nLa dirección no debe de quedar vacia");
+                    Console.WriteLine("\nLa dirección no debe de quedar vacia".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
@@ -346,7 +346,7 @@ namespace tp4
                 if (ingreso.Length < 6)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nLa dirección ingresada debe de estar completa, detectamos que la cantidad de caracteres ingresados es insuficiente");
+                    Console.WriteLine("\nLa dirección ingresada debe de estar completa\n Detectamos que la cantidad de caracteres ingresados es insuficiente".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
@@ -354,7 +354,7 @@ namespace tp4
                 if (!ingreso.Any(char.IsDigit))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nLa dirección en el extranjero debe de contar de manera estricta con el nombre de calle y la altura en número de donde se desea enviar");
+                    Console.WriteLine("\nLa dirección en el extranjero debe de contar de manera estricta con el nombre de calle y la altura en número de donde se desea enviar".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
