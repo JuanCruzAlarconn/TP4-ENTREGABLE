@@ -16,9 +16,9 @@ namespace tp4
 
 
             validar_cliente();
-          
-           
 
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\nIngrese una tecla para poder detener la ejecución".ToUpper());
             Console.ReadKey();
         }
@@ -252,28 +252,28 @@ namespace tp4
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nEl el nº de orden no debe de ser vacio, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    Console.WriteLine("\nEl el nº de orden no debe de ser vacio".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
                 if (!Int32.TryParse(ingreso, out codigo_orden))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nEl nº de orden debe de ser numérico, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    Console.WriteLine("\nEl nº de orden debe de ser numérico".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
                 if (codigo_orden < 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nEl nº de orden debe de ser positivo, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    Console.WriteLine("\nEl nº de orden debe de ser positivo".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
                 if (!Orden_de_servicio.validar_codigo_orden(codigo_orden))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nEl nº de orden ingresado no se corresponde con ninguno de los elementos dentro de la base de datos del repositorio, se lo redirigira al campo de ingreso anterior para que tenga otra oportunidad de ingresar el dato solicitado");
+                    Console.WriteLine("\nNÚMERO DE ORDEN INGRESADO INVÁLIDO");
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
@@ -424,7 +424,7 @@ namespace tp4
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     
-                    Console.WriteLine("\nEL CÓDIGO DE CLIENTE ES NUMÉRICO");
+                    Console.WriteLine("\nEL CÓDIGO DE CLIENTE DEBE SER NUMÉRICO");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("*************************************************************************************************************\n");
                     continue;
@@ -432,7 +432,7 @@ namespace tp4
                 if (codigo_cliente < 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nEL CÓDIGO DE CLIENTE ES UN NÚMERO POSITIVO");
+                    Console.WriteLine("\nEL CÓDIGO DE CLIENTE DEBE SER UN NÚMERO POSITIVO");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("*****************************************************************************************************************\n");
                     continue;

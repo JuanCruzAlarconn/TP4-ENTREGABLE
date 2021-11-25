@@ -132,7 +132,7 @@ namespace tp4
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\n***************OPERACIÓN ABORTADA******************");
-                    Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     Program.validar_cliente();
                     break;
@@ -141,7 +141,7 @@ namespace tp4
                 if (string.IsNullOrEmpty(ingreso))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nNo puede ingresar vacio como un a opción válida");
+                    Console.WriteLine("\nNo puede ingresar vacio como un a opción válida".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
@@ -149,7 +149,7 @@ namespace tp4
                 if (int.TryParse(ingreso, out int salida))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nLa opción ingresada no puede ser numérica");
+                    Console.WriteLine("\nLa opción ingresada no puede ser numérica".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
@@ -157,7 +157,7 @@ namespace tp4
                 if (ingreso == "B")
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("\nHa seleccionado que quiere una entrega urgente".ToUpper());
+                    Console.WriteLine("\nHa seleccionado entrega urgente".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     return "Urgente";
                     
@@ -167,7 +167,7 @@ namespace tp4
                 if (ingreso == "A")
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("\nHa seleccionado que quiere una entrega normal".ToUpper());
+                    Console.WriteLine("\nHa seleccionado entrega normal".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     return "Normal";
 
@@ -177,7 +177,7 @@ namespace tp4
                 if (ingreso != "A" && ingreso != "B")
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nLa opción ingresada no se corresponde con ninguna de las opciones disponibles");
+                    Console.WriteLine("\nLa opción ingresada no se corresponde con ninguna de las opciones disponibles".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
@@ -212,7 +212,7 @@ namespace tp4
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\n***************OPERACIÓN ABORTADA******************");
-                    Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n");
+                    Console.WriteLine("\nSe lo redirigirá a la pantalla inicial \n".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     Program.validar_cliente();
                     break;
@@ -222,7 +222,7 @@ namespace tp4
                 if (string.IsNullOrEmpty(ingreso))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nNo puede ingresar vacio como un a opción válida");
+                    Console.WriteLine("\nNo puede ingresar vacio como un a opción válida".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
@@ -230,7 +230,7 @@ namespace tp4
                 if(int.TryParse(ingreso, out int salida))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nLa opción ingresada no puede ser numérica");
+                    Console.WriteLine("\nLa opción ingresada no puede ser numérica".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
@@ -259,7 +259,7 @@ namespace tp4
                 if(ingreso!="A" && ingreso!="B")
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\nLa opción ingresada no se corresponde con ninguna de las opciones disponibles");
+                    Console.WriteLine("\nLa opción ingresada no se corresponde con ninguna de las opciones disponibles".ToUpper());
                     Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
